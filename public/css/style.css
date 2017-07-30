@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-size: 16px;
+  background: #355c7d;
+  color: #ffffff; }
+  body .container {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden; }
+  body header {
+    border-top: 4px solid #ca4061; }
+    body header .logo {
+      float: left;
+      width: 70%;
+      height: 60px;
+      background: url(../img/logo.png) no-repeat; }
+    body header .navBg {
+      float: right;
+      width: 30%;
+      height: 60px;
+      background: #ca4061; }
+      body header .navBg ul.login {
+        margin-left: 40px;
+        list-style: none; }
+        body header .navBg ul.login li {
+          margin-left: 40px;
+          display: inline-block;
+          height: 60px; }
+          body header .navBg ul.login li a {
+            font-family: 'Righteous';
+            font-size: .9em;
+            color: #ffffff;
+            text-decoration: none;
+            line-height: 60px; }
+      body header .navBg:before {
+        position: absolute;
+        top: 4px;
+        content: '';
+        border-top: 60px solid #ca4061;
+        border-left: 60px solid #355c7d; }
+      body header .navBg:after {
+        position: absolute;
+        right: 0;
+        top: 4px;
+        content: '';
+        border-top: 60px solid #ca4061;
+        border-right: 60px solid #355c7d; }
+
+.navbar {
+  clear: both; }
+
+/*# sourceMappingURL=style.css.map */

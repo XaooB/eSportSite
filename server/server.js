@@ -6,7 +6,6 @@ app.engine('handlebars', hbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars'); //ustawiamy silnik szablonow na handlebars
 app.use('/assets', express.static('public'));//sciezka do plikow statycznych
 
-
 app.get('/', (req, res) => {
     res.render('home', {
         title: 'HOME'

@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -13,55 +14,170 @@ body {
     background: #355c7d;
     color: #ffffff;
     header {
-        border-top: 4px solid #ca4061;
+        border-top: 1px solid #a0a0a0;
         .logo {
+            margin-top: 4px;
             float: left;
-            width: 70%;
-            height: 60px;
+            width: 60%;
+            height: 49px;
             background: url(../img/logo.png) no-repeat;
+            a {
+                padding:33px 100px;
+            }
         }
         .navBg {
+            position: relative;
             float: right;
-            width: 30%;
-            height: 60px;
+            width: 40%;
+            height: 49px;
             background: #ca4061;
+            margin-bottom: 50px;
             ul.login {
-                margin-left: 40px;
+                margin: 0 70px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
                 list-style: none;
                 li {
-                    margin-left: 40px;
+                    margin-left: -20px;
+                    flex-direction: row;
+                    justify-content: center;
                     display: inline-block;
-                    height: 60px;
+                    height: 49px;
                     a {
                         font-family: 'Righteous';
-                        font-size: .9em;
+                        font-size: .8em;
                         color: #ffffff;
                         text-decoration: none;
-                        line-height: 60px;
+                        line-height: 49px;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                    &:first-child {
+                        background: #a0a0a0;
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        position: relative;
+                        &:before {
+                            position: absolute;
+                            left: -30px;
+                            content: '';
+                            border-bottom: 49px solid #a0a0a0;
+                            border-left: 45px solid #ca4061;
+                        }
+                        &:after {
+                            position: absolute;
+                            content: '';
+                            right: -30px;
+                            border-bottom: 49px solid #ca4061;
+                            border-left: 45px solid #a0a0a0;
+                        }
                     }
                 }
             }
             &:before {
-                // to jest OK
                 position: absolute;
-                top: 4px;
+                top: 0;
+                left: 0;
                 content: '';
-                border-top: 60px solid #ca4061;
-                border-left: 60px solid #355c7d;
+                border-top: 49px solid #ca4061;
+                border-left: 45px solid #355c7d;
             }
             &:after {
-                // tutaj bez right:0 wchodzi na miejse before.
                 position: absolute;
+                top: 0;
                 right: 0;
-                top: 4px;
                 content: '';
-                border-top: 60px solid #ca4061;
-                border-right: 60px solid #355c7d;
+                border-top: 49px solid #ca4061;
+                border-right: 45px solid #355c7d;
             }
         }
     }
-}
-
-.navbar {
-    clear: both;
+    .navbar {
+        background: #2a4b6a;
+        width: 100%;
+        height: 50px;
+        .dropDown {
+            width: 40%;
+            height: 50px;
+            float: left;
+            li {
+                width: 50%;
+                display: inline;
+                line-height: 50px;
+                margin-left: 65px;
+                a {
+                    font-family: 'Righteous';
+                    font-size: 1.1em;
+                    color: #fff;
+                    text-decoration: none;
+                    position: relative;
+                    &:after {
+                        font-family: 'Righteous';
+                        position: absolute;
+                        content: '^';
+                        font-size: 2.5em;
+                        color: #b22849;
+                        height: 41px;
+                        right: -15px;
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+        .nav {
+            float: left;
+            width: 35%;
+            height: 50px;
+            li {
+                float: left;
+                list-style: none;
+                line-height: 50px;
+                a {
+                    text-decoration: none;
+                    padding: 16px;
+                    color: #fff;
+                    font-family: 'Righteous';
+                    font-size: .9em;
+                    transition: .2s all linear;
+                    &:hover {
+                        padding: 16px;
+                        background: #ca4061;
+                        transition: .2s all linear;
+                    }
+                }
+            }
+        }
+        .searchEngine {
+            width: 25%;
+            float: left;
+            line-height: 50px;
+            height: 50px;
+            form { //DO POPRAWY
+                position: relative;
+                input[type=text] {
+                    font-size: 0.8em;
+                    padding: 10px;
+                    border: none;
+                    border-top-right-radius: 6px;
+                    border-bottom-right-radius: 6px;
+                    background: #355c7d;
+                    color: #a0a0a0;
+                }
+                button {
+                    position: absolute;
+                    left: -31px;
+                    top:7px;
+                    padding:11px;
+                    background: #234260;
+                    border: none;
+                    border-bottom-left-radius: 6px;
+                    border-top-left-radius: 6px;
+                    
+                    color: #fff;
+                }
+            }
+        }
+    }
 }

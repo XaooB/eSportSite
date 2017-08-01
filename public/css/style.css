@@ -143,7 +143,7 @@ body {
                   transition: .2s all linear; }
           body .navbar .nav li a:hover {
             padding: 16px;
-            background: #ca4061;
+            background: #234260;
             -webkit-transition: .2s all linear;
                     transition: .2s all linear; }
     body .navbar .searchEngine {
@@ -160,7 +160,7 @@ body {
           border-top-right-radius: 6px;
           border-bottom-right-radius: 6px;
           background: #355c7d;
-          color: #a0a0a0; }
+          color: #ffffff; }
         body .navbar .searchEngine form button {
           position: absolute;
           left: -31px;
@@ -171,5 +171,110 @@ body {
           border-bottom-left-radius: 6px;
           border-top-left-radius: 6px;
           color: #fff; }
+  body main img {
+    -webkit-transition: .2s all linear;
+            transition: .2s all linear; }
+    body main img:hover {
+      -webkit-transform: scale(1.02);
+          -ms-transform: scale(1.02);
+              transform: scale(1.02);
+      -webkit-transition: .2s all linear;
+              transition: .2s all linear; }
+  body main article {
+    position: relative; }
+    body main article .img_wrapper {
+      width: 100%;
+      height: 500px;
+      overflow: hidden; }
+      body main article .img_wrapper img {
+        margin-top: -50px;
+        width: inherit; }
+  body main .details {
+    position: absolute;
+    bottom: 20px;
+    width: 500px; }
+    body main .details .header_bg {
+      border-radius: 3px;
+      padding: 14px;
+      background: #ca4061; }
+    body main .details h1 {
+      font-family: 'Righteous';
+      font-size: 1.7em;
+      color: #ffffff; }
+    body main .details button {
+      cursor: pointer;
+      margin-top: 20px;
+      position: relative;
+      border: none;
+      color: #ffffff;
+      background: #ca4061;
+      font-family: 'Righteous';
+      font-size: 1em;
+      padding: 12px;
+      float: right; }
+      body main .details button:before {
+        content: '';
+        position: absolute;
+        border-left: 45px solid transparent;
+        border-bottom: 22px solid #ca4061;
+        top: 0;
+        left: -45px; }
+      body main .details button:after {
+        content: '';
+        position: absolute;
+        border-left: 45px solid transparent;
+        border-top: 22px solid #ca4061;
+        top: 22px;
+        left: -45px; }
+  body main ._mid_news {
+    margin-top: 20px; }
+    body main ._mid_news a {
+      display: inline-block; }
+      body main ._mid_news a article {
+        font-family: 'Righteous';
+        color: #ffffff;
+        font-size: .9em;
+        position: relative;
+        float: left; }
+        body main ._mid_news a article .header_bg {
+          margin-left: 20px; }
+        body main ._mid_news a article img {
+          max-width: 590px; }
+      body main ._mid_news a:last-child {
+        margin-left: 16px; }
+  body main ._small_news {
+    margin-top: 10px;
+    margin-bottom: 20px; }
+    body main ._small_news a {
+      margin-right: 11px;
+      display: inline-block; }
+      body main ._small_news a article {
+        width: 390px;
+        height: 170px;
+        background: #2a4b6a; }
+        body main ._small_news a article img {
+          margin: 10px 10px;
+          max-width: 150px;
+          height: 150px;
+          float: left; }
+        body main ._small_news a article .describe {
+          margin-top: 12px;
+          float: right;
+          width: 220px; }
+          body main ._small_news a article .describe h3 {
+            font-family: 'Righteous';
+            font-size: 1em;
+            color: #ffffff; }
+          body main ._small_news a article .describe p {
+            margin-top: 14px;
+            font-family: 'Lato';
+            color: #ffffff;
+            font-size: .9em; }
+      body main ._small_news a:last-child {
+        margin-right: 0; }
+  body main .others_news {
+    background: #fcfcfc;
+    width: 100%;
+    height: 500px; }
 
 /*# sourceMappingURL=style.css.map */

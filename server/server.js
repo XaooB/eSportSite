@@ -27,20 +27,16 @@ app.get('/', (req, res) => {
                 title: 'VIRTUS.PRO TAKE DOWN FNATIC IN KRAKÓW',
                 desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam nemo unde placeat numquam mollitia enim eveniet, maiores consequatur dolore rem.',
                 img: '../assets/img/news/taz.jpg'
-            },
-            second: {
-                title: 'VIRTUS.PRO TAKE DOWN FNATIC IN KRAKÓW',
-                desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam nemo unde placeat numquam mollitia enim eveniet, maiores consequatur dolore rem.',
-                img: '../assets/img/news/taz.jpg'
-            },
-            third: {
-                title: 'VIRTUS.PRO TAKE DOWN FNATIC IN KRAKÓW',
-                desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam nemo unde placeat numquam mollitia enim eveniet, maiores consequatur dolore rem.',
-                img: '../assets/img/news/taz.jpg'
             }
+        },
+        lastest_news: {
+            title: 'SKT T1 WYGRYWA MSI 2017!',
+            desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam nemo unde placeat numquam mollitia enim eveniet, maiores consequatur dolore rem.',
+            date: '02/08/2017, 20:29',
+            img: '../assets/img/news/lol_championships.jpg'
         }
     });
-})
+});
 
 app.listen(3000, () => {
     console.log('Server running on localhost:3000');

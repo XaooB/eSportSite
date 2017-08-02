@@ -164,7 +164,7 @@ body {
                     border-top-right-radius: 6px;
                     border-bottom-right-radius: 6px;
                     background: #355c7d;
-                    color: #ffffff;
+                    color: rgba(255, 255, 255, .4);
                 }
                 button {
                     position: absolute;
@@ -175,7 +175,7 @@ body {
                     border: none;
                     border-bottom-left-radius: 6px;
                     border-top-left-radius: 6px;
-                    color: #fff;
+                    color: #ffffff;
                 }
             }
         }
@@ -256,8 +256,10 @@ body {
                     .header_bg {
                         margin-left: 20px;
                     }
-                    img {
+                    figure {
+                        overflow: hidden;
                         max-width: 590px;
+                        height: 350px;
                     }
                 }
                 &:last-child {
@@ -269,22 +271,32 @@ body {
             margin-top: 10px;
             margin-bottom: 20px;
             a {
-                margin-right: 11px;
+                margin-right: .917%;
+                width: 32.5%;
                 display: inline-block;
                 article {
-                    width: 390px;
                     height: 170px;
                     background: #2a4b6a;
-                    img {
-                        margin: 10px 10px;
-                        max-width: 150px;
+                    figure {
+                        position: relative;
+                        width: 150px;
                         height: 150px;
                         float: left;
+                        margin: 10px 10px;
+                        overflow: hidden;
+                        img {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            margin-left: -100%;
+                            margin-top: -50%;
+                            max-height: 150px;
+                        }
                     }
                     .describe {
                         margin-top: 12px;
-                        float: right;
-                        width: 220px;
+                        float: left;
+                        width: 214px;
                         h3 {
                             font-family: 'Righteous';
                             font-size: 1em;
@@ -293,6 +305,7 @@ body {
                         p {
                             margin-top: 14px;
                             font-family: 'Lato';
+                            text-align: justify;
                             color: #ffffff;
                             font-size: .9em;
                         }
@@ -306,7 +319,88 @@ body {
         .others_news {
             background: #fcfcfc;
             width: 100%;
-            height: 500px;//temporary
+            padding-bottom: 30px;
+            .others_news_wrapper {
+                overflow: auto;
+                .lol_news,
+                .csgo_news {
+                    margin-top: 20px;
+                    float: left;
+                    width: 49%;
+                    overflow: hidden;
+                    &:last-child {
+                        margin-left: 2%;
+                    }
+                    h3 {
+                        position: relative;
+                        font-family: 'Righteous';
+                        font-size: 1.4em;
+                        color: #ca4061;
+                        &:after {
+                            content: '/////////////////////////////////';
+                            position: absolute;
+                            width: 100%;
+                            top: 0;
+                            color: rgba(0, 0, 0, .07);
+                        }
+                    }
+                    article {
+                        margin-top: 20px;
+                        background: rgba(0, 0, 0, .05);
+                        height: 100px;
+                        position: relative;
+                        figure {
+                            float: left;
+                            width: 25%;
+                            height: 100px;
+                            overflow: hidden;
+                            position: relative;
+                        }
+                        section {
+                            float: right;
+                            height: 100px;
+                            width: 75%;
+                            padding: 2px 10px;
+                            color: #212121;
+                            h4 {
+                                font-family: 'Righteous';
+                                font-size: 1em;
+                                margin-bottom: 4px;
+                            }
+                            p {
+                                font-family: 'Lato';
+                                font-size: .9em;
+                                text-align: justify;
+                            }
+                            time {
+                                font-family: 'Lato';
+                                margin-top: 2px;
+                                font-size: .8em;
+                                float: right;
+                            }
+                        }
+                        &:before {
+                            position: absolute;
+                            content: '';
+                            width: 4px;
+                            left: 25%;
+                            height: 100%;
+                            background: #355c7d;
+                        }
+                    }
+                }
+            }
+            button {
+                margin-top: 30px;
+                float: right;
+                padding: 14px;
+                background: #355c7d;
+                border: none;
+                color: #ffffff;
+                font-family: 'Righteous';
+                font-size: 1em;
+                cursor: pointer;
+            }
         }
     }
 }

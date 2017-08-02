@@ -160,7 +160,7 @@ body {
           border-top-right-radius: 6px;
           border-bottom-right-radius: 6px;
           background: #355c7d;
-          color: #ffffff; }
+          color: rgba(255, 255, 255, 0.4); }
         body .navbar .searchEngine form button {
           position: absolute;
           left: -31px;
@@ -170,7 +170,7 @@ body {
           border: none;
           border-bottom-left-radius: 6px;
           border-top-left-radius: 6px;
-          color: #fff; }
+          color: #ffffff; }
   body main img {
     -webkit-transition: .2s all linear;
             transition: .2s all linear; }
@@ -238,29 +238,40 @@ body {
         float: left; }
         body main ._mid_news a article .header_bg {
           margin-left: 20px; }
-        body main ._mid_news a article img {
-          max-width: 590px; }
+        body main ._mid_news a article figure {
+          overflow: hidden;
+          max-width: 590px;
+          height: 350px; }
       body main ._mid_news a:last-child {
         margin-left: 16px; }
   body main ._small_news {
     margin-top: 10px;
     margin-bottom: 20px; }
     body main ._small_news a {
-      margin-right: 11px;
+      margin-right: .917%;
+      width: 32.5%;
       display: inline-block; }
       body main ._small_news a article {
-        width: 390px;
         height: 170px;
         background: #2a4b6a; }
-        body main ._small_news a article img {
-          margin: 10px 10px;
-          max-width: 150px;
+        body main ._small_news a article figure {
+          position: relative;
+          width: 150px;
           height: 150px;
-          float: left; }
+          float: left;
+          margin: 10px 10px;
+          overflow: hidden; }
+          body main ._small_news a article figure img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -100%;
+            margin-top: -50%;
+            max-height: 150px; }
         body main ._small_news a article .describe {
           margin-top: 12px;
-          float: right;
-          width: 220px; }
+          float: left;
+          width: 214px; }
           body main ._small_news a article .describe h3 {
             font-family: 'Righteous';
             font-size: 1em;
@@ -268,6 +279,7 @@ body {
           body main ._small_news a article .describe p {
             margin-top: 14px;
             font-family: 'Lato';
+            text-align: justify;
             color: #ffffff;
             font-size: .9em; }
       body main ._small_news a:last-child {
@@ -275,6 +287,84 @@ body {
   body main .others_news {
     background: #fcfcfc;
     width: 100%;
-    height: 500px; }
+    padding-bottom: 30px; }
+    body main .others_news .others_news_wrapper {
+      overflow: auto; }
+      body main .others_news .others_news_wrapper .lol_news,
+      body main .others_news .others_news_wrapper .csgo_news {
+        margin-top: 20px;
+        float: left;
+        width: 49%;
+        overflow: hidden; }
+        body main .others_news .others_news_wrapper .lol_news:last-child,
+        body main .others_news .others_news_wrapper .csgo_news:last-child {
+          margin-left: 2%; }
+        body main .others_news .others_news_wrapper .lol_news h3,
+        body main .others_news .others_news_wrapper .csgo_news h3 {
+          position: relative;
+          font-family: 'Righteous';
+          font-size: 1.4em;
+          color: #ca4061; }
+          body main .others_news .others_news_wrapper .lol_news h3:after,
+          body main .others_news .others_news_wrapper .csgo_news h3:after {
+            content: '/////////////////////////////////';
+            position: absolute;
+            width: 100%;
+            top: 0;
+            color: rgba(0, 0, 0, 0.07); }
+        body main .others_news .others_news_wrapper .lol_news article,
+        body main .others_news .others_news_wrapper .csgo_news article {
+          margin-top: 20px;
+          background: rgba(0, 0, 0, 0.05);
+          height: 100px;
+          position: relative; }
+          body main .others_news .others_news_wrapper .lol_news article figure,
+          body main .others_news .others_news_wrapper .csgo_news article figure {
+            float: left;
+            width: 25%;
+            height: 100px;
+            overflow: hidden;
+            position: relative; }
+          body main .others_news .others_news_wrapper .lol_news article section,
+          body main .others_news .others_news_wrapper .csgo_news article section {
+            float: right;
+            height: 100px;
+            width: 75%;
+            padding: 2px 10px;
+            color: #212121; }
+            body main .others_news .others_news_wrapper .lol_news article section h4,
+            body main .others_news .others_news_wrapper .csgo_news article section h4 {
+              font-family: 'Righteous';
+              font-size: 1em;
+              margin-bottom: 4px; }
+            body main .others_news .others_news_wrapper .lol_news article section p,
+            body main .others_news .others_news_wrapper .csgo_news article section p {
+              font-family: 'Lato';
+              font-size: .9em;
+              text-align: justify; }
+            body main .others_news .others_news_wrapper .lol_news article section time,
+            body main .others_news .others_news_wrapper .csgo_news article section time {
+              font-family: 'Lato';
+              margin-top: 2px;
+              font-size: .8em;
+              float: right; }
+          body main .others_news .others_news_wrapper .lol_news article:before,
+          body main .others_news .others_news_wrapper .csgo_news article:before {
+            position: absolute;
+            content: '';
+            width: 4px;
+            left: 25%;
+            height: 100%;
+            background: #355c7d; }
+    body main .others_news button {
+      margin-top: 30px;
+      float: right;
+      padding: 14px;
+      background: #355c7d;
+      border: none;
+      color: #ffffff;
+      font-family: 'Righteous';
+      font-size: 1em;
+      cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */

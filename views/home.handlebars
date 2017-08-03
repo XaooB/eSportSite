@@ -1,43 +1,76 @@
 <main>
-    <a href="#">
+    <div id="slider">
         <article>
-            <div class="img_wrapper">
-                <img src='{{main_news.img}}' />
-                <div class="container">
-                    <section class="details">
-                        <h1 class='header_bg'>{{main_news.title}}</h1>
-                        <button type="button">CZYTAJ WIĘCEJ</button>
-                    </section>
-                </div>
+            <a href="#glowny_artykul">
+                <figure class='img_wrapper'>
+                    <img src='{{main_news.img}}' />
+                </figure>
+            </a>
+            <div class="container">
+                <section class="more-news-wrapper">
+                    <a href="#inny_artykul">
+                        <article>
+                            <time>03/08/2017, 20:22</time>
+                            <h2>{{main_news.title}}</h2>
+                            <button type="button">WIĘCEJ</button>
+                        </article>
+                    </a>
+                    <a href="#inny_artykul">
+                        <article>
+                            <time>03/08/2017, 20:22</time>
+                            <h2>{{main_news.title}}</h2>
+                            <button type="button">WIĘCEJ</button>
+                        </article>
+                    </a>
+                    <a href="#inny_artykul">
+                        <article>
+                            <time>03/08/2017, 20:22</time>
+                            <h2>{{main_news.title}}</h2>
+                            <button type="button">WIĘCEJ</button>
+                        </article>
+                    </a>
+                </section>
+                <header>
+                    <h1>{{main_news.title}}</h1>
+                </header>
             </div>
-        </article>
-    </a>
-    <section class='_mid_news'>
-        <div class="container">
-            <a href="#">
-                <article>
-                    <figure>
-                        <img src="{{mid_news.first.img}}" alt="lol_championships">
-                    </figure>
-                    <section class='details'>
-                        <h2 class='header_bg'>{{mid_news.first.title}}</h2>
-                    </section>
-                </article>
-            </a>
-            <a href="#">
-                <article>
-                    <figure>
-                        <img src="{{mid_news.second.img}}" alt="lol_championships">
-                    </figure>
-                    <section class='details'>
-                        <h2 class='header_bg'>{{mid_news.second.title}}</h2>
-                    </section>
-                </article>
-            </a>
-        </div>
-    </section>
+    </div>
+    </article>
     <section class='_small_news'>
         <div class="container">
+            <a href='#'>
+                <article>
+                    <figure>
+                        <img src="{{small_news.first.img}}" alt="">
+                    </figure>
+                    <section class="describe">
+                        <h3>{{small_news.first.title}}</h3>
+                        <p>{{small_news.first.desc}}</p>
+                    </section>
+                </article>
+            </a>
+            <a href='#'>
+                <article>
+                    <figure>
+                        <img src="{{small_news.first.img}}" alt="">
+                    </figure>
+                    <section class="describe">
+                        <h3>{{small_news.first.title}}</h3>
+                        <p>{{small_news.first.desc}}</p>
+                    </section>
+                </article>
+            </a>
+            <a href='#'>
+                <article>
+                    <figure>
+                        <img src="{{small_news.first.img}}" alt="">
+                    </figure>
+                    <section class="describe">
+                        <h3>{{small_news.first.title}}</h3>
+                        <p>{{small_news.first.desc}}</p>
+                    </section>
+                </article>
+            </a>
             <a href='#'>
                 <article>
                     <figure>

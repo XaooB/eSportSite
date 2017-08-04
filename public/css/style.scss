@@ -11,7 +11,7 @@ body {
     .container {
         width: 1200px;
         margin: 0 auto;
-        overflow: auto;
+        overflow: hidden;
     }
     header {
         border-top: 4px solid #333;
@@ -96,7 +96,7 @@ body {
         }
     }
     .navbar {
-        background: #222;
+        background: #222222;
         width: 100%;
         height: 50px;
         border-bottom: 1px solid #555555;
@@ -177,7 +177,10 @@ body {
     }
     main {
         #slider {
+            overflow: hidden;
             img {
+                width: 100%;
+                clear: left;
                 &:hover {
                     transform: scale(1.01);
                     transition: .2s all linear;
@@ -185,90 +188,96 @@ body {
                 transition: .2s all linear;
             }
             article {
-                width: 100%;
-                height: auto;
-                position: relative;
+                figure {
+                    height: 500px;
+                    img {
+                        margin-top: -50px;
+                        width: 100%;
+                    }
+                }
                 .img_wrapper {
                     width: 100%;
                     height: 500px;
-                    overflow: hidden;
-                    img {
-                        margin-top: -50px;
-                        width: inherit;
-                    }
-                }
-                .more-news-wrapper {
-                    position: absolute;
-                    top: 50px;
-                    max-width: 280px; //do zmiany
-                    background: #ffffff;
-                    margin-left: 40px;
-                    a {
-                        display: block;
-                        background: #333333;
-                        text-decoration: none;
-                        margin-bottom: 1px;
-                        article {
-                            padding: 8px;
-                            font-family: 'Lato';
-                            width: 100%;
-                            height: 120px;
-                            color: #ffffff;
-                            time {
-                                font-size: .7em;
-                            }
-                            h2 {
-                                padding-top: 4px;
-                                font-size: 1.1em;
-                                font-weight: bold;
-                            }
-                            button {
-                                cursor: pointer;
-                                background: #ffffff;
-                                padding: 8px 15px;
-                                font-family: 'Righteous';
-                                color: #333333;
-                                margin-top: 6px;
-                                border: none;
-                                position: relative;
-                                float: right;
-                                &:before {
-                                    content: '';
-                                    position: absolute;
-                                    top: 0;
-                                    left: -16px;
-                                    border-left: 16px solid transparent;
-                                    border-bottom: 16px solid #ffffff;
+                    .container {
+                        position: relative;
+                        z-index: 9999;
+                        margin-top: -450px;
+                        .more-news-wrapper {
+                            float: left;
+                            max-width: 280px; //do zmiany
+                            background: #555555;
+                            margin-left: 40px;
+                            margin-bottom: 40px;
+                            a {
+                                display: block;
+                                background: #222222;
+                                text-decoration: none;
+                                margin-bottom: 1px;
+                                article {
+                                    padding: 8px;
+                                    font-family: 'Lato';
+                                    width: 100%;
+                                    height: 120px;
+                                    color: #ffffff;
+                                    time {
+                                        font-size: .7em;
+                                    }
+                                    h2 {
+                                        padding-top: 4px;
+                                        font-size: 1.1em;
+                                        font-weight: bold;
+                                    }
+                                    button {
+                                        cursor: pointer;
+                                        background: #ffffff;
+                                        padding: 8px 15px;
+                                        font-family: 'Righteous';
+                                        color: #222222;
+                                        margin-top: 6px;
+                                        border: none;
+                                        position: relative;
+                                        float: right;
+                                        &:before {
+                                            content: '';
+                                            position: absolute;
+                                            top: 0;
+                                            left: -16px;
+                                            border-left: 16px solid transparent;
+                                            border-bottom: 16px solid #ffffff;
+                                        }
+                                        &:after {
+                                            content: '';
+                                            position: absolute;
+                                            top: 16px;
+                                            left: -16px;
+                                            border-left: 16px solid transparent;
+                                            border-top: 16px solid #ffffff;
+                                        }
+                                    }
                                 }
-                                &:after {
-                                    content: '';
-                                    position: absolute;
-                                    top: 16px;
-                                    left: -16px;
-                                    border-left: 16px solid transparent;
-                                    border-top: 16px solid #ffffff;
+                                &:nth-child(3n+2),
+                                &:hover {
+                                    background: #edc242;
+                                }
+                                &:last-child {
+                                    margin-bottom: 0;
                                 }
                             }
                         }
-                        &:nth-child(3n-2),
-                        &:hover {
-                            background: #edc242;
+                        header {
+                            background: #222222;
+                            padding: 16px;
+                            position: absolute;
+                            bottom: 0;
+                            right: 70px;
+                            border: none;
+                            width: 550px;
+                            h1 {
+                                font-family: 'Lato';
+                                text-transform: uppercase;
+                                font-size: 2em;
+                            }
                         }
-                        &:last-child {
-                            margin-bottom: 0;
-                        }
-                    }
-                }
-                header {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    border: none;
-                    float: left;
-                    h1 {
-                        font-family: 'Lato';
-                        text-transform: uppercase;
-                        font-size: 2em;
                     }
                 }
             }
@@ -362,19 +371,6 @@ body {
                     &:last-child {
                         margin-left: 2%;
                     }
-                    h3 {
-                        position: relative;
-                        font-family: 'Righteous';
-                        font-size: 1.4em;
-                        color: #333333;
-                        &:after {
-                            content: '/////////////////////////////////';
-                            position: absolute;
-                            width: 100%;
-                            top: 0;
-                            color: rgba(0, 0, 0, .07);
-                        }
-                    }
                     article {
                         margin-top: 20px;
                         background: rgba(0, 0, 0, .05);
@@ -431,6 +427,80 @@ body {
                 font-family: 'Righteous';
                 font-size: 1em;
                 cursor: pointer;
+            }
+        }
+        h3 {
+            position: relative;
+            font-family: 'Righteous';
+            font-size: 1.4em;
+            color: #333333;
+            &:after {
+                content: '///////////////////////////////////////////////////////////////////////////////////////////////////';
+                position: absolute;
+                top: 0;
+                color: rgba(0, 0, 0, .07);
+            }
+        }
+        .social_media {
+            width: 100%;
+            padding-top: 25px;
+            padding-bottom: 60px;
+            background: #fcfcfc;
+            .social_wrapper {
+                width: 32.2%;
+                margin-top: 20px;
+                float: left;
+                margin-right: 20px;
+                background: #edc242;
+                span {
+                    display: block;
+                    padding: 12px;
+                    color: #ffffff;
+                    background: #edc242;
+                    font-family: 'Righteous';
+                    font-size: 1.6em;
+                    font-weight: bold;
+                }
+                .item {
+                    background: #efefef;
+                    height: 100px;
+                    width: 100%;
+                    margin-bottom: 1px;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+        .gallery {
+            background: #fcfcfc;
+            .gallery-wrapper {
+                margin-top: 20px;
+                height: 300px;
+                overflow: hidden;
+                margin-bottom: 80px;
+                .item {
+                    width: 25%;
+                    float: left;
+                    img {
+                        height: 300px;
+                    }
+                }
+            }
+        }
+    }
+    footer {
+        background: #222222;
+        height: 300px;
+        width: 100%;
+        border-top: 18px solid #edc242;
+        .footer_wrapper {
+            overflow:hidden;
+            border-bottom:1px solid #edc242;
+            .item {
+                height:200px;
+                float:left;
+                width:20%;
             }
         }
     }

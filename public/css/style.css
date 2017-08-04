@@ -10,7 +10,7 @@ body {
   body .container {
     width: 1200px;
     margin: 0 auto;
-    overflow: auto; }
+    overflow: hidden; }
   body header {
     border-top: 4px solid #333; }
     body header .logo {
@@ -96,7 +96,7 @@ body {
         border-top: 49px solid transparent;
         border-right: 45px solid #edc242; }
   body .navbar {
-    background: #222;
+    background: #222222;
     width: 100%;
     height: 50px;
     border-bottom: 1px solid #555555; }
@@ -165,87 +165,94 @@ body {
         body .navbar .searchEngine button:hover {
           color: #edc242;
           cursor: pointer; }
-  body main #slider img {
-    -webkit-transition: .2s all linear;
-            transition: .2s all linear; }
-    body main #slider img:hover {
-      -webkit-transform: scale(1.01);
-          -ms-transform: scale(1.01);
-              transform: scale(1.01);
+  body main #slider {
+    overflow: hidden; }
+    body main #slider img {
+      width: 100%;
+      clear: left;
       -webkit-transition: .2s all linear;
               transition: .2s all linear; }
-  body main #slider article {
-    width: 100%;
-    height: auto;
-    position: relative; }
+      body main #slider img:hover {
+        -webkit-transform: scale(1.01);
+            -ms-transform: scale(1.01);
+                transform: scale(1.01);
+        -webkit-transition: .2s all linear;
+                transition: .2s all linear; }
+    body main #slider article figure {
+      height: 500px; }
+      body main #slider article figure img {
+        margin-top: -50px;
+        width: 100%; }
     body main #slider article .img_wrapper {
       width: 100%;
-      height: 500px;
-      overflow: hidden; }
-      body main #slider article .img_wrapper img {
-        margin-top: -50px;
-        width: inherit; }
-    body main #slider article .more-news-wrapper {
-      position: absolute;
-      top: 50px;
-      max-width: 280px;
-      background: #ffffff;
-      margin-left: 40px; }
-      body main #slider article .more-news-wrapper a {
-        display: block;
-        background: #333333;
-        text-decoration: none;
-        margin-bottom: 1px; }
-        body main #slider article .more-news-wrapper a article {
-          padding: 8px;
-          font-family: 'Lato';
-          width: 100%;
-          height: 120px;
-          color: #ffffff; }
-          body main #slider article .more-news-wrapper a article time {
-            font-size: .7em; }
-          body main #slider article .more-news-wrapper a article h2 {
-            padding-top: 4px;
-            font-size: 1.1em;
-            font-weight: bold; }
-          body main #slider article .more-news-wrapper a article button {
-            cursor: pointer;
-            background: #ffffff;
-            padding: 8px 15px;
-            font-family: 'Righteous';
-            color: #333333;
-            margin-top: 6px;
-            border: none;
-            position: relative;
-            float: right; }
-            body main #slider article .more-news-wrapper a article button:before {
-              content: '';
-              position: absolute;
-              top: 0;
-              left: -16px;
-              border-left: 16px solid transparent;
-              border-bottom: 16px solid #ffffff; }
-            body main #slider article .more-news-wrapper a article button:after {
-              content: '';
-              position: absolute;
-              top: 16px;
-              left: -16px;
-              border-left: 16px solid transparent;
-              border-top: 16px solid #ffffff; }
-        body main #slider article .more-news-wrapper a:nth-child(3n-2), body main #slider article .more-news-wrapper a:hover {
-          background: #edc242; }
-        body main #slider article .more-news-wrapper a:last-child {
-          margin-bottom: 0; }
-    body main #slider article header {
-      position: absolute;
-      top: 0;
-      right: 0;
-      border: none;
-      float: left; }
-      body main #slider article header h1 {
-        font-family: 'Lato';
-        text-transform: uppercase;
-        font-size: 2em; }
+      height: 500px; }
+      body main #slider article .img_wrapper .container {
+        position: relative;
+        z-index: 9999;
+        margin-top: -450px; }
+        body main #slider article .img_wrapper .container .more-news-wrapper {
+          float: left;
+          max-width: 280px;
+          background: #555555;
+          margin-left: 40px;
+          margin-bottom: 40px; }
+          body main #slider article .img_wrapper .container .more-news-wrapper a {
+            display: block;
+            background: #222222;
+            text-decoration: none;
+            margin-bottom: 1px; }
+            body main #slider article .img_wrapper .container .more-news-wrapper a article {
+              padding: 8px;
+              font-family: 'Lato';
+              width: 100%;
+              height: 120px;
+              color: #ffffff; }
+              body main #slider article .img_wrapper .container .more-news-wrapper a article time {
+                font-size: .7em; }
+              body main #slider article .img_wrapper .container .more-news-wrapper a article h2 {
+                padding-top: 4px;
+                font-size: 1.1em;
+                font-weight: bold; }
+              body main #slider article .img_wrapper .container .more-news-wrapper a article button {
+                cursor: pointer;
+                background: #ffffff;
+                padding: 8px 15px;
+                font-family: 'Righteous';
+                color: #222222;
+                margin-top: 6px;
+                border: none;
+                position: relative;
+                float: right; }
+                body main #slider article .img_wrapper .container .more-news-wrapper a article button:before {
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: -16px;
+                  border-left: 16px solid transparent;
+                  border-bottom: 16px solid #ffffff; }
+                body main #slider article .img_wrapper .container .more-news-wrapper a article button:after {
+                  content: '';
+                  position: absolute;
+                  top: 16px;
+                  left: -16px;
+                  border-left: 16px solid transparent;
+                  border-top: 16px solid #ffffff; }
+            body main #slider article .img_wrapper .container .more-news-wrapper a:nth-child(3n+2), body main #slider article .img_wrapper .container .more-news-wrapper a:hover {
+              background: #edc242; }
+            body main #slider article .img_wrapper .container .more-news-wrapper a:last-child {
+              margin-bottom: 0; }
+        body main #slider article .img_wrapper .container header {
+          background: #222222;
+          padding: 16px;
+          position: absolute;
+          bottom: 0;
+          right: 70px;
+          border: none;
+          width: 550px; }
+          body main #slider article .img_wrapper .container header h1 {
+            font-family: 'Lato';
+            text-transform: uppercase;
+            font-size: 2em; }
   body main ._mid_news {
     margin-top: 20px; }
     body main ._mid_news a {
@@ -320,19 +327,6 @@ body {
         body main .others_news .others_news_wrapper .lol_news:last-child,
         body main .others_news .others_news_wrapper .csgo_news:last-child {
           margin-left: 2%; }
-        body main .others_news .others_news_wrapper .lol_news h3,
-        body main .others_news .others_news_wrapper .csgo_news h3 {
-          position: relative;
-          font-family: 'Righteous';
-          font-size: 1.4em;
-          color: #333333; }
-          body main .others_news .others_news_wrapper .lol_news h3:after,
-          body main .others_news .others_news_wrapper .csgo_news h3:after {
-            content: '/////////////////////////////////';
-            position: absolute;
-            width: 100%;
-            top: 0;
-            color: rgba(0, 0, 0, 0.07); }
         body main .others_news .others_news_wrapper .lol_news article,
         body main .others_news .others_news_wrapper .csgo_news article {
           margin-top: 20px;
@@ -387,5 +381,65 @@ body {
       font-family: 'Righteous';
       font-size: 1em;
       cursor: pointer; }
+  body main h3 {
+    position: relative;
+    font-family: 'Righteous';
+    font-size: 1.4em;
+    color: #333333; }
+    body main h3:after {
+      content: '///////////////////////////////////////////////////////////////////////////////////////////////////';
+      position: absolute;
+      top: 0;
+      color: rgba(0, 0, 0, 0.07); }
+  body main .social_media {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 60px;
+    background: #fcfcfc; }
+    body main .social_media .social_wrapper {
+      width: 32.2%;
+      margin-top: 20px;
+      float: left;
+      margin-right: 20px;
+      background: #edc242; }
+      body main .social_media .social_wrapper span {
+        display: block;
+        padding: 12px;
+        color: #ffffff;
+        background: #edc242;
+        font-family: 'Righteous';
+        font-size: 1.6em;
+        font-weight: bold; }
+      body main .social_media .social_wrapper .item {
+        background: #efefef;
+        height: 100px;
+        width: 100%;
+        margin-bottom: 1px; }
+      body main .social_media .social_wrapper:last-child {
+        margin-right: 0; }
+  body main .gallery {
+    background: #fcfcfc; }
+    body main .gallery .gallery-wrapper {
+      margin-top: 20px;
+      height: 300px;
+      overflow: hidden;
+      margin-bottom: 80px; }
+      body main .gallery .gallery-wrapper .item {
+        width: 25%;
+        float: left; }
+        body main .gallery .gallery-wrapper .item img {
+          height: 300px; }
+  body footer {
+    background: #222222;
+    height: 300px;
+    width: 100%;
+    border-top: 18px solid #edc242; }
+    body footer .footer_wrapper {
+      overflow: hidden;
+      border-bottom: 1px solid #edc242; }
+      body footer .footer_wrapper .item {
+        height: 200px;
+        float: left;
+        width: 20%; }
 
 /*# sourceMappingURL=style.css.map */

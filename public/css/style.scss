@@ -341,6 +341,9 @@ body {
                             font-family: 'Righteous';
                             font-size: 1em;
                             color: #ffffff;
+                            &:after {
+                                content: '';
+                            }
                         }
                         p {
                             margin-top: 14px;
@@ -490,18 +493,92 @@ body {
         }
     }
     footer {
+        padding-top: 30px;
         background: #222222;
         height: 300px;
         width: 100%;
         border-top: 18px solid #edc242;
         .footer_wrapper {
-            overflow:hidden;
-            border-bottom:1px solid #edc242;
-            .item {
-                height:200px;
-                float:left;
-                width:20%;
+            overflow: hidden;
+            border-bottom: 1px solid #edc242;
+            .footer_company,
+            .footer_lol,
+            .footer_csgo,
+            .footer_about {
+                max-height: 200px;
+                margin-bottom: 20px;
+                float: left;
+                width: 25%;
             }
+            .footer_company {
+                .logo_wrapper {
+                    img {
+                        float: left;
+                        height: 65px;
+                    }
+                    h4 {
+                        padding-top: 17px;
+                        font-family: 'Righteous';
+                        font-size: 1em;
+                        font-weight: lighter;
+                        letter-spacing: .2em;
+                    }
+                    address {
+                        padding-top: 4px;
+                        clear: both;
+                        color: #cfcfcf;
+                        font-size: .75em;
+                        letter-spacing: .1em;
+                        font-family: 'Lato';
+                    }
+                }
+            }
+            .footer_lol,
+            .footer_csgo {
+                font-family: 'Lato';
+                font-weight: bold;
+                color: #cfcfcf;
+                ul {
+                    margin-top: 9px;
+                    border-left: 3px solid #edc242;
+                    list-style-type: none;
+                    text-indent: 5px;
+                    ul {
+                        margin-top: 0px;
+                        border: none;
+                        text-indent: 10px;
+                        a {
+                            font-size: .9em;
+                            color: #cfcfcf;
+                            text-decoration: none;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+            .footer_about {
+                font-family: 'Lato';
+                color: #cfcfcf;
+                h5 {
+                    font-size: 1em;
+                    font-weight: bold;
+                    padding: 10px 0;
+                }
+                p {
+                    font-size: .9em;
+                    text-align: justify;
+                }
+            }
+        }
+        #copyrights {
+            font-size: .7em;
+            color: #cfcfcf;
+            padding: 4px;
+            letter-spacing: .03em;
+            font-family: 'Lato';
+            text-transform: uppercase;
         }
     }
 }

@@ -304,6 +304,8 @@ body {
             font-family: 'Righteous';
             font-size: 1em;
             color: #ffffff; }
+            body main ._small_news a article .describe h3:after {
+              content: ''; }
           body main ._small_news a article .describe p {
             margin-top: 14px;
             font-family: 'Lato';
@@ -430,6 +432,7 @@ body {
         body main .gallery .gallery-wrapper .item img {
           height: 300px; }
   body footer {
+    padding-top: 30px;
     background: #222222;
     height: 300px;
     width: 100%;
@@ -437,9 +440,70 @@ body {
     body footer .footer_wrapper {
       overflow: hidden;
       border-bottom: 1px solid #edc242; }
-      body footer .footer_wrapper .item {
-        height: 200px;
+      body footer .footer_wrapper .footer_company,
+      body footer .footer_wrapper .footer_lol,
+      body footer .footer_wrapper .footer_csgo,
+      body footer .footer_wrapper .footer_about {
+        max-height: 200px;
+        margin-bottom: 20px;
         float: left;
-        width: 20%; }
+        width: 25%; }
+      body footer .footer_wrapper .footer_company .logo_wrapper img {
+        float: left;
+        height: 65px; }
+      body footer .footer_wrapper .footer_company .logo_wrapper h4 {
+        padding-top: 17px;
+        font-family: 'Righteous';
+        font-size: 1em;
+        font-weight: lighter;
+        letter-spacing: .2em; }
+      body footer .footer_wrapper .footer_company .logo_wrapper address {
+        padding-top: 4px;
+        clear: both;
+        color: #cfcfcf;
+        font-size: .75em;
+        letter-spacing: .1em;
+        font-family: 'Lato'; }
+      body footer .footer_wrapper .footer_lol,
+      body footer .footer_wrapper .footer_csgo {
+        font-family: 'Lato';
+        font-weight: bold;
+        color: #cfcfcf; }
+        body footer .footer_wrapper .footer_lol ul,
+        body footer .footer_wrapper .footer_csgo ul {
+          margin-top: 9px;
+          border-left: 3px solid #edc242;
+          list-style-type: none;
+          text-indent: 5px; }
+          body footer .footer_wrapper .footer_lol ul ul,
+          body footer .footer_wrapper .footer_csgo ul ul {
+            margin-top: 0px;
+            border: none;
+            text-indent: 10px; }
+            body footer .footer_wrapper .footer_lol ul ul a,
+            body footer .footer_wrapper .footer_csgo ul ul a {
+              font-size: .9em;
+              color: #cfcfcf;
+              text-decoration: none; }
+              body footer .footer_wrapper .footer_lol ul ul a:hover,
+              body footer .footer_wrapper .footer_csgo ul ul a:hover {
+                text-decoration: underline; }
+      body footer .footer_wrapper .footer_about {
+        font-family: 'Lato';
+        color: #cfcfcf; }
+        body footer .footer_wrapper .footer_about h5 {
+          font-size: 1em;
+          font-weight: bold;
+          padding: 10px 0; }
+        body footer .footer_wrapper .footer_about p {
+          font-size: .9em;
+          text-align: justify; }
+    body footer #copyrights {
+      font-size: .7em;
+      color: #cfcfcf;
+      padding: 4px;
+      letter-spacing: .03em;
+      font-family: 'Lato';
+      text-transform: uppercase; }
 
 /*# sourceMappingURL=style.css.map */

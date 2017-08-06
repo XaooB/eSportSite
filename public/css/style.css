@@ -5,7 +5,7 @@
 
 body {
   font-size: 16px;
-  background: #edc242;
+  background: #107dac;
   font-family: "Lato";
   color: #ffffff; }
   body .container {
@@ -88,14 +88,14 @@ body {
         left: 0;
         content: '';
         border-top: 49px solid transparent;
-        border-left: 45px solid #edc242; }
+        border-left: 45px solid #107dac; }
       body header .navBg:after {
         position: absolute;
         top: 0;
         right: 0;
         content: '';
         border-top: 49px solid transparent;
-        border-right: 45px solid #edc242; }
+        border-right: 45px solid #107dac; }
   body .navbar {
     background: #222222;
     width: 100%;
@@ -121,14 +121,14 @@ body {
             position: absolute;
             content: '^';
             font-size: 2.5em;
-            color: #edc242;
+            color: #107dac;
             height: 41px;
             right: -15px;
             -webkit-transform: rotate(180deg);
                 -ms-transform: rotate(180deg);
                     transform: rotate(180deg); }
           body .navbar .dropDown li a:hover {
-            color: #edc242; }
+            color: #107dac; }
     body .navbar .nav {
       float: left;
       width: 30%;
@@ -147,7 +147,7 @@ body {
                   transition: .2s all linear; }
           body .navbar .nav li a:hover {
             background: #333;
-            color: #edc242; }
+            color: #107dac; }
     body .navbar .searchEngine {
       width: 15%;
       float: right;
@@ -164,7 +164,7 @@ body {
         border-radius: 6px;
         color: #cfcfcf; }
         body .navbar .searchEngine button:hover {
-          color: #edc242;
+          color: #107dac;
           cursor: pointer; }
   body main .news_wrapper {
     width: 100%;
@@ -202,7 +202,7 @@ body {
           color: #ffffff;
           text-align: center;
           padding: 20px;
-          background: #edc242; }
+          background: #107dac; }
       body main .news_wrapper .main_news .content {
         padding: 10px 8px;
         width: 72.22222%;
@@ -291,7 +291,7 @@ body {
                   border-left: 16px solid transparent;
                   border-top: 16px solid #ffffff; }
             body main #slider article .img_wrapper .container .more_news_wrapper a:nth-child(3n+2), body main #slider article .img_wrapper .container .more_news_wrapper a:hover {
-              background: #edc242; }
+              background: #107dac; }
             body main #slider article .img_wrapper .container .more_news_wrapper a:last-child {
               margin-bottom: 0; }
         body main #slider article .img_wrapper .container a {
@@ -429,12 +429,12 @@ body {
             width: 4px;
             left: 25%;
             height: 100%;
-            background: #edc242; }
+            background: #107dac; }
     body main .others_news button {
       margin-top: 30px;
       float: right;
       padding: 14px;
-      background: #edc242;
+      background: #107dac;
       border: none;
       color: #ffffff;
       font-family: "Righteous";
@@ -460,12 +460,12 @@ body {
       margin-top: 20px;
       float: left;
       margin-right: 20px;
-      background: #edc242; }
+      background: #107dac; }
       body main .social_media .social_wrapper span {
         display: block;
         padding: 12px;
         color: #ffffff;
-        background: #edc242;
+        background: #107dac;
         font-family: "Righteous";
         font-size: 1.3em;
         font-weight: bold; }
@@ -493,10 +493,10 @@ body {
     background: #222222;
     height: 300px;
     width: 100%;
-    border-top: 18px solid #edc242; }
+    border-top: 18px solid #107dac; }
     body footer .footer_wrapper {
       overflow: hidden;
-      border-bottom: 1px solid #edc242; }
+      border-bottom: 1px solid #107dac; }
       body footer .footer_wrapper .footer_company,
       body footer .footer_wrapper .footer_lol,
       body footer .footer_wrapper .footer_csgo,
@@ -525,7 +525,7 @@ body {
       body footer .footer_wrapper .footer_csgo {
         font-family: "Lato";
         font-weight: bold;
-        border-left: 2px solid #edc242;
+        border-left: 2px solid #107dac;
         color: #cfcfcf; }
         body footer .footer_wrapper .footer_lol ul,
         body footer .footer_wrapper .footer_csgo ul {
@@ -546,7 +546,7 @@ body {
               body footer .footer_wrapper .footer_csgo ul ul a:hover {
                 text-decoration: underline; }
       body footer .footer_wrapper .footer_about {
-        border-left: 2px solid #edc242;
+        border-left: 2px solid #107dac;
         font-family: "Lato";
         color: #cfcfcf; }
         body footer .footer_wrapper .footer_about h5 {

@@ -6,6 +6,7 @@
 body {
   font-size: 16px;
   background: #edc242;
+  font-family: "Lato";
   color: #ffffff; }
   body .container {
     width: 1200px;
@@ -57,7 +58,7 @@ body {
           display: inline-block;
           height: 49px; }
           body header .navBg ul.login li a {
-            font-family: 'Righteous';
+            font-family: "Righteous";
             font-size: .8em;
             color: #ffffff;
             text-decoration: none;
@@ -101,7 +102,7 @@ body {
     height: 50px;
     border-bottom: 1px solid #555555; }
     body .navbar .dropDown {
-      width: 40%;
+      width: 55%;
       height: 50px;
       float: left; }
       body .navbar .dropDown li {
@@ -111,12 +112,12 @@ body {
         margin-left: 65px; }
         body .navbar .dropDown li a {
           color: #fff;
-          font-family: 'Righteous';
+          font-family: "Righteous";
           font-size: 1.1em;
           text-decoration: none;
           position: relative; }
           body .navbar .dropDown li a:after {
-            font-family: 'Righteous';
+            font-family: "Righteous";
             position: absolute;
             content: '^';
             font-size: 2.5em;
@@ -130,7 +131,7 @@ body {
             color: #edc242; }
     body .navbar .nav {
       float: left;
-      width: 45%;
+      width: 30%;
       height: 50px; }
       body .navbar .nav li {
         float: left;
@@ -140,7 +141,7 @@ body {
           text-decoration: none;
           padding: 16px;
           color: #fff;
-          font-family: 'Righteous';
+          font-family: "Righteous";
           font-size: .9em;
           -webkit-transition: .2s all linear;
                   transition: .2s all linear; }
@@ -165,13 +166,65 @@ body {
         body .navbar .searchEngine button:hover {
           color: #edc242;
           cursor: pointer; }
+  body main .news_wrapper {
+    width: 100%;
+    background: #fcfcfc;
+    color: #222222; }
+    body main .news_wrapper .related_news {
+      width: 25%;
+      float: left;
+      padding: 10px 4px; }
+      body main .news_wrapper .related_news h3 {
+        margin-bottom: 10px; }
+      body main .news_wrapper .related_news .item {
+        height: 150px;
+        background: #222222;
+        margin-bottom: 1px; }
+    body main .news_wrapper .main_news {
+      width: 75%;
+      float: left; }
+      body main .news_wrapper .main_news header {
+        border: none;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        position: relative; }
+        body main .news_wrapper .main_news header img {
+          margin-top: -40px; }
+        body main .news_wrapper .main_news header h1 {
+          position: absolute;
+          width: 90%;
+          bottom: 0;
+          left: 50%;
+          -webkit-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
+                  transform: translateX(-50%);
+          color: #ffffff;
+          text-align: center;
+          padding: 20px;
+          background: #edc242; }
+      body main .news_wrapper .main_news .content {
+        padding: 10px 8px;
+        width: 72.22222%;
+        float: left; }
+        body main .news_wrapper .main_news .content p {
+          text-align: justify; }
+        body main .news_wrapper .main_news .content p + p {
+          margin-bottom: 20px; }
+      body main .news_wrapper .main_news aside {
+        width: 27.77778%;
+        float: left;
+        padding: 10px;
+        background: lightGray; }
   body main #slider {
     overflow: hidden; }
     body main #slider img {
       width: 100%;
-      clear: left;
       -webkit-transition: .2s all linear;
               transition: .2s all linear; }
+      body main #slider img a {
+        position: relative;
+        z-index: 2; }
       body main #slider img:hover {
         -webkit-transform: scale(1.01);
             -ms-transform: scale(1.01);
@@ -187,78 +240,82 @@ body {
       width: 100%;
       height: 500px; }
       body main #slider article .img_wrapper .container {
-        position: relative;
-        z-index: 9999;
         margin-top: -450px; }
-        body main #slider article .img_wrapper .container .more-news-wrapper {
+        body main #slider article .img_wrapper .container .more_news_wrapper {
+          position: relative;
+          z-index: 999;
           float: left;
           max-width: 280px;
           background: #555555;
           margin-left: 40px;
           margin-bottom: 40px; }
-          body main #slider article .img_wrapper .container .more-news-wrapper a {
+          body main #slider article .img_wrapper .container .more_news_wrapper a {
             display: block;
             background: #222222;
             text-decoration: none;
             margin-bottom: 1px; }
-            body main #slider article .img_wrapper .container .more-news-wrapper a article {
+            body main #slider article .img_wrapper .container .more_news_wrapper a article {
               padding: 8px;
-              font-family: 'Lato';
+              font-family: "Lato";
               width: 100%;
               height: 120px;
               color: #ffffff; }
-              body main #slider article .img_wrapper .container .more-news-wrapper a article time {
+              body main #slider article .img_wrapper .container .more_news_wrapper a article time {
                 font-size: .7em; }
-              body main #slider article .img_wrapper .container .more-news-wrapper a article h2 {
+              body main #slider article .img_wrapper .container .more_news_wrapper a article h2 {
                 padding-top: 4px;
                 font-size: 1.1em;
                 font-weight: bold; }
-              body main #slider article .img_wrapper .container .more-news-wrapper a article button {
+              body main #slider article .img_wrapper .container .more_news_wrapper a article button {
                 cursor: pointer;
                 background: #ffffff;
                 padding: 8px 15px;
-                font-family: 'Righteous';
+                font-family: "Righteous";
                 color: #222222;
                 margin-top: 6px;
                 border: none;
                 position: relative;
                 float: right; }
-                body main #slider article .img_wrapper .container .more-news-wrapper a article button:before {
+                body main #slider article .img_wrapper .container .more_news_wrapper a article button:before {
                   content: '';
                   position: absolute;
                   top: 0;
                   left: -16px;
                   border-left: 16px solid transparent;
                   border-bottom: 16px solid #ffffff; }
-                body main #slider article .img_wrapper .container .more-news-wrapper a article button:after {
+                body main #slider article .img_wrapper .container .more_news_wrapper a article button:after {
                   content: '';
                   position: absolute;
                   top: 16px;
                   left: -16px;
                   border-left: 16px solid transparent;
                   border-top: 16px solid #ffffff; }
-            body main #slider article .img_wrapper .container .more-news-wrapper a:nth-child(3n+2), body main #slider article .img_wrapper .container .more-news-wrapper a:hover {
+            body main #slider article .img_wrapper .container .more_news_wrapper a:nth-child(3n+2), body main #slider article .img_wrapper .container .more_news_wrapper a:hover {
               background: #edc242; }
-            body main #slider article .img_wrapper .container .more-news-wrapper a:last-child {
+            body main #slider article .img_wrapper .container .more_news_wrapper a:last-child {
               margin-bottom: 0; }
-        body main #slider article .img_wrapper .container header {
-          background: #222222;
-          padding: 16px;
-          position: absolute;
-          bottom: 0;
-          right: 70px;
-          border: none;
-          width: 550px; }
-          body main #slider article .img_wrapper .container header h1 {
-            font-family: 'Lato';
-            text-transform: uppercase;
-            font-size: 2em; }
+        body main #slider article .img_wrapper .container a {
+          color: #ffffff; }
+          body main #slider article .img_wrapper .container a header {
+            float: left;
+            position: relative;
+            z-index: 999;
+            background: #222222;
+            margin-left: 170px;
+            margin-top: 310px;
+            padding: 16px;
+            border: none;
+            width: 550px; }
+            body main #slider article .img_wrapper .container a header h1 {
+              font-family: "Lato";
+              text-transform: uppercase;
+              font-size: 2em; }
   body main ._mid_news {
     margin-top: 20px; }
     body main ._mid_news a {
       display: inline-block; }
       body main ._mid_news a article {
-        font-family: 'Righteous';
+        font-family: "Righteous";
         color: #ffffff;
         font-size: .9em;
         position: relative;
@@ -301,14 +358,14 @@ body {
           float: left;
           width: 214px; }
           body main ._small_news a article .describe h3 {
-            font-family: 'Righteous';
+            font-family: "Righteous";
             font-size: 1em;
             color: #ffffff; }
             body main ._small_news a article .describe h3:after {
               content: ''; }
           body main ._small_news a article .describe p {
             margin-top: 14px;
-            font-family: 'Lato';
+            font-family: "Lato";
             text-align: justify;
             color: #ffffff;
             font-size: .9em; }
@@ -351,17 +408,17 @@ body {
             color: #212121; }
             body main .others_news .others_news_wrapper .lol_news article section h4,
             body main .others_news .others_news_wrapper .csgo_news article section h4 {
-              font-family: 'Righteous';
+              font-family: "Righteous";
               font-size: 1em;
               margin-bottom: 4px; }
             body main .others_news .others_news_wrapper .lol_news article section p,
             body main .others_news .others_news_wrapper .csgo_news article section p {
-              font-family: 'Lato';
+              font-family: "Lato";
               font-size: .9em;
               text-align: justify; }
             body main .others_news .others_news_wrapper .lol_news article section time,
             body main .others_news .others_news_wrapper .csgo_news article section time {
-              font-family: 'Lato';
+              font-family: "Lato";
               margin-top: 2px;
               font-size: .8em;
               float: right; }
@@ -380,12 +437,12 @@ body {
       background: #edc242;
       border: none;
       color: #ffffff;
-      font-family: 'Righteous';
+      font-family: "Righteous";
       font-size: 1em;
       cursor: pointer; }
   body main h3 {
     position: relative;
-    font-family: 'Righteous';
+    font-family: "Righteous";
     font-size: 1.4em;
     color: #333333; }
     body main h3:after {
@@ -409,8 +466,8 @@ body {
         padding: 12px;
         color: #ffffff;
         background: #edc242;
-        font-family: 'Righteous';
-        font-size: 1.6em;
+        font-family: "Righteous";
+        font-size: 1.3em;
         font-weight: bold; }
       body main .social_media .social_wrapper .item {
         background: #efefef;
@@ -444,7 +501,7 @@ body {
       body footer .footer_wrapper .footer_lol,
       body footer .footer_wrapper .footer_csgo,
       body footer .footer_wrapper .footer_about {
-        max-height: 200px;
+        height: 160px;
         margin-bottom: 20px;
         float: left;
         width: 25%; }
@@ -453,7 +510,7 @@ body {
         height: 65px; }
       body footer .footer_wrapper .footer_company .logo_wrapper h4 {
         padding-top: 17px;
-        font-family: 'Righteous';
+        font-family: "Righteous";
         font-size: 1em;
         font-weight: lighter;
         letter-spacing: .2em; }
@@ -463,16 +520,16 @@ body {
         color: #cfcfcf;
         font-size: .75em;
         letter-spacing: .1em;
-        font-family: 'Lato'; }
+        font-family: "Lato"; }
       body footer .footer_wrapper .footer_lol,
       body footer .footer_wrapper .footer_csgo {
-        font-family: 'Lato';
+        font-family: "Lato";
         font-weight: bold;
+        border-left: 2px solid #edc242;
         color: #cfcfcf; }
         body footer .footer_wrapper .footer_lol ul,
         body footer .footer_wrapper .footer_csgo ul {
           margin-top: 9px;
-          border-left: 3px solid #edc242;
           list-style-type: none;
           text-indent: 5px; }
           body footer .footer_wrapper .footer_lol ul ul,
@@ -489,21 +546,25 @@ body {
               body footer .footer_wrapper .footer_csgo ul ul a:hover {
                 text-decoration: underline; }
       body footer .footer_wrapper .footer_about {
-        font-family: 'Lato';
+        border-left: 2px solid #edc242;
+        font-family: "Lato";
         color: #cfcfcf; }
         body footer .footer_wrapper .footer_about h5 {
           font-size: 1em;
           font-weight: bold;
-          padding: 10px 0; }
+          padding-top: 9px;
+          text-indent: 6px;
+          padding-bottom: 2px; }
         body footer .footer_wrapper .footer_about p {
           font-size: .9em;
+          padding-left: 12px;
           text-align: justify; }
     body footer #copyrights {
       font-size: .7em;
       color: #cfcfcf;
       padding: 4px;
       letter-spacing: .03em;
-      font-family: 'Lato';
+      font-family: "Lato";
       text-transform: uppercase; }
 
 /*# sourceMappingURL=style.css.map */

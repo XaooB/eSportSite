@@ -1,3 +1,9 @@
+//<------------- VARIABLES 
+$bgColor: #edc242;
+$lightFontColor: #cfcfcf;
+$darkGray :#222222;
+$mainFont: 'Righteous';
+$textFont: 'Lato';
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +12,8 @@
 
 body {
     font-size: 16px; //1em
-    background: #edc242;
+    background: $bgColor;
+    font-family: $textFont;
     color: #ffffff;
     .container {
         width: 1200px;
@@ -46,7 +53,7 @@ body {
                     display: inline-block;
                     height: 49px;
                     a {
-                        font-family: 'Righteous';
+                        font-family: $mainFont;
                         font-size: .8em;
                         color: #ffffff;
                         text-decoration: none;
@@ -83,7 +90,7 @@ body {
                 left: 0;
                 content: '';
                 border-top: 49px solid transparent;
-                border-left: 45px solid #edc242;
+                border-left: 45px solid $bgColor;
             }
             &:after {
                 position: absolute;
@@ -91,17 +98,17 @@ body {
                 right: 0;
                 content: '';
                 border-top: 49px solid transparent;
-                border-right: 45px solid #edc242;
+                border-right: 45px solid $bgColor;
             }
         }
     }
     .navbar {
-        background: #222222;
+        background: $darkGray;
         width: 100%;
         height: 50px;
         border-bottom: 1px solid #555555;
         .dropDown {
-            width: 40%;
+            width: 55%;
             height: 50px;
             float: left;
             li {
@@ -111,29 +118,29 @@ body {
                 margin-left: 65px;
                 a {
                     color: #fff;
-                    font-family: 'Righteous';
+                    font-family: $mainFont;
                     font-size: 1.1em;
                     text-decoration: none;
                     position: relative;
                     &:after {
-                        font-family: 'Righteous';
+                        font-family: $mainFont;
                         position: absolute;
                         content: '^';
                         font-size: 2.5em;
-                        color: #edc242;
+                        color: $bgColor;
                         height: 41px;
                         right: -15px;
                         transform: rotate(180deg);
                     }
                     &:hover {
-                        color: #edc242;
+                        color: $bgColor;
                     }
                 }
             }
         }
         .nav {
             float: left;
-            width: 45%;
+            width: 30%;
             height: 50px;
             li {
                 float: left;
@@ -143,17 +150,18 @@ body {
                     text-decoration: none;
                     padding: 16px;
                     color: #fff;
-                    font-family: 'Righteous';
+                    font-family: $mainFont;
                     font-size: .9em;
                     transition: .2s all linear;
                     &:hover {
                         background: #333;
-                        color: #edc242;
+                        color: $bgColor;
                     }
                 }
             }
         }
         .searchEngine {
+            //input width:200px
             width: 15%;
             float: right;
             line-height: 50px;
@@ -167,20 +175,83 @@ body {
                 background: #333;
                 border: none;
                 border-radius: 6px;
-                color: #cfcfcf;
+                color: $lightFontColor;
                 &:hover {
-                    color: #edc242;
+                    color: $bgColor;
                     cursor: pointer;
                 }
             }
         }
     }
     main {
+        .news_wrapper {
+            width: 100%;
+            background: #fcfcfc;
+            color: $darkGray;
+            .related_news {
+                width: 300/1200 * 100%; //300px
+                float: left;
+                padding: 10px 4px;
+                h3 {
+                    margin-bottom: 10px;
+                }
+                .item {
+                    height: 150px;
+                    background: $darkGray;
+                    margin-bottom: 1px;
+                }
+            }
+            .main_news {
+                width: 900/1200 * 100%;
+                float: left;
+                header {
+                    border: none;
+                    width: 100%;
+                    height: 300px;
+                    overflow: hidden;
+                    position: relative;
+                    img {
+                        margin-top: -40px;
+                    }
+                    h1 {
+                        position: absolute;
+                        width: 90%;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        color: #ffffff;
+                        text-align: center;
+                        padding: 20px;
+                        background: $bgColor;
+                    }
+                }
+                .content {
+                    padding: 10px 8px;
+                    width: 650/900 * 100%;
+                    float: left;
+                    p {
+                        text-align: justify;
+                    }
+                    p+p {
+                        margin-bottom: 20px;
+                    }
+                }
+                aside {
+                    width: 250/900 * 100%;
+                    float: left;
+                    padding: 10px;
+                    background: lightGray;
+                }
+            }
+        }
         #slider {
             overflow: hidden;
             img {
                 width: 100%;
-                clear: left;
+                a {
+                    position: relative;
+                    z-index: 2;
+                }
                 &:hover {
                     transform: scale(1.01);
                     transition: .2s all linear;
@@ -199,10 +270,10 @@ body {
                     width: 100%;
                     height: 500px;
                     .container {
-                        position: relative;
-                        z-index: 9999;
                         margin-top: -450px;
-                        .more-news-wrapper {
+                        .more_news_wrapper {
+                            position: relative;
+                            z-index: 999;
                             float: left;
                             max-width: 280px; //do zmiany
                             background: #555555;
@@ -210,12 +281,12 @@ body {
                             margin-bottom: 40px;
                             a {
                                 display: block;
-                                background: #222222;
+                                background: $darkGray;
                                 text-decoration: none;
                                 margin-bottom: 1px;
                                 article {
                                     padding: 8px;
-                                    font-family: 'Lato';
+                                    font-family: $textFont;
                                     width: 100%;
                                     height: 120px;
                                     color: #ffffff;
@@ -231,8 +302,8 @@ body {
                                         cursor: pointer;
                                         background: #ffffff;
                                         padding: 8px 15px;
-                                        font-family: 'Righteous';
-                                        color: #222222;
+                                        font-family: $mainFont;
+                                        color: $darkGray;
                                         margin-top: 6px;
                                         border: none;
                                         position: relative;
@@ -257,25 +328,30 @@ body {
                                 }
                                 &:nth-child(3n+2),
                                 &:hover {
-                                    background: #edc242;
+                                    background: $bgColor;
                                 }
                                 &:last-child {
                                     margin-bottom: 0;
                                 }
                             }
                         }
-                        header {
-                            background: #222222;
-                            padding: 16px;
-                            position: absolute;
-                            bottom: 0;
-                            right: 70px;
-                            border: none;
-                            width: 550px;
-                            h1 {
-                                font-family: 'Lato';
-                                text-transform: uppercase;
-                                font-size: 2em;
+                        a {
+                            color: #ffffff;
+                            header {
+                                float: left;
+                                position: relative;
+                                z-index: 999;
+                                background: $darkGray;
+                                margin-left: 170px;
+                                margin-top: 310px;
+                                padding: 16px;
+                                border: none;
+                                width: 550px;
+                                h1 {
+                                    font-family: $textFont;
+                                    text-transform: uppercase;
+                                    font-size: 2em;
+                                }
                             }
                         }
                     }
@@ -287,7 +363,7 @@ body {
             a {
                 display: inline-block;
                 article {
-                    font-family: 'Righteous';
+                    font-family: $mainFont;
                     color: #ffffff;
                     font-size: .9em;
                     position: relative;
@@ -338,7 +414,7 @@ body {
                         float: left;
                         width: 214px;
                         h3 {
-                            font-family: 'Righteous';
+                            font-family: $mainFont;
                             font-size: 1em;
                             color: #ffffff;
                             &:after {
@@ -347,7 +423,7 @@ body {
                         }
                         p {
                             margin-top: 14px;
-                            font-family: 'Lato';
+                            font-family: $textFont;
                             text-align: justify;
                             color: #ffffff;
                             font-size: .9em;
@@ -393,17 +469,17 @@ body {
                             padding: 2px 10px;
                             color: #212121;
                             h4 {
-                                font-family: 'Righteous';
+                                font-family: $mainFont;
                                 font-size: 1em;
                                 margin-bottom: 4px;
                             }
                             p {
-                                font-family: 'Lato';
+                                font-family: $textFont;
                                 font-size: .9em;
                                 text-align: justify;
                             }
                             time {
-                                font-family: 'Lato';
+                                font-family: $textFont;
                                 margin-top: 2px;
                                 font-size: .8em;
                                 float: right;
@@ -415,7 +491,7 @@ body {
                             width: 4px;
                             left: 25%;
                             height: 100%;
-                            background: #edc242;
+                            background: $bgColor;
                         }
                     }
                 }
@@ -424,17 +500,17 @@ body {
                 margin-top: 30px;
                 float: right;
                 padding: 14px;
-                background: #edc242;
+                background: $bgColor;
                 border: none;
                 color: #ffffff;
-                font-family: 'Righteous';
+                font-family: $mainFont;
                 font-size: 1em;
                 cursor: pointer;
             }
         }
         h3 {
             position: relative;
-            font-family: 'Righteous';
+            font-family: $mainFont;
             font-size: 1.4em;
             color: #333333;
             &:after {
@@ -454,14 +530,14 @@ body {
                 margin-top: 20px;
                 float: left;
                 margin-right: 20px;
-                background: #edc242;
+                background: $bgColor;
                 span {
                     display: block;
                     padding: 12px;
                     color: #ffffff;
-                    background: #edc242;
-                    font-family: 'Righteous';
-                    font-size: 1.6em;
+                    background: $bgColor;
+                    font-family: $mainFont;
+                    font-size: 1.3em;
                     font-weight: bold;
                 }
                 .item {
@@ -494,18 +570,18 @@ body {
     }
     footer {
         padding-top: 30px;
-        background: #222222;
+        background: $darkGray;
         height: 300px;
         width: 100%;
-        border-top: 18px solid #edc242;
+        border-top: 18px solid $bgColor;
         .footer_wrapper {
             overflow: hidden;
-            border-bottom: 1px solid #edc242;
+            border-bottom: 1px solid $bgColor;
             .footer_company,
             .footer_lol,
             .footer_csgo,
             .footer_about {
-                max-height: 200px;
+                height: 160px;
                 margin-bottom: 20px;
                 float: left;
                 width: 25%;
@@ -518,7 +594,7 @@ body {
                     }
                     h4 {
                         padding-top: 17px;
-                        font-family: 'Righteous';
+                        font-family: $mainFont;
                         font-size: 1em;
                         font-weight: lighter;
                         letter-spacing: .2em;
@@ -526,21 +602,21 @@ body {
                     address {
                         padding-top: 4px;
                         clear: both;
-                        color: #cfcfcf;
+                        color: $lightFontColor;
                         font-size: .75em;
                         letter-spacing: .1em;
-                        font-family: 'Lato';
+                        font-family: $textFont;
                     }
                 }
             }
             .footer_lol,
             .footer_csgo {
-                font-family: 'Lato';
+                font-family: $textFont;
                 font-weight: bold;
-                color: #cfcfcf;
+                border-left: 2px solid $bgColor;
+                color: $lightFontColor;
                 ul {
                     margin-top: 9px;
-                    border-left: 3px solid #edc242;
                     list-style-type: none;
                     text-indent: 5px;
                     ul {
@@ -549,7 +625,7 @@ body {
                         text-indent: 10px;
                         a {
                             font-size: .9em;
-                            color: #cfcfcf;
+                            color: $lightFontColor;
                             text-decoration: none;
                             &:hover {
                                 text-decoration: underline;
@@ -559,25 +635,29 @@ body {
                 }
             }
             .footer_about {
-                font-family: 'Lato';
-                color: #cfcfcf;
+                border-left: 2px solid $bgColor;
+                font-family: $textFont;
+                color: $lightFontColor;
                 h5 {
                     font-size: 1em;
                     font-weight: bold;
-                    padding: 10px 0;
+                    padding-top: 9px;
+                    text-indent: 6px;
+                    padding-bottom: 2px;
                 }
                 p {
                     font-size: .9em;
+                    padding-left: 12px;
                     text-align: justify;
                 }
             }
         }
         #copyrights {
             font-size: .7em;
-            color: #cfcfcf;
+            color: $lightFontColor;
             padding: 4px;
             letter-spacing: .03em;
-            font-family: 'Lato';
+            font-family: $textFont;
             text-transform: uppercase;
         }
     }

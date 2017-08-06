@@ -507,9 +507,11 @@ body {
         width: 25%; }
       body footer .footer_wrapper .footer_company .logo_wrapper img {
         float: left;
-        height: 65px; }
+        height: 55px; }
       body footer .footer_wrapper .footer_company .logo_wrapper h4 {
-        padding-top: 17px;
+        float: left;
+        margin-left: 4px;
+        padding-top: 8px;
         font-family: "Righteous";
         font-size: 1em;
         font-weight: lighter;

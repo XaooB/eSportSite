@@ -590,10 +590,12 @@ body {
                 .logo_wrapper {
                     img {
                         float: left;
-                        height: 65px;
+                        height: 55px;
                     }
                     h4 {
-                        padding-top: 17px;
+                        float: left;
+                        margin-left: 4px;
+                        padding-top: 8px;
                         font-family: $mainFont;
                         font-size: 1em;
                         font-weight: lighter;

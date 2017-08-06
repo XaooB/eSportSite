@@ -19,6 +19,6 @@
     "homepage": "https://github.com/XaooB/eSportSite#readme",
     "dependencies": {
         "express": "^4.15.3",
-        "express-handlebars": "^3.0.0",
+        "express-handlebars": "^3.0.0"
     }
 }

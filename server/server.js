@@ -1,8 +1,11 @@
 const express = require('express');
 const hbs = require('express-handlebars');
 const app = express();
+const port = process.env.PORT || 3000;
 
-app.engine('handlebars', hbs({defaultLayout: 'main'}));
+app.engine('handlebars', hbs({
+    defaultLayout: 'main'
+}));
 app.set('view engine', 'handlebars'); //ustawiamy silnik szablonow na handlebars
 app.use('/assets', express.static('public')); //sciezka do plikow statycznych
 
@@ -38,6 +41,14 @@ app.get('/', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
+app.get('/news/:category/:title', (req, res) => {
+    res.render('news', {
+        category: req.params.category,
+        title: req.params.title,
+        text: '<p>Animi explicabo possimus, pariatur suscipit numquam quis sequi molestiae ratione atque eligendi, labore nemo dolorum delectus nam at culpa id doloremque aliquam ducimus. Voluptatum labore itaque aliquid rerum debitis blanditiis obcaecati odio ex unde vel provident, in fugiat, laudantium, amet nam. Obcaecati placeat vel eligendi, quos quod ratione repudiandae perspiciatis modi. Consequatur iste accusamus, odio, in, deserunt tempora facere placeat magnam aut exercitationem doloremque facilis iusto sequi pariatur beatae tempore earum necessitatibus porro, nihil.</p><p>Assumenda pariatur illo voluptates nemo minus! Impedit natus unde corporis molestias qui laudantium veniam assumenda aut in adipisci, fuga, modi possimus quo obcaecati. Beatae quaerat exercitationem dolorum,cati quaerat quos quae nemo neque ullam itaque optio animi perferendis, velit ad esse, fugit deleniti eos labore laudantium blanditiis cumque cum reprehenderit modi ratione quidem. Minima laboriosam reiciendis, aliquam corrupti perferendis vel impedit qui harum quam tempore. Animi explicabo possimus, pariatur suscipit numquam quis sequi molestiae ratione atque eligendi, labore nemo dolorum delectus nam at culpa id doloremque aliquam ducimus. Voluptatum labore itaque aliquid rerum debitis blanditiis obcaecati odio ex unde vel provident, in fugiat, laudantium, amet nam. Obcaecati placeat vel eligendi, quos quod ratione repudiandae perspiciatis modi. Consequatur iste accusamus, odio, in, deserunt tempora facere placeat magnam aut exercitationem doloremque facilis iusto sequi pariatur beatae tempore earum necessitatibus porro, nihil. Architecto nihil nemo unde possimus quaerat, a eius cum dolores mollitia, consequuntur, quas deserunt! Quasi laudantium, excepturi reprehenderit totam similique, sint, aperiam laboriosam sit dolor nulla ex nisi doloribus dolores architecto consequuntur! Culpa illum, error enim rerum asperiores laborum corporis quia quibusdam consectetur ullam dolores tempore, doloremque minus ipsam nesciunt voluptatibus modi explicabo repellendus, consequuntur maxime molestias.</p> <p>Assumenda pariatur illo voluptates nemo minus! Impedit natus unde corporis molestias qui laudantium veniam assumenda aut in adipisci, fuga, modi possimus quo obcaecati. Beatae quaerat exercitationem dolorum, nam repellendus quam sequi ipsa labore voluptatem enim aperiam modi porro iusto vel architecto quisquam saepe omnis, vitae sapiente nulla numquam officia et. Quidem, voluptas alias facere quas, dignissimos tempora tempore a doloribus et illum recusandae aliquid magnam dolore cupiditate voluptates minus nisi aperiam ut vel perferendis, ea magni assumenda nam. Ab magni cumque aspernatur libero, obcaecati cupiditate! Quia ratione beatae, eligendi sunt consectetur expedita repellat veritatis. Voluptatum ex ullam quas commodi, tempora officiis consequuntur adipisci veniam recusandae, doloremque voluptas asperiores at dignissimos esse, quo, necessitatibus impedit repudiandae! Dolores molestias officiis dolor eveniet quasi nam, quibusdam rerum id quo corporis tempore cumque excepturi cum enim hic reprehenderit. Ad ab minima cum quasi eius, cumque! Quia blanditiis nemo dolorem. Molestiae qui quia quibusdam iusto repellendus. Totam nesciunt modi earum doloribus ea ut quae debitis saepe, tenetur numquam, quo asperiores natus tempore provident consequuntur.</p><p> Repellat tempore tempora possimus sunt laborum fuga voluptatibus a molestiae temporibus laudantium repellendus, eos reiciendis eveniet, deserunt consequuntur inventore accusantium, explicabo vitae commodi laboriosam? Animi minus omnis officiis accusantium temporibus dolore eveniet ex nisi enim recusandae. <p>Provident fuga odit fugit natus rerum. Suscipit dicta error ex a neque, ab accusamus sint minima voluptates, laborum unde veritatis quisquam enim, tempora?</p>'
+    });
+});
+
+app.listen(port, () => {
     console.log('Server running on localhost:3000');
 });

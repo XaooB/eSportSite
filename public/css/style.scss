@@ -8,6 +8,7 @@ $textFont: 'Lato';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 body {
@@ -189,15 +190,22 @@ body {
             background: #fcfcfc;
             color: $darkGray;
             .related_news {
+                background: $bgColor;
                 width: 300/1200 * 100%; //300px
                 float: left;
-                padding: 10px 4px;
                 h3 {
-                    margin-bottom: 10px;
+                    text-align: center;
+                    color: #ffffff;
+                    padding: 20px;
+                    font-size: 1.1em;
+                    &:after {
+                        content: '';
+                    }
                 }
                 .item {
-                    height: 150px;
-                    background: $darkGray;
+                    color: #ffffff;
+                    height: 250px;
+                    background: rgba(255, 255, 255, 0.1);
                     margin-bottom: 1px;
                 }
             }
@@ -214,6 +222,8 @@ body {
                         margin-top: -40px;
                     }
                     h1 {
+                        font-family: $mainFont;
+                        font-weight: lighter;
                         position: absolute;
                         width: 90%;
                         bottom: 0;
@@ -237,10 +247,47 @@ body {
                     }
                 }
                 aside {
+                    display: block;
+                    margin-top: 1px;
                     width: 250/900 * 100%;
                     float: left;
-                    padding: 10px;
-                    background: lightGray;
+                    color: #ffffff;
+                    h4 {
+                        background: $bgColor;
+                        padding: 14px;
+                    }
+                    .author_wrapper {
+                        margin-top: 10px;
+                        position: relative;
+                        overflow: hidden;
+                        img {
+                            border: 10px solid $bgColor;
+                            height: 100px;
+                            width: 100px;
+                            float: left;
+                        }
+                        .info {
+                            position: absolute;
+                            bottom: -2px;
+                            right: -3px;
+                            margin-left: 1px;
+                            width: 149px;
+                            float: right;
+                            p {
+                                color: $darkGray;
+                            }
+                        }
+                    }
+                    .about_wrapper {
+                        margin-top: 10px;
+                        background: $bgColor;
+                        padding: 10px;
+                        text-align: justify;
+                        p {
+                            color: #ffffff;
+                            font-size:.9em;
+                        }
+                    }
                 }
             }
         }

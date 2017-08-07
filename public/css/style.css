@@ -100,16 +100,16 @@ body {
   body .navbar {
     background: #222222;
     width: 100%;
-    height: 50px;
+    height: 55px;
     border-bottom: 1px solid #555555; }
     body .navbar .dropDown {
       width: 55%;
-      height: 50px;
+      height: 55px;
       float: left; }
       body .navbar .dropDown li {
         width: 50%;
         display: inline;
-        line-height: 50px;
+        line-height: 55px;
         margin-left: 65px; }
         body .navbar .dropDown li a {
           color: #fff;
@@ -123,7 +123,7 @@ body {
             content: '^';
             font-size: 2.5em;
             color: #107dac;
-            height: 41px;
+            height: 46px;
             right: -15px;
             -webkit-transform: rotate(180deg);
                 -ms-transform: rotate(180deg);
@@ -133,14 +133,14 @@ body {
     body .navbar .nav {
       float: left;
       width: 30%;
-      height: 50px; }
+      height: 55px; }
       body .navbar .nav li {
         float: left;
         list-style: none;
-        line-height: 50px; }
+        line-height: 55px; }
         body .navbar .nav li a {
           text-decoration: none;
-          padding: 16px;
+          padding: 21px;
           color: #fff;
           font-family: "Righteous";
           font-size: .9em;
@@ -152,18 +152,18 @@ body {
     body .navbar .searchEngine {
       width: 15%;
       float: right;
-      line-height: 50px;
-      height: 50px;
+      line-height: 55px;
+      height: 55px;
       position: relative; }
       body .navbar .searchEngine button {
         position: absolute;
         right: 0;
-        top: 8px;
+        top: 11px;
         padding: 10px;
         background: #333;
         border: none;
         border-radius: 6px;
-        color: #cfcfcf; }
+        color: #ffffff; }
         body .navbar .searchEngine button:hover {
           color: #107dac;
           cursor: pointer; }
@@ -172,20 +172,21 @@ body {
     background: #fcfcfc;
     color: #222222; }
     body main .news_wrapper .related_news {
-      background: #107dac;
       width: 25%;
       float: left; }
       body main .news_wrapper .related_news h3 {
+        background: #107dac;
         text-align: center;
         color: #ffffff;
-        padding: 20px;
-        font-size: 1.1em; }
+        padding: 14px;
+        font-size: 1em;
+        font-family: "Lato"; }
         body main .news_wrapper .related_news h3:after {
           content: ''; }
       body main .news_wrapper .related_news .item {
-        color: #ffffff;
+        color: #222222;
         height: 250px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.1);
         margin-bottom: 1px; }
     body main .news_wrapper .main_news {
       width: 75%;
@@ -217,8 +218,6 @@ body {
         width: 72.22222%;
         float: left; }
         body main .news_wrapper .main_news .content p {
-          text-align: justify; }
-        body main .news_wrapper .main_news .content p + p {
           margin-bottom: 20px; }
       body main .news_wrapper .main_news aside {
         display: block;
@@ -255,6 +254,30 @@ body {
           body main .news_wrapper .main_news aside .about_wrapper p {
             color: #ffffff;
             font-size: .9em; }
+      body main .news_wrapper .main_news .post_comments {
+        margin-top: 40px; }
+        body main .news_wrapper .main_news .post_comments h1 {
+          color: #ffffff;
+          background: #107dac;
+          padding: 6px; }
+        body main .news_wrapper .main_news .post_comments article {
+          padding: 10px 4px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+          body main .news_wrapper .main_news .post_comments article:last-child {
+            border: none;
+            margin-bottom: 20px; }
+          body main .news_wrapper .main_news .post_comments article:hover {
+            background: rgba(0, 0, 0, 0.07);
+            cursor: context-menu; }
+          body main .news_wrapper .main_news .post_comments article footer.posted_at {
+            font-size: .75em;
+            padding: 0;
+            height: auto;
+            border: none;
+            background: none; }
+          body main .news_wrapper .main_news .post_comments article p {
+            margin-bottom: 0;
+            margin-top: 2px; }
   body main #slider {
     overflow: hidden; }
     body main #slider img {
@@ -528,9 +551,8 @@ body {
         body main .gallery .gallery-wrapper .item img {
           height: 300px; }
   body footer {
-    padding-top: 30px;
+    padding: 30px 0;
     background: #222222;
-    height: 300px;
     width: 100%;
     border-top: 18px solid #107dac; }
     body footer .footer_wrapper {
@@ -558,7 +580,7 @@ body {
       body footer .footer_wrapper .footer_company .logo_wrapper address {
         padding-top: 4px;
         clear: both;
-        color: #cfcfcf;
+        color: #ffffff;
         font-size: .75em;
         letter-spacing: .1em;
         font-family: "Lato"; }
@@ -567,7 +589,7 @@ body {
         font-family: "Lato";
         font-weight: bold;
         border-left: 2px solid #107dac;
-        color: #cfcfcf; }
+        color: #ffffff; }
         body footer .footer_wrapper .footer_lol ul,
         body footer .footer_wrapper .footer_csgo ul {
           margin-top: 9px;
@@ -581,7 +603,7 @@ body {
             body footer .footer_wrapper .footer_lol ul ul a,
             body footer .footer_wrapper .footer_csgo ul ul a {
               font-size: .9em;
-              color: #cfcfcf;
+              color: #ffffff;
               text-decoration: none; }
               body footer .footer_wrapper .footer_lol ul ul a:hover,
               body footer .footer_wrapper .footer_csgo ul ul a:hover {
@@ -589,7 +611,7 @@ body {
       body footer .footer_wrapper .footer_about {
         border-left: 2px solid #107dac;
         font-family: "Lato";
-        color: #cfcfcf; }
+        color: #ffffff; }
         body footer .footer_wrapper .footer_about h5 {
           font-size: 1em;
           font-weight: bold;
@@ -602,7 +624,7 @@ body {
           text-align: justify; }
     body footer #copyrights {
       font-size: .7em;
-      color: #cfcfcf;
+      color: #ffffff;
       padding: 4px;
       letter-spacing: .03em;
       font-family: "Lato";

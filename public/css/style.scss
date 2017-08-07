@@ -1,6 +1,6 @@
 //<------------- VARIABLES 
 $bgColor: #107dac;
-$lightFontColor: #cfcfcf;
+$lightFontColor: #ffffff;
 $darkGray :#222222;
 $mainFont: 'Righteous';
 $textFont: 'Lato';
@@ -106,16 +106,16 @@ body {
     .navbar {
         background: $darkGray;
         width: 100%;
-        height: 50px;
+        height: 55px;
         border-bottom: 1px solid #555555;
         .dropDown {
             width: 55%;
-            height: 50px;
+            height: 55px;
             float: left;
             li {
                 width: 50%;
                 display: inline;
-                line-height: 50px;
+                line-height: 55px;
                 margin-left: 65px;
                 a {
                     color: #fff;
@@ -129,7 +129,7 @@ body {
                         content: '^';
                         font-size: 2.5em;
                         color: $bgColor;
-                        height: 41px;
+                        height: 46px;
                         right: -15px;
                         transform: rotate(180deg);
                     }
@@ -142,14 +142,14 @@ body {
         .nav {
             float: left;
             width: 30%;
-            height: 50px;
+            height: 55px;
             li {
                 float: left;
                 list-style: none;
-                line-height: 50px;
+                line-height: 55px;
                 a {
                     text-decoration: none;
-                    padding: 16px;
+                    padding: 21px;
                     color: #fff;
                     font-family: $mainFont;
                     font-size: .9em;
@@ -165,13 +165,13 @@ body {
             //input width:200px
             width: 15%;
             float: right;
-            line-height: 50px;
-            height: 50px;
+            line-height: 55px;
+            height: 55px;
             position: relative;
             button {
                 position: absolute;
                 right: 0;
-                top: 8px;
+                top: 11px;
                 padding: 10px;
                 background: #333;
                 border: none;
@@ -190,22 +190,23 @@ body {
             background: #fcfcfc;
             color: $darkGray;
             .related_news {
-                background: $bgColor;
                 width: 300/1200 * 100%; //300px
                 float: left;
                 h3 {
+                    background: $bgColor;
                     text-align: center;
                     color: #ffffff;
-                    padding: 20px;
-                    font-size: 1.1em;
+                    padding: 14px;
+                    font-size: 1em;
+                    font-family: $textFont;
                     &:after {
                         content: '';
                     }
                 }
                 .item {
-                    color: #ffffff;
+                    color: $darkGray;
                     height: 250px;
-                    background: rgba(255, 255, 255, 0.1);
+                    background: rgba(0, 0, 0, 0.1);
                     margin-bottom: 1px;
                 }
             }
@@ -240,9 +241,6 @@ body {
                     width: 650/900 * 100%;
                     float: left;
                     p {
-                        text-align: justify;
-                    }
-                    p+p {
                         margin-bottom: 20px;
                     }
                 }
@@ -285,7 +283,39 @@ body {
                         text-align: justify;
                         p {
                             color: #ffffff;
-                            font-size:.9em;
+                            font-size: .9em;
+                        }
+                    }
+                }
+                .post_comments {
+                    margin-top: 40px;
+                    h1 {
+                        color: $lightFontColor;
+                        background: $bgColor;
+                        padding: 6px;
+                        //                        border-bottom: 2px solid $bgColor;
+                    }
+                    article {
+                        padding: 10px 4px;
+                        border-bottom: 1px solid rgba(0, 0, 0, .15);
+                        &:last-child {
+                            border: none;
+                            margin-bottom: 20px;
+                        }
+                        &:hover {
+                            background: rgba(0, 0, 0, .07);
+                            cursor: context-menu;
+                        }
+                        footer.posted_at {
+                            font-size: .75em;
+                            padding: 0;
+                            height: auto;
+                            border: none;
+                            background: none;
+                        }
+                        p {
+                            margin-bottom: 0;
+                            margin-top: 2px;
                         }
                     }
                 }
@@ -616,9 +646,8 @@ body {
         }
     }
     footer {
-        padding-top: 30px;
+        padding: 30px 0;
         background: $darkGray;
-        height: 300px;
         width: 100%;
         border-top: 18px solid $bgColor;
         .footer_wrapper {

@@ -11,6 +11,7 @@ app.use('/assets', express.static('public')); //sciezka do plikow statycznych
 
 app.get('/', (req, res) => {
     res.render('home', {
+        title:'VIRTUS.PRO WYGRYWA PGL MAJOR W KRAKOWIE',
         main_news: {
             title: 'VIRTUS.PRO WYGRYWA PGL MAJOR W KRAKOWIE!',
             img: '../assets/img/news/vp_winning.jpg'

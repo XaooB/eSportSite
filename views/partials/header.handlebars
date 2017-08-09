@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>{{title}}</title>
@@ -8,17 +9,31 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
 </head>
+
 <body>
     <header class="header">
         <div class='container'>
             <div class='logo'>
                 <a href="/"></a>
             </div>
-            <div class="navBg">
+            <div class="login_wrapper">
                 <ul class='login'>
                     <li><a href="#">REJESTRACJA</a></li>
                     <li><a href="#">ZALOGUJ SIĘ</a></li>
                 </ul>
+                <div class="panel">
+                    <section class="login_panel">
+                        <h2>Logowanie</h2>
+                        <label for="username">Nazwa użytkownika:</label>
+                        <input type="text" name='login' id='login'>
+                        <label for="password">Hasło:</label>
+                        <input type="text" name='password' id='password'>
+                        <label for="forgot_password" class='forgot_password'>
+                            <a href="#">Zapomniałeś hasła? Kliknij tutaj</a>
+                        </label>
+                        <button type="submit">Zaloguj się</button>
+                    </section>
+                </div>
             </div>
         </div>
         <nav class="navbar">

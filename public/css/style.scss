@@ -3,7 +3,7 @@ $bgColor: #107dac;
 $lightFontColor: #ffffff;
 $darkGray :#222222;
 $mainFont: 'Righteous';
-$textFont: 'Lato';
+$textFont: 'Helvetica';
 * {
     margin: 0;
     padding: 0;
@@ -189,51 +189,95 @@ body {
             width: 100%;
             background: #fcfcfc;
             color: $darkGray;
-            .related_news {
-                border-right: 1px solid #ffffff;
-                width: 300/1200 * 100%; //300px
-                float: left;
-                h3 {
-                    background: $bgColor;
-                    text-align: center;
-                    color: #ffffff;
-                    padding: 14px;
-                    font-size: 1em;
-                    font-family: $textFont;
-                    &:after {
-                        content: '';
-                    }
-                }
-                .item {
-                    color: $darkGray;
-                    height: 250px;
-                    background: rgba(0, 0, 0, 0.1);
-                    margin-bottom: 1px;
-                    position: relative;
-                    overflow: hidden;
-                    img {
-                        max-height: 250px;
-                    }
-                    header {
-                        position: absolute;
-                        bottom: 10px;
-                        width: 90%;
-                        right: 0;
-                        border-top: 2px solid $bgColor;
-                        h4 {
-                            font-size: .9em;
-                            letter-spacing: .07em;
-                            color: #ffffff;
-                            padding: 5px;
-                            background: $darkGray;
-                            text-transform: uppercase;
+            .where_am_i {
+                margin-top: 20px;
+                margin-bottom: 4px;
+                width: 100%;
+                padding: 2px;
+                ol {
+                    li {
+                        position: relative;
+                        margin: 0 8px;
+                        display: inline-block;
+                        a {
+                            color: #bfbfbf;
+                            font-size: .7em;
+                            font-family: 'Arial';
+                            text-transform: capitalize;
+                        }
+                        &:after {
+                            position: absolute;
+                            content: '>';
+                            right: -14px;
+                            color: #bfbfbf;
+                            top: 1px;
+                        }
+                        &:last-child {
+                            &:after {
+                                content: none;
+                            }
                         }
                     }
                 }
             }
-            .main_news {
-                width: 900/1200 * 100%;
+            .related_news {
+                background: #dfdfdf;
+                width: 300/1200 * 100%; //300px
                 float: left;
+                h2 {
+                    font-size: 1em;
+                    padding: 14px;
+                    background: $darkGray;
+                    color: $lightFontColor;
+                }
+                .related_wrapper {
+                    overflow: auto;
+                    max-height: 500px;
+                    article {
+                        table {
+                            margin-bottom: 1px;
+                            width: 100%;
+                            color: #bfbfbf;
+                            background: #efefef;
+                            tr {
+                                .time {
+                                    display: block;
+                                    font-size: .75em;
+                                }
+                                .category {
+                                    height: 20px;
+                                    font-size: .7em;
+                                    a {
+                                        color: #bfbfbf;
+                                        text-decoration: underline;
+                                    }
+                                }
+                                .title {
+                                    height: 40px;
+                                    font-size: 1em;
+                                    a {
+                                        color: $bgColor;
+                                    }
+                                }
+                                td {
+                                    padding: 2px;
+                                    border-right: 1px solid $lightFontColor;
+                                }
+                            }
+                        }
+                    }
+                    &::-webkit-scrollbar {
+                        width: 6px;
+                        background: $darkGray;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        background: $bgColor;
+                    }
+                }
+            }
+            .main_news {
+                width: 890/1200 * 100%;
+                float: right;
                 header {
                     border: none;
                     width: 100%;
@@ -261,8 +305,11 @@ body {
                     width: 900/900 * 100%;
                     float: left;
                     p {
-                        font-size: 1.1em;
-                        padding: 15px 24px;
+                        font-size: 1em;
+                        color:#555;
+                        line-height: 1.5;
+                        text-align: justify;
+                        padding: 12px 2px;
                     }
                 }
                 aside {
@@ -272,7 +319,7 @@ body {
                     h4 {
                         background: $bgColor;
                         padding: 14px;
-                        margin-bottom: 1px; 
+                        margin-bottom: 1px;
                     }
                     .author_wrapper {
                         width: 100%;
@@ -289,9 +336,9 @@ body {
                         }
                         .about_wrapper {
                             float: right;
-                            width:800/900*100%;
-                            height:100px;
-                            padding:10px;
+                            width: 800/900*100%;
+                            height: 100px;
+                            padding: 10px;
                             background: $bgColor;
                             p {
                                 color: #ffffff;
@@ -518,7 +565,7 @@ body {
             a {
                 margin-right: 1.218%;
                 margin-top: 20px;
-                width: 32.3%;
+                width: 32.27%;
                 display: inline-block;
                 article {
                     height: 170px;

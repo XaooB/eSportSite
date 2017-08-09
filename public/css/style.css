@@ -7,7 +7,7 @@
 body {
   font-size: 16px;
   background: #107dac;
-  font-family: "Lato";
+  font-family: "Helvetica";
   color: #ffffff; }
   body .container {
     width: 1200px;
@@ -171,44 +171,70 @@ body {
     width: 100%;
     background: #fcfcfc;
     color: #222222; }
+    body main .news_wrapper .where_am_i {
+      margin-top: 20px;
+      margin-bottom: 4px;
+      width: 100%;
+      padding: 2px; }
+      body main .news_wrapper .where_am_i ol li {
+        position: relative;
+        margin: 0 8px;
+        display: inline-block; }
+        body main .news_wrapper .where_am_i ol li a {
+          color: #bfbfbf;
+          font-size: .7em;
+          font-family: 'Arial';
+          text-transform: capitalize; }
+        body main .news_wrapper .where_am_i ol li:after {
+          position: absolute;
+          content: '>';
+          right: -14px;
+          color: #bfbfbf;
+          top: 1px; }
+        body main .news_wrapper .where_am_i ol li:last-child:after {
+          content: none; }
     body main .news_wrapper .related_news {
-      border-right: 1px solid #ffffff;
+      background: #dfdfdf;
       width: 25%;
       float: left; }
-      body main .news_wrapper .related_news h3 {
-        background: #107dac;
-        text-align: center;
-        color: #ffffff;
-        padding: 14px;
+      body main .news_wrapper .related_news h2 {
         font-size: 1em;
-        font-family: "Lato"; }
-        body main .news_wrapper .related_news h3:after {
-          content: ''; }
-      body main .news_wrapper .related_news .item {
-        color: #222222;
-        height: 250px;
-        background: rgba(0, 0, 0, 0.1);
-        margin-bottom: 1px;
-        position: relative;
-        overflow: hidden; }
-        body main .news_wrapper .related_news .item img {
-          max-height: 250px; }
-        body main .news_wrapper .related_news .item header {
-          position: absolute;
-          bottom: 10px;
-          width: 90%;
-          right: 0;
-          border-top: 2px solid #107dac; }
-          body main .news_wrapper .related_news .item header h4 {
-            font-size: .9em;
-            letter-spacing: .07em;
-            color: #ffffff;
-            padding: 5px;
-            background: #222222;
-            text-transform: uppercase; }
+        padding: 14px;
+        background: #222222;
+        color: #ffffff; }
+      body main .news_wrapper .related_news .related_wrapper {
+        overflow: auto;
+        max-height: 500px; }
+        body main .news_wrapper .related_news .related_wrapper article table {
+          margin-bottom: 1px;
+          width: 100%;
+          color: #bfbfbf;
+          background: #efefef; }
+          body main .news_wrapper .related_news .related_wrapper article table tr .time {
+            display: block;
+            font-size: .75em; }
+          body main .news_wrapper .related_news .related_wrapper article table tr .category {
+            height: 20px;
+            font-size: .7em; }
+            body main .news_wrapper .related_news .related_wrapper article table tr .category a {
+              color: #bfbfbf;
+              text-decoration: underline; }
+          body main .news_wrapper .related_news .related_wrapper article table tr .title {
+            height: 40px;
+            font-size: 1em; }
+            body main .news_wrapper .related_news .related_wrapper article table tr .title a {
+              color: #107dac; }
+          body main .news_wrapper .related_news .related_wrapper article table tr td {
+            padding: 2px;
+            border-right: 1px solid #ffffff; }
+        body main .news_wrapper .related_news .related_wrapper::-webkit-scrollbar {
+          width: 6px;
+          background: #222222; }
+        body main .news_wrapper .related_news .related_wrapper::-webkit-scrollbar-thumb {
+          background: #107dac; }
     body main .news_wrapper .main_news {
-      width: 75%;
-      float: left; }
+      width: 74.16667%;
+      float: right; }
       body main .news_wrapper .main_news header {
         border: none;
         width: 100%;
@@ -218,7 +244,7 @@ body {
         body main .news_wrapper .main_news header img {
           margin-top: -40px; }
         body main .news_wrapper .main_news header h1 {
-          font-family: "Lato";
+          font-family: "Helvetica";
           font-weight: bold;
           position: absolute;
           width: 90%;
@@ -235,8 +261,11 @@ body {
         width: 100%;
         float: left; }
         body main .news_wrapper .main_news .content p {
-          font-size: 1.1em;
-          padding: 15px 24px; }
+          font-size: 1em;
+          color: #555;
+          line-height: 1.5;
+          text-align: justify;
+          padding: 12px 2px; }
       body main .news_wrapper .main_news aside {
         margin-top: 1px;
         width: 100%;
@@ -362,7 +391,7 @@ body {
             margin-bottom: 1px; }
             body main #slider article .img_wrapper .container .more_news_wrapper a article {
               padding: 8px;
-              font-family: "Lato";
+              font-family: "Helvetica";
               width: 100%;
               height: 120px;
               color: #ffffff; }
@@ -414,7 +443,7 @@ body {
             border-top: 4px solid #107dac;
             width: 550px; }
             body main #slider article .img_wrapper .container a header h1 {
-              font-family: "Lato";
+              font-family: "Helvetica";
               text-transform: uppercase;
               font-size: 2em; }
   body main ._mid_news {
@@ -441,7 +470,7 @@ body {
     body main ._small_news a {
       margin-right: 1.218%;
       margin-top: 20px;
-      width: 32.3%;
+      width: 32.27%;
       display: inline-block; }
       body main ._small_news a article {
         height: 170px;
@@ -472,7 +501,7 @@ body {
               content: ''; }
           body main ._small_news a article .describe p {
             margin-top: 14px;
-            font-family: "Lato";
+            font-family: "Helvetica";
             text-align: justify;
             color: #ffffff;
             font-size: .9em; }
@@ -520,12 +549,12 @@ body {
               margin-bottom: 4px; }
             body main .others_news .others_news_wrapper .lol_news article section p,
             body main .others_news .others_news_wrapper .csgo_news article section p {
-              font-family: "Lato";
+              font-family: "Helvetica";
               font-size: .9em;
               text-align: justify; }
             body main .others_news .others_news_wrapper .lol_news article section time,
             body main .others_news .others_news_wrapper .csgo_news article section time {
-              font-family: "Lato";
+              font-family: "Helvetica";
               margin-top: 2px;
               font-size: .8em;
               float: right; }
@@ -628,10 +657,10 @@ body {
         color: #ffffff;
         font-size: .75em;
         letter-spacing: .1em;
-        font-family: "Lato"; }
+        font-family: "Helvetica"; }
       body footer .footer_wrapper .footer_lol,
       body footer .footer_wrapper .footer_csgo {
-        font-family: "Lato";
+        font-family: "Helvetica";
         font-weight: bold;
         border-left: 2px solid #107dac;
         color: #ffffff; }
@@ -655,7 +684,7 @@ body {
                 text-decoration: underline; }
       body footer .footer_wrapper .footer_about {
         border-left: 2px solid #107dac;
-        font-family: "Lato";
+        font-family: "Helvetica";
         color: #ffffff; }
         body footer .footer_wrapper .footer_about h5 {
           font-size: 1em;
@@ -672,7 +701,7 @@ body {
       color: #ffffff;
       padding: 4px;
       letter-spacing: .03em;
-      font-family: "Lato";
+      font-family: "Helvetica";
       text-transform: uppercase; }
 
 /*# sourceMappingURL=style.css.map */

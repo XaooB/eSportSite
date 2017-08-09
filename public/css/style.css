@@ -327,6 +327,7 @@ body {
           font-size: .9em;
           color: #555555; }
     body main .news_wrapper .hot_news {
+      margin-top: 20px;
       width: 100%;
       float: left;
       margin-bottom: 50px; }

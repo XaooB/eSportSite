@@ -10,7 +10,7 @@ body {
   font-family: "Helvetica";
   color: #ffffff; }
   body .container {
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
     overflow: hidden; }
   body header {
@@ -207,6 +207,7 @@ body {
       width: 25%;
       float: left; }
       body main .news_wrapper .related_news h2 {
+        border-bottom: 1px solid #efefef;
         font-size: 1em;
         padding: 14px;
         background: #222222;
@@ -234,8 +235,9 @@ body {
             body main .news_wrapper .related_news .related_wrapper article table tr .title a {
               color: #107dac; }
           body main .news_wrapper .related_news .related_wrapper article table tr td {
-            padding: 2px;
-            border-right: 1px solid #ffffff; }
+            padding: 2px; }
+          body main .news_wrapper .related_news .related_wrapper article table:hover {
+            background: #222222; }
         body main .news_wrapper .related_news .related_wrapper::-webkit-scrollbar {
           width: 6px;
           background: #222222; }
@@ -316,6 +318,7 @@ body {
           color: #ffffff; }
         body main .news_wrapper .about .about_wrapper img {
           width: 100%;
+          height: auto;
           border: 5px solid #107dac; }
         body main .news_wrapper .about .about_wrapper .user {
           margin-bottom: 10px; }
@@ -334,8 +337,12 @@ body {
       body main .news_wrapper .hot_news header {
         border: none;
         margin-bottom: 20px; }
+      body main .news_wrapper .hot_news a {
+        display: block;
+        float: left;
+        width: 33.33333%; }
       body main .news_wrapper .hot_news .hot_item {
-        width: 33.33333%;
+        width: 100%;
         height: 250px;
         float: left;
         position: relative;
@@ -575,6 +582,9 @@ body {
             left: 25%;
             height: 100%;
             background: #107dac; }
+        body main .others_news .others_news_wrapper .lol_news a,
+        body main .others_news .others_news_wrapper .csgo_news a {
+          display: block; }
     body main .others_news button {
       margin-top: 30px;
       float: right;

@@ -17,7 +17,7 @@ body {
     font-family: $textFont;
     color: #ffffff;
     .container {
-        width: 1200px;
+        max-width: 1200px;
         margin: 0 auto;
         overflow: hidden;
     }
@@ -229,6 +229,7 @@ body {
                 width: 300/1200 * 100%; //300px
                 float: left;
                 h2 {
+                    border-bottom: 1px solid #efefef;
                     font-size: 1em;
                     padding: 14px;
                     background: $darkGray;
@@ -266,8 +267,10 @@ body {
                                 }
                                 td {
                                     padding: 2px;
-                                    border-right: 1px solid $lightFontColor;
                                 }
+                            }
+                            &:hover {
+                                background: $darkGray;
                             }
                         }
                     }
@@ -370,6 +373,7 @@ body {
                     text-align: justify;
                     img {
                         width: 100%;
+                        height: auto;
                         border: 5px solid $bgColor;
                     }
                     .user {
@@ -387,7 +391,7 @@ body {
                 }
             }
             .hot_news {
-                margin-top: 20px; 
+                margin-top: 20px;
                 width: 100%;
                 float: left;
                 margin-bottom: 50px;
@@ -395,8 +399,13 @@ body {
                     border: none;
                     margin-bottom: 20px;
                 }
+                a {
+                    display: block;
+                    float: left;
+                    width: 400/1200*100%;
+                }
                 .hot_item {
-                    width: 400/1200 * 100%;
+                    width: 100%;
                     height: 250px;
                     float: left;
                     position: relative;
@@ -677,6 +686,9 @@ body {
                             height: 100%;
                             background: $bgColor;
                         }
+                    }
+                    a {
+                        display: block;
                     }
                 }
             }

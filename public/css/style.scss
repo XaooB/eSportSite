@@ -150,7 +150,7 @@ body {
                 line-height: 55px;
                 a {
                     text-decoration: none;
-                    padding-left: 15px;
+                    padding-left: 25px;
                     color: #fff;
                     font-family: $mainFont;
                     font-size: .9em;
@@ -220,6 +220,10 @@ body {
                     }
                 }
             }
+            .flex_container {
+                display: flex;
+                justify-content: space-between;
+            }
             .related_news {
                 background: #dfdfdf;
                 width: 300/1200 * 100%; //300px
@@ -231,8 +235,9 @@ body {
                     color: $lightFontColor;
                 }
                 .related_wrapper {
+//                    position:fixed;
                     overflow: auto;
-                    max-height: 500px;
+                    height: 600px;
                     article {
                         table {
                             margin-bottom: 1px;
@@ -276,8 +281,9 @@ body {
                 }
             }
             .main_news {
-                width: 890/1200 * 100%;
-                float: right;
+                //           TUTAJ
+                width: 640/1200 * 100%;
+                float: left;
                 header {
                     border: none;
                     width: 100%;
@@ -306,45 +312,10 @@ body {
                     float: left;
                     p {
                         font-size: 1em;
-                        color:#555;
+                        color: #555;
                         line-height: 1.5;
                         text-align: justify;
                         padding: 12px 2px;
-                    }
-                }
-                aside {
-                    margin-top: 1px;
-                    width: 100%;
-                    color: #ffffff;
-                    h4 {
-                        background: $bgColor;
-                        padding: 14px;
-                        margin-bottom: 1px;
-                    }
-                    .author_wrapper {
-                        width: 100%;
-                        overflow: hidden;
-                        height: 100px;
-                        figure {
-                            width: 100/900*100%;
-                            float: left;
-                            img {
-                                height: 100px;
-                                width: 100px;
-                                border: 4px solid #222;
-                            }
-                        }
-                        .about_wrapper {
-                            float: right;
-                            width: 800/900*100%;
-                            height: 100px;
-                            padding: 10px;
-                            background: $bgColor;
-                            p {
-                                color: #ffffff;
-                                font-size: .8em;
-                            }
-                        }
                     }
                 }
                 .post_comments {
@@ -379,6 +350,39 @@ body {
                             margin-bottom: 0;
                             margin-top: 2px;
                         }
+                    }
+                }
+            }
+            .about {
+                //                 TUTAJ
+                width: 240/1200 * 100%;
+                float: left;
+                .about_wrapper {
+                    h2 {
+                        font-size: 1em;
+                        padding: 14px;
+                        background: $darkGray;
+                        text-transform: uppercase;
+                        color: $lightFontColor;
+                    }
+                    width:100%;
+                    margin: 0 auto;
+                    text-align: justify;
+                    img {
+                        width: 100%;
+                        border: 5px solid $bgColor;
+                    }
+                    .user {
+                        margin-bottom: 10px;
+                    }
+                    .user>p {
+                        color: #afafaf;
+                        font-size: .7em;
+                        text-transform: uppercase;
+                    }
+                    p {
+                        font-size: .9em;
+                        color: #555555;
                     }
                 }
             }
@@ -451,8 +455,8 @@ body {
                             position: relative;
                             z-index: 999;
                             float: left;
-                            max-width: 280px; //do zmiany
-                            background: #555555;
+                            max-width: 300px; //do zmiany
+                            background: #fff;
                             margin-left: 40px;
                             margin-bottom: 40px;
                             a {
@@ -467,12 +471,12 @@ body {
                                     height: 120px;
                                     color: #ffffff;
                                     time {
-                                        font-size: .7em;
+                                        font-size: .65em;
                                     }
                                     h2 {
                                         padding-top: 4px;
                                         font-size: 1.1em;
-                                        font-weight: bold;
+                                        font-weight: lighter;
                                     }
                                     button {
                                         cursor: pointer;
@@ -569,13 +573,13 @@ body {
                 display: inline-block;
                 article {
                     height: 170px;
+                    padding: 10px;
                     background: rgba(0, 0, 0, .2);
                     figure {
                         position: relative;
                         width: 150px;
                         height: 150px;
                         float: left;
-                        margin: 10px 10px;
                         overflow: hidden;
                         img {
                             position: absolute;
@@ -583,13 +587,15 @@ body {
                             left: 50%;
                             margin-left: -100%;
                             margin-top: -50%;
-                            max-height: 150px;
+                            height: 150px;
                         }
                     }
                     .describe {
-                        margin-top: 12px;
                         float: left;
-                        width: 214px;
+                        height: 150px;
+                        margin-left: 10px;
+                        overflow: hidden;
+                        width: 205px;
                         h3 {
                             font-family: $mainFont;
                             font-size: 1em;
@@ -599,7 +605,7 @@ body {
                             }
                         }
                         p {
-                            margin-top: 14px;
+                            margin-top:10px;
                             font-family: $textFont;
                             text-align: justify;
                             color: #ffffff;
@@ -751,16 +757,16 @@ body {
         width: 100%;
         border-top: 18px solid $bgColor;
         .footer_wrapper {
+            display: flex;
+            justify-content: space-between;
             overflow: hidden;
             border-bottom: 1px solid $bgColor;
             .footer_company,
             .footer_lol,
             .footer_csgo,
             .footer_about {
-                height: 160px;
-                margin-bottom: 20px;
-                float: left;
-                width: 25%;
+                margin-bottom: 30px;
+                width: 20%;
             }
             .footer_company {
                 .logo_wrapper {
@@ -771,7 +777,7 @@ body {
                     h4 {
                         float: left;
                         margin-left: 4px;
-                        padding-top: 8px;
+                        padding-top: 4px;
                         font-family: $mainFont;
                         font-size: 1em;
                         font-weight: lighter;
@@ -802,6 +808,7 @@ body {
                         border: none;
                         text-indent: 10px;
                         a {
+                            font-weight: lighter;
                             font-size: .9em;
                             color: $lightFontColor;
                             text-decoration: none;

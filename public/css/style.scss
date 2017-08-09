@@ -19,7 +19,7 @@ body {
     .container {
         max-width: 1200px;
         margin: 0 auto;
-        overflow: hidden;
+        //        overflow: hidden;
     }
     header {
         border-top: 4px solid #333;
@@ -33,14 +33,79 @@ body {
                 padding: 33px 100px;
             }
         }
-        .navBg {
+        .login_wrapper {
             position: relative;
             float: right;
             width: 40%;
             height: 49px;
             background: rgba(0, 0, 0, .2);
-            ;
             margin-bottom: 50px;
+            .panel {
+                width: 300px;
+                background: #efefef;
+                padding: 20px;
+                position: absolute;
+                clear: both;
+                z-index: 99999;
+                top: 55px;
+                right: 135px;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: -15px;
+                    right: 0;
+                    border-left: 15px solid #efefef;
+                    border-top: 15px solid transparent;
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: -15px;
+                    right: 15px;
+                    border-right: 15px solid #efefef;
+                    border-top: 15px solid transparent;
+                }
+                .login_panel {
+                    color: $darkGray;
+                    h2 {
+                        padding: 6px;
+                        border-bottom: 1px solid $bgColor;
+                        margin-bottom: 20px;
+                    }
+                    label {
+                        font-weight: bold;
+                        font-size: .7em;
+                        text-transform: uppercase;
+                        display: block;
+                    }
+                    .forgot_password {
+                        margin-bottom: 20px;
+                        a {
+                            font-size: .9em;
+                            color: #afafaf;
+                            &:hover {
+                                color: $bgColor;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                    input {
+                        width: 85%;
+                        padding: 4px;
+                        margin-bottom: 10px;
+                    }
+                    button {
+                        width: 85%;
+                        display: block;
+                        padding: 10px;
+                        border: none;
+                        background: $bgColor;
+                        font-weight: bold;
+                        font-size: .8em;
+                        color: $lightFontColor;
+                    }
+                }
+            }
             ul.login {
                 margin: 0 70px;
                 display: flex;
@@ -107,6 +172,7 @@ body {
         background: $darkGray;
         width: 100%;
         height: 55px;
+        float: left;
         border-bottom: 1px solid #555555;
         .dropDown {
             width: 55%;
@@ -185,11 +251,14 @@ body {
         }
     }
     main {
+        clear: both;
         .news_wrapper {
             width: 100%;
             background: #fcfcfc;
             color: $darkGray;
+            overflow: hidden;
             .where_am_i {
+                float: left;
                 margin-top: 20px;
                 margin-bottom: 4px;
                 width: 100%;
@@ -221,6 +290,7 @@ body {
                 }
             }
             .flex_container {
+                float: left;
                 display: flex;
                 justify-content: space-between;
             }
@@ -281,6 +351,13 @@ body {
                     &::-webkit-scrollbar-thumb {
                         background: $bgColor;
                     }
+                    &::-moz-scrollbar {
+                        width: 6px;
+                        background: $darkGray;
+                    }
+                    &::-moz-scrollbar-thumb {
+                        background: $bgColor;
+                    }
                 }
             }
             .main_news {
@@ -295,6 +372,7 @@ body {
                     position: relative;
                     img {
                         margin-top: -40px;
+                        width: 100%;
                     }
                     h1 {
                         font-family: $textFont;
@@ -319,6 +397,14 @@ body {
                         line-height: 1.5;
                         text-align: justify;
                         padding: 12px 2px;
+                    }
+                    .date {
+                        font-size: .75em;
+                        margin-top: 1px;
+                        padding: 6px;
+                        font-weight: bold;
+                        background: #efefef;
+                        color: #a0a0a0;
                     }
                 }
                 .post_comments {
@@ -396,6 +482,7 @@ body {
                 float: left;
                 margin-bottom: 50px;
                 header {
+                    overflow: hidden;
                     border: none;
                     margin-bottom: 20px;
                 }
@@ -434,12 +521,13 @@ body {
             }
         }
         #slider {
+            clear: both;
             a {
                 display: block;
                 position: relative;
                 z-index: 2;
             }
-            overflow: hidden;
+            //            overflow: hidden;
             img {
                 width: 100%;
                 &:hover {
@@ -449,6 +537,7 @@ body {
                 transition: .2s all linear;
             }
             article {
+                overflow: hidden;
                 figure {
                     height: 500px;
                     img {
@@ -485,8 +574,7 @@ body {
                                     }
                                     h2 {
                                         padding-top: 4px;
-                                        font-size: 1.1em;
-                                        font-weight: lighter;
+                                        font-size: 1em;
                                     }
                                     button {
                                         cursor: pointer;
@@ -573,65 +661,11 @@ body {
                 }
             }
         }
-        ._small_news {
-            margin-top: 10px;
-            margin-bottom: 40px;
-            a {
-                margin-right: 1.218%;
-                margin-top: 20px;
-                width: 32.27%;
-                display: inline-block;
-                article {
-                    height: 170px;
-                    padding: 10px;
-                    background: rgba(0, 0, 0, .2);
-                    figure {
-                        position: relative;
-                        width: 150px;
-                        height: 150px;
-                        float: left;
-                        overflow: hidden;
-                        img {
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            margin-left: -100%;
-                            margin-top: -50%;
-                            height: 150px;
-                        }
-                    }
-                    .describe {
-                        float: left;
-                        height: 150px;
-                        margin-left: 10px;
-                        overflow: hidden;
-                        width: 205px;
-                        h3 {
-                            font-family: $mainFont;
-                            font-size: 1em;
-                            color: #ffffff;
-                            &:after {
-                                content: '';
-                            }
-                        }
-                        p {
-                            margin-top: 10px;
-                            font-family: $textFont;
-                            text-align: justify;
-                            color: #ffffff;
-                            font-size: .9em;
-                        }
-                    }
-                }
-                &:nth-child(3n+0) {
-                    margin-right: 0;
-                }
-            }
-        }
         .others_news {
             background: #fcfcfc;
             width: 100%;
             padding-bottom: 30px;
+            clear: both;
             .others_news_wrapper {
                 overflow: auto;
                 .lol_news,
@@ -721,6 +755,9 @@ body {
             padding-top: 25px;
             padding-bottom: 60px;
             background: #fcfcfc;
+            .container {
+                overflow: hidden;
+            }
             .social_wrapper {
                 width: 32.2%;
                 margin-top: 20px;
@@ -749,6 +786,7 @@ body {
         }
         .gallery {
             background: #fcfcfc;
+            overflow: auto;
             .gallery-wrapper {
                 margin-top: 20px;
                 height: 300px;
@@ -762,9 +800,13 @@ body {
                     }
                 }
             }
+            h3 {
+                overflow: hidden;
+            }
         }
     }
     footer {
+        clear: both;
         padding: 30px 0;
         background: $darkGray;
         width: 100%;

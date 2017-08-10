@@ -18,12 +18,13 @@ app.get('/', (req, res) => {
         },
         mid_news: {
             first: {
-                title: 'LOL: MISTRZOSTWA ŚWIATA 2017, DZIEŃ 1',
-                img: '../assets/img/news/lol_championships.jpg'
+                title: 'LOL: MISTRZOSTWA ŚWIATA 2017, DZIEŃ 1'
             },
             second: {
-                title: 'LOL: MISTRZOSTWA ŚWIATA 2017, DZIEŃ 2',
-                img: '../assets/img/news/lol_championships.jpg'
+                title: 'TEC-9 dostaje nerfa!'
+            },
+            third: {
+                title: 'Kiedy kolejna operacja? Czekamy Valve!'
             }
         },
         small_news: {

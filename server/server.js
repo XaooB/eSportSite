@@ -11,14 +11,14 @@ app.use('/assets', express.static('public')); //sciezka do plikow statycznych
 
 app.get('/', (req, res) => {
     res.render('home', {
-        title:'VIRTUS.PRO WYGRYWA PGL MAJOR W KRAKOWIE',
+        title:'Virtus.Pro wygrywa PGL Major w Krakowie',
         main_news: {
-            title: 'VIRTUS.PRO WYGRYWA PGL MAJOR W KRAKOWIE!',
+            title: 'Virtus.Pro wygrywa PGL Major w Krakowie!',
             img: '../assets/img/news/vp_winning.jpg'
         },
         mid_news: {
             first: {
-                title: 'LOL: MISTRZOSTWA ŚWIATA 2017, DZIEŃ 1'
+                title: 'LOL: Mistrzostwa Świata 2017!'
             },
             second: {
                 title: 'TEC-9 dostaje nerfa!'

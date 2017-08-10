@@ -1,47 +1,45 @@
 <main>
-    <div id="slider">
+    <div id="slider" class='clearfix'>
         <article>
-            <a href="/news/csgo/Virtus.Pro_wygrywa_PGL_Major_w_Krakowie">
-                <div class="img_wrapper">
-                    <figure>
-                        <img src='{{main_news.img}}' alt='' />
-                    </figure>
-                    <div class="container">
-                        <section class="more_news_wrapper">
-                            <a href="#inny_artykul1">
-                                <article>
-                                    <time>03/08/2017, 20:22</time>
-                                    <h2>{{main_news.title}}</h2>
-                                    <button type="button">WIĘCEJ</button>
-                                </article>
-                            </a>
-                            <a href="#inny_artykul2">
-                                <article>
-                                    <time>03/08/2017, 20:22</time>
-                                    <h2>{{main_news.title}}</h2>
-                                    <button type="button">WIĘCEJ</button>
-                                </article>
-                            </a>
-                            <a href="#inny_artykul3">
-                                <article>
-                                    <time>03/08/2017, 20:22</time>
-                                    <h2>{{main_news.title}}</h2>
-                                    <button type="button">WIĘCEJ</button>
-                                </article>
-                            </a>
-                        </section>
-                        <!--                        PRZYŁADOWY ROUTE-->
-                        <a href="/news/csgo/Virtus.Pro wygrywa PGL Major w Krakowie!">
-                            <header>
-                                <h1>{{main_news.title}}</h1>
-                            </header>
-                        </a>
-                    </div>
+            <!--            <a href="/news/csgo/Virtus.Pro wygrywa PGL Major w Krakowie!">-->
+            <div class="img_wrapper">
+                <figure>
+                    <img src='{{main_news.img}}' alt='' />
+                </figure>
+                <div class="container">
+                    <header class='news_header'>
+                        <time>10/08/2017, godz. 11:17</time>
+                        <h1>
+                            <a href="/news/csgo/Virtus.Pro wygrywa PGL Major w Krakowie!">{{main_news.title}}</a>
+                        </h1>
+                    </header>
+                    <section>
+                        <h1>Więcej newsów</h1>
+                        <div class="more_news_wrapper">
+                            <article>
+                                <time>03/08/2017, 20:22</time>
+                                <h2><a href="#inny_artykul1">{{mid_news.first.title}}</a></h2>
+                                <button type="button"><a href="#inny_artykul1">WIĘCEJ</a></button>
+                            </article>
+                            <article>
+                                <time>03/08/2017, 20:22</time>
+                                <h2><a href="#inny_artykul2">{{mid_news.second.title}}</a></h2>
+                                <button type="button"><a href="#inny_artykul2">WIĘCEJ</a></button>
+                            </article>
+                            <article>
+                                <time>03/08/2017, 20:22</time>
+                                <h2><a href="#inny_artykul3">{{mid_news.third.title}}</a></h2>
+                                <button type="button"><a href="#inny_artykul3">WIĘCEJ</a></button>
+                            </article>
+                        </div>
+                    </section>
                 </div>
-            </a>
+            </div>
+            <!--            </a>-->
         </article>
     </div>
     <section class='others_news'>
+       <h1>Latest News</h1>
         <div class="container">
             <div class="others_news_wrapper">
                 <section class="column">
@@ -51,11 +49,11 @@
                             <figure>
                                 <img src="{{lastest_news.img}}" alt="">
                             </figure>
-                            <section>
+                            <div class='info'>
                                 <h4>{{lastest_news.title}}</h4>
                                 <p>{{lastest_news.desc}}</p>
                                 <time>{{lastest_news.date}}</time>
-                            </section>
+                            </div>
                         </article>
                     </a>
                     <a href="#">
@@ -63,11 +61,11 @@
                             <figure>
                                 <img src="{{lastest_news.img}}" alt="">
                             </figure>
-                            <section>
+                            <div class='info'>
                                 <h4>{{lastest_news.title}}</h4>
                                 <p>{{lastest_news.desc}}</p>
                                 <time>{{lastest_news.date}}</time>
-                            </section>
+                            </div>
                         </article>
                     </a>
                     <a href="#">
@@ -75,11 +73,11 @@
                             <figure>
                                 <img src="{{lastest_news.img}}" alt="">
                             </figure>
-                            <section>
+                            <div class='info'>
                                 <h4>{{lastest_news.title}}</h4>
                                 <p>{{lastest_news.desc}}</p>
                                 <time>{{lastest_news.date}}</time>
-                            </section>
+                            </div>
                         </article>
                     </a>
                     <a href="#">
@@ -87,11 +85,11 @@
                             <figure>
                                 <img src="{{lastest_news.img}}" alt="">
                             </figure>
-                            <section>
+                            <div class='info'>
                                 <h4>{{lastest_news.title}}</h4>
                                 <p>{{lastest_news.desc}}</p>
                                 <time>{{lastest_news.date}}</time>
-                            </section>
+                            </div>
                         </article>
                     </a>
                     <a href="#">
@@ -99,11 +97,11 @@
                             <figure>
                                 <img src="{{lastest_news.img}}" alt="">
                             </figure>
-                            <section>
+                            <div class='info'>
                                 <h4>{{lastest_news.title}}</h4>
                                 <p>{{lastest_news.desc}}</p>
                                 <time>{{lastest_news.date}}</time>
-                            </section>
+                            </div>
                         </article>
                     </a>
                 </section>
@@ -114,11 +112,11 @@
                             <figure>
                                 <img src="{{lastest_news.img}}" alt="">
                             </figure>
-                            <section>
+                            <div class='info'>
                                 <h4>{{lastest_news.title}}</h4>
                                 <p>{{lastest_news.desc}}</p>
                                 <time>{{lastest_news.date}}</time>
-                            </section>
+                            </div>
                         </article>
                     </a>
                     <a href="#">
@@ -126,11 +124,11 @@
                             <figure>
                                 <img src="{{lastest_news.img}}" alt="">
                             </figure>
-                            <section>
+                            <div class='info'>
                                 <h4>{{lastest_news.title}}</h4>
                                 <p>{{lastest_news.desc}}</p>
                                 <time>{{lastest_news.date}}</time>
-                            </section>
+                            </div>
                         </article>
                     </a>
                     <a href="#">
@@ -138,11 +136,11 @@
                             <figure>
                                 <img src="{{lastest_news.img}}" alt="">
                             </figure>
-                            <section>
+                            <div class='info'>
                                 <h4>{{lastest_news.title}}</h4>
                                 <p>{{lastest_news.desc}}</p>
                                 <time>{{lastest_news.date}}</time>
-                            </section>
+                            </div>
                         </article>
                     </a>
                     <a href="#">
@@ -150,11 +148,11 @@
                             <figure>
                                 <img src="{{lastest_news.img}}" alt="">
                             </figure>
-                            <section>
+                            <div class='info'>
                                 <h4>{{lastest_news.title}}</h4>
                                 <p>{{lastest_news.desc}}</p>
                                 <time>{{lastest_news.date}}</time>
-                            </section>
+                            </div>
                         </article>
                     </a>
                     <a href="#">
@@ -162,11 +160,11 @@
                             <figure>
                                 <img src="{{lastest_news.img}}" alt="">
                             </figure>
-                            <section>
+                            <div class='info'>
                                 <h4>{{lastest_news.title}}</h4>
                                 <p>{{lastest_news.desc}}</p>
                                 <time>{{lastest_news.date}}</time>
-                            </section>
+                            </div>
                         </article>
                     </a>
                 </section>

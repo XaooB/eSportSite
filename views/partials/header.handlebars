@@ -12,18 +12,19 @@
 
 <body>
     <header class="header clearfix">
-        <div class='container'>
+        <div class='container clearfix'>
             <div class='logo'>
                 <a href="/"></a>
             </div>
             <div class="login_wrapper">
                 <ul class='login'>
                     <li><a href="#">REJESTRACJA</a></li>
-                    <li><a href="#">ZALOGUJ SIĘ</a></li>
+                    <li id='loginButton'><a href="#">ZALOGUJ SIĘ</a></li>
                 </ul>
                 <div class="panel">
-                    <section class="login_panel">
+                    <section class="login_panel clearfix">
                         <h2>Logowanie</h2>
+                        <span class='exit'>X</span>
                         <label for="username">Nazwa użytkownika:</label>
                         <input type="text" name='login' id='login'>
                         <label for="password">Hasło:</label>

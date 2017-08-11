@@ -13,18 +13,18 @@
 <body>
     <header class="header clearfix">
         <div class='container clearfix'>
-            <div class='logo'>
+            <div class='logo f-l'>
                 <h1><a href="/">www.esportnews.com</a></h1>
             </div>
-            <div class="login_wrapper">
+            <div class="login_wrapper f-r">
                 <ul class='login'>
                     <li><a href="/profil/register">REJESTRACJA</a></li>
                     <li id='loginButton'><a href="#">ZALOGUJ SIĘ</a></li>
                 </ul>
                 <div class="panel">
                     <section class="login_panel clearfix">
-                        <h2>Logowanie</h2>
-                        <span class='exit'>X</span>
+                        <h2 class='f-l'>Logowanie</h2>
+                        <span class='exit f-r'>X</span>
                         <label for="username">Nazwa użytkownika:</label>
                         <input type="text" name='login' id='login'>
                         <label for="password">Hasło:</label>
@@ -37,12 +37,12 @@
                 </div>
             </div>
         </div>
-        <nav class="navbar">
+        <nav class="navbar f-l">
             <!-- ONLY FOR OUTLINE PURPOSE -->
             <h2 style='display:none'>Nawigacja</h2>
             <!-- END OF H2 -->
-            <div class="container">
-                <ul class="toggleNav">
+            <div class="container clearfix">
+                <ul class="toggleNav f-l">
                     <li><a href="">CS:GO</a>
                         <ol class='subNav'>
                             <li>
@@ -76,19 +76,18 @@
                         </ol>
                     </li>
                 </ul>
-                <ul class="nav">
+                <ul class="nav f-l">
                     <li><a href="news/archives">ARCHIWUM</a></li>
                     <li><a href="/gallery">GALERIA</a></li>
                     <li><a href="contact">KONTAKT</a></li>
                 </ul>
                 <!--                DO ZROBIENIA-->
-                <div class="searchEngine hidden">
+                <div class="searchEngine hidden f-r">
                     <form action="">
                         <input type="search" name="search" id='search' placeholder="search..."> </form>
                     <button type='button' id='searchButton'>
                             <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
-
                 </div>
             </div>
         </nav>

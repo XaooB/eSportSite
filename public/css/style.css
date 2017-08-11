@@ -1,3 +1,20 @@
+.f-l {
+  float: left; }
+
+.f-r {
+  float: right; }
+
+.clearfix:after {
+  content: '';
+  clear: both;
+  display: table; }
+
+.hidden {
+  overflow: hidden; }
+
+.scroll {
+  overflow: auto; }
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +29,6 @@ body {
   color: #ffffff; }
   body .flex_container {
     width: 100%;
-    overflow: hidden;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -21,15 +37,8 @@ body {
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between; }
-  body .clearfix:after {
-    content: '';
-    clear: both;
-    display: table; }
-  body .hidden {
-    overflow: hidden; }
-  body .scroll {
-    overflow: auto; }
   body .container {
+    padding: 0 2px;
     max-width: 1200px;
     margin: 0 auto; }
   body header {
@@ -37,7 +46,6 @@ body {
     border-top: 4px solid #333; }
     body header .logo {
       margin-top: 4px;
-      float: left;
       width: 60%;
       height: 49px;
       background: url(../img/logo.png) no-repeat; }
@@ -49,7 +57,6 @@ body {
           padding: 17px 20px; }
     body header .login_wrapper {
       position: relative;
-      float: right;
       width: 40%;
       height: 49px;
       background: rgba(0, 0, 0, 0.2);
@@ -86,10 +93,8 @@ body {
             padding: 6px;
             border-bottom: 1px solid #107dac;
             margin-bottom: 20px;
-            float: left;
             width: 90%; }
           body header .login_wrapper .panel .login_panel .exit {
-            float: right;
             width: 10%;
             color: #ffffff;
             font-family: "Righteous";
@@ -215,7 +220,6 @@ body {
     body .navbar ul.toggleNav {
       width: 55%;
       height: 55px;
-      float: left;
       position: relative; }
       body .navbar ul.toggleNav li {
         width: 150px;
@@ -272,7 +276,6 @@ body {
             body .navbar ul.toggleNav li:hover ol.subNav li a:hover {
               color: #ffffff; }
     body .navbar .nav {
-      float: left;
       width: 27%;
       height: 55px; }
       body .navbar .nav li {
@@ -292,7 +295,6 @@ body {
           border-bottom: 1px solid #107dac; }
     body .navbar .searchEngine {
       width: 18%;
-      float: right;
       line-height: 55px;
       height: 55px;
       position: relative; }
@@ -339,7 +341,6 @@ body {
         body main .error_wrapper .error .info p {
           line-height: 1.5; }
     body main .register_wrapper .register {
-      float: left;
       margin: 40px 0;
       width: 100%;
       color: #222222; }
@@ -348,7 +349,7 @@ body {
         border-bottom: 4px solid #222222; }
       body main .register_wrapper .register form {
         width: 40%;
-        margin: 30px 0; }
+        margin: 30px 10px; }
         body main .register_wrapper .register form label {
           text-transform: uppercase;
           font-size: .75em;
@@ -463,8 +464,7 @@ body {
             padding: 12px;
             background: #107dac; }
         body main .news_wrapper .main_news .content {
-          width: 100%;
-          float: left; }
+          width: 100%; }
           body main .news_wrapper .main_news .content p {
             font-size: 1em;
             color: #555;
@@ -537,12 +537,10 @@ body {
           margin-bottom: 20px; }
         body main .news_wrapper .hot_news a {
           display: block;
-          float: left;
           width: 33.33333%; }
         body main .news_wrapper .hot_news .hot_item {
           width: 100%;
           height: 250px;
-          float: left;
           position: relative;
           overflow: hidden; }
           body main .news_wrapper .hot_news .hot_item img {
@@ -613,7 +611,6 @@ body {
           margin-top: 40px;
           background: #fff;
           height: 100%;
-          float: left;
           max-width: 300px;
           margin-left: 40px; }
           body main #slider article .img_wrapper .more_news_wrapper article {
@@ -640,8 +637,7 @@ body {
               font-family: "Righteous";
               color: #222222;
               border: none;
-              position: relative;
-              float: right; }
+              position: relative; }
               body main #slider article .img_wrapper .more_news_wrapper article button a {
                 color: #222222; }
               body main #slider article .img_wrapper .more_news_wrapper article button:before {
@@ -668,7 +664,6 @@ body {
       overflow: auto; }
       body .others_news .others_news_wrapper .column {
         margin-top: 20px;
-        float: left;
         width: 49%;
         overflow: hidden; }
         body .others_news .others_news_wrapper .column:last-child {
@@ -685,7 +680,6 @@ body {
             overflow: hidden;
             position: relative; }
           body .others_news .others_news_wrapper .column article .info {
-            float: right;
             height: 100px;
             width: 75%;
             padding: 2px 10px;
@@ -739,7 +733,6 @@ body {
     body .social_media .social_wrapper {
       width: 32.2%;
       margin-top: 20px;
-      float: left;
       margin-right: 20px;
       background: #107dac; }
       body .social_media .social_wrapper span {
@@ -763,8 +756,7 @@ body {
     overflow: hidden;
     margin-bottom: 80px; }
     body .gallery .gallery-wrapper .item {
-      width: 25%;
-      float: left; }
+      width: 25%; }
       body .gallery .gallery-wrapper .item img {
         height: 300px; }
 

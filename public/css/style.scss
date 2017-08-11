@@ -12,6 +12,10 @@ $textFont: 'Helvetica';
 }
 
 body {
+    background: #222;
+    font-size: 16px; //1em
+    font-family: $textFont;
+    color: #ffffff;
     .flex_container {
         width: 100%;
         overflow: hidden;
@@ -25,18 +29,18 @@ body {
             display: table;
         }
     }
+    .hidden {
+        overflow: hidden;
+    }
     .scroll {
         overflow: auto;
     }
-    font-size: 16px; //1em
-    background: $bgColor;
-    font-family: $textFont;
-    color: #ffffff;
     .container {
         max-width: 1200px;
         margin: 0 auto;
     }
     header {
+        background: $bgColor;
         border-top: 4px solid #333;
         .logo {
             margin-top: 4px;
@@ -144,12 +148,12 @@ body {
                     }
                 }
             }
-            .showing {
+            .showingPanel {
                 top: 56px;
                 transition: .5s ease-in-out;
                 opacity: 1;
             }
-            .hiding {
+            .hidingPanel {
                 transition: .5s ease-in-out;
                 top: -275px;
                 opacity: 0;
@@ -171,6 +175,7 @@ body {
                     display: inline-block;
                     height: 49px;
                     a {
+                        display: block;
                         font-family: $mainFont;
                         font-size: .8em;
                         color: #ffffff;
@@ -185,6 +190,7 @@ body {
                         &:before {
                             position: absolute;
                             left: -45px;
+                            top: 0;
                             content: '';
                             border-bottom: 49px solid #333;
                             border-left: 45px solid transparent;
@@ -192,6 +198,7 @@ body {
                         &:after {
                             position: absolute;
                             content: '';
+                            top: 0;
                             right: -45px;
                             border-bottom: 49px solid transparent;
                             border-left: 45px solid #333;
@@ -221,23 +228,28 @@ body {
         background: $darkGray;
         width: 100%;
         height: 55px;
-        float: left;
         border-bottom: 1px solid #555555;
-        .dropDown {
+        ul.toggleNav {
             width: 55%;
             height: 55px;
+            list-style-type: none;
             float: left;
+            position: relative;
             li {
-                width: 50%;
-                display: inline;
+                width: 150px;
+                text-align: center;
+                float: left;
                 line-height: 55px;
-                margin-left: 65px;
+                &:hover a {
+                    color: $bgColor;
+                }
                 a {
                     color: #fff;
                     font-family: $mainFont;
                     font-size: 1.1em;
                     text-decoration: none;
                     position: relative;
+                    cursor: default;
                     &:after {
                         font-family: $mainFont;
                         position: absolute;
@@ -248,15 +260,53 @@ body {
                         right: -15px;
                         transform: rotate(180deg);
                     }
-                    &:hover {
-                        color: $bgColor;
+                }
+                ol.subNav {
+                    background: $darkGray;
+                    position: absolute;
+                    top: 55px;
+                    display: inline-block;
+                    z-index: 99999;
+                    display: none;
+                    li {
+                        border-bottom: 1px solid #333333;
+                        padding: 0 10px;
+                        text-align: left;
+                        width: 150px;
+                        float: none;
+                        margin: 0;
+                        a {
+                            cursor: pointer;
+                            font-size: .9em;
+                            font-family: $textFont;
+                            display: block;
+                            &:after {
+                                content: none;
+                            }
+                        }
+                        &:last-child {
+                            border: none;
+                        }
+                    }
+                }
+                &:hover {
+                    background: #111;
+                    ol.subNav {
+                        display: block;
+                        li {
+                            a {
+                                &:hover {
+                                    color: #ffffff;
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
         .nav {
             float: left;
-            width: 30%;
+            width: 27%;
             height: 55px;
             li {
                 float: left;
@@ -278,32 +328,95 @@ body {
         }
         .searchEngine {
             //input width:200px
-            width: 15%;
+            width: 18%;
             float: right;
             line-height: 55px;
             height: 55px;
             position: relative;
+            #search {
+                outline: 0;
+                background: #333;
+                border: none;
+                transition: .5s ease-out;
+                position: absolute;
+                top: 11px;
+                padding: 6px;
+                color: $darkGray;
+                ;
+                right: -160px;
+                width: 170px;
+                height: 35px;
+            }
             button {
                 position: absolute;
                 right: 0;
                 top: 11px;
-                padding: 10px;
+                height: 35px;
+                width: 35px;
                 background: #333;
                 border: none;
-                border-radius: 6px;
+                outline: 0;
                 color: $lightFontColor;
                 &:hover {
-                    color: $bgColor;
                     cursor: pointer;
                 }
+            }
+            .showingSearchEngine {
+                right: 34px !important;
+                background: #fff !important;
+                transition: .5s ease-in !important;
             }
         }
     }
     main {
+        background: #fcfcfc;
+        .error_wrapper {
+            padding: 50px 0;
+            color: $darkGray;
+            h2 {
+                border-bottom: 4px solid #222;
+                margin-bottom: 20px;
+            }
+            p {
+                line-height: 1.5;
+            }
+        }
+        .register_wrapper {
+            .register {
+                float: left;
+                margin-top: 20px;
+                width: 30%;
+                color: $darkGray;
+                form {
+                    width: 100%;
+                    margin: 30px 0;
+                    label {
+                        text-transform: uppercase;
+                        font-size: .75em;
+                        font-weight: bold;
+                        display: block;
+                        margin-bottom: 2px;
+                    }
+                    input {
+                        width: 100%;
+                        padding: 6px;
+                        margin-bottom: 12px;
+                    }
+                    button {
+                        padding: 14px;
+                        border: none;
+                        background: $bgColor;
+                        color: #ffffff;
+                        width: 100%;
+                        margin-top: 20px;
+                        display: block;
+                    }
+                }
+            }
+        }
         .news_wrapper {
             padding-top: 20px;
             width: 100%;
-            background: #fcfcfc;
             color: $darkGray;
             .where_am_i {
                 margin-bottom: 4px;
@@ -406,15 +519,18 @@ body {
                     height: 300px;
                     position: relative;
                     img {
-                        margin-top: -40px;
-                        width: 100%;
+                        height: 400px;
+                    }
+                    figure {
+                        height: inherit;
+                        overflow: hidden;
                     }
                     h1 {
                         font-family: $textFont;
                         font-weight: bold;
                         position: absolute;
                         width: 90%;
-                        bottom: 0;
+                        bottom: 20px;
                         left: 50%;
                         transform: translateX(-50%);
                         color: #ffffff;
@@ -511,12 +627,10 @@ body {
                 }
             }
             .hot_news {
-                margin-top: 20px;
+                margin-top: 22px;
                 width: 100%;
                 margin-bottom: 50px;
-                header {
-                    overflow: hidden;
-                    border: none;
+                h3 {
                     margin-bottom: 20px;
                 }
                 a {
@@ -567,8 +681,8 @@ body {
                 figure {
                     height: 0;
                     img {
-                        margin-top: -50px;
-                        width: 100%;
+                        //                        margin-top: -50px;
+                        height: auto;
                     }
                 }
                 .img_wrapper {
@@ -600,7 +714,7 @@ body {
                         }
                         time {
                             color: #fff;
-                            border-bottom: 1px solid $bgColor;
+                            border-bottom: 2px solid $bgColor;
                             font-size: .7em;
                             padding: 4px;
                             display: block;
@@ -613,7 +727,8 @@ body {
                     }
                     .more_news_wrapper {
                         margin-top: 40px;
-                        position: relative;
+                        background: #fff;
+                        height: 100%;
                         float: left;
                         max-width: 300px; //do zmiany
                         margin-left: 40px;
@@ -622,6 +737,9 @@ body {
                             background: $darkGray;
                             font-family: $textFont;
                             margin-bottom: 2px;
+                            &:last-child {
+                                margin: 0;
+                            }
                             time {
                                 font-size: .65em;
                             }
@@ -675,7 +793,6 @@ body {
     //        overflow: hidden; //DOTYCZY KAŻDEGO KONTENERA W HIERARHCI PONŻEJ _MID_NEWS 
     //    }
     .others_news {
-        background: #fcfcfc;
         width: 100%;
         padding-bottom: 30px;
         clear: both;
@@ -769,10 +886,6 @@ body {
         width: 100%;
         padding-top: 5px;
         padding-bottom: 60px;
-        background: #fcfcfc;
-        h3 {
-            overflow: hidden; //WRAPPER DO DODANIA, ABY NIE STOSOWAĆ W TEN SPOSÓB OVERFLOW'A
-        }
         .social_wrapper {
             width: 32.2%;
             margin-top: 20px;
@@ -800,10 +913,6 @@ body {
         }
     }
     .gallery {
-        h3 {
-            overflow: hidden; //WRAPPER DO DODANIA, ABY NIE STOSOWAĆ W TEN SPOSÓB OVERFLOW'A
-        }
-        background: #fcfcfc;
         .gallery-wrapper {
             margin-top: 20px;
             height: 300px;
@@ -821,7 +930,7 @@ body {
 }
 
 footer {
-    h3 {
+    h2 {
         display: none;
     }
     padding: 30px 0;

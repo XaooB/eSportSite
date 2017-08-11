@@ -339,10 +339,13 @@ body {
     body main .register_wrapper .register {
       float: left;
       margin-top: 20px;
-      width: 30%;
+      width: 100%;
       color: #222222; }
+      body main .register_wrapper .register h1 {
+        padding: 2px;
+        border-bottom: 4px solid #222222; }
       body main .register_wrapper .register form {
-        width: 100%;
+        width: 40%;
         margin: 30px 0; }
         body main .register_wrapper .register form label {
           text-transform: uppercase;

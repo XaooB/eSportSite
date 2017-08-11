@@ -385,10 +385,14 @@ body {
             .register {
                 float: left;
                 margin-top: 20px;
-                width: 30%;
+                width: 100%;
                 color: $darkGray;
+                h1 {
+                    padding: 2px;
+                    border-bottom: 4px solid $darkGray;
+                }
                 form {
-                    width: 100%;
+                    width: 40%;
                     margin: 30px 0;
                     label {
                         text-transform: uppercase;

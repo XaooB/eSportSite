@@ -328,17 +328,19 @@ body {
                 transition: .5s ease-in !important; }
   body main {
     background: #fcfcfc; }
-    body main .error_wrapper {
-      padding: 50px 0;
-      color: #222222; }
-      body main .error_wrapper h2 {
-        border-bottom: 4px solid #222;
-        margin-bottom: 20px; }
-      body main .error_wrapper p {
-        line-height: 1.5; }
+    body main .error_wrapper .error {
+      color: #222222;
+      margin: 40px 0; }
+      body main .error_wrapper .error h2 {
+        padding: 2px;
+        border-bottom: 4px solid #222; }
+      body main .error_wrapper .error .info {
+        margin: 30px 0; }
+        body main .error_wrapper .error .info p {
+          line-height: 1.5; }
     body main .register_wrapper .register {
       float: left;
-      margin-top: 20px;
+      margin: 40px 0;
       width: 100%;
       color: #222222; }
       body main .register_wrapper .register h1 {

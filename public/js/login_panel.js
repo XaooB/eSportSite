@@ -3,13 +3,13 @@ var myObject = (function () {
     var loginPanel = document.querySelector('.login_wrapper .panel');
 
     var showPanel = () => {
-        if (loginPanel.classList.contains('hiding')) loginPanel.classList.remove('hiding');
-        loginPanel.classList.toggle('showing');
+        if (loginPanel.classList.contains('hidingPanel')) loginPanel.classList.remove('hidingPanel');
+        loginPanel.classList.toggle('showingPanel');
     };
 
     var hidePanel = () => {
-        loginPanel.classList.remove('showing');
-        loginPanel.classList.add('hiding');
+        loginPanel.classList.remove('showingPanel');
+        loginPanel.classList.add('hidingPanel');
     }
 
     var bindEvents = () => {

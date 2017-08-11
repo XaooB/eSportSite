@@ -18,7 +18,7 @@
             </div>
             <div class="login_wrapper">
                 <ul class='login'>
-                    <li><a href="#">REJESTRACJA</a></li>
+                    <li><a href="/profil/register">REJESTRACJA</a></li>
                     <li id='loginButton'><a href="#">ZALOGUJ SIĘ</a></li>
                 </ul>
                 <div class="panel">
@@ -42,20 +42,53 @@
             <h2 style='display:none'>Nawigacja</h2>
             <!-- END OF H2 -->
             <div class="container">
-                <ul class="dropDown">
-                    <li><a href="#">CS:GO</a></li>
-                    <li><a href="#">LOL</a></li>
+                <ul class="toggleNav">
+                    <li><a href="">CS:GO</a>
+                        <ol class='subNav'>
+                            <li>
+                                <a href="/lol/events">Wydarzenia</a></li>
+                            <li>
+                                <a href="lol/matches">Mecze</a></li>
+                            <li>
+                                <a href="/lol/teams">Drużyny</a></li>
+                            <li>
+                                <a href="/lol/results">Wyniki</a></li>
+                            <li>
+                                <a href="/lol/statistics">Statystyki</a></li>
+                            <li>
+                                <a href="/lol/ranking">Ranking</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="">LOL</a>
+                        <ol class='subNav'>
+                            <li>
+                                <a href="/lol/events">Wydarzenia</a></li>
+                            <li>
+                                <a href="lol/matches">Mecze</a></li>
+                            <li>
+                                <a href="/lol/teams">Drużyny</a></li>
+                            <li>
+                                <a href="/lol/results">Wyniki</a></li>
+                            <li>
+                                <a href="/lol/statistics">Statystyki</a></li>
+                            <li>
+                                <a href="/lol/ranking">Ranking</a></li>
+                        </ol>
+                    </li>
                 </ul>
                 <ul class="nav">
-                    <li><a href="#">ARCHIWUM</a></li>
-                    <li><a href="#">GALERIA</a></li>
-                    <li><a href="#">KONTAKT</a></li>
+                    <li><a href="news/archives">ARCHIWUM</a></li>
+                    <li><a href="/gallery">GALERIA</a></li>
+                    <li><a href="contact">KONTAKT</a></li>
                 </ul>
                 <!--                DO ZROBIENIA-->
-                <div class="searchEngine">
-                    <button type='submit'>
+                <div class="searchEngine hidden">
+                    <form action="">
+                        <input type="search" name="search" id='search' placeholder="search..."> </form>
+                    <button type='button' id='searchButton'>
                             <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
+
                 </div>
             </div>
         </nav>

@@ -56,22 +56,26 @@ app.get('/news/:category/:title', (req, res) => {
 app.get('/profil/register', (req, res) => {
     res.render('register', {
         test: 'test'
-    })
-})
+    });
+});
 
-//POSTS
-app.post('/profil/register', (req, res) => {
-    res.send('WYSŁAŁEM FORMULARZ');
-})
-
-//ERROR HANDLING
-app.use((req, res) => {
+app.get('/error', (req, res) => {
     res.status(404).render('404', {
         title: 'ERROR 404',
         desc: 'Coś poszło nie tak :(',
         fun: 'Strona w budowie.'
-    })
-})
+    });
+});
+
+//POSTS
+app.post('/profil/register', (req, res) => {
+    res.send('WYSŁAŁEM FORMULARZ');
+});
+
+//ERROR HANDLING
+app.use((req, res) => {
+    res.redirect('/error');
+});
 
 app.listen(port, () => {
     console.log('Server running on localhost:3000');

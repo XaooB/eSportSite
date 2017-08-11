@@ -7,6 +7,7 @@ $textFont: 'Helvetica';
 * {
     margin: 0;
     padding: 0;
+    list-style-type: none;
     box-sizing: border-box;
     text-decoration: none;
 }
@@ -232,7 +233,6 @@ body {
         ul.toggleNav {
             width: 55%;
             height: 55px;
-            list-style-type: none;
             float: left;
             position: relative;
             li {

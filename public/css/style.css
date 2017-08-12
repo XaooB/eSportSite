@@ -282,16 +282,16 @@ body {
                 content: none; }
             body .navbar ul.toggleNav li ol.subNav li:last-child {
               border: none; }
-        body .navbar ul.toggleNav li:hover {
+        body .navbar ul.toggleNav li:hover, body .navbar ul.toggleNav li:focus {
           border-bottom: 1px solid #107dac;
           background: #111; }
-          body .navbar ul.toggleNav li:hover ol.subNav {
+          body .navbar ul.toggleNav li:hover ol.subNav, body .navbar ul.toggleNav li:focus ol.subNav {
             display: block; }
-            body .navbar ul.toggleNav li:hover ol.subNav li:hover {
+            body .navbar ul.toggleNav li:hover ol.subNav li:hover, body .navbar ul.toggleNav li:focus ol.subNav li:hover {
               -webkit-transition: .3s all linear;
                       transition: .3s all linear;
               background: #111; }
-              body .navbar ul.toggleNav li:hover ol.subNav li:hover a {
+              body .navbar ul.toggleNav li:hover ol.subNav li:hover a, body .navbar ul.toggleNav li:focus ol.subNav li:hover a {
                 color: #ffffff; }
         body .navbar ul.toggleNav li:hover {
           -webkit-transition: .3s all linear;

@@ -309,7 +309,7 @@ body {
                         }
                     }
                 }
-                &:hover {
+                &:hover, &:focus {
                     border-bottom: 1px solid $bgColor;
                     background: #111;
                     ol.subNav {

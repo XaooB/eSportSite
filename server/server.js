@@ -162,6 +162,25 @@ app.get('/:category/ranking', (req, res) => {
 
 
 
+
+app.get('/news/archives', (req, res) => {
+    res.render('archives', {
+        title: 'Archiwum wiadomości'
+    });
+});
+
+app.get('/gallery', (req, res) => {
+    res.render('gallery', {
+        title: 'Galeria zdjęć'
+    });
+});
+
+app.get('/contact', (req, res) => {
+    res.render('contact', {
+        title: 'Skontaktuj się z nami'
+    })
+});
+
 app.get('/error', (req, res) => {
     res.status(404).render('404', {
         title: 'Błąd 404. Taka strona nie istnieje!',

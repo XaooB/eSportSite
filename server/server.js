@@ -60,13 +60,116 @@ app.get('/profil/register', (req, res) => {
     });
 });
 
+
+
+
+
+app.get('/:category/events', (req, res) => {
+    let category = req.params.category;
+
+    if (category == 'lol') {
+        res.render('events', {
+            title: 'Wydarzenia: League of Legends'
+        })
+    } else if (category == 'csgo') {
+        res.render('events', {
+            title: 'Wydarzenia: Counter Strike: Global Offensive'
+        })
+    } else {
+        res.status(404).redirect('/error')
+    }
+});
+
+app.get('/:category/matches', (req, res) => {
+    let category = req.params.category;
+
+    if (category == 'lol') {
+        res.render('matches', {
+            title: 'Mecze: League of Legends'
+        })
+    } else if (category == 'csgo') {
+        res.render('matches', {
+            title: 'Mecze: Counter Strike: Global Offensive'
+        })
+    } else {
+        res.status(404).redirect('/error')
+    }
+});
+
+app.get('/:category/teams', (req, res) => {
+    let category = req.params.category;
+
+    if (category == 'lol') {
+        res.render('teams', {
+            title: 'Drużyny: League of Legends'
+        })
+    } else if (category == 'csgo') {
+        res.render('teams', {
+            title: 'Drużyny: Counter Strike: Global Offensive'
+        })
+    } else {
+        res.status(404).redirect('/error')
+    }
+});
+
+app.get('/:category/results', (req, res) => {
+    let category = req.params.category;
+
+    if (category == 'lol') {
+        res.render('results', {
+            title: 'Wyniki: League of Legends'
+        })
+    } else if (category == 'csgo') {
+        res.render('results', {
+            title: 'Wyniki: Counter Strike: Global Offensive'
+        })
+    } else {
+        res.status(404).redirect('/error')
+    }
+});
+
+app.get('/:category/statistics', (req, res) => {
+    let category = req.params.category;
+
+    if (category == 'lol') {
+        res.render('statistics', {
+            title: 'Statystyki: League of Legends'
+        })
+    } else if (category == 'csgo') {
+        res.render('statistics', {
+            title: 'Statystyki: Counter Strike: Global Offensive'
+        })
+    } else {
+        res.status(404).redirect('/error')
+    }
+});
+
+app.get('/:category/ranking', (req, res) => {
+    let category = req.params.category;
+
+    if (category == 'lol') {
+        res.render('ranking', {
+            title: 'Ranking: League of Legends'
+        })
+    } else if (category == 'csgo') {
+        res.render('ranking', {
+            title: 'Ranking: Counter Strike: Global Offensive'
+        })
+    } else {
+        res.status(404).redirect('/error')
+    }
+});
+
+
+
 app.get('/error', (req, res) => {
     res.status(404).render('404', {
-        title: 'ERROR 404',
+        title: 'Błąd 404. Taka strona nie istnieje!',
         desc: 'Coś poszło nie tak :(',
         fun: 'Strona w budowie.'
     });
 });
+
 
 //POSTS
 app.post('/profil/register', (req, res) => {

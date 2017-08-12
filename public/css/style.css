@@ -520,7 +520,7 @@ body {
         body main .news_wrapper .main_news .post_comments {
           clear: both;
           margin: 40px 0; }
-          body main .news_wrapper .main_news .post_comments h1 {
+          body main .news_wrapper .main_news .post_comments h2 {
             color: #ffffff;
             background: #222222;
             padding: 10px; }
@@ -702,8 +702,6 @@ body {
   body .others_news {
     width: 100%;
     clear: both; }
-    body .others_news h2 {
-      display: none; }
     body .others_news .others_news_wrapper {
       overflow: auto; }
       body .others_news .others_news_wrapper .column {

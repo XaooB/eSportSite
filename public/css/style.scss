@@ -624,7 +624,7 @@ body {
                 .post_comments {
                     clear: both;
                     margin: 40px 0;
-                    h1 {
+                    h2 {
                         color: $lightFontColor;
                         background: $darkGray;
                         padding: 10px;
@@ -857,9 +857,6 @@ body {
     .others_news {
         width: 100%;
         clear: both;
-        h2 {
-            display: none;
-        }
         .others_news_wrapper {
             overflow: auto;
             .column {

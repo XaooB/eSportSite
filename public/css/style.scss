@@ -13,6 +13,10 @@ $textFont: 'Helvetica';
     float: right;
 }
 
+.margin20 {
+    margin: 20px 0;
+}
+
 .clearfix {
     &:after {
         content: '';
@@ -461,9 +465,47 @@ body {
                     }
                 }
             }
+            .authors_news {
+                margin-top: 2px;
+                background: #dfdfdf;
+                width: 100%;
+                .author_wrapper {
+                    article {
+                        a {
+                            width: 100%;
+                            height: 200px;
+                            display: block;
+                            z-index: 2;
+                            position: relative;
+                        }
+                        header {
+                            background: none;
+                            z-index: 1;
+                            position: relative;
+                            margin-top: -200px;
+                            margin-bottom: -3px;
+                            border: none;
+                            img {
+                                height: 200px;
+                            }
+                            h5 {
+                                position: absolute;
+                                bottom: 20px;
+                                left: 0;
+                                color: $lightFontColor;
+                                font-size: .9em;
+                                display: block;
+                                width: 100%;
+                                background: $bgColor;
+                                padding: 10px;
+                            }
+                        }
+                    }
+                }
+            }
             .related_news {
                 background: #dfdfdf;
-                width: 300/1200 * 100%; //300px
+                width: 300/1200 * 100%;
                 h2 {
                     border-bottom: 1px solid #efefef;
                     font-size: 1em;
@@ -474,6 +516,9 @@ body {
                 .related_wrapper {
                     height: 600px;
                     article {
+                        h3 {
+                            display: none;
+                        }
                         table {
                             margin-bottom: 1px;
                             width: 100%;
@@ -496,6 +541,8 @@ body {
                                     height: 40px;
                                     font-size: 1em;
                                     a {
+                                        display: block;
+                                        height: 40px;
                                         color: $bgColor;
                                     }
                                 }
@@ -575,9 +622,8 @@ body {
                     margin: 40px 0;
                     h1 {
                         color: $lightFontColor;
-                        background: $bgColor;
-                        padding: 6px;
-                        //                        border-bottom: 2px solid $bgColor;
+                        background: $darkGray;
+                        padding: 10px;
                     }
                     article {
                         padding: 10px 4px;
@@ -596,6 +642,10 @@ body {
                             height: auto;
                             border: none;
                             background: none;
+                            h4 {
+                                color: #888888;
+                                font-weight:lighter;
+                            }
                         }
                         p {
                             padding: 6px;
@@ -639,12 +689,8 @@ body {
                 }
             }
             .hot_news {
-                margin-top: 22px;
                 width: 100%;
                 margin-bottom: 50px;
-                h3 {
-                    margin-bottom: 20px;
-                }
                 a {
                     display: block;
                     width: 400/1200*100%;
@@ -742,53 +788,61 @@ body {
                         max-width: 300px; //do zmiany
                         margin-left: 40px;
                         article {
+                            position: relative;
+                            height: 100px;
                             padding: 4px 6px;
                             background: $darkGray;
                             font-family: $textFont;
                             margin-bottom: 2px;
+                            a {
+                                z-index: 2;
+                                display: block;
+                                position: relative;
+                                height: 100px;
+                            }
                             &:last-child {
                                 margin: 0;
                             }
-                            time {
-                                font-size: .65em;
-                            }
-                            h2 {
-                                font-size: 1em;
-                                a {
-                                    display: block;
-                                    padding: 12px 0;
-                                    color: #ffffff;
-                                    &:hover {
-                                        color: $bgColor;
-                                    }
+                            .item {
+                                margin-top: -100px;
+                                time {
+                                    font-size: .65em;
                                 }
-                            }
-                            button {
-                                cursor: pointer;
-                                background: #ffffff;
-                                padding: 8px 15px;
-                                font-family: $mainFont;
-                                color: $darkGray;
-                                border: none;
-                                position: relative;
-                                a {
+                                h2 {
+                                    font-size: 1em;
+                                }
+                                .wrap_button {
+                                    width: 100%;
+                                    z-index: 1;
+                                    position: absolute;
+                                    bottom: 4px;
+                                    right: 4px;
+                                }
+                                button {
+                                    background: #ffffff;
+                                    padding: 8px 15px;
+                                    color: #222;
+                                    font-family: $mainFont;
                                     color: $darkGray;
-                                }
-                                &:before {
-                                    content: '';
-                                    position: absolute;
-                                    top: 0;
-                                    left: -16px;
-                                    border-left: 16px solid transparent;
-                                    border-bottom: 16px solid #ffffff;
-                                }
-                                &:after {
-                                    content: '';
-                                    position: absolute;
-                                    top: 16px;
-                                    left: -16px;
-                                    border-left: 16px solid transparent;
-                                    border-top: 16px solid #ffffff;
+                                    border: none;
+                                    position: relative;
+                                    bottom: 0;
+                                    &:before {
+                                        content: '';
+                                        position: absolute;
+                                        top: 0;
+                                        left: -16px;
+                                        border-left: 16px solid transparent;
+                                        border-bottom: 16px solid #ffffff;
+                                    }
+                                    &:after {
+                                        content: '';
+                                        position: absolute;
+                                        top: 16px;
+                                        left: -16px;
+                                        border-left: 16px solid transparent;
+                                        border-top: 16px solid #ffffff;
+                                    }
                                 }
                             }
                         }
@@ -802,7 +856,6 @@ body {
     //    }
     .others_news {
         width: 100%;
-        padding-bottom: 30px;
         clear: both;
         h1 {
             display: none;
@@ -810,23 +863,24 @@ body {
         .others_news_wrapper {
             overflow: auto;
             .column {
-                margin-top: 20px;
                 width: 49%;
                 overflow: hidden;
                 &:last-child {
                     margin-left: 2%;
                 }
                 article {
-                    margin-top: 20px;
+                    margin-bottom: 20px;
                     background: rgba(0, 0, 0, .05);
                     height: 100px;
                     position: relative;
+                    .item {
+                        margin-top: -100px;
+                    }
                     figure {
                         float: left;
                         width: 25%;
                         height: 100px;
                         overflow: hidden;
-                        position: relative;
                     }
                     .info {
                         height: 100px;
@@ -860,12 +914,13 @@ body {
                     }
                 }
                 a {
+                    position: relative;
                     display: block;
+                    height: 100px;
                 }
             }
         }
         button {
-            margin-top: 30px;
             float: right;
             padding: 14px;
             background: $bgColor;
@@ -890,11 +945,8 @@ body {
     }
     .social_media {
         width: 100%;
-        padding-top: 5px;
-        padding-bottom: 60px;
         .social_wrapper {
             width: 32.2%;
-            margin-top: 20px;
             margin-right: 20px;
             background: $bgColor;
             span {

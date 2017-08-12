@@ -60,108 +60,78 @@ app.get('/profil/register', (req, res) => {
     });
 });
 
-
-
-
-
-app.get('/:category/events', (req, res) => {
-    let category = req.params.category;
-
-    if (category == 'lol') {
-        res.render('events', {
-            title: 'Wydarzenia: League of Legends'
-        })
-    } else if (category == 'csgo') {
-        res.render('events', {
-            title: 'Wydarzenia: Counter Strike: Global Offensive'
-        })
-    } else {
-        res.status(404).redirect('/error')
-    }
+app.get('/lol/events', (req, res) => {
+    res.render('events', {
+        title: 'Wydarzenia: League of Legends'
+    });
 });
 
-app.get('/:category/matches', (req, res) => {
-    let category = req.params.category;
-
-    if (category == 'lol') {
-        res.render('matches', {
-            title: 'Mecze: League of Legends'
-        })
-    } else if (category == 'csgo') {
-        res.render('matches', {
-            title: 'Mecze: Counter Strike: Global Offensive'
-        })
-    } else {
-        res.status(404).redirect('/error')
-    }
+app.get('/csgo/events', (req, res) => {
+    res.render('events', {
+        title: 'Wydarzenia: Counter Strike: Global Offensive'
+    });
 });
 
-app.get('/:category/teams', (req, res) => {
-    let category = req.params.category;
-
-    if (category == 'lol') {
-        res.render('teams', {
-            title: 'Drużyny: League of Legends'
-        })
-    } else if (category == 'csgo') {
-        res.render('teams', {
-            title: 'Drużyny: Counter Strike: Global Offensive'
-        })
-    } else {
-        res.status(404).redirect('/error')
-    }
+app.get('/lol/matches', (req, res) => {
+    res.render('matches', {
+        title: 'Mecze: League of Legends'
+    });
 });
 
-app.get('/:category/results', (req, res) => {
-    let category = req.params.category;
-
-    if (category == 'lol') {
-        res.render('results', {
-            title: 'Wyniki: League of Legends'
-        })
-    } else if (category == 'csgo') {
-        res.render('results', {
-            title: 'Wyniki: Counter Strike: Global Offensive'
-        })
-    } else {
-        res.status(404).redirect('/error')
-    }
+app.get('/csgo/matches', (req, res) => {
+    res.render('matches', {
+        title: 'Mecze: Counter Strike: Global Offensive'
+    })
 });
 
-app.get('/:category/statistics', (req, res) => {
-    let category = req.params.category;
-
-    if (category == 'lol') {
-        res.render('statistics', {
-            title: 'Statystyki: League of Legends'
-        })
-    } else if (category == 'csgo') {
-        res.render('statistics', {
-            title: 'Statystyki: Counter Strike: Global Offensive'
-        })
-    } else {
-        res.status(404).redirect('/error')
-    }
+app.get('/lol/teams', (req, res) => {
+    res.render('teams', {
+        title: 'Mecze: League of Legends'
+    })
 });
 
-app.get('/:category/ranking', (req, res) => {
-    let category = req.params.category;
+app.get('/csgo/teams', (req, res) => {
+    res.render('teams', {
+        title: 'Drużyny: Counter Strike: Global Offensive'
+    })
+});
 
-    if (category == 'lol') {
-        res.render('ranking', {
-            title: 'Ranking: League of Legends'
-        })
-    } else if (category == 'csgo') {
-        res.render('ranking', {
-            title: 'Ranking: Counter Strike: Global Offensive'
-        })
-    } else {
-        res.status(404).redirect('/error')
-    }
+app.get('/lol/results', (req, res) => {
+    res.render('results', {
+        title: 'Wyniki: League of Legends'
+    });
+});
+
+app.get('/csgo/results', (req, res) => {
+    res.render('results', {
+        title: 'Wyniki: Counter Strike: Global Offensive'
+    });
+});
+
+app.get('/lol/statistics', (req, res) => {
+    res.render('statistics', {
+        title: 'Statystyki: League of Legends'
+    });
+});
+
+app.get('/csgo/statistics', (req, res) => {
+    res.render('statistics', {
+        title: 'Statystyki: Counter Strike: Global Offensive'
+    });
 });
 
 
+app.get('/lol/ranking', (req, res) => {
+    res.render('ranking', {
+        title: 'Ranking: League of Legends'
+    });
+});
 
+app.get('/csgo/ranking', (req, res) => {
+    res.render('ranking', {
+        title: 'Ranking: Counter Strike: Global Offensive'
+    });
+});
 
 app.get('/news/archives', (req, res) => {
     res.render('archives', {

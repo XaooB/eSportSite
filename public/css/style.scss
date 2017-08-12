@@ -315,9 +315,10 @@ body {
                     ol.subNav {
                         display: block;
                         li {
-                            a {
-                                &:hover {
-                                    transition: .3s all linear;
+                            &:hover {
+                                transition: .3s all linear;
+                                background: #111;
+                                a {
                                     color: #ffffff;
                                 }
                             }
@@ -796,7 +797,9 @@ body {
                         height: 500px;
                     }
                     .more_news_wrapper {
-                        background: #fff;
+                        background: $bgColor;
+                        border: 4px solid $bgColor;
+                        border-radius: 5px;
                         height: 100%;
                         max-width: 300px; //do zmiany
                         article {
@@ -806,6 +809,9 @@ body {
                             background: $darkGray;
                             font-family: $textFont;
                             margin-bottom: 2px;
+                            &:hover {
+                                background: $bgColor;
+                            }
                             a {
                                 z-index: 2;
                                 display: block;
@@ -818,6 +824,8 @@ body {
                             .item {
                                 margin-top: -100px;
                                 time {
+                                    display:block;
+                                    padding:4px 0;
                                     font-size: .65em;
                                 }
                                 h2 {

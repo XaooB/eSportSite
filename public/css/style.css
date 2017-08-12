@@ -231,9 +231,14 @@ body {
         width: 150px;
         text-align: center;
         float: left;
-        line-height: 55px; }
+        height: 55px;
+        line-height: 55px;
+        -webkit-transition: .3s all linear;
+                transition: .3s all linear; }
         body .navbar ul.toggleNav li:hover a {
-          color: #107dac; }
+          color: #107dac;
+          -webkit-transition: .3s all linear;
+                  transition: .3s all linear; }
         body .navbar ul.toggleNav li a {
           color: #fff;
           font-family: "Righteous";
@@ -253,6 +258,8 @@ body {
                 -ms-transform: rotate(180deg);
                     transform: rotate(180deg); }
         body .navbar ul.toggleNav li ol.subNav {
+          -webkit-transition: .3s all linear;
+                  transition: .3s all linear;
           background: #222222;
           position: absolute;
           top: 55px;
@@ -276,26 +283,36 @@ body {
             body .navbar ul.toggleNav li ol.subNav li:last-child {
               border: none; }
         body .navbar ul.toggleNav li:hover {
+          border-bottom: 1px solid #107dac;
           background: #111; }
           body .navbar ul.toggleNav li:hover ol.subNav {
             display: block; }
             body .navbar ul.toggleNav li:hover ol.subNav li a:hover {
+              -webkit-transition: .3s all linear;
+                      transition: .3s all linear;
               color: #ffffff; }
+        body .navbar ul.toggleNav li:hover {
+          -webkit-transition: .3s all linear;
+                  transition: .3s all linear;
+          border-bottom: 1px solid #107dac; }
     body .navbar .nav {
       width: 27%;
       height: 55px; }
       body .navbar .nav li {
+        text-align: center;
+        width: 33%;
         float: left;
         list-style: none;
         height: 55px;
         line-height: 55px; }
         body .navbar .nav li a {
           text-decoration: none;
-          padding: 19px;
+          display: block;
           color: #fff;
           font-family: "Righteous";
           font-size: .9em; }
         body .navbar .nav li:hover {
+          background: #111;
           -webkit-transition: .3s all linear;
                   transition: .3s all linear;
           border-bottom: 1px solid #107dac; }
@@ -429,7 +446,6 @@ body {
             background: #107dac;
             padding: 10px; }
       body main .news_wrapper .related_news {
-        background: #dfdfdf;
         width: 25%; }
         body main .news_wrapper .related_news h2 {
           border-bottom: 1px solid #efefef;

@@ -255,9 +255,12 @@ body {
                 width: 150px;
                 text-align: center;
                 float: left;
+                height: 55px;
                 line-height: 55px;
+                transition: .3s all linear;
                 &:hover a {
                     color: $bgColor;
+                    transition: .3s all linear;
                 }
                 a {
                     color: #fff;
@@ -278,6 +281,7 @@ body {
                     }
                 }
                 ol.subNav {
+                    transition: .3s all linear;
                     background: $darkGray;
                     position: absolute;
                     top: 55px;
@@ -306,17 +310,23 @@ body {
                     }
                 }
                 &:hover {
+                    border-bottom: 1px solid $bgColor;
                     background: #111;
                     ol.subNav {
                         display: block;
                         li {
                             a {
                                 &:hover {
+                                    transition: .3s all linear;
                                     color: #ffffff;
                                 }
                             }
                         }
                     }
+                }
+                &:hover {
+                    transition: .3s all linear;
+                    border-bottom: 1px solid $bgColor;
                 }
             }
         }
@@ -324,18 +334,21 @@ body {
             width: 27%;
             height: 55px;
             li {
+                text-align: center;
+                width: 33%;
                 float: left;
                 list-style: none;
                 height: 55px;
                 line-height: 55px;
                 a {
                     text-decoration: none;
-                    padding: 19px;
+                    display: block;
                     color: #fff;
                     font-family: $mainFont;
                     font-size: .9em;
                 }
                 &:hover {
+                    background: #111;
                     transition: .3s all linear;
                     border-bottom: 1px solid $bgColor;
                 }
@@ -508,7 +521,6 @@ body {
                 }
             }
             .related_news {
-                background: #dfdfdf;
                 width: 300/1200 * 100%;
                 h2 {
                     border-bottom: 1px solid #efefef;

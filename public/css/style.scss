@@ -65,17 +65,70 @@ body {
         background: $bgColor;
         border-top: 4px solid #333;
         .logo {
-            margin-top: 4px;
-            width: 60%;
-            height: 49px;
-            background: url(../img/logo.png) no-repeat;
+            position: relative;
+            margin-top: 2px;
+            width: 200px;
+            height: 50px;
+            //                        background: url(../img/logo.png) no-repeat;
             h1 {
-                font-size: 1em;
-                margin-top: 15px;
+                font-size: 0em;
                 a {
+                    margin-top: -40px;
+                    display: block;
+                    position: relative;
+                    height: 50px;
                     color: transparent;
-                    padding: 17px 20px;
+                    z-index: 9;
                 }
+                &:before {
+                    z-index: 8;
+                    position: absolute;
+                    content: '';
+                    width: 34px;
+                    height: 34px;
+                    background: transparent;
+                    border: 4px solid #333;
+                    top: 5px;
+                    left: 2px;
+                    border-radius: 100%;
+                }
+                &:after {
+                    z-index: 7;
+                    position: absolute;
+                    content: '';
+                    top: 22px;
+                    right: 0;
+                    width: 88px;
+                    height: 20px;
+                    background: rgba(50, 50, 51, .2);
+                }
+                .square {
+                    z-index: 7;
+                    position: relative;
+                    display: block;
+                    width: 45px;
+                    height: 40px;
+                    background: rgba(255, 255, 255, .05);
+                }
+            }
+            &:before {
+                content: 'E';
+                position: absolute;
+                font-family: $mainFont;
+                top: 13px;
+                left: 22px;
+                z-index: 8;
+                font-size: 1.4em;
+            }
+            &:after {
+                content: 'SPORTNEWS';
+                position: absolute;
+                font-family: $mainFont;
+                font-size: 1.4em;
+                top: 13px;
+                z-index: 8;
+                left: 47px;
+                letter-spacing: .05em;
             }
         }
         .login_wrapper {
@@ -309,7 +362,8 @@ body {
                         }
                     }
                 }
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     border-bottom: 1px solid $bgColor;
                     background: #111;
                     ol.subNav {
@@ -824,8 +878,8 @@ body {
                             .item {
                                 margin-top: -100px;
                                 time {
-                                    display:block;
-                                    padding:4px 0;
+                                    display: block;
+                                    padding: 4px 0;
                                     font-size: .65em;
                                 }
                                 h2 {

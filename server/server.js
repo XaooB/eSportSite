@@ -56,7 +56,7 @@ app.get('/news/:category/:title', (req, res) => {
 
 app.get('/profil/register', (req, res) => {
     res.render('register', {
-        test: 'test'
+        title: 'Rejestracja'
     });
 });
 

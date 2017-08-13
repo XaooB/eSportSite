@@ -34,8 +34,8 @@ app.use('/assets', express.static('public')); //sciezka do plikow statycznych
 //GETS
 app.get('/', (req, res) => {
     Article.find({}).then((data) => {
-//        data[0] <- JANKOS
-//        data[1] <- VP
+        //        data[0] <- JANKOS
+        //        data[1] <- VP
         res.render('home', {
             mainNews: {
                 img: data[0].img,
@@ -74,6 +74,9 @@ app.get('/news/:category/:title', (req, res) => {
     Article.findOne({
         'title': `${req.params.title}`
     }).then((data) => {
+        if (!data) {
+            res.status(404).redirect('/error').send();
+        }
         res.render('news', {
             mainNews_author: data.author,
             mainNews_category: data.category,
@@ -82,8 +85,9 @@ app.get('/news/:category/:title', (req, res) => {
             mainNews_img: data.img,
             mainNews_date: data.date
         })
-    }, (err) => {
-        console.log(err.message);
+    }).catch((err) => {
+        res.status(404);
+        //        console.log(err);
     });
 });
 

@@ -5,8 +5,8 @@
                 <ol>
                     <li><a href="/">Start</a></li>
                     <li><a href="/news">News</a></li>
-                    <li><a href="/news/{{category}}">{{category}}</a></li>
-                    <li><a href="/news/{{category}}/{{title}}">{{title}}</a></li>
+                    <li><a href="/news/{{mainNews_category}}">{{mainNews_category}}</a></li>
+                    <li><a href="/news/{{mainNews_category}}/{{mainNews_title}}">{{mainNews_title}}</a></li>
                 </ol>
             </div>
             <div class="flex_container hidden">
@@ -16,7 +16,7 @@
                             <!--                  20 NA STRONĘ-->
                             <div class="related_wrapper scroll">
                                 <article>
-                                    <h3>SKT T1 najlepszą drużyną w LOLa</h3>
+                                    <h3>Virtus.Pro wygrywa PGL Major w Krakowie!</h3>
                                     <table>
                                         <tr>
                                             <td rowspan="2" style='width:60px;'><span class='time'>08/08/2017 23:24</span></td>
@@ -27,7 +27,7 @@
                                         </tr>
                                         <tr>
                                             <td class='title'>
-                                                <a href="/news/lol/SKT T1 najlepszą drużyną w LOLa">SKT T1 najlepszą drużyną w LOLa</a>
+                                                <a href="/news/lol/Virtus.Pro wygrywa PGL Major w Krakowie!">Virtus.Pro wygrywa PGL Major w Krakowie!</a>
                                             </td>
                                         </tr>
                                     </table>
@@ -302,7 +302,7 @@
                     </section>
                     <div class='authors_news'>
                         <section>
-                            <h2>Więcej od {{author}}</h2>
+                            <h2>Więcej od {{mainNews_author}}</h2>
                             <div class="author_wrapper hidden">
                                 <article>
                                     <a href="#"></a>
@@ -332,14 +332,14 @@
                 <article class="main_news">
                     <header>
                         <figure>
-                            <img src="../../../assets/img/news/vp_winning.jpg" alt="">
+                            <img src="{{mainNews_img}}" alt="{{mainNews_title}}">
                         </figure>
-                        <h1>{{title}}</h1>
+                        <h1>{{mainNews_title}}</h1>
                     </header>
                     <div class='content f-l'>
                         <!--                       POBRAC AUTORA Z TABELII-->
-                        <div class="date"><time datetime="07/08/2017T13:00:24+01:00">7 sierpnia 2017, godz. 12:05 </time>przez {{author}}</div>
-                        {{{text}}}
+                        <div class="date"><time datetime="07/08/2017T13:00:24+01:00">{{mainNews_date}}</time> przez {{mainNews_author}}</div>
+                        {{{mainNews_body}}}
                         <section class='post_comments'>
                             <h2>Komentarze</h2>
                             <article>
@@ -403,7 +403,7 @@
                         </figure>
                         <div class="user">
                             <!--                       DANE UŻYTKOWNIKA BĘDĄ POBIERANE Z BAZY-->
-                            <p>Użytwkownik: {{author}}</p>
+                            <p>Użytwkownik: {{mainNews_author}}</p>
                             <p>Ranga: Administrator</p>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium temporibus, quam quaerat fugiat, commodi provident.</p>

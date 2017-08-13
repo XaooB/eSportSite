@@ -1,7 +1,28 @@
+////   TO BĘDZIE W MOMENCIE DODAWANIA ARTYKUŁU! 
+//
+//var newArticle = new Article({
+//        id: 2,
+//        title: 'Jankos i H2K awansuje bezpośrednio do playoffów!',
+//        author: 'XaooBBX',
+//        body: '<p><strong>Drużyna H2K w której gra polski gracz Marcin "Jankos" Jankowski nie będzie musiała grać meczu z UOL, który miał zadecydować kto zagra w ćwierćfinale. Wszystko za sprawą drużyny Vitality, w której gra były gracz H2K oraz bardzo dobrze nam znany Vander. Vitality zaskoczyło większość i zagrało perfekcyjny mecz.</strong></p><p>Pierwszy mecz rozpoczęli z grubej rury. Szybki first blood Nukeducka bardzo ułatwił późniejszą fazę gry. Pierwszy mecz to pokaż siły i umiejętności jakie posiada Team Vitality. Gdyby drużynie Vandera udałoby się zagrać tak całego splita, to bez wątpienia byliby pretendentami do TOP3 na koniec rozgrywek.</p><p>Drugi mecz był nieco trudniejszy i wydawało się, że może pójść w obie strony. Ostatecznie to Vitality odniosły bardzo przekonujące zwycięstwo na UOL. Dzięki temu H2K nie będzie musiało grać meczu o awans. Ciekawostą jest celebrowanie zwycięstwa Jankosa wraz z drużyną Vitality po meczu. Widać stara miłość nie rdzewieje i dwaj polacy nadal wydają się jak bracia. Życzymy dalszych sukcesów!</p>',
+//        img: '/assets/img/news/h2k.jpg'
+//    }).save((err) => {
+//        if (err) console.log(err.message);
+//        console.log('Saved in database');
+//    });
+
+
+
 const express = require('express');
 const hbs = require('express-handlebars');
 const app = express();
 const port = process.env.PORT || 3000;
+const {
+    mongoose
+} = require('./../database/mongoose');
+const {
+    Article
+} = require('./../models/article');
 
 app.engine('handlebars', hbs({
     defaultLayout: 'main'
@@ -12,45 +33,57 @@ app.use('/assets', express.static('public')); //sciezka do plikow statycznych
 
 //GETS
 app.get('/', (req, res) => {
-    res.render('home', {
-        title: 'Virtus.Pro wygrywa PGL Major w Krakowie',
-        main_news: {
-            title: 'Virtus.Pro wygrywa PGL Major w Krakowie!',
-            img: '../assets/img/news/vp_winning.jpg'
-        },
-        mid_news: {
-            first: {
-                title: 'LOL: Mistrzostwa Świata 2017!'
+    Article.find({}).then((data) => {
+//        data[0] <- JANKOS
+//        data[1] <- VP
+        res.render('home', {
+            mainNews: {
+                img: data[0].img,
+                title: data[0].title,
+                date: data[0].date
             },
-            second: {
-                title: 'TEC-9 dostaje nerfa!'
+            mid_news: {
+                first: {
+                    title: 'LOL: Mistrzostwa Świata 2017!'
+                },
+                second: {
+                    title: 'TEC-9 dostaje nerfa!'
+                },
+                third: {
+                    title: 'Kiedy kolejna operacja? Czekamy Valve!'
+                }
             },
-            third: {
-                title: 'Kiedy kolejna operacja? Czekamy Valve!'
-            }
-        },
-        small_news: {
-            first: {
-                title: 'VIRTUS.PRO TAKE DOWN FNATIC IN KRAKÓW',
+            small_news: {
+                first: {
+                    title: 'VIRTUS.PRO TAKE DOWN FNATIC IN KRAKÓW',
+                    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam nemo unde placeat numquam mollitia enim eveniet, maiores consequatur dolore rem.',
+                    img: '../assets/img/news/taz.jpg'
+                }
+            },
+            lastest_news: {
+                title: 'SKT T1 WYGRYWA MSI 2017!',
                 desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam nemo unde placeat numquam mollitia enim eveniet, maiores consequatur dolore rem.',
-                img: '../assets/img/news/taz.jpg'
+                date: '02/08/2017, 20:29',
+                img: '../assets/img/news/lol_championships.jpg'
             }
-        },
-        lastest_news: {
-            title: 'SKT T1 WYGRYWA MSI 2017!',
-            desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam nemo unde placeat numquam mollitia enim eveniet, maiores consequatur dolore rem.',
-            date: '02/08/2017, 20:29',
-            img: '../assets/img/news/lol_championships.jpg'
-        }
+        });
     });
 });
 
 app.get('/news/:category/:title', (req, res) => {
-    res.render('news', {
-        author: 'XaooBBX',
-        category: req.params.category,
-        title: req.params.title.replace(/_/g, " "),
-        text: '<p>Animi explicabo possimus, pariatur suscipit numquam quis sequi molestiae ratione atque eligendi, labore nemo dolorum delectus nam at culpa id doloremque aliquam ducimus. Voluptatum labore itaque aliquid rerum debitis blanditiis obcaecati odio ex unde vel provident, in fugiat, laudantium, amet nam. Obcaecati placeat vel eligendi, quos quod ratione repudiandae perspiciatis modi. Consequatur iste accusamus, odio, in, deserunt tempora facere placeat magnam aut exercitationem doloremque facilis iusto sequi pariatur beatae tempore earum necessitatibus porro, nihil.</p> <p>Assumenda pariatur illo voluptates nemo minus! Impedit natus unde corporis molestias qui laudantium veniam assumenda aut in adipisci, fuga, modi possimus quo obcaecati. Beatae quaerat exercitationem dolorum, nam repellendus quam sequi ipsa labore voluptatem enim aperiam modi porro iusto vel architecto quisquam saepe omnis, vitae sapiente nulla numquam officia et. Quidem, voluptas alias facere quas, dignissimos tempora tempore a doloribus et illum recusandae aliquid magnam dolore cupiditate voluptates minus nisi aperiam ut vel perferendis, ea magni assumenda nam. Ab magni cumque aspernatur libero, obcaecati cupiditate! Quia ratione beatae, eligendi sunt consectetur expedita repellat veritatis. Voluptatum ex ullam quas commodi, tempora officiis consequuntur adipisci veniam recusandae, doloremque voluptas asperiores at dignissimos esse, quo, necessitatibus impedit repudiandae! Dolores molestias officiis dolor eveniet quasi nam, quibusdam rerum id quo corporis tempore cumque excepturi cum enim hic reprehenderit. Ad ab minima cum quasi eius, cumque! Quia blanditiis nemo dolorem. Molestiae qui quia quibusdam iusto repellendus. Totam nesciunt modi earum doloribus ea ut quae debitis saepe, tenetur numquam, quo asperiores natus tempore provident consequuntur.</p><p> Repellat tempore tempora possimus sunt laborum fuga voluptatibus a molestiae temporibus laudantium repellendus, eos reiciendis eveniet, deserunt consequuntur inventore accusantium, explicabo vitae commodi laboriosam? Animi minus omnis officiis accusantium temporibus dolore eveniet ex nisi enim recusandae. <p>Provident fuga odit fugit natus rerum. Suscipit dicta error ex a neque, ab accusamus sint minima voluptates, laborum unde veritatis quisquam enim, tempora?</p>'
+    Article.findOne({
+        'title': `${req.params.title}`
+    }).then((data) => {
+        res.render('news', {
+            mainNews_author: data.author,
+            mainNews_category: data.category,
+            mainNews_title: data.title,
+            mainNews_body: data.body,
+            mainNews_img: data.img,
+            mainNews_date: data.date
+        })
+    }, (err) => {
+        console.log(err.message);
     });
 });
 

@@ -4,6 +4,11 @@ $lightFontColor: #ffffff;
 $darkGray :#222222;
 $mainFont: 'Righteous';
 $textFont: 'Helvetica';
+//<------------- FONTS ------------->
+@font-face {
+    font-family: 'Righteous';
+    src: url('../fonts/Righteous-Regular.ttf');
+}
 //<------------- REUSABLE ------------->
 .f-l {
     float: left;
@@ -453,17 +458,13 @@ body {
         background: #fcfcfc;
         .addArticle_wrapper {
             form#addArticle {
-                margin:20px;
+                margin: 20px;
                 label {
-                    display:block;
-                    color:#222;
-                    margin-bottom:20px;
+                    display: block;
+                    color: #222;
+                    margin-bottom: 20px;
                 }
-                input {
-               
-               
-                    
-                }
+                input {}
             }
         }
         .error_wrapper {

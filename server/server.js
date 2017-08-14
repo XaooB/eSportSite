@@ -1,28 +1,21 @@
-////   TO BĘDZIE W MOMENCIE DODAWANIA ARTYKUŁU! 
-//
-//var newArticle = new Article({
-//        id: 2,
-//        title: 'Jankos i H2K awansuje bezpośrednio do playoffów!',
-//        author: 'XaooBBX',
-//        body: '<p><strong>Drużyna H2K w której gra polski gracz Marcin "Jankos" Jankowski nie będzie musiała grać meczu z UOL, który miał zadecydować kto zagra w ćwierćfinale. Wszystko za sprawą drużyny Vitality, w której gra były gracz H2K oraz bardzo dobrze nam znany Vander. Vitality zaskoczyło większość i zagrało perfekcyjny mecz.</strong></p><p>Pierwszy mecz rozpoczęli z grubej rury. Szybki first blood Nukeducka bardzo ułatwił późniejszą fazę gry. Pierwszy mecz to pokaż siły i umiejętności jakie posiada Team Vitality. Gdyby drużynie Vandera udałoby się zagrać tak całego splita, to bez wątpienia byliby pretendentami do TOP3 na koniec rozgrywek.</p><p>Drugi mecz był nieco trudniejszy i wydawało się, że może pójść w obie strony. Ostatecznie to Vitality odniosły bardzo przekonujące zwycięstwo na UOL. Dzięki temu H2K nie będzie musiało grać meczu o awans. Ciekawostą jest celebrowanie zwycięstwa Jankosa wraz z drużyną Vitality po meczu. Widać stara miłość nie rdzewieje i dwaj polacy nadal wydają się jak bracia. Życzymy dalszych sukcesów!</p>',
-//        img: '/assets/img/news/h2k.jpg'
+//  TO BĘDZIE W MOMENCIE DODAWANIA ARTYKUŁU! 
+//    var newArticle = new Article({
+//        id: 4,
+//        title: 'SK Telecom T1 miażdży Afreeca Freecs w playoffach!',
+//        category: 'lol',
+//        author: 'Fan Fakera',
+//        body: '<p><strong>Pierwsza mapa spotkania zaczęła się dość standardowym draftem. Afreeca Freecs zachowało ostatni wybór dla MaRina, który zdecydował się na Kennena. SK Telecom T1 z Untarą na górnej alei pokazało standardową kompozycję z silnymi teamfightami oraz pojedynczym carry w postaci Tristany.</strong></p><p>Sporym zaskoczeniem był nietypowy przedmiot kupiony na starcie przez Kramera. AD Carry zdecydował się na Relic Shield, który zazwyczaj budują wspierający. Nie przeszkodziło mu to jednak zabezpieczyć wraz z drużyną pierwszej krwi na dolnej alei. Bottom SKT zbyt agresywnie atakował przeciwników, przez co roam Spirita oraz Kuro okazał się zabójczy, a cenę zapłacił Wolf. Bang i jego wspólnik nadal radzili sobie świetnie i pomimo małej pomyłki dominowali swoją linię, zapewniając swojej drużynie sporą przewagę. Na górnej alei sprawy także szły po myśli SKT – świetny gank Peanuta pozwolił Untarze rozprawić się z przeciwnikiem.</p><p>oplaner mistrzów świata szybko pomógł także kolegom z zespołu i doskonałą teleportacją zgnębił jeszcze bardziej bottom Freecs. Ogromna przewaga SK Telecom T1 pozwoliła drużynie podejść na Barona Nashora już w 29. minucie, gdzie doskonały Smite Peanuta zapewnił zespołowi potężne wzmocnienie. Próba kradzieży ze strony Spirita skończyła się tylko śmiercią junglera i sprawiła, że skończenie gry, już kilka chwil później, było dla SKT bardzo łatwe.</p>',
+//        img: '/assets/img/news/skt_t1_playoff.jpg'
 //    }).save((err) => {
 //        if (err) console.log(err.message);
 //        console.log('Saved in database');
 //    });
-
-
-
-const express = require('express');
-const hbs = require('express-handlebars');
-const app = express();
-const port = process.env.PORT || 3000;
-const {
-    mongoose
-} = require('./../database/mongoose');
-const {
-    Article
-} = require('./../models/article');
+const express = require('express'),
+    hbs = require('express-handlebars'),
+    app = express(),
+    PORT = process.env.PORT || 3000,
+    {mongoose} = require('./../database/mongoose'),
+    {Article} = require('./../models/article');
 
 app.engine('handlebars', hbs({
     defaultLayout: 'main'
@@ -34,13 +27,11 @@ app.use('/assets', express.static('public')); //sciezka do plikow statycznych
 //GETS
 app.get('/', (req, res) => {
     Article.find({}).then((data) => {
-        //        data[0] <- JANKOS
-        //        data[1] <- VP
         res.render('home', {
             mainNews: {
-                img: data[0].img,
-                title: data[0].title,
-                date: data[0].date
+                img: data[2].img,
+                title: data[2].title,
+                date: data[2].date
             },
             mid_news: {
                 first: {
@@ -71,24 +62,60 @@ app.get('/', (req, res) => {
 });
 
 app.get('/news/:category/:title', (req, res) => {
-    Article.findOne({
-        'title': `${req.params.title}`
-    }).then((data) => {
-        if (!data) {
-            res.status(404).redirect('/error').send();
-        }
+    let promises = [
+        mainArticle = Article.findOne({
+            title: req.params.title
+        }),
+        newestArticles = Article.find({}).sort([['date', -1]])
+        ];
+
+    Promise.all([mainArticle, newestArticles]).then(articles => {
         res.render('news', {
-            mainNews_author: data.author,
-            mainNews_category: data.category,
-            mainNews_title: data.title,
-            mainNews_body: data.body,
-            mainNews_img: data.img,
-            mainNews_date: data.date
-        })
+            mainNews_author: articles[0].author,
+            mainNews_category: articles[0].category,
+            mainNews_title: articles[0].title,
+            mainNews_body: articles[0].body,
+            mainNews_img: articles[0].img,
+            mainNews_date: articles[0].date,
+            newestArticles: {
+                article0: {
+                    author: articles[1][0].author,
+                    title: articles[1][0].title,
+                    category: articles[1][0].category,
+                    body: articles[1][0].body,
+                    img: articles[1][0].img,
+                    date: articles[1][0].date
+                },
+                article1: {
+                    author: articles[1][1].author,
+                    title: articles[1][1].title,
+                    category: articles[1][1].category,
+                    body: articles[1][1].body,
+                    img: articles[1][1].img,
+                    date: articles[1][1].date
+                },
+                article2: {
+                    author: articles[1][2].author,
+                    title: articles[1][2].title,
+                    category: articles[1][2].category,
+                    body: articles[1][2].body,
+                    img: articles[1][2].img,
+                    date: articles[1][2].date
+                },
+                article3: {
+                    author: articles[1][3].author,
+                    title: articles[1][3].title,
+                    category: articles[1][3].category,
+                    body: articles[1][3].body,
+                    img: articles[1][3].img,
+                    date: articles[1][3].date
+                }
+            }
+        });
     }).catch((err) => {
-        res.status(404);
-        //        console.log(err);
-    });
+        console.log(err.message);
+        res.status(404).redirect('/error').send();
+    })
 });
 
 app.get('/profil/register', (req, res) => {
@@ -182,11 +209,21 @@ app.get('/gallery', (req, res) => {
     });
 });
 
+app.get('/news/addArticle', (req, res) => {
+    res.render('addArticle');
+});
+
 app.get('/contact', (req, res) => {
     res.render('contact', {
         title: 'Skontaktuj się z nami'
     })
 });
+
+//------------------------------------------------------ TESTING PURPOSES!
+app.get('/test', (req, res) => {
+    res.render('test');
+});
+//------------------------------------------------------ /TESTING PURPOSES!
 
 app.get('/error', (req, res) => {
     res.status(404).render('404', {
@@ -195,7 +232,6 @@ app.get('/error', (req, res) => {
         fun: 'Strona w budowie.'
     });
 });
-
 
 //POSTS
 app.post('/profil/register', (req, res) => {
@@ -207,6 +243,6 @@ app.use((req, res) => {
     res.redirect('/error');
 });
 
-app.listen(port, () => {
+app.listen(PORT, () => {
     console.log('Server running on localhost:3000');
 });

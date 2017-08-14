@@ -402,6 +402,12 @@ body {
                 transition: .5s ease-in !important; }
   body main {
     background: #fcfcfc; }
+    body main .addArticle_wrapper form#addArticle {
+      margin: 20px; }
+      body main .addArticle_wrapper form#addArticle label {
+        display: block;
+        color: #222;
+        margin-bottom: 20px; }
     body main .error_wrapper .error {
       color: #222222;
       margin: 40px 0; }
@@ -549,7 +555,8 @@ body {
           height: 300px;
           position: relative; }
           body main .news_wrapper .main_news header img {
-            height: 400px; }
+            width: 100%;
+            height: auto; }
           body main .news_wrapper .main_news header figure {
             height: inherit;
             overflow: hidden; }

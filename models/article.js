@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'),
+    {getDate} = require('./../public/js/getDate');
 mongoose.Promise = global.Promise;
 
 const articleSchema = mongoose.Schema({
@@ -11,8 +12,8 @@ const articleSchema = mongoose.Schema({
     author: String,
     body: String,
     date: {
-        type: Date,
-        default: Date.now()
+        type: String,
+        default: getDate()
     },
     img: String
 });

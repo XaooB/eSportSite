@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
-const user = 'heroku_5xk30rz3',
-    password = 'j0u0njik1g3glffubv1p0mb98n';
-
 mongoose.Promise = global.Promise;
-var connection = mongoose.connect(process.env.MONGODB_URI || `mongodb://${user}:${password}@ds163679.mlab.com:63679/heroku_5xk30rz3`, {
+
+var connection = mongoose.connect(process.env.MONGODB_URI, {
     useMongoClient: true
 });
 

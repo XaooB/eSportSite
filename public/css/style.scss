@@ -610,6 +610,7 @@ body {
                             margin-bottom: 1px;
                             width: 100%;
                             color: #bfbfbf;
+                            height:auto;
                             background: #efefef;
                             tr {
                                 .time {
@@ -629,7 +630,6 @@ body {
                                     font-size: 1em;
                                     a {
                                         display: block;
-                                        height: 40px;
                                         color: $bgColor;
                                     }
                                 }

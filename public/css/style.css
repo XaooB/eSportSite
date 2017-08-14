@@ -519,6 +519,7 @@ body {
             margin-bottom: 1px;
             width: 100%;
             color: #bfbfbf;
+            height: auto;
             background: #efefef; }
             body main .news_wrapper .related_news .related_wrapper article table tr .time {
               display: block;
@@ -534,7 +535,6 @@ body {
               font-size: 1em; }
               body main .news_wrapper .related_news .related_wrapper article table tr .title a {
                 display: block;
-                height: 40px;
                 color: #107dac; }
             body main .news_wrapper .related_news .related_wrapper article table tr td {
               padding: 2px; }

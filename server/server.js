@@ -14,8 +14,12 @@ const express = require('express'),
     hbs = require('express-handlebars'),
     app = express(),
     PORT = process.env.PORT || 3000,
-    {mongoose} = require('./../database/mongoose'),
-    {Article} = require('./../models/article');
+    {
+        mongoose
+    } = require('./../database/mongoose'),
+    {
+        Article
+    } = require('./../models/article');
 
 app.engine('handlebars', hbs({
     defaultLayout: 'main'
@@ -26,96 +30,228 @@ app.use('/assets', express.static('public')); //sciezka do plikow statycznych
 
 //GETS
 app.get('/', (req, res) => {
-    Article.find({}).then((data) => {
-        res.render('home', {
-            mainNews: {
-                img: data[2].img,
-                title: data[2].title,
-                date: data[2].date
-            },
-            mid_news: {
-                first: {
-                    title: 'LOL: Mistrzostwa Świata 2017!'
-                },
-                second: {
-                    title: 'TEC-9 dostaje nerfa!'
-                },
-                third: {
-                    title: 'Kiedy kolejna operacja? Czekamy Valve!'
-                }
-            },
-            small_news: {
-                first: {
-                    title: 'VIRTUS.PRO TAKE DOWN FNATIC IN KRAKÓW',
-                    desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam nemo unde placeat numquam mollitia enim eveniet, maiores consequatur dolore rem.',
-                    img: '../assets/img/news/taz.jpg'
-                }
-            },
-            lastest_news: {
-                title: 'SKT T1 WYGRYWA MSI 2017!',
-                desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam nemo unde placeat numquam mollitia enim eveniet, maiores consequatur dolore rem.',
-                date: '02/08/2017, 20:29',
-                img: '../assets/img/news/lol_championships.jpg'
-            }
+    Article.findOne({
+        isMain: true
+    }).then((mainArticle) => {
+        return Article.find({}).where('isMain').ne(true).limit(3).then((moreArticles) => {
+            return Article.find({
+                category: 'lol'
+            }).then((lastestLolArticles) => {
+                return Article.find({
+                    category: 'csgo'
+                }).then((lastestCsgoArticles) => {
+                    res.render('home', {
+                        mainArticle: {
+                            title: mainArticle.title,
+                            category: mainArticle.category,
+                            date: mainArticle.date,
+                            img: mainArticle.img
+                        },
+                        moreArticles: {
+                            article1: {
+                                title: moreArticles[0].title,
+                                category: moreArticles[0].category,
+                                date: moreArticles[0].date
+                            },
+                            article2: {
+                                title: moreArticles[1].title,
+                                category: moreArticles[1].category,
+                                date: moreArticles[1].date
+                            },
+                            article3: {
+                                title: moreArticles[2].title,
+                                category: moreArticles[2].category,
+                                date: moreArticles[2].date
+                            }
+                        },
+                        latestLolArticles: {
+                            article1: {
+                                title: lastestLolArticles[0].title,
+                                date: lastestLolArticles[0].date,
+                                category: lastestLolArticles[0].category,
+                                body: lastestLolArticles[0].body,
+                                img: lastestLolArticles[0].img
+                            },
+                            article2: {
+                                title: lastestLolArticles[1].title,
+                                date: lastestLolArticles[1].date,
+                                category: lastestLolArticles[1].category,
+                                body: lastestLolArticles[1].body,
+                                img: lastestLolArticles[1].img
+                            },
+                            article3: {
+                                title: lastestLolArticles[2].title,
+                                date: lastestLolArticles[2].date,
+                                category: lastestLolArticles[2].category,
+                                body: lastestLolArticles[2].body,
+                                img: lastestLolArticles[2].img
+                            },
+                            article4: {
+                                title: lastestLolArticles[3].title,
+                                date: lastestLolArticles[3].date,
+                                category: lastestLolArticles[3].category,
+                                body: lastestLolArticles[3].body,
+                                img: lastestLolArticles[3].img
+                            },
+                            article5: {
+                                title: lastestLolArticles[4].title,
+                                date: lastestLolArticles[4].date,
+                                category: lastestLolArticles[4].category,
+                                body: lastestLolArticles[4].body,
+                                img: lastestLolArticles[4].img
+                            }
+                        },
+                        latestCsgoArticles: {
+                            article1: {
+                                title: lastestCsgoArticles[0].title,
+                                date: lastestCsgoArticles[0].date,
+                                category: lastestCsgoArticles[0].category,
+                                body: lastestCsgoArticles[0].body,
+                                img: lastestCsgoArticles[0].img
+                            },
+                            article2: {
+                                title: lastestCsgoArticles[1].title,
+                                date: lastestCsgoArticles[1].date,
+                                category: lastestCsgoArticles[1].category,
+                                body: lastestCsgoArticles[1].body,
+                                img: lastestCsgoArticles[1].img
+                            },
+                            article3: {
+                                title: lastestCsgoArticles[2].title,
+                                date: lastestCsgoArticles[2].date,
+                                category: lastestCsgoArticles[2].category,
+                                body: lastestCsgoArticles[2].body,
+                                img: lastestCsgoArticles[2].img
+                            },
+                            article4: {
+                                title: lastestCsgoArticles[3].title,
+                                date: lastestCsgoArticles[3].date,
+                                category: lastestCsgoArticles[3].category,
+                                body: lastestCsgoArticles[3].body,
+                                img: lastestCsgoArticles[3].img
+                            },
+                            article5: {
+                                title: lastestCsgoArticles[4].title,
+                                date: lastestCsgoArticles[4].date,
+                                category: lastestCsgoArticles[4].cateogry,
+                                body: lastestCsgoArticles[4].body,
+                                img: lastestCsgoArticles[4].img
+                            }
+                        }
+                    });
+                });
+            });
         });
+    }).catch((err) => {
+        console.log(err);
     });
 });
 
 app.get('/news/:category/:title', (req, res) => {
-    let promises = [
-        mainArticle = Article.findOne({
-            title: req.params.title
-        }),
-        newestArticles = Article.find({}).sort([['date', -1]])
-        ];
-
-    Promise.all([mainArticle, newestArticles]).then(articles => {
-        res.render('news', {
-            mainNews_author: articles[0].author,
-            mainNews_category: articles[0].category,
-            mainNews_title: articles[0].title,
-            mainNews_body: articles[0].body,
-            mainNews_img: articles[0].img,
-            mainNews_date: articles[0].date,
-            newestArticles: {
-                article0: {
-                    author: articles[1][0].author,
-                    title: articles[1][0].title,
-                    category: articles[1][0].category,
-                    body: articles[1][0].body,
-                    img: articles[1][0].img,
-                    date: articles[1][0].date
-                },
-                article1: {
-                    author: articles[1][1].author,
-                    title: articles[1][1].title,
-                    category: articles[1][1].category,
-                    body: articles[1][1].body,
-                    img: articles[1][1].img,
-                    date: articles[1][1].date
-                },
-                article2: {
-                    author: articles[1][2].author,
-                    title: articles[1][2].title,
-                    category: articles[1][2].category,
-                    body: articles[1][2].body,
-                    img: articles[1][2].img,
-                    date: articles[1][2].date
-                },
-                article3: {
-                    author: articles[1][3].author,
-                    title: articles[1][3].title,
-                    category: articles[1][3].category,
-                    body: articles[1][3].body,
-                    img: articles[1][3].img,
-                    date: articles[1][3].date
-                }
-            }
-        });
+    Article.findOne({
+        title: req.params.title
+    }).then((mainArticle) => {
+        return Article.find({
+            author: mainArticle.author
+        }).then((authorArticle) => {
+            return Article.find({}).where('title').ne(req.params.title).sort('-date').then((newestArticles) => {
+                res.render('news', {
+                    mainNews: {
+                        title: mainArticle.title,
+                        author: mainArticle.author,
+                        category: mainArticle.category,
+                        body: mainArticle.body,
+                        img: mainArticle.img,
+                        date: mainArticle.date
+                    },
+                    lastestNews: {
+                        article1: {
+                            title: newestArticles[0].title,
+                            author: newestArticles[0].author,
+                            category: newestArticles[0].category,
+                            body: newestArticles[0].body,
+                            img: newestArticles[0].img,
+                            date: newestArticles[0].date
+                        },
+                        article2: {
+                            title: newestArticles[1].title,
+                            author: newestArticles[1].author,
+                            category: newestArticles[1].category,
+                            body: newestArticles[1].body,
+                            img: newestArticles[1].img,
+                            date: newestArticles[1].date
+                        },
+                        article3: {
+                            title: newestArticles[2].title,
+                            author: newestArticles[2].author,
+                            category: newestArticles[2].category,
+                            body: newestArticles[2].body,
+                            img: newestArticles[2].img,
+                            date: newestArticles[2].date
+                        },
+                        article4: {
+                            title: newestArticles[3].title,
+                            author: newestArticles[3].author,
+                            category: newestArticles[3].category,
+                            body: newestArticles[3].body,
+                            img: newestArticles[3].img,
+                            date: newestArticles[3].date
+                        },
+                        article5: {
+                            title: newestArticles[4].title,
+                            author: newestArticles[4].author,
+                            category: newestArticles[4].category,
+                            body: newestArticles[4].body,
+                            img: newestArticles[4].img,
+                            date: newestArticles[4].date
+                        },
+                        article6: {
+                            title: newestArticles[5].title,
+                            author: newestArticles[5].author,
+                            category: newestArticles[5].category,
+                            body: newestArticles[5].body,
+                            img: newestArticles[5].img,
+                            date: newestArticles[5].date
+                        },
+                        article7: {
+                            title: newestArticles[6].title,
+                            author: newestArticles[6].author,
+                            category: newestArticles[6].category,
+                            body: newestArticles[6].body,
+                            img: newestArticles[6].img,
+                            date: newestArticles[6].date
+                        },
+                        article8: {
+                            title: newestArticles[7].title,
+                            author: newestArticles[7].author,
+                            category: newestArticles[7].category,
+                            body: newestArticles[7].body,
+                            img: newestArticles[7].img,
+                            date: newestArticles[7].date
+                        },
+                        article9: {
+                            title: newestArticles[8].title,
+                            author: newestArticles[8].author,
+                            category: newestArticles[8].category,
+                            body: newestArticles[8].body,
+                            img: newestArticles[8].img,
+                            date: newestArticles[8].date
+                        }
+//                        article10: {
+//                            title: newestArticles[9].title,
+//                            author: newestArticles[9].author,
+//                            category: newestArticles[9].category,
+//                            body: newestArticles[9].body,
+//                            img: newestArticles[9].img,
+//                            date: newestArticles[9].date
+//                        }
+                    }
+                });
+            });
+        })
     }).catch((err) => {
-        console.log(err.message);
-        res.status(404).redirect('/error').send();
-    })
+        console.log(err);
+    });
 });
 
 app.get('/profil/register', (req, res) => {

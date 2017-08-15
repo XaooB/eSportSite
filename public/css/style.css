@@ -820,7 +820,9 @@ body {
               font-family: "Helvetica";
               margin-top: 2px;
               font-size: .8em;
-              float: right; }
+              position: absolute;
+              right: 5px;
+              bottom: 5px; }
           body .others_news .others_news_wrapper .column article:before {
             position: absolute;
             content: '';

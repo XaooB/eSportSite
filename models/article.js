@@ -15,7 +15,11 @@ const articleSchema = mongoose.Schema({
         type: String,
         default: getDate()
     },
-    img: String
+    img: String,
+    isMain: {
+        type: Boolean,
+        default: false
+    }
 });
 
 var Article = mongoose.model('Article', articleSchema);

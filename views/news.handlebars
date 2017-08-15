@@ -5,8 +5,8 @@
                 <ol>
                     <li><a href="/">Start</a></li>
                     <li><a href="/news">News</a></li>
-                    <li><a href="/news/{{mainNews_category}}">{{mainNews_category}}</a></li>
-                    <li><a href="/news/{{mainNews_category}}/{{mainNews_title}}">{{mainNews_title}}</a></li>
+                    <li><a href="/news/{{mainNews.category}}">{{mainNews.category}}</a></li>
+                    <li><a href="/news/{{mainNews.category}}/{{mainNews.title}}">{{mainNews.title}}</a></li>
                 </ol>
             </div>
             <div class="flex_container hidden">
@@ -15,237 +15,30 @@
                         <h2>Najnowsze artykuły</h3>
                             <!--                  20 NA STRONĘ-->
                             <div class="related_wrapper scroll">
+                               {{#each lastestNews}}
                                 <article>
-                                    <h3>{{newestArticles.article0.title}}</h3>
+                                    <h3>{{this.title}}</h3>
                                     <table>
                                         <tr>
-                                            <td rowspan="2" style='width:60px;'><span class='time'>{{newestArticles.article0.date}}</span></td>
+                                            <td rowspan="2" style='width:60px;'><span class='time'>{{this.date}}</span></td>
                                             <td class='category'>
                                                 <span>Kategoria:
-                                                    <a href="/news/{{newestArticles.article0.category}}">{{newestArticles.article0.category}}</a></span>
+                                                    <a href="/news/{{this.category}}">{{this.category}}</a></span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class='title'>
-                                                <a href="/news/lol/{{newestArticles.article0.title}}">{{newestArticles.article0.title}}</a>
+                                                <a href="/news/lol/{{this.title}}">{{this.title}}</a>
                                             </td>
                                         </tr>
                                     </table>
                                 </article>
-                                <article>
-                                    <h3>
-                                        {{newestArticles.article1.title}}
-                                    </h3>
-                                    <table>
-                                        <tr>
-                                            <td rowspan="2" style='width:60px;'><span class='time'>{{newestArticles.article1.date}}</span></td>
-                                            <td class='category'>
-                                                <span>Kategoria:
-                                                    <a href="/news/{{newestArticles.article1.category}}">{{newestArticles.article1.category}}</a></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class='title'>
-                                                <a href="/news/lol/{{newestArticles.article1.title}}">{{newestArticles.article1.title}}</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </article>
-                                <article>
-                                    <h3>
-                                        {{newestArticles.article2.title}}
-                                    </h3>
-                                    <table>
-                                        <tr>
-                                            <td rowspan="2" style='width:60px;'><span class='time'>{{newestArticles.article2.date}}</span></td>
-                                            <td class='category'>
-                                                <span>Kategoria:
-                                                    <a href="/news/{{newestArticles.article2.category}}">{{newestArticles.article2.category}}</a></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class='title'>
-                                                <a href="/news/lol/{{newestArticles.article2.title}}">{{newestArticles.article2.title}}</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </article>
-                                <article>
-                                    <h3>
-                                        {{newestArticles.article3.title}}
-                                    </h3>
-                                    <table>
-                                        <tr>
-                                            <td rowspan="2" style='width:60px;'><span class='time'>{{newestArticles.article3.date}}</span></td>
-                                            <td class='category'>
-                                                <span>Kategoria:
-                                                    <a href="/news/{{newestArticles.article3.category}}">{{newestArticles.article3.category}}</a></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class='title'>
-                                                <a href="/news/lol/{{newestArticles.article3.title}}">{{newestArticles.article3.title}}</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </article>
-                                <article>
-                                    <h3>
-                                        SKT T1 wygrywa MSI 2017!
-                                    </h3>
-                                    <table>
-                                        <tr>
-                                            <td rowspan="2" style='width:60px;'><span class='time'>08/08/2017 23:24</span></td>
-                                            <td class='category'>
-                                                <span>Kategoria:
-                                                    <a href="/news/{{category}}">{{category}}</a></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class='title'>
-                                                <a href="/news/lol/SKT T1 wygrywa MSI 2017!">SKT T1 wygrywa MSI 2017!</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </article>
-                                <article>
-                                    <h3>
-                                        SKT T1 wygrywa MSI 2017!
-                                    </h3>
-                                    <table>
-                                        <tr>
-                                            <td rowspan="2" style='width:60px;'><span class='time'>08/08/2017 23:24</span></td>
-                                            <td class='category'>
-                                                <span>Kategoria:
-                                                    <a href="/news/{{category}}">{{category}}</a></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class='title'>
-                                                <a href="/news/lol/SKT T1 wygrywa MSI 2017!">SKT T1 wygrywa MSI 2017!</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </article>
-                                <article>
-                                    <h3>
-                                        SKT T1 wygrywa MSI 2017!
-                                    </h3>
-                                    <table>
-                                        <tr>
-                                            <td rowspan="2" style='width:60px;'><span class='time'>08/08/2017 23:24</span></td>
-                                            <td class='category'>
-                                                <span>Kategoria:
-                                                    <a href="/news/{{category}}">{{category}}</a></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class='title'>
-                                                <a href="/news/lol/SKT T1 wygrywa MSI 2017!">SKT T1 wygrywa MSI 2017!</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </article>
-                                <article>
-                                    <h3>
-                                        SKT T1 wygrywa MSI 2017!
-                                    </h3>
-                                    <table>
-                                        <tr>
-                                            <td rowspan="2" style='width:60px;'><span class='time'>08/08/2017 23:24</span></td>
-                                            <td class='category'>
-                                                <span>Kategoria:
-                                                    <a href="/news/{{category}}">{{category}}</a></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class='title'>
-                                                <a href="/news/lol/SKT T1 wygrywa MSI 2017!">SKT T1 wygrywa MSI 2017!</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </article>
-                                <article>
-                                    <h3>
-                                        SKT T1 wygrywa MSI 2017!
-                                    </h3>
-                                    <table>
-                                        <tr>
-                                            <td rowspan="2" style='width:60px;'><span class='time'>08/08/2017 23:24</span></td>
-                                            <td class='category'>
-                                                <span>Kategoria:
-                                                    <a href="/news/{{category}}">{{category}}</a></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class='title'>
-                                                <a href="/news/lol/SKT T1 wygrywa MSI 2017!">SKT T1 wygrywa MSI 2017!</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </article>
-                                <article>
-                                    <h3>
-                                        SKT T1 wygrywa MSI 2017!
-                                    </h3>
-                                    <table>
-                                        <tr>
-                                            <td rowspan="2" style='width:60px;'><span class='time'>08/08/2017 23:24</span></td>
-                                            <td class='category'>
-                                                <span>Kategoria:
-                                                    <a href="/news/{{category}}">{{category}}</a></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class='title'>
-                                                <a href="/news/lol/SKT T1 wygrywa MSI 2017!">SKT T1 wygrywa MSI 2017!</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </article>
-                                <article>
-                                    <h3>
-                                        SKT T1 wygrywa MSI 2017!
-                                    </h3>
-                                    <table>
-                                        <tr>
-                                            <td rowspan="2" style='width:60px;'><span class='time'>08/08/2017 23:24</span></td>
-                                            <td class='category'>
-                                                <span>Kategoria:
-                                                    <a href="/news/{{category}}">{{category}}</a></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class='title'>
-                                                <a href="/news/lol/SKT T1 wygrywa MSI 2017!">SKT T1 wygrywa MSI 2017!</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </article>
-                                <article>
-                                    <h3>
-                                        SKT T1 wygrywa MSI 2017!
-                                    </h3>
-                                    <table>
-                                        <tr>
-                                            <td rowspan="2" style='width:60px;'><span class='time'>08/08/2017 23:24</span></td>
-                                            <td class='category'>
-                                                <span>Kategoria:
-                                                    <a href="/news/{{category}}">{{category}}</a></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class='title'>
-                                                <a href="/news/lol/SKT T1 wygrywa MSI 2017!">SKT T1 wygrywa MSI 2017!</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </article>
+                                {{/each}}
                             </div>
                     </section>
                     <div class='authors_news'>
                         <section>
-                            <h2>Więcej od {{mainNews_author}}</h2>
+                            <h2>Więcej od {{mainNews.author}}</h2>
                             <div class="author_wrapper hidden">
                                 <article>
                                     <a href="#"></a>
@@ -275,14 +68,14 @@
                 <article class="main_news">
                     <header>
                         <figure>
-                            <img src="{{mainNews_img}}" alt="{{mainNews_title}}">
+                            <img src="{{mainNews.img}}" alt="{{mainNews.img}}">
                         </figure>
-                        <h1>{{mainNews_title}}</h1>
+                        <h1>{{mainNews.title}}</h1>
                     </header>
                     <div class='content f-l'>
                         <!--                       POBRAC AUTORA Z TABELII-->
-                        <div class="date"><time datetime="07/08/2017T13:00:24+01:00">{{mainNews_date}}</time> przez {{mainNews_author}}</div>
-                        {{{mainNews_body}}}
+                        <div class="date"><time datetime="07/08/2017T13:00:24+01:00">{{mainNews.date}}</time> przez {{mainNews.author}}</div>
+                        {{{mainNews.body}}}
                         <section class='post_comments'>
                             <h2>Komentarze</h2>
                             <article>
@@ -346,7 +139,7 @@
                         </figure>
                         <div class="user">
                             <!--                       DANE UŻYTKOWNIKA BĘDĄ POBIERANE Z BAZY-->
-                            <p>Użytwkownik: {{mainNews_author}}</p>
+                            <p>Użytwkownik: {{mainNews.author}}</p>
                             <p>Ranga: Administrator</p>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium temporibus, quam quaerat fugiat, commodi provident.</p>

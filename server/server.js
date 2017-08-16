@@ -19,7 +19,10 @@ const express = require('express'),
     } = require('./../database/mongoose'),
     {
         Article
-    } = require('./../models/article');
+    } = require('./../models/article'),
+    {
+        Author
+    } = require('./../models/author');
 
 app.engine('handlebars', hbs({
     defaultLayout: 'main'
@@ -33,13 +36,13 @@ app.get('/', (req, res) => {
     Article.findOne({
         isMain: true
     }).then((mainArticle) => {
-        return Article.find({}).where('isMain').ne(true).limit(3).then((moreArticles) => {
+        return Article.find({}).where('isMain').ne(true).sort('-date').limit(3).then((moreArticles) => {
             return Article.find({
                 category: 'lol'
-            }).then((lastestLolArticles) => {
+            }).sort('-date').then((lastestLolArticles) => {
                 return Article.find({
                     category: 'csgo'
-                }).then((lastestCsgoArticles) => {
+                }).sort('-date').then((lastestCsgoArticles) => {
                     res.render('home', {
                         mainArticle: {
                             title: mainArticle.title,
@@ -143,7 +146,7 @@ app.get('/', (req, res) => {
             });
         });
     }).catch((err) => {
-        console.log(err);
+        res.redirect('/error');
     });
 });
 
@@ -153,104 +156,123 @@ app.get('/news/:category/:title', (req, res) => {
     }).then((mainArticle) => {
         return Article.find({
             author: mainArticle.author
-        }).then((authorArticle) => {
+        }).where('title').ne(req.params.title).then((authorArticle) => {
             return Article.find({}).where('title').ne(req.params.title).sort('-date').then((newestArticles) => {
-                res.render('news', {
-                    mainNews: {
-                        title: mainArticle.title,
-                        author: mainArticle.author,
-                        category: mainArticle.category,
-                        body: mainArticle.body,
-                        img: mainArticle.img,
-                        date: mainArticle.date
-                    },
-                    lastestNews: {
-                        article1: {
-                            title: newestArticles[0].title,
-                            author: newestArticles[0].author,
-                            category: newestArticles[0].category,
-                            body: newestArticles[0].body,
-                            img: newestArticles[0].img,
-                            date: newestArticles[0].date
+                return Author.findOne({
+                    nickname: mainArticle.author
+                }).then((authorData) => {
+                    res.render('news', {
+                        mainNews: {
+                            title: mainArticle.title,
+                            author: mainArticle.author,
+                            category: mainArticle.category,
+                            body: mainArticle.body,
+                            img: mainArticle.img,
+                            date: mainArticle.date
                         },
-                        article2: {
-                            title: newestArticles[1].title,
-                            author: newestArticles[1].author,
-                            category: newestArticles[1].category,
-                            body: newestArticles[1].body,
-                            img: newestArticles[1].img,
-                            date: newestArticles[1].date
+                        lastestNews: {
+                            article1: {
+                                title: newestArticles[0].title,
+                                author: newestArticles[0].author,
+                                category: newestArticles[0].category,
+                                body: newestArticles[0].body,
+                                img: newestArticles[0].img,
+                                date: newestArticles[0].date
+                            },
+                            article2: {
+                                title: newestArticles[1].title,
+                                author: newestArticles[1].author,
+                                category: newestArticles[1].category,
+                                body: newestArticles[1].body,
+                                img: newestArticles[1].img,
+                                date: newestArticles[1].date
+                            },
+                            article3: {
+                                title: newestArticles[2].title,
+                                author: newestArticles[2].author,
+                                category: newestArticles[2].category,
+                                body: newestArticles[2].body,
+                                img: newestArticles[2].img,
+                                date: newestArticles[2].date
+                            },
+                            article4: {
+                                title: newestArticles[3].title,
+                                author: newestArticles[3].author,
+                                category: newestArticles[3].category,
+                                body: newestArticles[3].body,
+                                img: newestArticles[3].img,
+                                date: newestArticles[3].date
+                            },
+                            article5: {
+                                title: newestArticles[4].title,
+                                author: newestArticles[4].author,
+                                category: newestArticles[4].category,
+                                body: newestArticles[4].body,
+                                img: newestArticles[4].img,
+                                date: newestArticles[4].date
+                            },
+                            article6: {
+                                title: newestArticles[5].title,
+                                author: newestArticles[5].author,
+                                category: newestArticles[5].category,
+                                body: newestArticles[5].body,
+                                img: newestArticles[5].img,
+                                date: newestArticles[5].date
+                            },
+                            article7: {
+                                title: newestArticles[6].title,
+                                author: newestArticles[6].author,
+                                category: newestArticles[6].category,
+                                body: newestArticles[6].body,
+                                img: newestArticles[6].img,
+                                date: newestArticles[6].date
+                            },
+                            article8: {
+                                title: newestArticles[7].title,
+                                author: newestArticles[7].author,
+                                category: newestArticles[7].category,
+                                body: newestArticles[7].body,
+                                img: newestArticles[7].img,
+                                date: newestArticles[7].date
+                            },
+                            article9: {
+                                title: newestArticles[8].title,
+                                author: newestArticles[8].author,
+                                category: newestArticles[8].category,
+                                body: newestArticles[8].body,
+                                img: newestArticles[8].img,
+                                date: newestArticles[8].date
+                            }
                         },
-                        article3: {
-                            title: newestArticles[2].title,
-                            author: newestArticles[2].author,
-                            category: newestArticles[2].category,
-                            body: newestArticles[2].body,
-                            img: newestArticles[2].img,
-                            date: newestArticles[2].date
+                        authorArticle: {
+                            article1: {
+                                title: authorArticle[0].title,
+                                category: authorArticle[0].category,
+                                img: authorArticle[0].img
+                            }
                         },
-                        article4: {
-                            title: newestArticles[3].title,
-                            author: newestArticles[3].author,
-                            category: newestArticles[3].category,
-                            body: newestArticles[3].body,
-                            img: newestArticles[3].img,
-                            date: newestArticles[3].date
-                        },
-                        article5: {
-                            title: newestArticles[4].title,
-                            author: newestArticles[4].author,
-                            category: newestArticles[4].category,
-                            body: newestArticles[4].body,
-                            img: newestArticles[4].img,
-                            date: newestArticles[4].date
-                        },
-                        article6: {
-                            title: newestArticles[5].title,
-                            author: newestArticles[5].author,
-                            category: newestArticles[5].category,
-                            body: newestArticles[5].body,
-                            img: newestArticles[5].img,
-                            date: newestArticles[5].date
-                        },
-                        article7: {
-                            title: newestArticles[6].title,
-                            author: newestArticles[6].author,
-                            category: newestArticles[6].category,
-                            body: newestArticles[6].body,
-                            img: newestArticles[6].img,
-                            date: newestArticles[6].date
-                        },
-                        article8: {
-                            title: newestArticles[7].title,
-                            author: newestArticles[7].author,
-                            category: newestArticles[7].category,
-                            body: newestArticles[7].body,
-                            img: newestArticles[7].img,
-                            date: newestArticles[7].date
-                        },
-                        article9: {
-                            title: newestArticles[8].title,
-                            author: newestArticles[8].author,
-                            category: newestArticles[8].category,
-                            body: newestArticles[8].body,
-                            img: newestArticles[8].img,
-                            date: newestArticles[8].date
+                        authorData: {
+                            nickname: authorData.nickname,
+                            rank: authorData.rank,
+                            avatar: authorData.avatar,
+                            info: authorData.info
                         }
-//                        article10: {
-//                            title: newestArticles[9].title,
-//                            author: newestArticles[9].author,
-//                            category: newestArticles[9].category,
-//                            body: newestArticles[9].body,
-//                            img: newestArticles[9].img,
-//                            date: newestArticles[9].date
-//                        }
-                    }
-                });
-            });
+                    });
+                }).catch((err) => {
+                    console.log(err);
+                    res.redirect('/error').send();
+                })
+            }).catch((err) => {
+                console.log(err);
+                res.redirect('/error').send();
+            })
+        }).catch((err) => {
+            console.log(err);
+            res.redirect('/error').send();
         })
     }).catch((err) => {
         console.log(err);
+        res.redirect('/error').send();
     });
 });
 
@@ -357,6 +379,15 @@ app.get('/contact', (req, res) => {
 
 //------------------------------------------------------ TESTING PURPOSES!
 app.get('/test', (req, res) => {
+    var newAuthor = new Author({
+        nickname: 'Typowy Dres',
+        rank: 'Redaktor',
+        avatar: '/assets/img/avatars/typowy_dres.jpg',
+        info: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium temporibus, quam quaerat fugiat, commodi provident. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, ab?'
+    }).save((err) => {
+        if (err) console.log(err.message);
+        console.log('Saved in database');
+    });
     res.render('test');
 });
 //------------------------------------------------------ /TESTING PURPOSES!

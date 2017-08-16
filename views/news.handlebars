@@ -40,27 +40,15 @@
                         <section>
                             <h2>Więcej od {{mainNews.author}}</h2>
                             <div class="author_wrapper hidden">
+                               {{#each authorArticle}}
                                 <article>
-                                    <a href="#"></a>
+                                    <a href="/news/{{this.category}}/{{this.title}}"></a>
                                     <header>
-                                        <img src="/assets/img/news/lol_championships.jpg" alt="">
-                                        <h5>Lorem ipsum dolor sit amet.</h5>
+                                        <img src="{{this.img}}" alt="">
+                                        <h5>{{this.title}}</h5>
                                     </header>
                                 </article>
-                                <article>
-                                    <a href="#"></a>
-                                    <header>
-                                        <img src="/assets/img/news/lol_championships.jpg" alt="">
-                                        <h5>Lorem ipsum dolor sit amet.</h5>
-                                    </header>
-                                </article>
-                                <article>
-                                    <a href="#"></a>
-                                    <header>
-                                        <img src="/assets/img/news/lol_championships.jpg" alt="">
-                                        <h5>Lorem ipsum dolor sit amet.</h5>
-                                    </header>
-                                </article>
+                                {{/each}}
                             </div>
                         </section>
                     </div>
@@ -135,15 +123,13 @@
                     <div class="about_wrapper">
                         <h2>O autorze</h2>
                         <figure>
-                            <img src="/assets/img/avatars/faker.png" alt="avatar">
+                            <img src="{{authorData.avatar}}" alt="{{authorData.nickname}}">
                         </figure>
                         <div class="user">
-                            <!--                       DANE UŻYTKOWNIKA BĘDĄ POBIERANE Z BAZY-->
-                            <p>Użytwkownik: {{mainNews.author}}</p>
-                            <p>Ranga: Administrator</p>
+                            <p>Użytwkownik: {{authorData.nickname}}</p>
+                            <p>Ranga: {{authorData.rank}}</p>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium temporibus, quam quaerat fugiat, commodi provident.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, ab? Officia incidunt in repellendus a fuga, minima alias numquam voluptatem suscipit dolores commodi omnis sequi nisi earum similique. Eveniet ex debitis voluptatum amet rem, eius!</p>
+                        <p>{{authorData.info}}</p>
                     </div>
                 </aside>
             </div>

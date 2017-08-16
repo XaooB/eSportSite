@@ -35,7 +35,7 @@ app.use('/assets', express.static('public')); //sciezka do plikow statycznych
 app.get('/', (req, res) => {
     Article.findOne({
         isMain: true
-    }).then((mainNews) => {
+    }).then((mainArticle) => {
         return Article.find({}).where('isMain').ne(true).sort('-date').limit(3).then((moreArticles) => {
             return Article.find({
                 category: 'lol'
@@ -44,11 +44,11 @@ app.get('/', (req, res) => {
                     category: 'csgo'
                 }).sort('-date').then((lastestCsgoArticles) => {
                     res.render('home', {
-                        mainArticle: {
-                            title: mainNews.title,
-                            category: mainNews.category,
-                            date: mainNews.date,
-                            img: mainNews.img
+                        mainNews: {
+                            title: mainArticle.title,
+                            category: mainArticle.category,
+                            date: mainArticle.date,
+                            img: mainArticle.img
                         },
                         moreArticles: {
                             article1: {

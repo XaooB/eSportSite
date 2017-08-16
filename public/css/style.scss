@@ -9,6 +9,7 @@ $textFont: 'Helvetica';
     font-family: 'Righteous';
     src: url('../fonts/Righteous-Regular.ttf');
 }
+
 //<------------- REUSABLE ------------->
 .f-l {
     float: left;
@@ -567,6 +568,7 @@ body {
                             position: relative;
                         }
                         header {
+                            height:200px;
                             background: none;
                             z-index: 1;
                             position: relative;
@@ -574,7 +576,8 @@ body {
                             margin-bottom: -3px;
                             border: none;
                             img {
-                                height: 200px;
+                                width:100%;
+                                height:100%;
                             }
                             h5 {
                                 position: absolute;
@@ -610,7 +613,7 @@ body {
                             margin-bottom: 1px;
                             width: 100%;
                             color: #bfbfbf;
-                            height:auto;
+                            height: auto;
                             background: #efefef;
                             tr {
                                 .time {
@@ -711,6 +714,7 @@ body {
                         color: $lightFontColor;
                         background: $darkGray;
                         padding: 10px;
+                        font-size: 1.2em;
                     }
                     article {
                         padding: 10px 4px;
@@ -750,7 +754,6 @@ body {
                         font-size: 1em;
                         padding: 14px;
                         background: $darkGray;
-                        text-transform: uppercase;
                         color: $lightFontColor;
                     }
                     width:100%;
@@ -811,7 +814,7 @@ body {
             }
         }
         #slider {
-            background:#151515;
+            background: #151515;
             img {
                 width: 100%;
                 &:hover {
@@ -823,18 +826,18 @@ body {
             article {
                 overflow: hidden;
                 figure {
-                    width:80%;
-                    margin:0 auto;
+                    width: 85%;
+                    margin: 0 auto;
                     height: 0;
                     img {
-                        margin-top: -50px;
+                        margin-top: -75px;
                         height: auto;
                     }
                 }
                 .img_wrapper {
                     width: 100%;
                     section {
-                        margin: 85px 40px;
+                        margin:100px 40px;
                     }
                     .news_header {
                         max-width: 500px;
@@ -957,6 +960,7 @@ body {
                     margin-left: 2%;
                 }
                 article {
+                    transition: .2s ease-out;
                     margin-bottom: 20px;
                     background: rgba(0, 0, 0, .05);
                     height: 100px;
@@ -970,8 +974,8 @@ body {
                         height: 100px;
                         overflow: hidden;
                         img {
-                            width:100%;
-                            height:100%;
+                            width: 100%;
+                            height: 100%;
                         }
                     }
                     .info {
@@ -993,9 +997,9 @@ body {
                             font-family: $textFont;
                             margin-top: 2px;
                             font-size: .8em;
-                            position:absolute;
-                            right:5px;
-                            bottom:5px;
+                            position: absolute;
+                            right: 5px;
+                            bottom: 5px;
                         }
                     }
                     &:before {
@@ -1005,6 +1009,10 @@ body {
                         left: 25%;
                         height: 100%;
                         background: $bgColor;
+                    }
+                    &:hover {
+                        background: rgba(0, 0, 0, .125);
+                        transition: .2s ease-in;
                     }
                 }
                 a {

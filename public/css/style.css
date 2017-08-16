@@ -485,6 +485,7 @@ body {
           z-index: 2;
           position: relative; }
         body main .news_wrapper .authors_news .author_wrapper article header {
+          height: 200px;
           background: none;
           z-index: 1;
           position: relative;
@@ -492,7 +493,8 @@ body {
           margin-bottom: -3px;
           border: none; }
           body main .news_wrapper .authors_news .author_wrapper article header img {
-            height: 200px; }
+            width: 100%;
+            height: 100%; }
           body main .news_wrapper .authors_news .author_wrapper article header h5 {
             position: absolute;
             bottom: 20px;
@@ -597,7 +599,8 @@ body {
           body main .news_wrapper .main_news .post_comments h2 {
             color: #ffffff;
             background: #222222;
-            padding: 10px; }
+            padding: 10px;
+            font-size: 1.2em; }
           body main .news_wrapper .main_news .post_comments article {
             padding: 10px 4px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
@@ -630,7 +633,6 @@ body {
             font-size: 1em;
             padding: 14px;
             background: #222222;
-            text-transform: uppercase;
             color: #ffffff; }
           body main .news_wrapper .about .about_wrapper img {
             width: 100%;
@@ -688,16 +690,16 @@ body {
       body main #slider article {
         overflow: hidden; }
         body main #slider article figure {
-          width: 80%;
+          width: 85%;
           margin: 0 auto;
           height: 0; }
           body main #slider article figure img {
-            margin-top: -50px;
+            margin-top: -75px;
             height: auto; }
         body main #slider article .img_wrapper {
           width: 100%; }
           body main #slider article .img_wrapper section {
-            margin: 85px 40px; }
+            margin: 100px 40px; }
           body main #slider article .img_wrapper .news_header {
             max-width: 500px;
             bottom: -40px;
@@ -793,6 +795,8 @@ body {
         body .others_news .others_news_wrapper .column:last-child {
           margin-left: 2%; }
         body .others_news .others_news_wrapper .column article {
+          -webkit-transition: .2s ease-out;
+                  transition: .2s ease-out;
           margin-bottom: 20px;
           background: rgba(0, 0, 0, 0.05);
           height: 100px;
@@ -834,6 +838,10 @@ body {
             left: 25%;
             height: 100%;
             background: #107dac; }
+          body .others_news .others_news_wrapper .column article:hover {
+            background: rgba(0, 0, 0, 0.125);
+            -webkit-transition: .2s ease-in;
+                    transition: .2s ease-in; }
         body .others_news .others_news_wrapper .column a {
           position: relative;
           display: block;

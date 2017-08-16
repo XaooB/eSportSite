@@ -370,13 +370,13 @@ body {
                 &:hover,
                 &:focus {
                     border-bottom: 1px solid $bgColor;
-                    background: #111;
+                    background: #151515;
                     ol.subNav {
                         display: block;
                         li {
                             &:hover {
                                 transition: .3s all linear;
-                                background: #111;
+                                background: #151515;
                                 a {
                                     color: #ffffff;
                                 }
@@ -408,7 +408,7 @@ body {
                     font-size: .9em;
                 }
                 &:hover {
-                    background: #111;
+                    background: #151515;
                     transition: .3s all linear;
                     border-bottom: 1px solid $bgColor;
                 }
@@ -811,6 +811,7 @@ body {
             }
         }
         #slider {
+            background:#151515;
             img {
                 width: 100%;
                 &:hover {
@@ -822,6 +823,8 @@ body {
             article {
                 overflow: hidden;
                 figure {
+                    width:80%;
+                    margin:0 auto;
                     height: 0;
                     img {
                         margin-top: -50px;

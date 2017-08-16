@@ -72,35 +72,35 @@ app.get('/', (req, res) => {
                                 title: lastestLolArticles[0].title,
                                 date: lastestLolArticles[0].date,
                                 category: lastestLolArticles[0].category,
-                                body: lastestLolArticles[0].body,
+                                body: lastestLolArticles[0].body.substr(11,140) + '...',
                                 img: lastestLolArticles[0].img
                             },
                             article2: {
                                 title: lastestLolArticles[1].title,
                                 date: lastestLolArticles[1].date,
                                 category: lastestLolArticles[1].category,
-                                body: lastestLolArticles[1].body,
+                                body: lastestLolArticles[1].body.substr(11,140) + '...',
                                 img: lastestLolArticles[1].img
                             },
                             article3: {
                                 title: lastestLolArticles[2].title,
                                 date: lastestLolArticles[2].date,
                                 category: lastestLolArticles[2].category,
-                                body: lastestLolArticles[2].body,
+                                body: lastestLolArticles[2].body.substr(11,140) + '...',
                                 img: lastestLolArticles[2].img
                             },
                             article4: {
                                 title: lastestLolArticles[3].title,
                                 date: lastestLolArticles[3].date,
                                 category: lastestLolArticles[3].category,
-                                body: lastestLolArticles[3].body,
+                                body: lastestLolArticles[3].body.substr(11,140) + '...',
                                 img: lastestLolArticles[3].img
                             },
                             article5: {
                                 title: lastestLolArticles[4].title,
                                 date: lastestLolArticles[4].date,
                                 category: lastestLolArticles[4].category,
-                                body: lastestLolArticles[4].body,
+                                body: lastestLolArticles[4].body.substr(11,140) + '...',
                                 img: lastestLolArticles[4].img
                             }
                         },
@@ -109,35 +109,35 @@ app.get('/', (req, res) => {
                                 title: lastestCsgoArticles[0].title,
                                 date: lastestCsgoArticles[0].date,
                                 category: lastestCsgoArticles[0].category,
-                                body: lastestCsgoArticles[0].body,
+                                body: lastestCsgoArticles[0].body.substr(11,140) + '...',
                                 img: lastestCsgoArticles[0].img
                             },
                             article2: {
                                 title: lastestCsgoArticles[1].title,
                                 date: lastestCsgoArticles[1].date,
                                 category: lastestCsgoArticles[1].category,
-                                body: lastestCsgoArticles[1].body,
+                                body: lastestCsgoArticles[1].body.substr(11,140) + '...',
                                 img: lastestCsgoArticles[1].img
                             },
                             article3: {
                                 title: lastestCsgoArticles[2].title,
                                 date: lastestCsgoArticles[2].date,
                                 category: lastestCsgoArticles[2].category,
-                                body: lastestCsgoArticles[2].body,
+                                body: lastestCsgoArticles[2].body.substr(11,140) + '...',
                                 img: lastestCsgoArticles[2].img
                             },
                             article4: {
                                 title: lastestCsgoArticles[3].title,
                                 date: lastestCsgoArticles[3].date,
                                 category: lastestCsgoArticles[3].category,
-                                body: lastestCsgoArticles[3].body,
+                                body: lastestCsgoArticles[3].body.substr(11,140) + '...',
                                 img: lastestCsgoArticles[3].img
                             },
                             article5: {
                                 title: lastestCsgoArticles[4].title,
                                 date: lastestCsgoArticles[4].date,
-                                category: lastestCsgoArticles[4].cateogry,
-                                body: lastestCsgoArticles[4].body,
+                                category: lastestCsgoArticles[4].category,
+                                body: lastestCsgoArticles[4].body.substr(11,140) + '...',
                                 img: lastestCsgoArticles[4].img
                             }
                         }

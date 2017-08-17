@@ -256,18 +256,9 @@ app.get('/news/:category/:title', (req, res) => {
                             info: authorData.info
                         }
                     });
-                }).catch((err) => {
-                    console.log(err);
-                    res.redirect('/error').send();
-                })
-            }).catch((err) => {
-                console.log(err);
-                res.redirect('/error').send();
-            })
-        }).catch((err) => {
-            console.log(err);
-            res.redirect('/error').send();
-        })
+                });
+            });
+        });
     }).catch((err) => {
         console.log(err);
         res.redirect('/error').send();
@@ -416,12 +407,10 @@ app.post('/news/addArticle', (req, res) => {
             body: req.body.body
         }).save().then(() => {
             console.log('saved in database')
-        }).catch((err) => {
-            console.log(err.message);
-        })
+        });
     }).catch((err) => {
         console.log(err.message);
-    })
+    });
 });
 
 //ERROR HANDLING

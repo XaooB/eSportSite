@@ -14,21 +14,19 @@ const express = require('express'),
     hbs = require('express-handlebars'),
     app = express(),
     PORT = process.env.PORT || 3000,
-    {
-        mongoose
-    } = require('./../database/mongoose'),
-    {
-        Article
-    } = require('./../models/article'),
-    {
-        Author
-    } = require('./../models/author');
+    bodyParser = require('body-parser'),
+    {mongoose} = require('./../database/mongoose'),
+    {Article} = require('./../models/article'),
+    {Author} = require('./../models/author');
 
 app.engine('handlebars', hbs({
     defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars'); //ustawiamy silnik szablonow na handlebars
 app.use('/assets', express.static('public')); //sciezka do plikow statycznych
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 
 //GETS
@@ -72,35 +70,35 @@ app.get('/', (req, res) => {
                                 title: lastestLolArticles[0].title,
                                 date: lastestLolArticles[0].date,
                                 category: lastestLolArticles[0].category,
-                                body: lastestLolArticles[0].body.substr(11,140) + '...',
+                                body: lastestLolArticles[0].body.substr(11, 140) + '...',
                                 img: lastestLolArticles[0].img
                             },
                             article2: {
                                 title: lastestLolArticles[1].title,
                                 date: lastestLolArticles[1].date,
                                 category: lastestLolArticles[1].category,
-                                body: lastestLolArticles[1].body.substr(11,140) + '...',
+                                body: lastestLolArticles[1].body.substr(11, 140) + '...',
                                 img: lastestLolArticles[1].img
                             },
                             article3: {
                                 title: lastestLolArticles[2].title,
                                 date: lastestLolArticles[2].date,
                                 category: lastestLolArticles[2].category,
-                                body: lastestLolArticles[2].body.substr(11,140) + '...',
+                                body: lastestLolArticles[2].body.substr(11, 140) + '...',
                                 img: lastestLolArticles[2].img
                             },
                             article4: {
                                 title: lastestLolArticles[3].title,
                                 date: lastestLolArticles[3].date,
                                 category: lastestLolArticles[3].category,
-                                body: lastestLolArticles[3].body.substr(11,140) + '...',
+                                body: lastestLolArticles[3].body.substr(11, 140) + '...',
                                 img: lastestLolArticles[3].img
                             },
                             article5: {
                                 title: lastestLolArticles[4].title,
                                 date: lastestLolArticles[4].date,
                                 category: lastestLolArticles[4].category,
-                                body: lastestLolArticles[4].body.substr(11,140) + '...',
+                                body: lastestLolArticles[4].body.substr(11, 140) + '...',
                                 img: lastestLolArticles[4].img
                             }
                         },
@@ -109,35 +107,35 @@ app.get('/', (req, res) => {
                                 title: lastestCsgoArticles[0].title,
                                 date: lastestCsgoArticles[0].date,
                                 category: lastestCsgoArticles[0].category,
-                                body: lastestCsgoArticles[0].body.substr(11,140) + '...',
+                                body: lastestCsgoArticles[0].body.substr(11, 140) + '...',
                                 img: lastestCsgoArticles[0].img
                             },
                             article2: {
                                 title: lastestCsgoArticles[1].title,
                                 date: lastestCsgoArticles[1].date,
                                 category: lastestCsgoArticles[1].category,
-                                body: lastestCsgoArticles[1].body.substr(11,140) + '...',
+                                body: lastestCsgoArticles[1].body.substr(11, 140) + '...',
                                 img: lastestCsgoArticles[1].img
                             },
                             article3: {
                                 title: lastestCsgoArticles[2].title,
                                 date: lastestCsgoArticles[2].date,
                                 category: lastestCsgoArticles[2].category,
-                                body: lastestCsgoArticles[2].body.substr(11,140) + '...',
+                                body: lastestCsgoArticles[2].body.substr(11, 140) + '...',
                                 img: lastestCsgoArticles[2].img
                             },
                             article4: {
                                 title: lastestCsgoArticles[3].title,
                                 date: lastestCsgoArticles[3].date,
                                 category: lastestCsgoArticles[3].category,
-                                body: lastestCsgoArticles[3].body.substr(11,140) + '...',
+                                body: lastestCsgoArticles[3].body.substr(11, 140) + '...',
                                 img: lastestCsgoArticles[3].img
                             },
                             article5: {
                                 title: lastestCsgoArticles[4].title,
                                 date: lastestCsgoArticles[4].date,
                                 category: lastestCsgoArticles[4].category,
-                                body: lastestCsgoArticles[4].body.substr(11,140) + '...',
+                                body: lastestCsgoArticles[4].body.substr(11, 140) + '...',
                                 img: lastestCsgoArticles[4].img
                             }
                         }
@@ -342,7 +340,6 @@ app.get('/csgo/statistics', (req, res) => {
     });
 });
 
-
 app.get('/lol/ranking', (req, res) => {
     res.render('ranking', {
         title: 'Ranking: League of Legends'
@@ -405,11 +402,34 @@ app.post('/profil/register', (req, res) => {
     res.send('WYSŁAŁEM FORMULARZ');
 });
 
+app.post('/news/addArticle', (req, res) => {
+    let title = req.body.title,
+        category = req.body.category,
+        author = req.body.author,
+        body = req.body.body;
+
+    Article.count({}).then((amount) => {
+        let newArticle = new Article({
+            id: amount+1,
+            title: req.body.title,
+            category: req.body.category,
+            body: req.body.body
+        }).save().then(() => {
+            console.log('saved in database')
+        }).catch((err) => {
+            console.log(err.message);
+        })
+    }).catch((err) => {
+        console.log(err.message);
+    })
+});
+
 //ERROR HANDLING
 app.use((req, res) => {
     res.redirect('/error');
 });
 
+//SERVER
 app.listen(PORT, () => {
     console.log('Server running on localhost:3000');
 });

@@ -3,8 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>eSportSite.com</title>
+<!--    DO POPRAWY-->
+    <title>
+        {{#if authorData}}{{mainNews.title}}{{else}}Home - eSportSite.com{{/if}}
+    </title>
     <link rel="icon" type="image/png" href="/assets/img/logo_ico.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--[if IE]><link rel="SHORTCUT ICON" href="/assets/img/logo_ico.png"/><![endif]-->
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">

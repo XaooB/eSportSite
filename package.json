@@ -23,6 +23,7 @@
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "mongoose": "^4.11.6",
-    "mysql": "^2.14.1"
+    "mysql": "^2.14.1",
+    "request-promise": "^4.2.1"
   }
 }

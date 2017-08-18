@@ -3,7 +3,7 @@
         <div class="register_wrapper clearfix">
             <section class="register f-l">
                 <h1>{{title}}</h1>
-                <form action="register" method='post'>
+                <form id='registerForm' action="/profil/register" method='post'>
                     <label for="regLogin">Nazwa użytkownika:</label>
                     <input type="text" name='regLogin' id='regLogin' required>
                     <label for="email">Email:</label>
@@ -12,9 +12,24 @@
                     <input type="password" name='regPass' id="regPass" required>
                     <label for="regPass2">Powtórz hasło:</label>
                     <input type="password" name='regPass2' id="regPass2" required>
-                    <div class="bot">recaptcha</div>
-                    <button type="submit">Zarejestruj się</button>
+                    <div class="g-recaptcha" data-sitekey="6LdmUC0UAAAAACGhqCxrLUaCiVFcg0y4WFnRdYA7"></div>
+                    <input type="submit" name='submit' value='Zarejestruj się' />
                 </form>
+                <script>
+                    $(document).ready(function() {
+                        $('#registerForm').submit(function() {
+                            $(this).ajaxSubmit({
+                                error: function(xhr) {
+                                    status('Error: ' + xhr.status);
+                                },
+                                success: function(response) {
+                                    console.log(response);
+                                }
+                            });
+//                            return false;
+                        });
+                    });
+                </script>
             </section>
         </div>
     </div>

@@ -15,6 +15,7 @@ const express = require('express'),
     app = express(),
     PORT = process.env.PORT || 3000,
     bodyParser = require('body-parser'),
+    requestPromise = require('request-promise'),
     {mongoose} = require('./../database/mongoose'),
     {Article} = require('./../models/article'),
     {Author} = require('./../models/author');
@@ -25,7 +26,7 @@ app.engine('handlebars', hbs({
 app.set('view engine', 'handlebars'); //ustawiamy silnik szablonow na handlebars
 app.use('/assets', express.static('public')); //sciezka do plikow statycznych
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: false
 }));
 
 
@@ -390,7 +391,27 @@ app.get('/error', (req, res) => {
 
 //POSTS
 app.post('/profil/register', (req, res) => {
-    res.send('WYSŁAŁEM FORMULARZ');
+    let recaptcha = req.body['g-recaptcha-response'],
+        remoteAddress = req.connection.remoteAddress;
+
+    if(recaptcha === undefined || recaptcha === null) {
+        return res.json({"responseCode" : 1,"responseDesc" : "Please select captcha"});
+    };
+    
+    //SETTINGS FOR LOCALHOST ONLY
+    let secretKey = '6LdmUC0UAAAAACJGXm3ndNjKRt5LjowTzYye3iAa';
+    let verification = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + recaptcha + "&remoteip=" + remoteAddress;
+    
+    requestPromise(verification).then((body) => {
+        body = JSON.parse(body);
+        
+        if(body.success !== undefined && !body.success) {
+          return res.json({"responseCode" : 1,"responseDesc" : "Failed captcha verification"});
+        };
+        res.json({"responseCode" : 0,"responseDesc" : "Sucess"});
+    }).catch((err) => {
+       console.log(err.message['error-codes']); 
+    });
 });
 
 app.post('/news/addArticle', (req, res) => {

@@ -15,10 +15,12 @@ const express = require('express'),
     app = express(),
     PORT = process.env.PORT || 3000,
     bodyParser = require('body-parser'),
+    recaptcha = require('recaptcha2'),  
     requestPromise = require('request-promise'),
     {mongoose} = require('./../database/mongoose'),
     {Article} = require('./../models/article'),
-    {Author} = require('./../models/author');
+    {Author} = require('./../models/author'),
+    {User} = require('./../models/user');
 
 app.engine('handlebars', hbs({
     defaultLayout: 'main'
@@ -391,27 +393,31 @@ app.get('/error', (req, res) => {
 
 //POSTS
 app.post('/profil/register', (req, res) => {
-    let recaptcha = req.body['g-recaptcha-response'],
+    let siteKey = req.body['g-recaptcha-response'],
         remoteAddress = req.connection.remoteAddress;
-
-    if(recaptcha === undefined || recaptcha === null) {
-        return res.json({"responseCode" : 1,"responseDesc" : "Please select captcha"});
-    };
     
-    //SETTINGS FOR LOCALHOST ONLY
-    let secretKey = '6LdmUC0UAAAAACJGXm3ndNjKRt5LjowTzYye3iAa';
-    let verification = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + recaptcha + "&remoteip=" + remoteAddress;
-    
-    requestPromise(verification).then((body) => {
-        body = JSON.parse(body);
-        
-        if(body.success !== undefined && !body.success) {
-          return res.json({"responseCode" : 1,"responseDesc" : "Failed captcha verification"});
-        };
-        res.json({"responseCode" : 0,"responseDesc" : "Sucess"});
-    }).catch((err) => {
-       console.log(err.message['error-codes']); 
+    recaptcha2 = new recaptcha({
+       siteKey: siteKey,
+        secretKey: '6LdUWi0UAAAAAKYKN_Z0Hc2SLwO1lBvllUPEEAqx'
     });
+    
+    recaptcha2.validate(siteKey).then(()=> {
+         let newUser = User({
+             nickname: req.body.nickname,
+             email: req.body.email,
+             password: req.body.password
+         }).save((err) => {
+             if(err) {
+                 console.log(err.message);
+                 return false;
+             }
+             console.log(`Username ${req.body.nickname} saved in database`);
+             res.redirect('/');
+         })
+    }).catch((err) => {
+        console.log(recaptcha2.translateErrors(err));
+    })
+
 });
 
 app.post('/news/addArticle', (req, res) => {

@@ -441,8 +441,9 @@ body {
           width: 100%;
           padding: 6px;
           margin-bottom: 12px; }
-        body main .register_wrapper .register form button {
+        body main .register_wrapper .register form input[type='submit'] {
           padding: 14px;
+          font-weight: bold;
           border: none;
           background: #107dac;
           color: #ffffff;

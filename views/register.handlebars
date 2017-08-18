@@ -5,14 +5,14 @@
                 <h1>{{title}}</h1>
                 <form id='registerForm' action="/profil/register" method='post'>
                     <label for="regLogin">Nazwa użytkownika:</label>
-                    <input type="text" name='regLogin' id='regLogin' required>
+                    <input type="text" name='nickname' id='nickname' required>
                     <label for="email">Email:</label>
                     <input type="email" name='email' id="email" required>
                     <label for="regPass">Hasło:</label>
-                    <input type="password" name='regPass' id="regPass" required>
+                    <input type="password" name='password' id="regPass" required>
                     <label for="regPass2">Powtórz hasło:</label>
-                    <input type="password" name='regPass2' id="regPass2" required>
-                    <div class="g-recaptcha" data-sitekey="6LdmUC0UAAAAACGhqCxrLUaCiVFcg0y4WFnRdYA7"></div>
+                    <input type="password" id="regPass2" required>
+                    <div class="g-recaptcha" data-sitekey="6LdUWi0UAAAAAOsWXGABpg2-RDrChsIyl1iqm-4N"></div>
                     <input type="submit" name='submit' value='Zarejestruj się' />
                 </form>
                 <script>
@@ -20,13 +20,13 @@
                         $('#registerForm').submit(function() {
                             $(this).ajaxSubmit({
                                 error: function(xhr) {
-                                    status('Error: ' + xhr.status);
+                                    status('AJAX Error: ' + xhr.status);
                                 },
                                 success: function(response) {
-                                    console.log(response);
+                                    console.log('AJAX: ' + response);
                                 }
                             });
-//                            return false;
+                            return false;
                         });
                     });
                 </script>

@@ -1,0 +1,17 @@
+<main>
+    <div class="container">
+        <div class="register_wrapper clearfix">
+            <section class="register f-l">
+                <h1>{{title}}</h1>
+                <form id='loginForm' action="/login" method='post'>
+                    <label for="username">Nazwa użytkownika:</label>
+                    <input type="text" name='username' id='username' required>
+                    <label for="password">Hasło:</label>
+                    <input type="password" name='password' id='password' required>
+                    <label for="forget"><a href="/login/lost_password">Zapomniałeś hasła? Kliknij tutaj!</a></label>
+                    <input type="submit" name='submit' value='Zaloguj się' />
+                </form>
+            </section>
+        </div>
+    </div>
+</main>

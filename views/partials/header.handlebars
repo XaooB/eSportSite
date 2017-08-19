@@ -9,9 +9,7 @@
     </title>
     <link rel="icon" type="image/png" href="/assets/img/logo_ico.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!--[if IE]><link rel="SHORTCUT ICON" href="/assets/img/logo_ico.png"/><![endif]-->
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
@@ -28,23 +26,9 @@
             </div>
             <div class="login_wrapper f-r">
                 <ul class='login'>
-                    <li><a href="/profil/register">REJESTRACJA</a></li>
-                    <li id='loginButton'><a>ZALOGUJ SIĘ</a></li>
+                    <li><a href="/register">REJESTRACJA</a></li>
+                    <li><a href="/login">ZALOGUJ SIĘ</a></li>
                 </ul>
-                <div class="panel">
-                    <section class="login_panel clearfix">
-                        <h2 class='f-l'>Logowanie</h2>
-                        <span class='exit f-r'>X</span>
-                        <label for="username">Nazwa użytkownika:</label>
-                        <input type="text" name='username' id='username'>
-                        <label for="password">Hasło:</label>
-                        <input type="password" name='password' id='password'>
-                        <label for="forgot_password" class='forgot_password'>
-                            <a href="#">Zapomniałeś hasła? Kliknij tutaj</a>
-                        </label>
-                        <button type="submit">Zaloguj się</button>
-                    </section>
-                </div>
             </div>
         </div>
         <nav class="navbar f-l">

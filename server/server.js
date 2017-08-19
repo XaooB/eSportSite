@@ -15,12 +15,20 @@ const express = require('express'),
     app = express(),
     PORT = process.env.PORT || 3000,
     bodyParser = require('body-parser'),
-    recaptcha = require('recaptcha2'),  
-    requestPromise = require('request-promise'),
-    {mongoose} = require('./../database/mongoose'),
-    {Article} = require('./../models/article'),
-    {Author} = require('./../models/author'),
-    {User} = require('./../models/user');
+    recaptcha = require('recaptcha2'),
+    request = require('request-promise'),
+    {
+        mongoose
+    } = require('./../database/mongoose'),
+    {
+        Article
+    } = require('./../models/article'),
+    {
+        Author
+    } = require('./../models/author'),
+    {
+        User
+    } = require('./../models/user');
 
 app.engine('handlebars', hbs({
     defaultLayout: 'main'
@@ -268,7 +276,7 @@ app.get('/news/:category/:title', (req, res) => {
     });
 });
 
-app.get('/profil/register', (req, res) => {
+app.get('/register', (req, res) => {
     res.render('register', {
         title: 'Rejestracja'
     });
@@ -368,6 +376,18 @@ app.get('/contact', (req, res) => {
     })
 });
 
+app.get('/login/lost_password', (req ,res) => {
+       res.render('lostPassword', {
+        title: 'Przypomnienie hasła'
+    }); 
+});
+
+app.get('/login', (req, res) => {
+   res.render('login', {
+       title: 'Logowanie'
+   }) 
+});
+
 //------------------------------------------------------ TESTING PURPOSES!
 app.get('/test', (req, res) => {
     var newAuthor = new Author({
@@ -392,32 +412,38 @@ app.get('/error', (req, res) => {
 });
 
 //POSTS
-app.post('/profil/register', (req, res) => {
-    let siteKey = req.body['g-recaptcha-response'],
-        remoteAddress = req.connection.remoteAddress;
+app.post('/register', (req, res) => {
+  
+    let response = req.body['g-recaptcha-response'],
+        username = req.body.nickname,
+        email = req.body.email;
     
-    recaptcha2 = new recaptcha({
-       siteKey: siteKey,
-        secretKey: '6LdUWi0UAAAAAKYKN_Z0Hc2SLwO1lBvllUPEEAqx'
-    });
+    if(response.length === 0 || response === null || response === undefined || response === '') {
+        res.render('register', {
+            Error: 'Udownodnij, że nie jesteś BOT-em!'
+        })
+    }
     
-    recaptcha2.validate(siteKey).then(()=> {
-         let newUser = User({
-             nickname: req.body.nickname,
-             email: req.body.email,
-             password: req.body.password
-         }).save((err) => {
-             if(err) {
-                 console.log(err.message);
-                 return false;
-             }
-             console.log(`Username ${req.body.nickname} saved in database`);
-             res.redirect('/');
-         })
+    let secretKey = '6Le9ai0UAAAAAFHPB7SrAhUW2TpwRKsfO7BbPYi_';
+    let verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${response}`;
+    
+    request(verificationUrl).then((data)=> {
+        data = JSON.parse(data);
+        console.log(data);
+        
+        if(data.success !== undefined && !data.success) {
+            res.render('register', {
+                Error: 'Błąd podczas walidacji. Spróbuj ponownie!'
+            })
+        };
+        res.render('registered', {
+            title: 'Rejestracja zakończona sukcesem!',
+            username: username,
+            email: email
+        });
     }).catch((err) => {
-        console.log(recaptcha2.translateErrors(err));
+        console.log(err.message);
     })
-
 });
 
 app.post('/news/addArticle', (req, res) => {
@@ -428,7 +454,7 @@ app.post('/news/addArticle', (req, res) => {
 
     Article.count({}).then((amount) => {
         let newArticle = new Article({
-            id: amount+1,
+            id: amount + 1,
             title: req.body.title,
             category: req.body.category,
             body: req.body.body

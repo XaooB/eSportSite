@@ -3,7 +3,7 @@
         <div class="register_wrapper clearfix">
             <section class="register f-l">
                 <h1>{{title}}</h1>
-                <form id='registerForm' action="/profil/register" method='post'>
+                <form id='registerForm' action="/register" method='post'>
                     <label for="regLogin">Nazwa użytkownika:</label>
                     <input type="text" name='nickname' id='nickname' required>
                     <label for="email">Email:</label>
@@ -11,25 +11,13 @@
                     <label for="regPass">Hasło:</label>
                     <input type="password" name='password' id="regPass" required>
                     <label for="regPass2">Powtórz hasło:</label>
-                    <input type="password" id="regPass2" required>
-                    <div class="g-recaptcha" data-sitekey="6LdUWi0UAAAAAOsWXGABpg2-RDrChsIyl1iqm-4N"></div>
+                    <input type="password" id="regPass2" required> 
+                    {{#if Error}}
+                    <div class="form-error">{{Error}}</div>
+                    {{/if}}
+                    <div class="g-recaptcha" data-sitekey="6Le9ai0UAAAAAKhR2RO2hbeOS7ksRb15RIxaFeEo"></div>
                     <input type="submit" name='submit' value='Zarejestruj się' />
                 </form>
-                <script>
-                    $(document).ready(function() {
-                        $('#registerForm').submit(function() {
-                            $(this).ajaxSubmit({
-                                error: function(xhr) {
-                                    status('AJAX Error: ' + xhr.status);
-                                },
-                                success: function(response) {
-                                    console.log('AJAX: ' + response);
-                                }
-                            });
-                            return false;
-                        });
-                    });
-                </script>
             </section>
         </div>
     </div>

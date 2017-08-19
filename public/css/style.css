@@ -117,76 +117,6 @@ body {
       height: 49px;
       background: rgba(0, 0, 0, 0.2);
       margin-bottom: 50px; }
-      body header .login_wrapper .panel {
-        opacity: 0;
-        width: 300px;
-        background: #efefef;
-        -webkit-transition: .5s ease-out;
-                transition: .5s ease-out;
-        padding: 20px;
-        position: absolute;
-        clear: both;
-        z-index: 99999;
-        top: -275px;
-        right: 135px; }
-        body header .login_wrapper .panel:before {
-          content: '';
-          position: absolute;
-          top: -15px;
-          right: 0;
-          border-left: 15px solid #efefef;
-          border-top: 15px solid transparent; }
-        body header .login_wrapper .panel:after {
-          content: '';
-          position: absolute;
-          top: -15px;
-          right: 15px;
-          border-right: 15px solid #efefef;
-          border-top: 15px solid transparent; }
-        body header .login_wrapper .panel .login_panel {
-          color: #222222; }
-          body header .login_wrapper .panel .login_panel h2 {
-            padding: 6px;
-            border-bottom: 1px solid #107dac;
-            margin-bottom: 20px;
-            width: 90%; }
-          body header .login_wrapper .panel .login_panel .exit {
-            width: 10%;
-            color: #ffffff;
-            font-family: "Righteous";
-            font-size: 1.5em;
-            font-weight: bold;
-            background: #222222;
-            text-align: center; }
-            body header .login_wrapper .panel .login_panel .exit:hover {
-              cursor: pointer; }
-          body header .login_wrapper .panel .login_panel label {
-            font-weight: bold;
-            font-size: .7em;
-            text-transform: uppercase;
-            display: block; }
-          body header .login_wrapper .panel .login_panel .forgot_password {
-            margin-bottom: 20px; }
-            body header .login_wrapper .panel .login_panel .forgot_password a {
-              font-size: .9em;
-              color: #afafaf; }
-              body header .login_wrapper .panel .login_panel .forgot_password a:hover {
-                color: #107dac;
-                text-decoration: underline; }
-          body header .login_wrapper .panel .login_panel input {
-            width: 85%;
-            padding: 4px;
-            margin-bottom: 10px; }
-          body header .login_wrapper .panel .login_panel button {
-            width: 85%;
-            display: block;
-            padding: 10px;
-            border: none;
-            background: #107dac;
-            font-weight: bold;
-            font-size: .8em;
-            color: #ffffff;
-            cursor: pointer; }
       body header .login_wrapper .showingPanel {
         top: 56px;
         -webkit-transition: .5s ease-in-out;
@@ -450,6 +380,20 @@ body {
           width: 100%;
           margin-top: 20px;
           display: block; }
+        body main .register_wrapper .register form .form-error {
+          text-align: center;
+          margin: 20px 0;
+          padding: 6px 0;
+          color: red;
+          font-weight: bold;
+          font-family: "Helvetica";
+          border: 2px solid red; }
+      body main .register_wrapper .register span {
+        margin-top: 12px;
+        margin-bottom: 6px;
+        display: block; }
+      body main .register_wrapper .register p {
+        line-height: 1.5; }
     body main .news_wrapper {
       padding-top: 20px;
       width: 100%;

@@ -13,7 +13,7 @@ const express = require('express'),
     {Author} = require('../models/author'),
     {User} = require('../models/user'),
       
-    //ROUTES
+    //ROUTERS
     {articleRouter} = require('../routes/articleroutes'),
     homeRouter = require('../routes/homeroutes'),
     registerRouter = require('../routes/registerroutes'),
@@ -38,6 +38,11 @@ router.get('/news/:category/:title', articleRouter);
 router.get('/register', registerRouter.registerGet);
 router.post('/register', registerRouter.registerPost);
 
+//LOGIN ROUTERS
+router.get('/login/lost_password', loginRouter.lostGet);
+router.get('/login', loginRouter.loginGet);
+router.post('/login', loginRouter.loginPost);
+
 //LOL ROUTERS
 router.get('/lol/events', lolRouter.events);
 router.get('/lol/matches', lolRouter.matches);
@@ -58,9 +63,6 @@ router.get('/lol/ranking', lolRouter.ranking);
 app.get('/gallery', homeRouter.navGallery);
 app.get('/contact', homeRouter.navContact);
 app.get('/news/archives', homeRouter.navArchives);
-app.get('/login/lost_password', loginRouter.lostGet);
-app.get('/login', loginRouter.loginGet);
-
 //app.get('/news/addArticle', (req, res) => {
 //    res.render('addArticle');
 //});

@@ -12,7 +12,6 @@ exports.articleRouter = (req, res) => {
                 return Author.findOne({
                     nickname: mainArticle.author
                 }).then((authorData) => {
-                    console.log(authorData)
                     res.render('news', {
                         mainNews: {
                             title: mainArticle.title,

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const userSchema = mongoose.Schema({
-    nickname: {
+    username: {
         type: String,
         unique: true
     },
@@ -13,16 +13,14 @@ const userSchema = mongoose.Schema({
     password: String,
     rank: {
         type: String,
-        default: 'user'
+        default: "user"
     },
     avatar: {
         type: String,
-        default: '/assets/img/avatars/default-avatar.jpg'
+        default: "/assets/img/avatars/default-avatar.jpg"
     }
 });
 
 var User = mongoose.model('User', userSchema);
 
-module.exports = {
-    User
-};
+module.exports = {User};

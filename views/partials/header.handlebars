@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-<!--    DO POPRAWY-->
+    <!--    DO POPRAWY-->
     <title>
         {{title}}
     </title>
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
 </head>
+
 <body>
     <header class="header clearfix">
         <div class='container clearfix'>
@@ -85,4 +86,27 @@
                 </div>
             </div>
         </nav>
+        <script type="application/javascript">
+            let body = document.body,
+                html = document.documentElement,
+                navbar = document.querySelector('.navbar'),
+                header = document.querySelector('.header'),
+                availWidth = screen.availWidth,
+                amount = null;
+
+            console.log(availWidth);
+
+            window.addEventListener('scroll', function() {
+                amount = 75;
+                if (availWidth > 1000) amount = 102;
+                
+                if (body.scrollTop > amount || html.scrollTop > amount) {
+                        header.style.marginBottom = '55px';
+                        navbar.classList.add('fixedNavbar');
+                    } else {
+                        header.style.marginBottom = '0';
+                        navbar.classList.remove('fixedNavbar');
+                    }
+                });
+        </script>
     </header>

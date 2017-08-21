@@ -4,13 +4,18 @@ mongoose.Promise = global.Promise;
 const userSchema = mongoose.Schema({
     username: {
         type: String,
-        unique: true
+        unique: true,
+        required: true
     },
     email: {
         type: String,
-        unique: true
+        unique: true,
+        required: true
     },
-    password: String,
+    password: {
+        type: String,
+        required: true
+    },
     rank: {
         type: String,
         default: "user"

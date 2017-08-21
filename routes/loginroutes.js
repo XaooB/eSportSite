@@ -3,7 +3,7 @@ const {User} = require('../models/user'),
 
 exports.loginGet = (req, res) => {
     res.render('login', {
-        title: 'Logowanie'
+        title: 'Logowanie - eSportSite'
     });
 };
 

@@ -38,18 +38,21 @@ exports.registerPost = (req, res) => {
             }).catch((err) => {
                 console.log(err.message);
                 res.render('register', {
+                    title: 'Błąd',
                     Error: 'Niestety, ale taki użytkownik już istnieje w naszej bazie!'
                 });
             })
         }).catch((err) => {
             console.log(err.message);
             res.render('register', {
+                title: 'Błąd',
                 Error: err.message
             });
         });
     }).catch((err) => {
         console.log(err.message);
         res.render('register', {
+            title: 'Błąd',
             Error: err.message
         });
     })
@@ -57,6 +60,6 @@ exports.registerPost = (req, res) => {
 
 exports.registerGet = (req, res) => {
     res.render('register', {
-        title: 'Rejestracja'
+        title: 'Rejestracja - eSportSite'
     });
 }

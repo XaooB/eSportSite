@@ -100,6 +100,11 @@ exports.articleRouter = (req, res) => {
                                 title: authorArticle[0].title,
                                 category: authorArticle[0].category,
                                 img: authorArticle[0].img
+                            },
+                            article2: {
+                                title: authorArticle[1].title,
+                                category: authorArticle[1].category,
+                                img: authorArticle[1].img
                             }
                         },
                         author: {

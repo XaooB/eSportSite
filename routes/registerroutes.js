@@ -60,6 +60,6 @@ exports.registerPost = (req, res) => {
 
 exports.registerGet = (req, res) => {
     res.render('register', {
-        title: 'Rejestracja - eSportSite'
+        title: 'Rejestracja'
     });
 }

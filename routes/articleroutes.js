@@ -1,7 +1,7 @@
 const {Article} = require('../models/article'),
       {Author} = require('../models/author');
 
-exports.articleRouter = (req, res) => {
+exports.article = (req, res) => {
     Article.findOne({
         title: req.params.title
     }).then((mainArticle) => {
@@ -13,6 +13,7 @@ exports.articleRouter = (req, res) => {
                     nickname: mainArticle.author
                 }).then((authorData) => {
                     res.render('news', {
+                        title: mainArticle.title,
                         mainNews: {
                             title: mainArticle.title,
                             author: mainArticle.author,
@@ -121,4 +122,10 @@ exports.articleRouter = (req, res) => {
         console.log(err);
         res.redirect('/error').send();
     });
+}
+
+exports.more = (req, res) => {
+    res.render('moreNews', {
+        title: 'Więcej artykułow'
+    })
 }

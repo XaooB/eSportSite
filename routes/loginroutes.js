@@ -3,13 +3,13 @@ const {User} = require('../models/user'),
 
 exports.loginGet = (req, res) => {
     res.render('login', {
-        title: 'Logowanie - eSportSite'
+        title: 'Logowanie'
     });
 };
 
 exports.lostGet = (req, res) => {
     res.render('lostPassword', {
-        title: 'Przypomnienie hasła'
+        title: 'Resetowanie hasła'
     });
 };
 

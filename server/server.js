@@ -14,7 +14,7 @@ const express = require('express'),
     {User} = require('../models/user'),
       
     //ROUTERS
-    {articleRouter} = require('../routes/articleroutes'),
+    articleRouter = require('../routes/articleroutes'),
     homeRouter = require('../routes/homeroutes'),
     registerRouter = require('../routes/registerroutes'),
     loginRouter = require('../routes/loginroutes'),
@@ -32,7 +32,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 router.get('/', homeRouter.articles);
 
 //ARTICLE ROUTERS
-router.get('/news/:category/:title', articleRouter);
+router.get('/news/:category/:title', articleRouter.article);
+router.get('/news', articleRouter.more);
 
 //REGISTER ROUTERS
 router.get('/register', registerRouter.registerGet);
@@ -57,23 +58,24 @@ router.get('/csgo/matches', csgoRouter.matches);
 router.get('/csgo/teams', csgoRouter.teams);
 router.get('/csgo/results', csgoRouter.results);
 router.get('/csgo/statistics', csgoRouter.statistics);
-router.get('/lol/ranking', lolRouter.ranking);
+router.get('/csgo/ranking', csgoRouter.ranking);
 
 //HOME ROUTERS
 app.get('/gallery', homeRouter.navGallery);
 app.get('/contact', homeRouter.navContact);
 app.get('/news/archives', homeRouter.navArchives);
-//app.get('/news/addArticle', (req, res) => {
-//    res.render('addArticle');
-//});
+app.get('/news/addArticle', (req, res) => {
+    res.render('addArticle');
+});
 
-app.get('/error', (req, res) => {
-    res.status(404).render('404', {
+router.get('/error', (req, res) => {
+    res.render('404', {
         title: 'Błąd 404. Taka strona nie istnieje!',
         desc: 'Coś poszło nie tak :(',
         fun: 'Strona w budowie.'
     });
 });
+
 app.post('/news/addArticle', (req, res) => {
     let title = req.body.title,
         category = req.body.category,
@@ -94,12 +96,13 @@ app.post('/news/addArticle', (req, res) => {
         console.log(err.message);
     });
 });
+
 app.use('/', router);
 
 //ERROR HANDLING
-app.use((req, res) => {
-    res.redirect('/error');
-});
+//app.use((req, res) => {
+//    res.redirect('/error');
+//});
 
 //SERVER
 app.listen(PORT, () => {

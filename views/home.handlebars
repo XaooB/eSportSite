@@ -16,7 +16,7 @@
                     <section class='hidden'>
                         <h2 style='display:none'>WIĘCEJ NEWSÓW</h2>
                         <div class="more_news_wrapper f-l">
-                           {{#each moreArticles}}
+                            {{#each moreArticles}}
                             <article>
                                 <a href="/news/{{this.category}}/{{this.title}}"></a>
                                 <div class="item">
@@ -36,9 +36,9 @@
         </article>
     </div>
     <section class='others_news'>
-<!--       ONLY FOR OUTLINE PURPOSE-->
+        <!--       ONLY FOR OUTLINE PURPOSE-->
         <h2 style='display:none'>OSTATNIE NEWSY</h2>
-<!--        END OF H2-->
+        <!--        END OF H2-->
         <div class="container clearfix">
             <div class="others_news_wrapper">
                 <section class="column f-l">
@@ -52,7 +52,7 @@
                             </figure>
                             <div class='info f-r'>
                                 <h4>{{this.title}}</h4>
-                                <p>{{{this.body}}}</p>
+                                <p>{{this.desc}}</p>
                                 <time datetime="07/08/2017T13:00:24+01:00">{{this.date}}</time>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                             </figure>
                             <div class='info f-r'>
                                 <h4>{{this.title}}</h4>
-                                <p>{{{this.body}}}</p>
+                                <p>{{this.desc}}</p>
                                 <time datetime="07/08/2017T13:00:24+01:00">{{this.date}}</time>
                             </div>
                         </div>
@@ -78,7 +78,11 @@
                     {{/each}}
                 </section>
             </div>
-            <button type="button">CZYTAJ WIĘCEJ</button>
+            <form action="/news" method="post">
+                <button type="button">
+                    <a href="/news">CZYTAJ WIĘCEJ</a>
+                </button>
+            </form>
         </div>
     </section>
     <section class='social_media'>

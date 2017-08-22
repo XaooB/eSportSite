@@ -1,6 +1,9 @@
 @font-face {
   font-family: 'Righteous';
   src: url("../fonts/Righteous-Regular.ttf"); }
+@font-face {
+  font-family: 'Heuristica';
+  src: url("../fonts/Heuristica-Regular.otf"); }
 .f-l {
   float: left; }
 
@@ -32,9 +35,10 @@
   text-decoration: none; }
 
 body {
+  word-wrap: break-word;
   background: #222;
   font-size: 16px;
-  font-family: "Helvetica";
+  font-family: 'Heuristica';
   color: #ffffff; }
   body .flex_container {
     width: 100%;
@@ -264,9 +268,10 @@ body {
             float: none;
             margin: 0; }
             body .navbar ul.toggleNav li ol.subNav li a {
+              text-transform: uppercase;
               cursor: pointer;
               font-size: .9em;
-              font-family: "Helvetica";
+              font-family: "Heuristica";
               display: block; }
               body .navbar ul.toggleNav li ol.subNav li a:after {
                 content: none; }
@@ -361,27 +366,27 @@ body {
         margin: 30px 0; }
         body main .error_wrapper .error .info p {
           line-height: 1.5; }
-    body main .register_wrapper .register {
+    body main ._wrapper .occ {
       margin: 40px 0;
       width: 100%;
       color: #222222; }
-      body main .register_wrapper .register h1 {
+      body main ._wrapper .occ h1 {
         padding: 2px;
         border-bottom: 4px solid #222222; }
-      body main .register_wrapper .register form {
+      body main ._wrapper .occ form {
         width: 40%;
         margin: 30px 10px; }
-        body main .register_wrapper .register form label {
+        body main ._wrapper .occ form label {
           text-transform: uppercase;
           font-size: .75em;
           font-weight: bold;
           display: block;
           margin-bottom: 2px; }
-        body main .register_wrapper .register form input {
+        body main ._wrapper .occ form input {
           width: 100%;
           padding: 6px;
           margin-bottom: 12px; }
-        body main .register_wrapper .register form input[type='submit'] {
+        body main ._wrapper .occ form input[type='submit'] {
           padding: 14px;
           font-weight: bold;
           border: none;
@@ -390,19 +395,19 @@ body {
           width: 100%;
           margin-top: 20px;
           display: block; }
-        body main .register_wrapper .register form .form-error {
+        body main ._wrapper .occ form .form-error {
           text-align: center;
           margin: 20px 0;
           padding: 6px 0;
           color: red;
           font-weight: bold;
-          font-family: "Helvetica";
+          font-family: "Heuristica";
           border: 2px solid red; }
-      body main .register_wrapper .register span {
+      body main ._wrapper .occ span {
         margin-top: 12px;
         margin-bottom: 6px;
         display: block; }
-      body main .register_wrapper .register p {
+      body main ._wrapper .occ p {
         line-height: 1.5; }
     body main .news_wrapper {
       padding-top: 20px;
@@ -522,7 +527,7 @@ body {
             height: inherit;
             overflow: hidden; }
           body main .news_wrapper .main_news header h1 {
-            font-family: "Helvetica";
+            font-family: "Heuristica";
             font-weight: bold;
             position: absolute;
             width: 90%;
@@ -538,11 +543,13 @@ body {
         body main .news_wrapper .main_news .content {
           width: 100%; }
           body main .news_wrapper .main_news .content p {
-            font-size: 1em;
-            color: #555;
+            font-size: 1.1em;
+            color: #222222;
             line-height: 1.5;
             text-align: justify;
             padding: 12px 2px; }
+            body main .news_wrapper .main_news .content p:first-of-type {
+              font-size: 1.35em; }
           body main .news_wrapper .main_news .content .date {
             font-size: .75em;
             margin-top: 1px;
@@ -580,9 +587,12 @@ body {
               padding: 6px;
               margin-bottom: 0;
               margin-top: 2px; }
+              body main .news_wrapper .main_news .post_comments article p:first-of-type {
+                font-size: 1.1em; }
       body main .news_wrapper .about {
         width: 20.83333%; }
         body main .news_wrapper .about .about_wrapper {
+          line-height: 1.5;
           width: 100%;
           margin: 0 auto;
           text-align: justify; }
@@ -666,6 +676,10 @@ body {
             background: #222222;
             padding: 16px; }
             body main #slider article .img_wrapper .news_header h1 {
+              font-family: "Righteous";
+              font-weight: ligter;
+              font-size: 1.4em;
+              letter-spacing: .07em;
               text-transform: uppercase;
               padding-top: 4px; }
               body main #slider article .img_wrapper .news_header h1 a {
@@ -693,7 +707,7 @@ body {
               height: 100px;
               padding: 4px 6px;
               background: #222222;
-              font-family: "Helvetica";
+              font-family: "Heuristica";
               margin-bottom: 2px; }
               body main #slider article .img_wrapper .more_news_wrapper article:hover {
                 background: #107dac; }
@@ -771,20 +785,21 @@ body {
             body main .others_news .others_news_wrapper .column article .info {
               height: 100px;
               width: 75%;
-              padding: 2px 10px;
+              padding: 3px 10px;
               overflow: hidden;
               color: #212121; }
               body main .others_news .others_news_wrapper .column article .info h4 {
                 font-family: "Righteous";
+                font-weight: lighter;
                 font-size: 1em;
                 margin-bottom: 4px; }
               body main .others_news .others_news_wrapper .column article .info p {
                 text-overflow: ellipsis;
-                font-family: "Helvetica";
+                font-family: "Heuristica";
                 font-size: .9em;
                 text-align: justify; }
               body main .others_news .others_news_wrapper .column article .info time {
-                font-family: "Helvetica";
+                font-family: "Heuristica";
                 margin-top: 2px;
                 font-size: .8em;
                 position: absolute;
@@ -807,13 +822,15 @@ body {
             height: 100px; }
       body main .others_news button {
         float: right;
-        padding: 14px;
         background: #107dac;
         border: none;
-        color: #ffffff;
         font-family: "Righteous";
-        font-size: 1em;
         cursor: pointer; }
+        body main .others_news button a {
+          padding: 14px;
+          color: #ffffff;
+          display: block;
+          font-size: 1.2em; }
   body h3 {
     position: relative;
     font-family: "Righteous";
@@ -895,12 +912,12 @@ footer {
       color: #ffffff;
       font-size: .75em;
       letter-spacing: .1em;
-      font-family: "Helvetica"; }
+      font-family: "Heuristica"; }
       footer .footer_wrapper .footer_company address p:nth-child(3n+1) {
         margin-top: 12px; }
     footer .footer_wrapper .footer_lol,
     footer .footer_wrapper .footer_csgo {
-      font-family: "Helvetica";
+      font-family: "Heuristica";
       font-weight: bold;
       border-left: 2px solid #107dac;
       color: #ffffff; }
@@ -928,7 +945,7 @@ footer {
               text-decoration: underline; }
     footer .footer_wrapper .footer_about {
       border-left: 2px solid #107dac;
-      font-family: "Helvetica";
+      font-family: "Heuristica";
       color: #ffffff; }
       footer .footer_wrapper .footer_about h4 {
         font-size: 1em;
@@ -945,7 +962,7 @@ footer {
     color: #ffffff;
     padding: 4px;
     letter-spacing: .03em;
-    font-family: "Helvetica";
+    font-family: "Heuristica";
     text-transform: uppercase; }
 
 @media screen and (max-width: 1100px) {
@@ -1026,6 +1043,8 @@ footer {
     width: 100%; }
     body main .news_wrapper .main_news .content {
       float: none; }
+    body main .news_wrapper .main_news h1 {
+      font-size: 1.4em; }
   body main .news_wrapper .about {
     display: none; }
   body main .news_wrapper .authors_news {
@@ -1033,7 +1052,8 @@ footer {
     -webkit-order: 3;
         -ms-flex-order: 3;
             order: 3;
-    width: 100%; }
+    width: 100%;
+    margin-top: 20px; }
     body main .news_wrapper .authors_news article {
       margin-right: .5%;
       width: 49.75%;
@@ -1047,6 +1067,8 @@ footer {
         -ms-flex-order: 4;
             order: 4;
     width: 100%; }
+    body main .news_wrapper .related_news .related_wrapper {
+      height: 250px; }
   body footer .footer_wrapper {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
@@ -1058,7 +1080,27 @@ footer {
     body footer .footer_wrapper .footer_company,
     body footer .footer_wrapper .footer_lol,
     body footer .footer_wrapper .footer_csgo {
-      width: 35%; } }
+      width: 35%; }
+    body footer .footer_wrapper .footer_about {
+      -webkit-box-ordinal-group: 3;
+      -webkit-order: 2;
+          -ms-flex-order: 2;
+              order: 2; }
+    body footer .footer_wrapper .footer_company {
+      -webkit-box-ordinal-group: 2;
+      -webkit-order: 1;
+          -ms-flex-order: 1;
+              order: 1; }
+    body footer .footer_wrapper .footer_lol {
+      -webkit-box-ordinal-group: 4;
+      -webkit-order: 3;
+          -ms-flex-order: 3;
+              order: 3; }
+    body footer .footer_wrapper .footer_csgo {
+      -webkit-box-ordinal-group: 5;
+      -webkit-order: 4;
+          -ms-flex-order: 4;
+              order: 4; } }
 @media screen and (max-width: 500px) {
   body header .navbar .toggleNav {
     font-size: .9em; }
@@ -1083,6 +1125,8 @@ footer {
     body main .gallery .gallery-wrapper .item img {
       width: 100%;
       height: auto; }
+  body main .news_wrapper .main_news h1 {
+    font-size: 1.2em; }
   body main .news_wrapper .hot_news a {
     float: none;
     width: 100%; }
@@ -1097,6 +1141,8 @@ footer {
       display: none; }
   body main .others_news .others_news_wrapper .column {
     width: 100%; }
+  body main .news_wrapper .main_news h1 {
+    font-size: .9em; }
   body footer .footer_wrapper {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
@@ -1105,9 +1151,10 @@ footer {
         -ms-flex-pack: distribute;
             justify-content: space-around; }
     body footer .footer_wrapper .footer_about,
-    body footer .footer_wrapper .footer_company,
+    body footer .footer_wrapper .footer_company {
+      width: 90%; }
     body footer .footer_wrapper .footer_lol,
     body footer .footer_wrapper .footer_csgo {
-      width: 90%; } }
+      width: 40%; } }
 
 /*# sourceMappingURL=style.css.map */

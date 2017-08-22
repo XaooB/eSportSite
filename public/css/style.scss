@@ -1,15 +1,20 @@
-//<------------- VARIABLES ------------->
-$bgColor: #107dac;
-$lightFontColor: #ffffff;
-$darkGray :#222222;
-$mainFont: 'Righteous';
-$textFont: 'Helvetica';
 //<------------- FONTS ------------->
 @font-face {
     font-family: 'Righteous';
     src: url('../fonts/Righteous-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'Heuristica';
+    src: url('../fonts/Heuristica-Regular.otf')
+}
+
+//<------------- VARIABLES ------------->
+$bgColor: #107dac;
+$lightFontColor: #ffffff;
+$darkGray :#222222;
+$mainFont: 'Righteous';
+$textFont: 'Heuristica';
 //<------------- REUSABLE ------------->
 .f-l {
     float: left;
@@ -53,9 +58,10 @@ $textFont: 'Helvetica';
 }
 
 body {
+    word-wrap: break-word;
     background: #222;
     font-size: 16px; //1em
-    font-family: $textFont;
+    font-family: 'Heuristica';
     color: #ffffff;
     .flex_container {
         width: 100%;
@@ -222,7 +228,7 @@ body {
     }
     .fixedNavbar {
         position: fixed;
-        top:0;
+        top: 0;
         transition: 1s ease-out;
         z-index: 9999;
     }
@@ -281,6 +287,7 @@ body {
                         float: none;
                         margin: 0;
                         a {
+                            text-transform: uppercase;
                             cursor: pointer;
                             font-size: .9em;
                             font-family: $textFont;
@@ -410,8 +417,8 @@ body {
                 }
             }
         }
-        .register_wrapper {
-            .register {
+        ._wrapper {
+            .occ {
                 margin: 40px 0;
                 width: 100%;
                 color: $darkGray;
@@ -504,7 +511,7 @@ body {
                 width: 100%;
                 .author_wrapper {
                     article {
-                        margin-bottom:4px;
+                        margin-bottom: 4px;
                         a {
                             width: 100%;
                             height: 200px;
@@ -637,11 +644,14 @@ body {
                 .content {
                     width: 900/900 * 100%;
                     p {
-                        font-size: 1em;
-                        color: #555;
+                        font-size: 1.1em;
+                        color: #222222;
                         line-height: 1.5;
                         text-align: justify;
                         padding: 12px 2px;
+                        &:first-of-type {
+                            font-size: 1.35em;
+                        }
                     }
                     .date {
                         font-size: .75em;
@@ -687,6 +697,9 @@ body {
                             padding: 6px;
                             margin-bottom: 0;
                             margin-top: 2px;
+                            &:first-of-type {
+                                font-size: 1.1em;
+                            }
                         }
                     }
                 }
@@ -695,6 +708,7 @@ body {
                 //                 TUTAJ
                 width: 250/1200 * 100%;
                 .about_wrapper {
+                    line-height: 1.5;
                     h2 {
                         font-size: 1em;
                         padding: 14px;
@@ -793,6 +807,10 @@ body {
                         background: $darkGray;
                         padding: 16px;
                         h1 {
+                            font-family: $mainFont;
+                            font-weight:ligter;
+                            font-size:1.4em;
+                            letter-spacing: .07em;
                             text-transform: uppercase;
                             padding-top: 4px;
                             a {
@@ -922,11 +940,12 @@ body {
                         .info {
                             height: 100px;
                             width: 75%;
-                            padding: 2px 10px;
+                            padding: 3px 10px;
                             overflow: hidden;
                             color: #212121;
                             h4 {
                                 font-family: $mainFont;
+                                font-weight: lighter;
                                 font-size: 1em;
                                 margin-bottom: 4px;
                             }
@@ -967,13 +986,16 @@ body {
             }
             button {
                 float: right;
-                padding: 14px;
                 background: $bgColor;
                 border: none;
-                color: #ffffff;
                 font-family: $mainFont;
-                font-size: 1em;
                 cursor: pointer;
+                a {
+                    padding: 14px;
+                    color: #ffffff;
+                    display: block;
+                    font-size: 1.2em;
+                }
             }
         }
     }
@@ -1202,7 +1224,7 @@ footer {
         }
         header {
             .navbar {
-//                position:fixed;
+                //                position:fixed;
                 .nav {
                     display: none;
                 }
@@ -1263,26 +1285,33 @@ footer {
                     .content {
                         float: none;
                     }
+                    h1 {
+                        font-size: 1.4em;
+                    }
                 }
                 .about {
-                    display:none;
+                    display: none;
                 }
                 .authors_news {
                     order: 3;
-                    width:100%;
+                    width: 100%;
+                    margin-top: 20px;
                     article {
-                        margin-right:.5%;
-                        width:49.75%;
-                        float:left;
+                        margin-right: .5%;
+                        width: 49.75%;
+                        float: left;
                         &:last-child {
-                            margin-left:0;
-                            margin-right:0;
+                            margin-left: 0;
+                            margin-right: 0;
                         }
                     }
                 }
                 .related_news {
                     order: 4;
                     width: 100%;
+                    .related_wrapper {
+                        height: 250px;
+                    }
                 }
             }
         }
@@ -1295,6 +1324,18 @@ footer {
                 .footer_lol,
                 .footer_csgo {
                     width: 35%;
+                }
+                .footer_about {
+                    order: 2;
+                }
+                .footer_company {
+                    order: 1;
+                }
+                .footer_lol {
+                    order: 3;
+                }
+                .footer_csgo {
+                    order: 4;
                 }
             }
         }
@@ -1360,13 +1401,18 @@ footer {
                 }
             }
             .news_wrapper {
+                .main_news {
+                    h1 {
+                        font-size: 1.2em;
+                    }
+                }
                 .hot_news {
                     a {
-                        float:none;
-                        width:100%;
+                        float: none;
+                        width: 100%;
                         .hot_item {
                             img {
-                                width:100%;
+                                width: 100%;
                             }
                         }
                     }
@@ -1399,16 +1445,25 @@ footer {
                     }
                 }
             }
+            .news_wrapper {
+                .main_news {
+                    h1 {
+                        font-size: .9em;
+                    }
+                }
+            }
         }
         footer {
             .footer_wrapper {
                 flex-wrap: wrap;
                 justify-content: space-around;
                 .footer_about,
-                .footer_company,
+                .footer_company {
+                    width: 90%;
+                }
                 .footer_lol,
                 .footer_csgo {
-                    width: 90%;
+                    width: 40%;
                 }
             }
         }

@@ -38,6 +38,8 @@
     color: #ffffff;
     display: block;
     font-size: 1.2em; }
+    .blue_btn a:visited {
+      color: #fff; }
 
 .error_text {
   font-size: .85em !important;
@@ -392,6 +394,25 @@ body {
         margin: 30px 0; }
         body main .error_wrapper .error .info p {
           line-height: 1.5; }
+    body main ._wrapper .logged_in {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      margin: 60px;
+      width: 100%;
+      color: #222222;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      body main ._wrapper .logged_in p {
+        text-align: center;
+        max-width: 50%; }
     body main ._wrapper .occ {
       margin: 40px 0;
       width: 100%;
@@ -602,7 +623,7 @@ body {
             padding: 10px;
             font-size: 1em; }
           body main .news_wrapper .main_news .post_comments article {
-            padding: 10px 4px;
+            padding: 8px 8px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.15);
             cursor: context-menu; }
             body main .news_wrapper .main_news .post_comments article:last-child {
@@ -611,8 +632,7 @@ body {
             body main .news_wrapper .main_news .post_comments article:nth-child(odd) {
               background: rgba(0, 0, 0, 0.04); }
             body main .news_wrapper .main_news .post_comments article .posted_at {
-              font-size: .75em;
-              padding: 0;
+              font-size: .8em;
               height: auto;
               border: none;
               background: none; }
@@ -620,11 +640,9 @@ body {
                 color: #888888;
                 font-weight: lighter; }
             body main .news_wrapper .main_news .post_comments article p {
-              padding: 6px;
-              margin-bottom: 0;
-              margin-top: 2px; }
+              padding: 6px 0; }
               body main .news_wrapper .main_news .post_comments article p:first-of-type {
-                font-size: 1.1em; }
+                font-size: .95em; }
       body main .news_wrapper .about {
         width: 20.83333%; }
         body main .news_wrapper .about .about_wrapper {

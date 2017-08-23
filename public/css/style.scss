@@ -59,15 +59,18 @@ $textFont: 'Heuristica';
         color: #ffffff;
         display: block;
         font-size: 1.2em;
+        &:visited {
+            color: #fff;
+        }
     }
 }
 
 .error_text {
-    font-size:.85em !important;
+    font-size: .85em !important;
     color: darkred;
-    border:2px solid darkred;
-    padding:6px;
-    width:100%;
+    border: 2px solid darkred;
+    padding: 6px;
+    width: 100%;
     text-align: center !important;
 }
 
@@ -83,10 +86,10 @@ $textFont: 'Heuristica';
 body {
     a {
         &:link {
-            color:$bgColor;
+            color: $bgColor;
         }
         &:visited {
-            color:$bgColor;
+            color: $bgColor;
         }
     }
     word-wrap: break-word;
@@ -452,6 +455,18 @@ body {
             }
         }
         ._wrapper {
+            .logged_in {
+                display: flex;
+                margin: 60px;
+                width:100%;
+                color: $darkGray;
+                align-items: center;
+                justify-content: center;
+                p {
+                    text-align: center;
+                    max-width: 50%;
+                }
+            }
             .occ {
                 margin: 40px 0;
                 width: 100%;
@@ -707,10 +722,10 @@ body {
                                 width: 100%;
                             }
                             button {
-                                width:100%;
-                                padding:14px;
-                                color:#ffffff;
-                                font-size:.9em;
+                                width: 100%;
+                                padding: 14px;
+                                color: #ffffff;
+                                font-size: .9em;
                             }
                         }
                     }
@@ -721,7 +736,7 @@ body {
                         font-size: 1em;
                     }
                     article {
-                        padding: 10px 4px;
+                        padding: 8px 8px;
                         border-bottom: 1px solid rgba(0, 0, 0, .15);
                         cursor: context-menu;
                         &:last-child {
@@ -732,8 +747,7 @@ body {
                             background: rgba(0, 0, 0, .04);
                         }
                         .posted_at {
-                            font-size: .75em;
-                            padding: 0;
+                            font-size: .8em;
                             height: auto;
                             border: none;
                             background: none;
@@ -743,11 +757,9 @@ body {
                             }
                         }
                         p {
-                            padding: 6px;
-                            margin-bottom: 0;
-                            margin-top: 2px;
+                            padding:6px 0;
                             &:first-of-type {
-                                font-size: 1.1em;
+                                font-size: .95em;
                             }
                         }
                     }
@@ -1381,7 +1393,7 @@ footer {
             ._wrapper {
                 .occ {
                     form {
-                        width:94%;
+                        width: 94%;
                     }
                 }
             }

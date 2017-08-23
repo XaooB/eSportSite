@@ -129,3 +129,9 @@ exports.more = (req, res) => {
         title: 'Więcej artykułow'
     })
 }
+
+exports.all = (req, res) => {
+    res.render('archives', {
+        title: 'Wiadomości'
+    });
+};

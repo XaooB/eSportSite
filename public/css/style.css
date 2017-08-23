@@ -27,6 +27,26 @@
 .scroll {
   overflow: auto; }
 
+.blue_btn {
+  float: right;
+  background: #107dac;
+  border: none;
+  font-family: "Righteous";
+  cursor: pointer; }
+  .blue_btn a {
+    padding: 14px;
+    color: #ffffff;
+    display: block;
+    font-size: 1.2em; }
+
+.error_text {
+  font-size: .85em !important;
+  color: darkred;
+  border: 2px solid darkred;
+  padding: 6px;
+  width: 100%;
+  text-align: center !important; }
+
 * {
   margin: 0;
   padding: 0;
@@ -40,6 +60,10 @@ body {
   font-size: 16px;
   font-family: 'Heuristica';
   color: #ffffff; }
+  body a:link {
+    color: #107dac; }
+  body a:visited {
+    color: #107dac; }
   body .flex_container {
     width: 100%;
     display: -webkit-box;
@@ -54,7 +78,6 @@ body {
         -ms-flex-pack: justify;
             justify-content: space-between; }
   body .container {
-    padding: 0 2px;
     max-width: 1200px;
     margin: 0 auto; }
   body header {
@@ -135,6 +158,7 @@ body {
         top: -275px;
         opacity: 0; }
       body header .login_wrapper ul.login {
+        text-transform: uppercase;
         margin: 0 70px;
         display: -webkit-box;
         display: -webkit-flex;
@@ -318,19 +342,21 @@ body {
       line-height: 55px;
       height: 55px;
       position: relative; }
-      body .navbar .searchEngine #search {
-        outline: 0;
-        background: #333;
-        border: none;
-        -webkit-transition: .5s ease-out;
-                transition: .5s ease-out;
-        position: absolute;
-        top: 11px;
-        padding: 6px;
-        color: #222222;
-        right: -160px;
-        width: 170px;
-        height: 35px; }
+      body .navbar .searchEngine form {
+        height: 100%; }
+        body .navbar .searchEngine form #search {
+          outline: 0;
+          background: #333;
+          border: none;
+          -webkit-transition: .5s ease-out;
+                  transition: .5s ease-out;
+          position: absolute;
+          top: 11px;
+          padding: 6px;
+          color: #222222;
+          right: -160px;
+          width: 170px;
+          height: 35px; }
       body .navbar .searchEngine button {
         position: absolute;
         right: 0;
@@ -361,7 +387,7 @@ body {
       margin: 40px 0; }
       body main .error_wrapper .error h2 {
         padding: 2px;
-        border-bottom: 4px solid #222; }
+        border-bottom: 2px solid #222; }
       body main .error_wrapper .error .info {
         margin: 30px 0; }
         body main .error_wrapper .error .info p {
@@ -398,11 +424,11 @@ body {
         body main ._wrapper .occ form .form-error {
           text-align: center;
           margin: 20px 0;
-          padding: 6px 0;
-          color: red;
+          padding: 12px 4px;
+          color: #222222;
           font-weight: bold;
           font-family: "Heuristica";
-          border: 2px solid red; }
+          border: 2px solid darkred; }
       body main ._wrapper .occ span {
         margin-top: 12px;
         margin-bottom: 6px;
@@ -560,6 +586,16 @@ body {
         body main .news_wrapper .main_news .post_comments {
           clear: both;
           margin: 40px 0; }
+          body main .news_wrapper .main_news .post_comments .newComment form {
+            margin: 20px 0;
+            width: 100%; }
+            body main .news_wrapper .main_news .post_comments .newComment form textarea {
+              width: 100%; }
+            body main .news_wrapper .main_news .post_comments .newComment form button {
+              width: 100%;
+              padding: 14px;
+              color: #ffffff;
+              font-size: .9em; }
           body main .news_wrapper .main_news .post_comments h2 {
             color: #ffffff;
             background: #222222;
@@ -567,13 +603,13 @@ body {
             font-size: 1em; }
           body main .news_wrapper .main_news .post_comments article {
             padding: 10px 4px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            cursor: context-menu; }
             body main .news_wrapper .main_news .post_comments article:last-child {
               border: none;
               margin-bottom: 20px; }
-            body main .news_wrapper .main_news .post_comments article:hover {
-              background: rgba(0, 0, 0, 0.07);
-              cursor: context-menu; }
+            body main .news_wrapper .main_news .post_comments article:nth-child(odd) {
+              background: rgba(0, 0, 0, 0.04); }
             body main .news_wrapper .main_news .post_comments article .posted_at {
               font-size: .75em;
               padding: 0;
@@ -820,24 +856,13 @@ body {
             position: relative;
             display: block;
             height: 100px; }
-      body main .others_news button {
-        float: right;
-        background: #107dac;
-        border: none;
-        font-family: "Righteous";
-        cursor: pointer; }
-        body main .others_news button a {
-          padding: 14px;
-          color: #ffffff;
-          display: block;
-          font-size: 1.2em; }
   body h3 {
     position: relative;
     font-family: "Righteous";
     font-size: 1.4em;
     color: #333333; }
     body h3:after {
-      content: '///////////////////////////////////////////////////////////////////////////////////////////////////';
+      content: '///////////////////////////////////////////////////////////////////////////////////////////////////////////';
       position: absolute;
       top: 0;
       color: rgba(0, 0, 0, 0.07); }
@@ -865,7 +890,7 @@ body {
     margin-top: 20px;
     height: 300px;
     overflow: hidden;
-    margin-bottom: 80px; }
+    margin-bottom: 50px; }
     body .gallery .gallery-wrapper .item {
       width: 25%; }
       body .gallery .gallery-wrapper .item img {
@@ -966,6 +991,8 @@ footer {
     text-transform: uppercase; }
 
 @media screen and (max-width: 1100px) {
+  body .container {
+    padding: 0 6px; }
   body .header .logo {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -988,7 +1015,11 @@ footer {
       body main #slider article .img_wrapper .news_header h1 {
         font-size: 1.3em; }
   body main .others_news .others_news_wrapper .column {
-    width: 100%; } }
+    width: 100%; }
+    body main .others_news .others_news_wrapper .column article figure img {
+      width: 100%; }
+    body main .others_news .others_news_wrapper .column:last-child {
+      margin: 0; } }
 @media screen and (max-width: 768px) {
   body .flex_container .social_wrapper {
     width: 100%;
@@ -998,11 +1029,16 @@ footer {
   body header .navbar .nav {
     display: none; }
   body header .navbar .toggleNav {
-    width: 82%; }
+    width: 55%; }
     body header .navbar .toggleNav li {
-      width: 30%; }
+      width: 50%; }
+  body header .navbar .searchEngine {
+    width: 45%; }
   body .login_wrapper {
     display: none; }
+  body main .others_news .others_news_wrapper .column article figure img {
+    width: auto;
+    height: 100%; }
   body main #slider article figure {
     height: 230px; }
   body main #slider article .img_wrapper {
@@ -1030,11 +1066,9 @@ footer {
     body main .gallery .gallery-wrapper .item {
       overflow: hidden;
       width: 49.5%;
-      float: none;
-      margin-bottom: 8px; }
+      float: none; }
       body main .gallery .gallery-wrapper .item img {
-        width: 100%;
-        max-height: 210px; }
+        width: 100%; }
   body main .news_wrapper .main_news {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
@@ -1069,6 +1103,8 @@ footer {
     width: 100%; }
     body main .news_wrapper .related_news .related_wrapper {
       height: 250px; }
+  body main ._wrapper .occ form {
+    width: 94%; }
   body footer .footer_wrapper {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
@@ -1104,6 +1140,8 @@ footer {
 @media screen and (max-width: 500px) {
   body header .navbar .toggleNav {
     font-size: .9em; }
+  body header .navbar .searchEngine form #search {
+    width: 120px; }
   body main #slider article .img_wrapper section {
     display: none; }
   body main #slider article .img_wrapper .news_header {
@@ -1121,18 +1159,27 @@ footer {
     overflow: hidden;
     width: 100%;
     float: none;
-    margin-bottom: 8px; }
+    max-height: 210px;
+    margin-bottom: 2px; }
     body main .gallery .gallery-wrapper .item img {
       width: 100%;
       height: auto; }
   body main .news_wrapper .main_news h1 {
     font-size: 1.2em; }
+  body main .news_wrapper .hot_news .hot_item {
+    margin-bottom: 2px; }
   body main .news_wrapper .hot_news a {
     float: none;
     width: 100%; }
     body main .news_wrapper .hot_news a .hot_item img {
-      width: 100%; } }
+      width: 100%; }
+  body main .news_wrapper .authors_news .author_wrapper article header img {
+    width: auto; }
+  body main .social_media {
+    display: none; } }
 @media screen and (max-width: 320px) {
+  body header .navbar .searchEngine form #search {
+    width: 90px; }
   body main #slider article figure {
     height: 180px; }
   body main #slider article .img_wrapper {
@@ -1141,6 +1188,8 @@ footer {
       display: none; }
   body main .others_news .others_news_wrapper .column {
     width: 100%; }
+  body main .gallery .gallery-wrapper .item {
+    margin-bottom: -4px; }
   body main .news_wrapper .main_news h1 {
     font-size: .9em; }
   body footer .footer_wrapper {

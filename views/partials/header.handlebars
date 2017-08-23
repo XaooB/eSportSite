@@ -27,8 +27,13 @@
             </div>
             <div class="login_wrapper f-r">
                 <ul class='login'>
-                    <li><a href="/register">REJESTRACJA</a></li>
+                    {{#if user}}
+                    <li><a href="/profil/{{user.username}}">{{user.username}}</a></li>
+                    <li><a href="/logout">WYLOGUJ SIĘ</a></li>
+                    {{else}}
+                     <li><a href="/register">REJESTRACJA</a></li>
                     <li><a href="/login">ZALOGUJ SIĘ</a></li>
+                    {{/if}}
                 </ul>
             </div>
         </div>

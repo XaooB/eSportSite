@@ -15,7 +15,7 @@
                         <h2>Najnowsze artykuły</h3>
                             <!--                  20 NA STRONĘ-->
                             <div class="related_wrapper scroll">
-                               {{#each lastestNews}}
+                                {{#each lastestNews}}
                                 <article>
                                     <h3>{{this.title}}</h3>
                                     <table>
@@ -40,7 +40,7 @@
                         <section>
                             <h2>Więcej od {{mainNews.author}}</h2>
                             <div class="author_wrapper hidden">
-                               {{#each authorArticle}}
+                                {{#each authorArticle}}
                                 <article>
                                     <a href="/news/{{this.category}}/{{this.title}}"></a>
                                     <header>
@@ -63,10 +63,22 @@
                     <div class='content f-l'>
                         <!--                       POBRAC AUTORA Z TABELII-->
                         <div class="date">
-                        <time datetime="07/08/2017T13:00:24+01:00">{{mainNews.date}}</time> przez {{mainNews.author}}
+                            <time datetime="07/08/2017T13:00:24+01:00">{{mainNews.date}}</time> przez {{mainNews.author}}
                         </div>
                         {{{mainNews.body}}}
                         <section class='post_comments'>
+                            <section class="newComment margin20 clearfix">
+                               {{#if user}} 
+                                <h2>Dodaj komentarz</h2>
+                                <form action="/news/{{mainNews.category}}/{{mainNews.title}}/?addComment" method="post">
+                                   <label for="tresc">Treść komentarza:</label>
+                                    <textarea name="tresc" id="tresc" cols="30" rows="10"></textarea>
+                                    <button type="submit" class='blue_btn' style='color:#ffffff'>DODAJ KOMENTARZ</button>
+                                </form>
+                                {{else}}                               
+                                <p class='error_text'>Proszę się <a href="/login">zalogować</a>, aby móc dodać komentarz.</p>
+                                {{/if}}
+                            </section>
                             <h2>Komentarze</h2>
                             <article>
                                 <header class='posted_at'>

@@ -12,6 +12,7 @@ exports.articles = (req, res) => {
                     category: 'csgo'
                 }).sort('-date').then((lastestCsgoArticles) => {
                     res.render('home', {
+                        session: req.session.user,
                         title: 'Home',
                         mainNews: {
                             title: mainArticle.title,
@@ -85,28 +86,28 @@ exports.articles = (req, res) => {
                                 title: lastestCsgoArticles[1].title,
                                 date: lastestCsgoArticles[1].date,
                                 category: lastestCsgoArticles[1].category,
-                                desc: lastestCsgoArticles[0].desc,
+                                desc: lastestCsgoArticles[1].desc,
                                 img: lastestCsgoArticles[1].img
                             },
                             article3: {
                                 title: lastestCsgoArticles[2].title,
                                 date: lastestCsgoArticles[2].date,
                                 category: lastestCsgoArticles[2].category,
-                                desc: lastestCsgoArticles[0].desc,
+                                desc: lastestCsgoArticles[2].desc,
                                 img: lastestCsgoArticles[2].img
                             },
                             article4: {
                                 title: lastestCsgoArticles[3].title,
                                 date: lastestCsgoArticles[3].date,
                                 category: lastestCsgoArticles[3].category,
-                                desc: lastestCsgoArticles[0].desc,
+                                desc: lastestCsgoArticles[3].desc,
                                 img: lastestCsgoArticles[3].img
                             },
                             article5: {
                                 title: lastestCsgoArticles[4].title,
                                 date: lastestCsgoArticles[4].date,
                                 category: lastestCsgoArticles[4].category,
-                                desc: lastestCsgoArticles[0].desc,
+                                desc: lastestCsgoArticles[4].desc,
                                 img: lastestCsgoArticles[4].img
                             }
                         }
@@ -115,11 +116,12 @@ exports.articles = (req, res) => {
             });
         });
     }).catch((err) => {
-        res.redirect('/error');
+        console.log(err.message);
     });
 };
 
 exports.navGallery = (req, res) => {
+     console.log(req.session);
     res.render('gallery', {
         title: 'Galeria zdjęć'
     });

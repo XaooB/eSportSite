@@ -23,7 +23,9 @@ exports.loginPost = (req, res) => {
         return bcrypt.compare(req.body.password, user.password).then((result) => {
             if (result) {
                 req.session.user = user;                   
-                return res.redirect('/');
+                return res.render('loggedIn', {
+                    user: req.session.user
+                });
             }
             throw new Error();
         }).catch((err) => {

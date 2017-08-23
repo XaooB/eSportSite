@@ -4,28 +4,80 @@ const express = require('express'),
     router = express.Router(),
     PORT = process.env.PORT || 3000,
     bodyParser = require('body-parser'),
-    recaptcha = require('recaptcha2'),
-    request = require('request-promise'),
-      
+
+    session = require('express-session'),
+    MongoStore = require('connect-mongo')(session),
+
     //DATABASE AND MODELS
-    {mongoose} = require('../database/mongoose'),
-    {Article} = require('../models/article'),
-    {Author} = require('../models/author'),
+    mongoose = require('../database/mongoose'),
     {User} = require('../models/user'),
-      
+
     //ROUTERS
     articleRouter = require('../routes/articleroutes'),
     homeRouter = require('../routes/homeroutes'),
     registerRouter = require('../routes/registerroutes'),
-    loginRouter = require('../routes/loginroutes'),
+    userRouter = require('../routes/userroutes'),
     lolRouter = require('../routes/lolroutes'),
     csgoRouter = require('../routes/csgoroutes');
 
-
-app.engine('handlebars', hbs({defaultLayout: 'main'}));
+app.engine('handlebars', hbs({
+    defaultLayout: 'main'
+}));
 app.set('view engine', 'handlebars');
 app.use('/assets', express.static('public'));
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'as54v88vrh7e5a9',
+    store: new MongoStore({
+        mongooseConnection: mongoose.mongoose.connections[0],
+        ttl: (1*60*60)
+    }),
+    name: 'session',
+    cookie: {
+        path: '/',
+        maxAge: 3600000 //10 min
+    },
+    secure: true,
+    httpOnly: true,
+    resave: false,
+    saveUninitialized: true,
+    name: "ID"
+}));
+
+function requireLogin (req, res, next) {
+    if(!req.user) {
+        res.redirect('/login')
+    } else {
+        next();
+    }
+}
+
+app.use((req, res, next) => {
+    console.log(req.session);
+//    console.log(req.session.user);
+   if(req.session && req.session.user) {
+       User.findOne({username: req.session.user.username})
+           .then((user) => {
+           req.user = user;
+           console.log('nasz user = ' + req.user)
+           delete req.user['password'];
+            console.log('nasz user po usunieciu hasła = ' + req.user)
+           req.session.user = user;
+           res.locals.user = user;
+
+           next();
+       }).catch((err) => {
+           console.log(err.message);
+       })
+   } else {
+       next();
+   }
+});
+
+
 
 
 //HOME ROUTER
@@ -33,16 +85,17 @@ router.get('/', homeRouter.articles);
 
 //ARTICLE ROUTERS
 router.get('/news/:category/:title', articleRouter.article);
-router.get('/news', articleRouter.more);
+router.get('/news/:category', articleRouter.more);
+router.get('/news', articleRouter.all);
 
-//REGISTER ROUTERS
+//USER ROUTERS
 router.get('/register', registerRouter.registerGet);
 router.post('/register', registerRouter.registerPost);
-
-//LOGIN ROUTERS
-router.get('/login/lost_password', loginRouter.lostGet);
-router.get('/login', loginRouter.loginGet);
-router.post('/login', loginRouter.loginPost);
+router.get('/profil/:user', userRouter.profil);
+router.get('/login/lost_password', userRouter.lostGet);
+router.get('/login', userRouter.loginGet);
+router.post('/login', userRouter.loginPost);
+router.get('/logout', userRouter.logout);
 
 //LOL ROUTERS
 router.get('/lol/events', lolRouter.events);
@@ -64,16 +117,9 @@ router.get('/csgo/ranking', csgoRouter.ranking);
 app.get('/gallery', homeRouter.navGallery);
 app.get('/contact', homeRouter.navContact);
 app.get('/news/archives', homeRouter.navArchives);
-app.get('/news/addArticle', (req, res) => {
+app.get('/news/addArticle', requireLogin, (req, res) => {
+    console.log(req.session.user)
     res.render('addArticle');
-});
-
-router.get('/error', (req, res) => {
-    res.render('404', {
-        title: 'Błąd 404. Taka strona nie istnieje!',
-        desc: 'Coś poszło nie tak :(',
-        fun: 'Strona w budowie.'
-    });
 });
 
 app.post('/news/addArticle', (req, res) => {
@@ -97,12 +143,17 @@ app.post('/news/addArticle', (req, res) => {
     });
 });
 
+//ROUTER
 app.use('/', router);
 
 //ERROR HANDLING
-//app.use((req, res) => {
-//    res.redirect('/error');
-//});
+app.use((req, res) => {
+    res.render('404', {
+        title: 'Błąd 404. Taka strona nie istnieje!',
+        desc: 'Coś poszło nie tak :(',
+        fun: 'Strona w budowie.'
+    });
+});
 
 //SERVER
 app.listen(PORT, () => {

@@ -56,19 +56,14 @@ function requireLogin (req, res, next) {
 }
 
 app.use((req, res, next) => {
-    console.log(req.session);
-//    console.log(req.session.user);
    if(req.session && req.session.user) {
        User.findOne({username: req.session.user.username})
            .then((user) => {
-           req.user = user;
-           console.log('nasz user = ' + req.user)
-           delete req.user['password'];
-            console.log('nasz user po usunieciu hasła = ' + req.user)
-           req.session.user = user;
-           res.locals.user = user;
-
-           next();
+                req.user = user;
+                delete req.user['password'];
+                req.session.user = user;
+                res.locals.user = user;
+                next();
        }).catch((err) => {
            console.log(err.message);
        })
@@ -86,6 +81,7 @@ router.get('/', homeRouter.articles);
 //ARTICLE ROUTERS
 router.get('/news/:category/:title', articleRouter.article);
 router.get('/news/:category', articleRouter.more);
+router.post('/news/:categrory/:title?', articleRouter.addComment)
 router.get('/news', articleRouter.all);
 
 //USER ROUTERS

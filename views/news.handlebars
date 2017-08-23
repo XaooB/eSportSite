@@ -72,7 +72,7 @@
                                 <h2>Dodaj komentarz</h2>
                                 <form action="/news/{{mainNews.category}}/{{mainNews.title}}/?addComment" method="post">
                                    <label for="tresc">Treść komentarza:</label>
-                                    <textarea name="tresc" id="tresc" cols="30" rows="10"></textarea>
+                                    <textarea name="tresc" id="tresc" cols="30" rows="10" minlength='10' required></textarea>
                                     <button type="submit" class='blue_btn' style='color:#ffffff'>DODAJ KOMENTARZ</button>
                                 </form>
                                 {{else}}                               
@@ -80,56 +80,16 @@
                                 {{/if}}
                             </section>
                             <h2>Komentarze</h2>
+                            {{#each comments}}
                             <article>
                                 <header class='posted_at'>
                                     <h4>
-                                        Napisany <time datetime="07/08/2017T13:00:24+01:00">7 sierpnia 2017 o 12:05</time> przez
-                                        <!--                                TUTAJ BĘDZIE ZNAJOWAĆ SIĘ ODNOŚNIK DO PROFILU -->
-                                        <strong>XaooBBX</strong>
+                                        Napisany <time datetime="07/08/2017T13:00:24+01:00">{{this.date}}</time> przez <b>{{this.username}}</b>
                                     </h4>
                                 </header>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque explicabo quod earum. Veritatis, ab.</p>
+                                <p>{{this.body}}</p>
                             </article>
-                            <article>
-                                <header class='posted_at'>
-                                    <h4>
-                                        Napisany <time datetime="07/08/2017T13:00:24+01:00">7 sierpnia 2017 o 12:05</time> przez
-                                        <!--                                TUTAJ BĘDZIE ZNAJOWAĆ SIĘ ODNOŚNIK DO PROFILU -->
-                                        <strong>XaooBBX</strong>
-                                    </h4>
-                                </header>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque explicabo quod earum. Veritatis, ab.</p>
-                            </article>
-                            <article>
-                                <header class='posted_at'>
-                                    <h4>
-                                        Napisany <time datetime="07/08/2017T13:00:24+01:00">7 sierpnia 2017 o 12:05</time> przez
-                                        <!--                                TUTAJ BĘDZIE ZNAJOWAĆ SIĘ ODNOŚNIK DO PROFILU -->
-                                        <strong>XaooBBX</strong>
-                                    </h4>
-                                </header>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque explicabo quod earum. Veritatis, ab.</p>
-                            </article>
-                            <article>
-                                <header class='posted_at'>
-                                    <h4>
-                                        Napisany <time datetime="07/08/2017T13:00:24+01:00">7 sierpnia 2017 o 12:05</time> przez
-                                        <!--                                TUTAJ BĘDZIE ZNAJOWAĆ SIĘ ODNOŚNIK DO PROFILU -->
-                                        <strong>XaooBBX</strong>
-                                    </h4>
-                                </header>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque explicabo quod earum. Veritatis, ab.</p>
-                            </article>
-                            <article>
-                                <header class='posted_at'>
-                                    <h4>
-                                        Napisany <time datetime="07/08/2017T13:00:24+01:00">7 sierpnia 2017 o 12:05</time> przez
-                                        <!--                                TUTAJ BĘDZIE ZNAJOWAĆ SIĘ ODNOŚNIK DO PROFILU -->
-                                        <strong>XaooBBX</strong>
-                                    </h4>
-                                </header>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque explicabo quod earum. Veritatis, ab.</p>
-                            </article>
+                            {{/each}}
                         </section>
                     </div>
                 </article>

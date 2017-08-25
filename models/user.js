@@ -22,7 +22,7 @@ const userSchema = mongoose.Schema({
     },
     avatar: {
         type: String,
-        default: "/assets/img/avatars/default-avatar.jpg"
+        default: "/assets/img/avatars/default_avatar.jpg"
     },
     aboutme: {
         type: String,

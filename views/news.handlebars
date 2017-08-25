@@ -72,7 +72,7 @@
                                 <h2>Dodaj komentarz</h2>
                                 <form action="/news/{{mainNews.category}}/{{mainNews.title}}/?addComment" method="post">
                                    <label for="tresc">Treść komentarza:</label>
-                                    <textarea name="tresc" id="tresc" cols="30" rows="10" minlength='10' required></textarea>
+                                    <textarea name="tresc" id="tresc" cols="30" rows="10" minlength='10' maxlength='500' required></textarea>
                                     <button type="submit" class='blue_btn' style='color:#ffffff'>DODAJ KOMENTARZ</button>
                                 </form>
                                 {{else}}                               

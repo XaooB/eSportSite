@@ -49,8 +49,12 @@ exports.logout = (req, res) => {
 }
 
 exports.me = (req, res) => {
-    User.findOne({username: req.user.username}).then((user) => {
-        return Comment.find({username: user.username}).limit(5).then((comment) => {
+    User.findOne({
+        username: req.user.username
+    }).then((user) => {
+        return Comment.find({
+            username: user.username
+        }).limit(5).then((comment) => {
             res.render('profil', {
                 title: 'Profil',
                 user: user,
@@ -63,14 +67,21 @@ exports.me = (req, res) => {
 }
 
 exports.profil = (req, res) => {
-    User.findOne({username: req.params.username}).then((user) => {
-        console.log(user)
-        return Comment.find({username: user.username}).limit(5).then((comment) => {
-            res.render('profil_2', {
-                title: 'Profil',
-                username: user,
-                comment: comment
-            });
+    User.findOne({
+        username: req.params.username
+    }).then((user) => {
+        return Comment.find({
+            username: user.username
+        }).limit(5).then((comment) => {
+            if (req.session.user.username === req.params.username) {
+                res.redirect('/profil/me')
+            } else {
+                res.render('profil_2', {
+                    title: 'Profil',
+                    username: user,
+                    comment: comment
+                });
+            }
         })
     }).catch((err) => {
         console.log(err);

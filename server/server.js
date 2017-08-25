@@ -60,7 +60,7 @@ app.use((req, res, next) => {
        User.findOne({username: req.session.user.username})
            .then((user) => {
                 req.user = user;
-                delete req.user['password'];
+                delete req.user.password;
                 req.session.user = user;
                 res.locals.user = user;
                 next();
@@ -71,9 +71,6 @@ app.use((req, res, next) => {
        next();
    }
 });
-
-
-
 
 //HOME ROUTER
 router.get('/', homeRouter.articles);
@@ -87,7 +84,8 @@ router.get('/news', articleRouter.all);
 //USER ROUTERS
 router.get('/register', registerRouter.registerGet);
 router.post('/register', registerRouter.registerPost);
-router.get('/profil/:user', userRouter.profil);
+router.get('/profil/me', requireLogin, userRouter.me);
+router.get('/profil/:username', userRouter.profil);
 router.get('/login/lost_password', userRouter.lostGet);
 router.get('/login', userRouter.loginGet);
 router.post('/login', userRouter.loginPost);

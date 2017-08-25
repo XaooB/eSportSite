@@ -394,68 +394,118 @@ body {
         margin: 30px 0; }
         body main .error_wrapper .error .info p {
           line-height: 1.5; }
-    body main ._wrapper .logged_in {
+    body main ._wrapper {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      margin: 60px;
-      width: 100%;
-      color: #222222;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-          -ms-flex-pack: center;
-              justify-content: center; }
-      body main ._wrapper .logged_in p {
-        text-align: center;
-        max-width: 50%; }
-    body main ._wrapper .occ {
-      margin: 40px 0;
-      width: 100%;
-      color: #222222; }
-      body main ._wrapper .occ h1 {
-        padding: 2px;
-        border-bottom: 4px solid #222222; }
-      body main ._wrapper .occ form {
-        width: 40%;
-        margin: 30px 10px; }
-        body main ._wrapper .occ form label {
-          text-transform: uppercase;
-          font-size: .75em;
-          font-weight: bold;
-          display: block;
-          margin-bottom: 2px; }
-        body main ._wrapper .occ form input {
-          width: 100%;
-          padding: 6px;
-          margin-bottom: 12px; }
-        body main ._wrapper .occ form input[type='submit'] {
-          padding: 14px;
-          font-weight: bold;
-          border: none;
-          background: #107dac;
-          color: #ffffff;
-          width: 100%;
-          margin-top: 20px;
-          display: block; }
-        body main ._wrapper .occ form .form-error {
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap; }
+      body main ._wrapper .logged_in {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        margin: 60px;
+        width: 100%;
+        color: #222222;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center; }
+        body main ._wrapper .logged_in p {
           text-align: center;
-          margin: 20px 0;
-          padding: 12px 4px;
-          color: #222222;
-          font-weight: bold;
-          font-family: "Heuristica";
-          border: 2px solid darkred; }
-      body main ._wrapper .occ span {
-        margin-top: 12px;
-        margin-bottom: 6px;
-        display: block; }
-      body main ._wrapper .occ p {
-        line-height: 1.5; }
+          max-width: 50%; }
+      body main ._wrapper h2 {
+        color: #222;
+        padding: 2px;
+        border-bottom: 4px solid #222; }
+      body main ._wrapper .occ {
+        width: 73%;
+        margin: 40px 0;
+        color: #222222; }
+        body main ._wrapper .occ h1 {
+          padding: 2px;
+          border-bottom: 4px solid #222222; }
+        body main ._wrapper .occ form {
+          width: 40%;
+          margin: 30px 10px; }
+          body main ._wrapper .occ form label {
+            text-transform: uppercase;
+            font-size: .75em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 2px; }
+          body main ._wrapper .occ form input {
+            width: 100%;
+            padding: 6px;
+            margin-bottom: 12px; }
+          body main ._wrapper .occ form input[type='submit'] {
+            padding: 14px;
+            font-weight: bold;
+            border: none;
+            background: #107dac;
+            color: #ffffff;
+            width: 100%;
+            margin-top: 20px;
+            display: block; }
+          body main ._wrapper .occ form .form-error {
+            text-align: center;
+            margin: 20px 0;
+            padding: 12px 4px;
+            color: #222222;
+            font-weight: bold;
+            font-family: "Heuristica";
+            border: 2px solid darkred; }
+        body main ._wrapper .occ span {
+          margin-top: 12px;
+          margin-bottom: 6px;
+          display: block; }
+        body main ._wrapper .occ p {
+          line-height: 1.5; }
+        body main ._wrapper .occ .user_wrapper {
+          margin: 20px 0; }
+          body main ._wrapper .occ .user_wrapper img {
+            float: left;
+            height: 200px;
+            margin-right: 20px; }
+      body main ._wrapper .occa {
+        width: 25%;
+        margin: 40px 0; }
+      body main ._wrapper .last_comments {
+        width: 73%;
+        margin: 20px 0; }
+        body main ._wrapper .last_comments article {
+          padding: 8px 8px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+          cursor: context-menu; }
+          body main ._wrapper .last_comments article:last-child {
+            border: none;
+            margin-bottom: 20px; }
+          body main ._wrapper .last_comments article:nth-child(odd) {
+            background: rgba(0, 0, 0, 0.04); }
+          body main ._wrapper .last_comments article .posted_at {
+            font-size: .8em;
+            height: auto;
+            border: none;
+            background: none; }
+            body main ._wrapper .last_comments article .posted_at h4 {
+              color: #888888;
+              font-weight: lighter; }
+          body main ._wrapper .last_comments article p {
+            color: #222;
+            padding: 6px 0; }
+            body main ._wrapper .last_comments article p:first-of-type {
+              font-size: .95em; }
     body main .news_wrapper {
       padding-top: 20px;
       width: 100%;
@@ -652,7 +702,7 @@ body {
           text-align: justify; }
           body main .news_wrapper .about .about_wrapper h2 {
             font-size: 1em;
-            padding: 14px;
+            padding: 12px;
             background: #222222;
             color: #ffffff; }
           body main .news_wrapper .about .about_wrapper img {
@@ -686,8 +736,9 @@ body {
             padding: 14px;
             color: #ffffff;
             position: absolute;
-            bottom: -4px;
-            left: 0; }
+            bottom: 10px;
+            left: 0;
+            border: none; }
           body main .news_wrapper .hot_news .hot_item .count {
             position: absolute;
             padding: 10px;
@@ -1106,10 +1157,20 @@ footer {
             order: 3;
     width: 100%;
     margin-top: 20px; }
+    body main .news_wrapper .authors_news .author_wrapper {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
     body main .news_wrapper .authors_news article {
-      margin-right: .5%;
-      width: 49.75%;
-      float: left; }
+      width: 49.90%; }
       body main .news_wrapper .authors_news article:last-child {
         margin-left: 0;
         margin-right: 0; }
@@ -1121,6 +1182,11 @@ footer {
     width: 100%; }
     body main .news_wrapper .related_news .related_wrapper {
       height: 250px; }
+  body main .news_wrapper .hot_news a {
+    width: 33.1%;
+    margin-right: .3%; }
+    body main .news_wrapper .hot_news a:last-child {
+      margin: 0; }
   body main ._wrapper .occ form {
     width: 94%; }
   body footer .footer_wrapper {
@@ -1185,14 +1251,14 @@ footer {
   body main .news_wrapper .main_news h1 {
     font-size: 1.2em; }
   body main .news_wrapper .hot_news .hot_item {
-    margin-bottom: 2px; }
+    margin-bottom: 1px; }
   body main .news_wrapper .hot_news a {
     float: none;
     width: 100%; }
     body main .news_wrapper .hot_news a .hot_item img {
       width: 100%; }
-  body main .news_wrapper .authors_news .author_wrapper article header img {
-    width: auto; }
+  body main .news_wrapper .authors_news .author_wrapper article {
+    width: 100%; }
   body main .social_media {
     display: none; } }
 @media screen and (max-width: 320px) {

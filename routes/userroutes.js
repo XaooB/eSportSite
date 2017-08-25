@@ -1,8 +1,10 @@
 const {
     User
-} = require('../models/user'),
-    bcrypt = require('bcrypt'),
-    session =  require('express-session');
+} = require('../models/user'), {
+    Comment
+} = require('../models/comment')
+bcrypt = require('bcrypt'),
+    session = require('express-session');
 
 exports.loginGet = (req, res) => {
     res.render('login', {
@@ -22,7 +24,7 @@ exports.loginPost = (req, res) => {
     }).then((user) => {
         return bcrypt.compare(req.body.password, user.password).then((result) => {
             if (result) {
-                req.session.user = user;                   
+                req.session.user = user;
                 return res.render('loggedIn', {
                     user: req.session.user
                 });
@@ -46,8 +48,31 @@ exports.logout = (req, res) => {
     res.redirect('/login');
 }
 
+exports.me = (req, res) => {
+    User.findOne({username: req.user.username}).then((user) => {
+        return Comment.find({username: user.username}).limit(5).then((comment) => {
+            res.render('profil', {
+                title: 'Profil',
+                user: user,
+                comment: comment
+            });
+        })
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
 exports.profil = (req, res) => {
-    res.render('profil', {
-        title: 'Profil'
-    })
+    User.findOne({username: req.params.username}).then((user) => {
+        console.log(user)
+        return Comment.find({username: user.username}).limit(5).then((comment) => {
+            res.render('profil_2', {
+                title: 'Profil',
+                username: user,
+                comment: comment
+            });
+        })
+    }).catch((err) => {
+        console.log(err);
+    });
 }

@@ -19,6 +19,7 @@ exports.article = (req, res) => {
                         title: mainArticle.title
                     }).sort('-date').then((comments) => {
                         res.render('news', {
+                            title: mainArticle.title,
                             mainNews: mainArticle,
                             lastestNews: newestArticles,
                             authorArticle: authorArticle,

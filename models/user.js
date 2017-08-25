@@ -23,6 +23,10 @@ const userSchema = mongoose.Schema({
     avatar: {
         type: String,
         default: "/assets/img/avatars/default-avatar.jpg"
+    },
+    aboutme: {
+        type: String,
+        default: 'Tutaj wpisz coś o sobie..'
     }
 });
 

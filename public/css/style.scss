@@ -455,10 +455,13 @@ body {
             }
         }
         ._wrapper {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
             .logged_in {
                 display: flex;
                 margin: 60px;
-                width:100%;
+                width: 100%;
                 color: $darkGray;
                 align-items: center;
                 justify-content: center;
@@ -467,9 +470,14 @@ body {
                     max-width: 50%;
                 }
             }
+            h2 {
+                color: #222;
+                padding: 2px;
+                border-bottom: 4px solid #222;
+            }
             .occ {
+                width: 73%;
                 margin: 40px 0;
-                width: 100%;
                 color: $darkGray;
                 h1 {
                     padding: 2px;
@@ -517,6 +525,51 @@ body {
                 }
                 p {
                     line-height: 1.5;
+                }
+                .user_wrapper {
+                    margin: 20px 0;
+                    img {
+                        float: left;
+                        height: 200px;
+                        margin-right: 20px;
+                    }
+                }
+            }
+            .occa {
+                width: 25%;
+                margin: 40px 0;
+            }
+            .last_comments {
+                width: 73%;
+                margin: 20px 0;
+                article {
+                    padding: 8px 8px;
+                    border-bottom: 1px solid rgba(0, 0, 0, .15);
+                    cursor: context-menu;
+                    &:last-child {
+                        border: none;
+                        margin-bottom: 20px;
+                    }
+                    &:nth-child(odd) {
+                        background: rgba(0, 0, 0, .04);
+                    }
+                    .posted_at {
+                        font-size: .8em;
+                        height: auto;
+                        border: none;
+                        background: none;
+                        h4 {
+                            color: #888888;
+                            font-weight: lighter;
+                        }
+                    }
+                    p {
+                        color:#222;
+                        padding: 6px 0;
+                        &:first-of-type {
+                            font-size: .95em;
+                        }
+                    }
                 }
             }
         }
@@ -757,7 +810,7 @@ body {
                             }
                         }
                         p {
-                            padding:6px 0;
+                            padding: 6px 0;
                             &:first-of-type {
                                 font-size: .95em;
                             }
@@ -772,7 +825,7 @@ body {
                     line-height: 1.5;
                     h2 {
                         font-size: 1em;
-                        padding: 14px;
+                        padding: 12px;
                         background: $darkGray;
                         color: $lightFontColor;
                     }
@@ -818,8 +871,9 @@ body {
                         padding: 14px;
                         color: #ffffff;
                         position: absolute;
-                        bottom: -4px;
+                        bottom: 10px;
                         left: 0;
+                        border: none;
                     }
                     .count {
                         position: absolute;
@@ -1372,10 +1426,13 @@ footer {
                     order: 3;
                     width: 100%;
                     margin-top: 20px;
+                    .author_wrapper {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                    }
                     article {
-                        margin-right: .5%;
-                        width: 49.75%;
-                        float: left;
+                        width: 49.90%;
                         &:last-child {
                             margin-left: 0;
                             margin-right: 0;
@@ -1387,6 +1444,15 @@ footer {
                     width: 100%;
                     .related_wrapper {
                         height: 250px;
+                    }
+                }
+                .hot_news {
+                    a {
+                        width: 33.1%;
+                        margin-right: .3%;
+                        &:last-child {
+                            margin: 0;
+                        }
                     }
                 }
             }
@@ -1499,7 +1565,7 @@ footer {
                 }
                 .hot_news {
                     .hot_item {
-                        margin-bottom: 2px;
+                        margin-bottom: 1px;
                     }
                     a {
                         float: none;
@@ -1514,11 +1580,7 @@ footer {
                 .authors_news {
                     .author_wrapper {
                         article {
-                            header {
-                                img {
-                                    width: auto;
-                                }
-                            }
+                            width: 100%;
                         }
                     }
                 }

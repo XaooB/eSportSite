@@ -4,14 +4,14 @@
             <section class="occ f-l">
                 <h1>Rejestracja</h1>
                 <form id='registerForm' action="/register" method='post'>
-                    <label for="regLogin">Nazwa użytkownika:</label>
-                    <input type="text" name='username' id='username' required>
+                    <label for="username">Nazwa użytkownika:</label>
+                    <input type="text" name='username' id='username' maxlength='20' placeholder='Username' required>
                     <label for="email">Email:</label>
-                    <input type="email" name='email' id="email" required>
-                    <label for="regPass">Hasło:</label>
-                    <input type="password" name='password' id="regPass" required>
-                    <label for="regPass2">Powtórz hasło:</label>
-                    <input type="password" id="regPass2" required> 
+                    <input type="email" name='email' id="email" maxlength='35' placeholder='Example@gmail.com' required>
+                    <label for="password">Hasło:</label>
+                    <input type="password" name='password' id="password" minlength='8' placeholder='Password' required>
+                    <label for="confirm_password">Powtórz hasło:</label>
+                    <input type="password" id="confirm_password" minlength='8' placeholder='Confirm Password' required> 
                     {{#if Error}}
                     <div class="form-error">{{Error}}</div>
                     {{/if}}

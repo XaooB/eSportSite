@@ -83,8 +83,8 @@
                             {{#each comments}}
                             <article>
                                 <header class='posted_at'>
-                                    <h4>
-                                        Napisany <time datetime="07/08/2017T13:00:24+01:00">{{this.date}}</time> przez <b>{{this.username}}</b>
+                                   <h4>
+                                        Napisany <time datetime="07/08/2017T13:00:24+01:00">{{this.date}}</time> przez <b><a href="/profil/{{username}}">{{username}}</a></b>
                                     </h4>
                                 </header>
                                 <p>{{this.body}}</p>

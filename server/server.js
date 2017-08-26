@@ -90,6 +90,7 @@ router.get('/login/lost_password', userRouter.lostGet);
 router.get('/login', userRouter.loginGet);
 router.post('/login', userRouter.loginPost);
 router.get('/logout', userRouter.logout);
+router.get('/admin', requireLogin, userRouter.admin);
 
 //LOL ROUTERS
 router.get('/lol/events', lolRouter.events);

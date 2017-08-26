@@ -73,7 +73,7 @@ exports.profil = (req, res) => {
         return Comment.find({
             username: user.username
         }).limit(5).then((comment) => {
-            if (req.session.user.username === req.params.username) {
+            if (req.session.user && (req.session.user.username === req.params.username)) {
                 res.redirect('/profil/me')
             } else {
                 res.render('profil_2', {
@@ -85,5 +85,11 @@ exports.profil = (req, res) => {
         })
     }).catch((err) => {
         console.log(err);
+    });
+}
+
+exports.admin = (req, res) => {
+    res.render('admin', {
+        layout: 'adminPanel'
     });
 }

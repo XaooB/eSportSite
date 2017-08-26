@@ -621,7 +621,7 @@ body {
             width: 100%;
             height: auto; }
           body main .news_wrapper .main_news header figure {
-            height: inherit;
+            max-height: 320px;
             overflow: hidden; }
           body main .news_wrapper .main_news header h1 {
             font-family: "Heuristica";
@@ -1058,6 +1058,28 @@ footer {
     letter-spacing: .03em;
     font-family: "Heuristica";
     text-transform: uppercase; }
+
+#admin header {
+  background: #111;
+  border: 0; }
+  #admin header nav {
+    background: #111;
+    width: 250px;
+    height: 100%;
+    position: fixed; }
+    #admin header nav ul {
+      margin-top: 30px; }
+      #admin header nav ul li {
+        margin-bottom: 1px;
+        background: #222;
+        font-family: "Righteous";
+        padding-left: 4px;
+        height: 40px;
+        line-height: 40px; }
+        #admin header nav ul li:hover {
+          background: #333; }
+        #admin header nav ul li a {
+          display: block; }
 
 @media screen and (max-width: 1100px) {
   body .container {

@@ -726,7 +726,7 @@ body {
                         height: auto;
                     }
                     figure {
-                        height: inherit;
+                        max-height:320px;
                         overflow: hidden;
                     }
                     h1 {
@@ -1261,6 +1261,36 @@ footer {
         letter-spacing: .03em;
         font-family: $textFont;
         text-transform: uppercase;
+    }
+}
+
+#admin {
+    header {
+        background:#111;
+        border:0;
+        nav {
+            background:#111;
+            width:250px;
+            height:100%;
+            position:fixed;
+            ul {
+                margin-top:30px;
+                li {
+                    margin-bottom:1px;
+                    background:#222;
+                    font-family:$mainFont;
+                    padding-left:4px;
+                    height:40px;
+                    line-height: 40px;
+                    &:hover {
+                        background:#333;
+                    }
+                    a {
+                        display:block;
+                    }
+                }
+            }
+        }
     }
 }
 

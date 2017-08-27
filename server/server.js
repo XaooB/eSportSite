@@ -35,7 +35,6 @@ app.use(session({
         mongooseConnection: mongoose.mongoose.connections[0],
         ttl: (1*60*60)
     }),
-    name: 'session',
     cookie: {
         path: '/',
         maxAge: 3600000 //10 min

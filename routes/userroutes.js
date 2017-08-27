@@ -7,9 +7,13 @@ bcrypt = require('bcrypt'),
     session = require('express-session');
 
 exports.loginGet = (req, res) => {
-    res.render('login', {
-        title: 'Logowanie'
-    });
+    if (req.user) {
+        res.redirect('/')
+    } else {
+        res.render('login', {
+            title: 'Logowanie'
+        });
+    }
 };
 
 exports.lostGet = (req, res) => {

@@ -1059,27 +1059,173 @@ footer {
     font-family: "Heuristica";
     text-transform: uppercase; }
 
-#admin header {
-  background: #111;
-  border: 0; }
-  #admin header nav {
+#admin {
+  background: #efefef; }
+  #admin main {
+    padding-left: 250px;
+    width: 100%; }
+    #admin main .container-fluid {
+      padding: 20px; }
+      #admin main .container-fluid h1 {
+        color: #222;
+        padding: 2px;
+        font-family: Tahoma;
+        font-weight: lighter;
+        font-size: 2.1em;
+        border-bottom: 4px solid #107dac; }
+      #admin main .container-fluid .user {
+        width: 100%;
+        height: 50px; }
+        #admin main .container-fluid .user .header {
+          float: left;
+          color: #222;
+          line-height: 45px; }
+          #admin main .container-fluid .user .header h2 {
+            padding: 0 30px 0 10px;
+            font-size: 1.2em;
+            letter-spacing: .03em;
+            background: #107dac;
+            color: #fff; }
+        #admin main .container-fluid .user .user_info {
+          color: rgba(0, 0, 0, 0.2);
+          float: right; }
+          #admin main .container-fluid .user .user_info img {
+            height: 40px;
+            float: left;
+            border-radius: 100%; }
+          #admin main .container-fluid .user .user_info span {
+            font-size: .85em;
+            font-weight: bold;
+            color: #222;
+            line-height: 45px;
+            padding: 4px 10px; }
+      #admin main .container-fluid .stats {
+        margin-top: 30px; }
+        #admin main .container-fluid .stats .column {
+          position: relative;
+          height: 120px;
+          padding: 25px;
+          margin-right: 20px;
+          width: 20%;
+          float: left; }
+          #admin main .container-fluid .stats .column .post {
+            margin-left: 80px;
+            border-left: 2px solid #f1f1f1;
+            height: 67px;
+            padding-left: 20px; }
+            #admin main .container-fluid .stats .column .post:before {
+              position: absolute;
+              content: '';
+              height: 64px;
+              width: 64px;
+              background-image: url(../img/icons/basic_archive_full.png);
+              left: 20px;
+              top: 28px; }
+          #admin main .container-fluid .stats .column .user {
+            margin-left: 80px;
+            border-left: 2px solid #f1f1f1;
+            padding-left: 20px;
+            height: 67px; }
+            #admin main .container-fluid .stats .column .user:before {
+              position: absolute;
+              content: '';
+              height: 64px;
+              width: 64px;
+              background-image: url(../img/icons/basic_user.png);
+              left: 20px;
+              top: 28px; }
+          #admin main .container-fluid .stats .column .comment {
+            margin-left: 80px;
+            border-left: 2px solid #f1f1f1;
+            height: 67px;
+            padding-left: 20px; }
+            #admin main .container-fluid .stats .column .comment:before {
+              position: absolute;
+              content: '';
+              height: 64px;
+              width: 64px;
+              background-image: url(../img/icons/basic_message.png);
+              left: 20px;
+              top: 28px; }
+          #admin main .container-fluid .stats .column .count {
+            font-size: 2.5em;
+            font-weight: bold; }
+        #admin main .container-fluid .stats .tomato {
+          background: tomato; }
+        #admin main .container-fluid .stats .orange {
+          background: orange; }
+        #admin main .container-fluid .stats .turq {
+          background: turquoise; }
+      #admin main .container-fluid .feed {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
+        width: 100%;
+        margin-top: 50px;
+        color: #222; }
+        #admin main .container-fluid .feed section {
+          width: 31%; }
+          #admin main .container-fluid .feed section h4 {
+            width: 100%;
+            font-size: 1.2em; }
+        #admin main .container-fluid .feed .feed_wrapper {
+          overflow: hidden;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-justify-content: space-around;
+              -ms-flex-pack: distribute;
+                  justify-content: space-around;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          padding: 8px; }
+          #admin main .container-fluid .feed .feed_wrapper img {
+            border-radius: 100%;
+            height: 50px; }
+          #admin main .container-fluid .feed .feed_wrapper .info {
+            padding: 4px; }
+  #admin header {
     background: #111;
-    width: 250px;
-    height: 100%;
-    position: fixed; }
-    #admin header nav ul {
-      margin-top: 30px; }
+    border: 0; }
+    #admin header nav {
+      font-size: .9em;
+      background: #222222;
+      width: 250px;
+      height: 100%;
+      position: fixed; }
+      #admin header nav .logo {
+        margin-top: -1px;
+        background: #107dac;
+        width: 100%;
+        height: 70px;
+        line-height: 45px; }
+        #admin header nav .logo h1:before {
+          top: 14px;
+          left: 3px; }
+        #admin header nav .logo h1:after {
+          right: 56px;
+          top: 30px; }
+        #admin header nav .logo a {
+          display: block; }
       #admin header nav ul li {
+        position: relative;
         margin-bottom: 1px;
         background: #222;
         font-family: "Righteous";
+        font-weight: lighter;
         padding-left: 4px;
-        height: 40px;
-        line-height: 40px; }
-        #admin header nav ul li:hover {
-          background: #333; }
+        height: 60px;
+        line-height: 60px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         #admin header nav ul li a {
+          color: rgba(255, 255, 255, 0.95);
           display: block; }
+          #admin header nav ul li a:hover {
+            color: #107dac; }
 
 @media screen and (max-width: 1100px) {
   body .container {

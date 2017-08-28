@@ -1,9 +1,11 @@
 const {
     User
 } = require('../models/user'), {
-    Comment
-} = require('../models/comment')
-bcrypt = require('bcrypt'),
+        Comment
+    } = require('../models/comment'), {
+        Article
+    } = require('../models/article'),
+    bcrypt = require('bcrypt'),
     session = require('express-session');
 
 exports.loginGet = (req, res) => {
@@ -92,8 +94,52 @@ exports.profil = (req, res) => {
     });
 }
 
-exports.admin = (req, res) => {
-    res.render('admin', {
+exports.dashboard = (req, res) => {
+    let posts = Article.count({}),
+        users = User.count({}),
+        comments = Comment.count({}),
+        lastposts = Article.find({}).limit(5).sort('-date'),
+        lastusers = User.find({}).limit(5).sort('-date'),
+        lastcomments = Comment.find({}).limit(5).sort('-date');
+
+    Promise.all([posts, users, comments, lastposts, lastusers, lastcomments]).then((result) => {
+        res.render('admin_dashboard', {
+            layout: 'adminPanel',
+            postsCount: result[0],
+            usersCount: result[1],
+            commentsCount: result[2],
+            lastposts: result[3],
+            lastusers: result[4],
+            lastcomments: result[5]
+        });
+    }).catch((err) => {
+        console.log(err.message)
+    })
+}
+
+exports.articles = (req, res) => {
+    let postCount = Article.count({}),
+        posts = Article.find({}).sort('-date');
+
+    Promise.all([postCount, posts]).then((result) => {
+        res.render('admin_articles', {
+            layout: 'adminPanel',
+            postsCount: result[0],
+            posts: result[1]
+        });
+    }).catch((err) => {
+        console.log(err.message);
+    })
+}
+
+exports.users = (req, res) => {
+    res.render('admin_users', {
+        layout: 'adminPanel'
+    });
+}
+
+exports.comments = (req, res) => {
+    res.render('admin_comments', {
         layout: 'adminPanel'
     });
 }

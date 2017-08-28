@@ -1,6 +1,6 @@
 const 
     {Article} = require('../models/article'), 
-    {Author} = require('../models/author'), 
+    {User} = require('../models/user'), 
     {Comment} = require('../models/comment'), 
     {getDate} = require('./../public/js/getDate');
 
@@ -12,8 +12,8 @@ exports.article = (req, res) => {
             author: mainArticle.author
         }).then((authorArticle) => {
             return Article.find({}).where('title').ne(req.params.title).sort('-date').then((newestArticles) => {
-                return Author.findOne({
-                    nickname: mainArticle.author
+                return User.findOne({
+                    username: mainArticle.author
                 }).then((authorData) => {
                     return Comment.find({
                         title: mainArticle.title
@@ -60,3 +60,24 @@ exports.addComment = (req, res) => {
         console.log(err.message);
     })
 };
+
+exports.addNew = (req, res) => {
+    res.render('admin_newPost', {
+        layout: 'adminPanel'
+    });
+}
+
+exports.postArticle = (req, res) => {
+    let newArticle = new Article({
+        title: req.body.title,
+        category: req.body.category,
+        author: req.user.username,
+        desc: req.body.desc,
+        date: getDate(),
+        isMain: req.body.name.value
+    }).save().then(() => {
+        console.log('Saved');
+    }).catch((err) => {
+        console.log(err.message);
+    })
+}

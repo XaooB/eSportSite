@@ -4,7 +4,8 @@ exports.articles = (req, res) => {
     Article.findOne({
         isMain: true
     }).then((mainArticle) => {
-        return Article.find({}).where('isMain').ne(true).sort('-date').limit(3).then((moreArticles) => {
+        console.log(mainArticle)
+        return Article.find({}).where('isMain').ne('on').sort('-date').limit(3).then((moreArticles) => {
             return Article.find({
                 category: 'lol'
             }).sort('-date').then((lastestLolArticles) => {
@@ -117,6 +118,9 @@ exports.articles = (req, res) => {
         });
     }).catch((err) => {
         console.log(err.message);
+        res.json({
+            "Error":"Wystąpił błąd podczas próby pobrania artykułów z bazy. Sprawdź konsole."
+        })
     });
 };
 

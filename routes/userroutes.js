@@ -1,12 +1,8 @@
-const {
-    User
-} = require('../models/user'), {
-        Comment
-    } = require('../models/comment'), {
-        Article
-    } = require('../models/article'),
-    bcrypt = require('bcrypt'),
-    session = require('express-session');
+const {User} = require('../models/user'), 
+      {Comment} = require('../models/comment'), 
+      {Article}= require('../models/article'),
+      bcrypt = require('bcrypt'),
+      session = require('express-session');
 
 exports.loginGet = (req, res) => {
     if (req.user) {
@@ -26,7 +22,7 @@ exports.lostGet = (req, res) => {
 
 exports.loginPost = (req, res) => {
     User.findOne({
-        username: req.body.username
+        username: req.body.username.toLowerCase()
     }).then((user) => {
         return bcrypt.compare(req.body.password, user.password).then((result) => {
             if (result) {
@@ -69,6 +65,9 @@ exports.me = (req, res) => {
         })
     }).catch((err) => {
         console.log(err);
+        res.json({
+            "Error":"Wystąpił błąd podczas wyszukiwania użytkownika w bazie. Sprawdź konsole."
+        })
     });
 }
 
@@ -91,6 +90,9 @@ exports.profil = (req, res) => {
         })
     }).catch((err) => {
         console.log(err);
+        res.json({
+            "Error" : "Takiego użytkownika nie ma w naszej bazie"
+        })
     });
 }
 
@@ -114,6 +116,9 @@ exports.dashboard = (req, res) => {
         });
     }).catch((err) => {
         console.log(err.message)
+        res.json({
+            "Error": "Wystąpił błąd w Promise.all. Sprawdź konsolę."
+        })
     })
 }
 
@@ -129,6 +134,9 @@ exports.articles = (req, res) => {
         });
     }).catch((err) => {
         console.log(err.message);
+        res.json({
+            "Error": "Wystąpił błąd w Promise.all. Sprawdź konsolę."
+        })
     })
 }
 

@@ -8,6 +8,7 @@ exports.article = (req, res) => {
     Article.findOne({
         title: req.params.title
     }).then((mainArticle) => {
+        console.log(mainArticle)
         return Article.find({
             author: mainArticle.author
         }).then((authorArticle) => {
@@ -18,6 +19,7 @@ exports.article = (req, res) => {
                     return Comment.find({
                         title: mainArticle.title
                     }).sort('-date').then((comments) => {
+                        console.log(authorData)
                         res.render('news', {
                             title: mainArticle.title,
                             mainNews: mainArticle,
@@ -32,7 +34,9 @@ exports.article = (req, res) => {
         });
     }).catch((err) => {
         console.log(err);
-        res.redirect('/error').send();
+        res.json({
+            "Error": "Wystąpił błąd podczas pobierania danych o artykule z bazy. Sprawdź konsole."
+        })
     });
 }
 
@@ -58,6 +62,9 @@ exports.addComment = (req, res) => {
         res.redirect('back'); //to news page
     }).catch((err) => {
         console.log(err.message);
+        res.json({
+            "Error":"Wystąpił błąd podczas próby dodania komentarza. Sprawdź konsole."
+        })
     })
 };
 
@@ -72,12 +79,17 @@ exports.postArticle = (req, res) => {
         title: req.body.title,
         category: req.body.category,
         author: req.user.username,
-        desc: req.body.desc,
+        desc: req.body.shortbody,
+        body: req.body.body,
         date: getDate(),
-        isMain: req.body.name.value
+        isMain: (req.body.main || false),
+        img: '/assets/img/news/default-news-img.jpg'
     }).save().then(() => {
-        console.log('Saved');
+        res.redirect('back');
     }).catch((err) => {
         console.log(err.message);
+        res.json({
+            "Error":"Wystąpił błąd podczas próby dodania artykułu. Sprawdź konsole."
+        })
     })
 }

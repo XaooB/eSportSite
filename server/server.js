@@ -77,6 +77,8 @@ router.get('/', homeRouter.articles);
 //ARTICLE ROUTERS
 router.get('/news/:category/:title', articleRouter.article);
 router.get('/news/:category', articleRouter.more);
+router.get('/admin/articles/add-article', articleRouter.addNew);
+router.post('admin/articles/add-article', articleRouter.postArticle);
 router.post('/news/:categrory/:title?', articleRouter.addComment)
 router.get('/news', articleRouter.all);
 
@@ -89,7 +91,10 @@ router.get('/login/lost_password', userRouter.lostGet);
 router.get('/login', userRouter.loginGet);
 router.post('/login', userRouter.loginPost);
 router.get('/logout', userRouter.logout);
-router.get('/admin', requireLogin, userRouter.admin);
+router.get('/admin/dashboard', requireLogin, userRouter.dashboard);
+router.get('/admin/articles', requireLogin, userRouter.articles);
+router.get('/admin/users', requireLogin, userRouter.users);
+router.get('/admin/comments', requireLogin, userRouter.comments);
 
 //LOL ROUTERS
 router.get('/lol/events', lolRouter.events);

@@ -27,7 +27,8 @@ const userSchema = mongoose.Schema({
     aboutme: {
         type: String,
         default: 'Tutaj wpisz coś o sobie..'
-    }
+    },
+    createdAt: String
 });
 
 var User = mongoose.model('User', userSchema);

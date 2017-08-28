@@ -1,0 +1,44 @@
+    <main>
+        <div class="container-fluid">
+            <div class="user hidden">
+                <div class="header">
+                    <h2>DODAWANIE ARTYKUŁU- www.esportsite.com</h2>
+                </div>
+                <div class="user_info">
+                    <img src="{{user.avatar}}" alt="{{user.username}}">
+                    <span><a href="/profil/xaoo">[{{user.username}}]</a></span>|
+                    <span><a href="/logout">wyloguj się</a></span>
+                </div>
+            </div>
+            <div class="stats clearfix">
+                <div class="column turq">
+                    <div class="post">
+                        <p class='count'>51</p>
+                        <p>Comments</p>
+                    </div>
+                </div>
+            </div>
+            <div class="feed">
+                <form action="/#add" id='addArticle' method="post">
+                    <label>Tytuł:</label>
+                    <input type="text" name='title' id="title"  minlength='4'>
+                    <label>Kategoria: </label>
+                    <select name="category" id="category">
+                        <option value="lol">League of Legends</option>
+                        <option value="csgo">CounterStrike: Global Offensive</option>
+                    </select>
+                    <label>Zdjęcie: </label>
+                    <input type="file" id="fileinput" />
+                    <label for="body" style="margin-bottom:4px">Krótki opis:</label>
+                    <textarea name="body" id="body" cols="30" rows="2" maxlength="150"></textarea>
+                    <label for="body" style="margin-bottom:4px">Tekst:</label>
+                    <textarea name="body" id="body" cols="30" rows="10"></textarea>
+                    <label>Główny artykuł <input name='main' type="checkbox"></label>
+                    <button type="submit" class='blue_btn'>Dodaj</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1106,7 +1106,7 @@ footer {
           height: 120px;
           padding: 25px;
           margin-right: 20px;
-          width: 20%;
+          min-width: 20%;
           float: left; }
           #admin main .container-fluid .stats .column .post {
             margin-left: 80px;
@@ -1161,33 +1161,66 @@ footer {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        -webkit-justify-content: space-around;
-            -ms-flex-pack: distribute;
-                justify-content: space-around;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
         width: 100%;
         margin-top: 50px;
         color: #222; }
         #admin main .container-fluid .feed section {
+          margin-right: 20px;
           width: 31%; }
           #admin main .container-fluid .feed section h4 {
             width: 100%;
             font-size: 1.2em; }
+        #admin main .container-fluid .feed form {
+          font-size: 1.1em;
+          width: 60%; }
+          #admin main .container-fluid .feed form label {
+            margin: 14px 0;
+            display: block; }
+          #admin main .container-fluid .feed form input {
+            width: 100%;
+            padding: 6px; }
+          #admin main .container-fluid .feed form input[type='checkbox'] {
+            width: auto; }
+          #admin main .container-fluid .feed form select {
+            padding: 6px;
+            width: 100%; }
+          #admin main .container-fluid .feed form textarea {
+            padding: 10px;
+            width: 100%; }
+          #admin main .container-fluid .feed form button {
+            padding: 20px;
+            display: block;
+            color: #fff;
+            width: 100%; }
         #admin main .container-fluid .feed .feed_wrapper {
           overflow: hidden;
           display: -webkit-box;
           display: -webkit-flex;
           display: -ms-flexbox;
           display: flex;
-          -webkit-justify-content: space-around;
-              -ms-flex-pack: distribute;
-                  justify-content: space-around;
+          height: 67px;
+          max-height: 145px;
+          -webkit-box-pack: start;
+          -webkit-justify-content: flex-start;
+              -ms-flex-pack: start;
+                  justify-content: flex-start;
           border-bottom: 1px solid rgba(0, 0, 0, 0.1);
           padding: 8px; }
           #admin main .container-fluid .feed .feed_wrapper img {
             border-radius: 100%;
-            height: 50px; }
+            height: 50px;
+            width: 50px; }
           #admin main .container-fluid .feed .feed_wrapper .info {
             padding: 4px; }
+        #admin main .container-fluid .feed table {
+          width: 100%;
+          text-align: center; }
+          #admin main .container-fluid .feed table tr td {
+            width: 20%; }
   #admin header {
     background: #111;
     border: 0; }
@@ -1213,19 +1246,23 @@ footer {
           display: block; }
       #admin header nav ul li {
         position: relative;
-        margin-bottom: 1px;
         background: #222;
         font-family: "Righteous";
         font-weight: lighter;
-        padding-left: 4px;
-        height: 60px;
-        line-height: 60px;
+        padding-left: 8px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         #admin header nav ul li a {
+          line-height: 60px;
+          margin-bottom: 1px;
           color: rgba(255, 255, 255, 0.95);
           display: block; }
           #admin header nav ul li a:hover {
             color: #107dac; }
+        #admin header nav ul li ol li {
+          border: none;
+          line-height: 60px; }
+          #admin header nav ul li ol li a {
+            padding-left: 8px; }
 
 @media screen and (max-width: 1100px) {
   body .container {

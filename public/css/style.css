@@ -49,6 +49,9 @@
   width: 100%;
   text-align: center !important; }
 
+span.capitalize {
+  text-transform: capitalize; }
+
 * {
   margin: 0;
   padding: 0;
@@ -705,10 +708,13 @@ body {
             padding: 12px;
             background: #222222;
             color: #ffffff; }
-          body main .news_wrapper .about .about_wrapper img {
-            width: 100%;
-            height: auto;
-            border: 5px solid #107dac; }
+          body main .news_wrapper .about .about_wrapper figure {
+            text-align: center;
+            margin-top: 6px; }
+            body main .news_wrapper .about .about_wrapper figure img {
+              width: 60%;
+              height: auto;
+              border: 5px solid #107dac; }
           body main .news_wrapper .about .about_wrapper .user {
             margin-bottom: 10px; }
           body main .news_wrapper .about .about_wrapper .user > p {

@@ -17,18 +17,18 @@
                             <div class="related_wrapper scroll">
                                 {{#each lastestNews}}
                                 <article>
-                                    <h3>{{this.title}}</h3>
+                                    <h3>{{title}}</h3>
                                     <table>
                                         <tr>
-                                            <td rowspan="2" style='width:60px;'><span class='time'>{{this.date}}</span></td>
+                                            <td rowspan="2" style='width:60px;'><span class='time'>{{date}}</span></td>
                                             <td class='category'>
                                                 <span>Kategoria:
-                                                    <a href="/news/{{this.category}}">{{this.category}}</a></span>
+                                                    <a href="/news/{{category}}">{{category}}</a></span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class='title'>
-                                                <a href="/news/lol/{{this.title}}">{{this.title}}</a>
+                                                <a href="/news/lol/{{title}}">{{title}}</a>
                                             </td>
                                         </tr>
                                     </table>
@@ -38,14 +38,14 @@
                     </section>
                     <div class='authors_news'>
                         <section>
-                            <h2>Więcej od {{mainNews.author}}</h2>
+                            <h2>Więcej od <span class='capitalize'>{{mainNews.author}}</span></h2>
                             <div class="author_wrapper hidden">
                                 {{#each authorArticle}}
                                 <article>
-                                    <a href="/news/{{this.category}}/{{this.title}}"></a>
+                                    <a href="/news/{{category}}/{{title}}"></a>
                                     <header>
                                         <img src="{{this.img}}" alt="">
-                                        <h5>{{this.title}}</h5>
+                                        <h5>{{title}}</h5>
                                     </header>
                                 </article>
                                 {{/each}}
@@ -61,9 +61,8 @@
                         <h1>{{mainNews.title}}</h1>
                     </header>
                     <div class='content f-l'>
-                        <!--                       POBRAC AUTORA Z TABELII-->
                         <div class="date">
-                            <time datetime="07/08/2017T13:00:24+01:00">{{mainNews.date}}</time> przez {{mainNews.author}}
+                            <time datetime="07/08/2017T13:00:24+01:00">Dodano {{mainNews.date}}</time> przez <span class='capitalize'>{{mainNews.author}}</span>
                         </div>
                         {{{mainNews.body}}}
                         <section class='post_comments'>
@@ -97,13 +96,13 @@
                     <div class="about_wrapper">
                         <h2>O autorze</h2>
                         <figure>
-                            <img src="{{author.avatar}}" alt="{{author.nickname}}">
+                            <img src="{{author.avatar}}" alt="{{author.username}}">
                         </figure>
                         <div class="user">
-                            <p>Użytwkownik: {{author.nickname}}</p>
+                            <p>Użytwkownik: {{author.username}}</p>
                             <p>Ranga: {{author.rank}}</p>
                         </div>
-                        <p>{{author.info}}</p>
+                        <p>{{author.aboutme}}</p>
                     </div>
                 </aside>
             </div>

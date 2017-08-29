@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="feed">
-                <form action="/#add" id='addArticle' method="post">
+                <form action="/admin/articles/add-article" id='addArticle' method="post">
                     <label>Tytuł:</label>
                     <input type="text" name='title' id="title"  minlength='4'>
                     <label>Kategoria: </label>
@@ -29,11 +29,11 @@
                     </select>
                     <label>Zdjęcie: </label>
                     <input type="file" id="fileinput" />
-                    <label for="body" style="margin-bottom:4px">Krótki opis:</label>
-                    <textarea name="body" id="body" cols="30" rows="2" maxlength="150"></textarea>
+                    <label for="shortbody" style="margin-bottom:4px">Krótki opis:</label>
+                    <textarea name="shortbody" id="shortbody" cols="30" rows="2" minlength='10' maxlength="150"></textarea>
                     <label for="body" style="margin-bottom:4px">Tekst:</label>
-                    <textarea name="body" id="body" cols="30" rows="10"></textarea>
-                    <label>Główny artykuł <input name='main' type="checkbox"></label>
+                    <textarea name="body" id="body" cols="30" rows="10" minlength='10'></textarea>
+                    <label>Główny artykuł <input name='main' type="checkbox" value="true"></label>
                     <button type="submit" class='blue_btn'>Dodaj</button>
                 </form>
             </div>

@@ -22,10 +22,10 @@
                         confirmPassword = document.querySelector('#registerForm #confirm_password');
 
                     let validate = () => {
-                        if (password.value !== confirmPassword.value) confirmPassword.setCustomValidity('Hasła nie pasują do siebie!')
+                        confirmPassword.setCustomValidity(password.value !== confirmPassword.value ? 'Hasła nie pasują do siebie!' : '')
                     }
 
-                    password.onchage = validate;
+                    password.onchange = validate;
                     confirmPassword.onkeyup = validate;
 
                 </script>

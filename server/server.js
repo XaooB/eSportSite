@@ -10,7 +10,9 @@ const express = require('express'),
 
     //DATABASE AND MODELS
     mongoose = require('../database/mongoose'),
-    {User} = require('../models/user'),
+    {
+        User
+    } = require('../models/user'),
 
     //ROUTERS
     articleRouter = require('../routes/articleroutes'),
@@ -33,7 +35,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET || 'as54v88vrh7e5a9',
     store: new MongoStore({
         mongooseConnection: mongoose.mongoose.connections[0],
-        ttl: (1*60*60)
+        ttl: (1 * 60 * 60)
     }),
     cookie: {
         path: '/',
@@ -46,29 +48,47 @@ app.use(session({
     name: "ID"
 }));
 
-function requireLogin (req, res, next) {
-    if(!req.user) {
+function requireLogin(req, res, next) {
+    if (!req.user) {
         res.redirect('/login')
     } else {
         next();
     }
 }
 
+function requireAdmin(req, res, next) {
+    if (!req.user) {
+        res.json({
+            "Error": "Musisz się zalogować, aby mieć dostęp."
+        })
+    } else {
+        if (req.user.rank !== 'admin') {
+            res.json({
+                "Error": "Nie masz wymaganych uprawnień!"
+            })
+        } else {
+            next();
+        }
+    }
+}
+
 app.use((req, res, next) => {
-   if(req.session && req.session.user) {
-       User.findOne({username: req.session.user.username})
-           .then((user) => {
+    if (req.session && req.session.user) {
+        User.findOne({
+                username: req.session.user.username
+            })
+            .then((user) => {
                 req.user = user;
                 delete req.user.password;
                 req.session.user = user;
                 res.locals.user = user;
                 next();
-       }).catch((err) => {
-           console.log(err.message);
-       })
-   } else {
-       next();
-   }
+            }).catch((err) => {
+                console.log(err.message);
+            })
+    } else {
+        next();
+    }
 });
 
 //HOME ROUTER
@@ -77,8 +97,8 @@ router.get('/', homeRouter.articles);
 //ARTICLE ROUTERS
 router.get('/news/:category/:title', articleRouter.article);
 router.get('/news/:category', articleRouter.more);
-router.get('/admin/articles/add-article', articleRouter.addNew);
-router.post('admin/articles/add-article', articleRouter.postArticle);
+router.get('/admin/articles/add-article', requireAdmin, articleRouter.addNew);
+router.post('/admin/articles/add-article', requireAdmin, articleRouter.postArticle);
 router.post('/news/:categrory/:title?', articleRouter.addComment)
 router.get('/news', articleRouter.all);
 
@@ -91,10 +111,10 @@ router.get('/login/lost_password', userRouter.lostGet);
 router.get('/login', userRouter.loginGet);
 router.post('/login', userRouter.loginPost);
 router.get('/logout', userRouter.logout);
-router.get('/admin/dashboard', requireLogin, userRouter.dashboard);
-router.get('/admin/articles', requireLogin, userRouter.articles);
-router.get('/admin/users', requireLogin, userRouter.users);
-router.get('/admin/comments', requireLogin, userRouter.comments);
+router.get('/admin/dashboard', requireAdmin, userRouter.dashboard);
+router.get('/admin/articles', requireAdmin, userRouter.articles);
+router.get('/admin/users', requireAdmin, userRouter.users);
+router.get('/admin/comments', requireAdmin, userRouter.comments);
 
 //LOL ROUTERS
 router.get('/lol/events', lolRouter.events);

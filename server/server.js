@@ -4,15 +4,12 @@ const express = require('express'),
     router = express.Router(),
     PORT = process.env.PORT || 3000,
     bodyParser = require('body-parser'),
-
     session = require('express-session'),
     MongoStore = require('connect-mongo')(session),
-
+      
     //DATABASE AND MODELS
     mongoose = require('../database/mongoose'),
-    {
-        User
-    } = require('../models/user'),
+    {User } = require('../models/user'),
 
     //ROUTERS
     articleRouter = require('../routes/articleroutes'),
@@ -20,7 +17,8 @@ const express = require('express'),
     registerRouter = require('../routes/registerroutes'),
     userRouter = require('../routes/userroutes'),
     lolRouter = require('../routes/lolroutes'),
-    csgoRouter = require('../routes/csgoroutes');
+    csgoRouter = require('../routes/csgoroutes'),
+      adminRouter = require('../routes/adminroutes');
 
 app.engine('handlebars', hbs({
     defaultLayout: 'main'
@@ -95,11 +93,12 @@ app.use((req, res, next) => {
 router.get('/', homeRouter.articles);
 
 //ARTICLE ROUTERS
+app.get('/admin', (req, res) => {
+    res.redirect('/admin/dashboard') //redirect to admin panel
+});
 router.get('/news/:category/:title', articleRouter.article);
 router.get('/news/:category', articleRouter.more);
-router.get('/admin/articles/add-article', requireAdmin, articleRouter.addNew);
-router.post('/admin/articles/add-article', requireAdmin, articleRouter.postArticle);
-router.post('/news/:categrory/:title?', articleRouter.addComment)
+router.post('/news/:category/:title?', articleRouter.addComment)
 router.get('/news', articleRouter.all);
 
 //USER ROUTERS
@@ -136,31 +135,13 @@ router.get('/csgo/ranking', csgoRouter.ranking);
 app.get('/gallery', homeRouter.navGallery);
 app.get('/contact', homeRouter.navContact);
 app.get('/news/archives', homeRouter.navArchives);
-app.get('/news/addArticle', requireLogin, (req, res) => {
-    console.log(req.session.user)
-    res.render('addArticle');
-});
 
-app.post('/news/addArticle', (req, res) => {
-    let title = req.body.title,
-        category = req.body.category,
-        author = req.body.author,
-        body = req.body.body;
-
-    Article.count({}).then((amount) => {
-        let newArticle = new Article({
-            id: amount + 1,
-            title: req.body.title,
-            author: req.body.author,
-            category: req.body.category,
-            body: req.body.body
-        }).save().then((data) => {
-            console.log(data);
-        });
-    }).catch((err) => {
-        console.log(err.message);
-    });
-});
+//ADMIN ROUTERS
+router.get('/admin/articles/add-article', requireAdmin, articleRouter.addNew);
+router.post('/admin/articles/add-article', requireAdmin, articleRouter.postArticle);
+router.get('/admin/comments/delete/:ID', requireAdmin, adminRouter.deleteComment);
+router.get('/admin/users/delete/:ID', requireAdmin, adminRouter.deleteUser);
+router.get('/admin/articles/delete/:ID', requireAdmin, adminRouter.deleteArticle);
 
 //ROUTER
 app.use('/', router);

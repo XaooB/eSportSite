@@ -6,6 +6,7 @@ const commentSchema = mongoose.Schema({
     username: String,
     body: String,
     title: String,
+    category: String,
     date: {
         type: String,
         default: getDate() 

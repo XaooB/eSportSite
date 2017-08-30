@@ -1,47 +1,50 @@
-    <main>
-        <div class="container-fluid">
-            <div class="user hidden">
-                <div class="header">
-                    <h2>ARTYKUŁY - www.esportsite.com</h2>
-                </div>
-                <div class="user_info">
-                    <img src="{{user.avatar}}" alt="{{user.username}}">
-                    <span><a href="/profil/xaoo">[{{user.username}}]</a></span>|
-                    <span><a href="/logout">wyloguj się</a></span>
-                </div>
+<main>
+    <div class="container-fluid">
+        <div class="user hidden">
+            <div class="header">
+                <h2>ARTYKUŁY - www.esportsite.com</h2>
             </div>
-            <div class="stats clearfix">
-                <div class="column orange">
-                    <div class="post">
-                        <p class='count'>{{postsCount}}</p>
-                        <p>Posts</p>
-                    </div>
-                </div>
-            </div>
-            <div class="feed">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Kategoria</th>
-                            <th>Tytuł</th>
-                            <th>Autor</th>
-                            <th>Data dodania</th>
-                            <th>Ustawienia</th>
-                        </tr>
-                    </thead>
-                    {{#each posts}}
-                    <tr>
-                        <td><a href="/news/{{category}}">{{category}}</a></td>
-                        <td><a href="/news/{{category}}/{{title}}">{{title}}</a></td>
-                        <td><a href="/profil/{{author}}">{{author}}</a></td>
-                        <td>{{date}}</td>
-                        <td>edytuj/usuń</td>
-                    </tr>
-                    {{/each}}
-                </table>
+            <div class="user_info">
+                <img src="{{user.avatar}}" alt="{{user.username}}">
+                <span><a href="/profil/xaoo">[{{user.username}}]</a></span>|
+                <span><a href="/logout">wyloguj się</a></span>
             </div>
         </div>
-    </main>
+        <div class="stats clearfix">
+            <div class="column orange">
+                <div class="post">
+                    <p class='count'>{{postsCount}}</p>
+                    <p>Posts</p>
+                </div>
+            </div>
+        </div>
+        <div class="feed">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kategoria</th>
+                        <th>Tytuł</th>
+                        <th>Autor</th>
+                        <th>Data dodania</th>
+                        <th>Ustawienia</th>
+                    </tr>
+                </thead>
+                {{#each posts}}
+                <tr>
+                    <td><a href="/news/{{category}}">{{category}}</a></td>
+                    <td><a href="/news/{{category}}/{{title}}">{{title}}</a></td>
+                    <td><a href="/profil/{{author}}">{{author}}</a></td>
+                    <td>{{date}}</td>
+                    <td>
+                        <a class='ban' href="/admin/articles/edit/{{_id}}"><span style='color:red'>edytuj</span></a> /
+                        <a class='delete' href="/admin/articles/delete/{{_id}}"><span style="color:#107dac" onclick='return confirm("Czy chcesz usnąć ten artykuł?")'>usuń</span></a>
+                    </td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+</main>
 </body>
 
 </html>

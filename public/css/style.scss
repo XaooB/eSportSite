@@ -777,6 +777,7 @@ body {
                             width: 100%;
                             textarea {
                                 width: 100%;
+                                padding: 6px;
                             }
                             button {
                                 width: 100%;
@@ -1273,7 +1274,7 @@ footer {
 }
 
 #admin {
-    background: #efefef;
+    background: #fcfcfc;
     main {
         padding-left: 250px;
         width: 100%;
@@ -1406,10 +1407,10 @@ footer {
                     font-size: 1.1em;
                     width: 60%;
                     label {
-                        margin: 14px 0;
                         display: block;
                     }
                     input {
+                        margin-bottom: 20px;
                         width: 100%;
                         padding: 6px;
                     }
@@ -1419,16 +1420,20 @@ footer {
                     select {
                         padding: 6px;
                         width: 100%;
+                        margin-bottom: 20px;
                     }
                     textarea {
-                        padding: 10px;
+                        margin-bottom: 20px;
+                        padding: 6px;
                         width: 100%;
                     }
                     button {
-                        padding: 20px;
+                        font-size: 1.1em;
+                        padding: 10px;
                         display: block;
                         color: #fff;
-                        width: 100%;
+                        width: 15%;
+                        text-align: center;
                     }
                 }
                 .feed_wrapper {
@@ -1451,9 +1456,22 @@ footer {
                 table {
                     width: 100%;
                     text-align: center;
+                    color: #000;
                     tr {
+                        &:nth-child(even) {
+                            background: rgba(0,0,0,.1)
+                        }
                         td {
+                            padding: 6px;
                             width: 20%;
+                            span {
+                                cursor: pointer;
+                            }
+                        }
+                        th {
+                            color:#fff;
+                            padding: 12px;
+                            background: #222;
                         }
                     }
                 }
@@ -1487,6 +1505,11 @@ footer {
                 }
                 a {
                     display: block;
+                    width:250px;
+                    height:60px;
+                    margin-top:-40px;
+                    position:relative;
+                    z-index: 999;
                 }
             }
             ul {
@@ -1773,9 +1796,9 @@ footer {
                         }
                         .news_header {
                             right: 0;
-                            bottom: -60px;
+                            bottom: -50px;
                             padding: 16px;
-                            max-width: 100%;
+                            width: 100%;
                             h1 {
                                 font-size: .85em;
                             }

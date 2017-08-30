@@ -664,7 +664,8 @@ body {
             margin: 20px 0;
             width: 100%; }
             body main .news_wrapper .main_news .post_comments .newComment form textarea {
-              width: 100%; }
+              width: 100%;
+              padding: 6px; }
             body main .news_wrapper .main_news .post_comments .newComment form button {
               width: 100%;
               padding: 14px;
@@ -1066,7 +1067,7 @@ footer {
     text-transform: uppercase; }
 
 #admin {
-  background: #efefef; }
+  background: #fcfcfc; }
   #admin main {
     padding-left: 250px;
     width: 100%; }
@@ -1184,24 +1185,28 @@ footer {
           font-size: 1.1em;
           width: 60%; }
           #admin main .container-fluid .feed form label {
-            margin: 14px 0;
             display: block; }
           #admin main .container-fluid .feed form input {
+            margin-bottom: 20px;
             width: 100%;
             padding: 6px; }
           #admin main .container-fluid .feed form input[type='checkbox'] {
             width: auto; }
           #admin main .container-fluid .feed form select {
             padding: 6px;
-            width: 100%; }
+            width: 100%;
+            margin-bottom: 20px; }
           #admin main .container-fluid .feed form textarea {
-            padding: 10px;
+            margin-bottom: 20px;
+            padding: 6px;
             width: 100%; }
           #admin main .container-fluid .feed form button {
-            padding: 20px;
+            font-size: 1.1em;
+            padding: 10px;
             display: block;
             color: #fff;
-            width: 100%; }
+            width: 15%;
+            text-align: center; }
         #admin main .container-fluid .feed .feed_wrapper {
           overflow: hidden;
           display: -webkit-box;
@@ -1224,9 +1229,19 @@ footer {
             padding: 4px; }
         #admin main .container-fluid .feed table {
           width: 100%;
-          text-align: center; }
+          text-align: center;
+          color: #000; }
+          #admin main .container-fluid .feed table tr:nth-child(even) {
+            background: rgba(0, 0, 0, 0.1); }
           #admin main .container-fluid .feed table tr td {
+            padding: 6px;
             width: 20%; }
+            #admin main .container-fluid .feed table tr td span {
+              cursor: pointer; }
+          #admin main .container-fluid .feed table tr th {
+            color: #fff;
+            padding: 12px;
+            background: #222; }
   #admin header {
     background: #111;
     border: 0; }
@@ -1249,7 +1264,12 @@ footer {
           right: 56px;
           top: 30px; }
         #admin header nav .logo a {
-          display: block; }
+          display: block;
+          width: 250px;
+          height: 60px;
+          margin-top: -40px;
+          position: relative;
+          z-index: 999; }
       #admin header nav ul li {
         position: relative;
         background: #222;
@@ -1441,9 +1461,9 @@ footer {
     display: none; }
   body main #slider article .img_wrapper .news_header {
     right: 0;
-    bottom: -60px;
+    bottom: -50px;
     padding: 16px;
-    max-width: 100%; }
+    width: 100%; }
     body main #slider article .img_wrapper .news_header h1 {
       font-size: .85em; }
   body main .others_news .others_news_wrapper .column {

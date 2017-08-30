@@ -2,16 +2,16 @@ const
     {Article} = require('../models/article'), 
     {User} = require('../models/user'), 
     {Comment} = require('../models/comment'), 
-    {getDate} = require('./../public/js/getDate');
+    {getDate} = require('./../public/js/getDate'),
+    ObjectID = require('mongoose').Types.ObjectId;
 
 exports.article = (req, res) => {
     Article.findOne({
         title: req.params.title
     }).then((mainArticle) => {
-        console.log(mainArticle)
         return Article.find({
             author: mainArticle.author
-        }).then((authorArticle) => {
+        }).limit(3).then((authorArticle) => {
             return Article.find({}).where('title').ne(req.params.title).sort('-date').then((newestArticles) => {
                 return User.findOne({
                     username: mainArticle.author
@@ -19,7 +19,6 @@ exports.article = (req, res) => {
                     return Comment.find({
                         title: mainArticle.title
                     }).sort('-date').then((comments) => {
-                        console.log(authorData)
                         res.render('news', {
                             title: mainArticle.title,
                             mainNews: mainArticle,
@@ -53,13 +52,15 @@ exports.all = (req, res) => {
 };
 
 exports.addComment = (req, res) => {
+    console.log(req.params.category)
     let newComment = Comment({
         username: req.session.user.username,
         body: req.body.tresc,
         title: req.params.title,
+        category: req.params.category,
         date: getDate()
-    }).save().then(() => {
-        res.redirect('back'); //to news page
+    }).save().then((result) => {
+        res.redirect(`/news/${result.category}/${result.title}#${ObjectID(`${result._id}`)}`); //to news page
     }).catch((err) => {
         console.log(err.message);
         res.json({
@@ -83,7 +84,7 @@ exports.postArticle = (req, res) => {
         body: req.body.body,
         date: getDate(),
         isMain: (req.body.main || false),
-        img: '/assets/img/news/default-news-img.jpg'
+        img: '/assets/img/news/default.jpg'
     }).save().then(() => {
         res.redirect('back');
     }).catch((err) => {

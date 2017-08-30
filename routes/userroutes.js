@@ -1,8 +1,12 @@
-const {User} = require('../models/user'), 
-      {Comment} = require('../models/comment'), 
-      {Article}= require('../models/article'),
-      bcrypt = require('bcrypt'),
-      session = require('express-session');
+const {
+    User
+} = require('../models/user'), {
+        Comment
+    } = require('../models/comment'), {
+        Article
+    } = require('../models/article'),
+    bcrypt = require('bcrypt'),
+    session = require('express-session');
 
 exports.loginGet = (req, res) => {
     if (req.user) {
@@ -66,7 +70,7 @@ exports.me = (req, res) => {
     }).catch((err) => {
         console.log(err);
         res.json({
-            "Error":"Wystąpił błąd podczas wyszukiwania użytkownika w bazie. Sprawdź konsole."
+            "Error": "Wystąpił błąd podczas wyszukiwania użytkownika w bazie. Sprawdź konsole."
         })
     });
 }
@@ -91,7 +95,7 @@ exports.profil = (req, res) => {
     }).catch((err) => {
         console.log(err);
         res.json({
-            "Error" : "Takiego użytkownika nie ma w naszej bazie"
+            "Error": "Takiego użytkownika nie ma w naszej bazie"
         })
     });
 }
@@ -141,13 +145,27 @@ exports.articles = (req, res) => {
 }
 
 exports.users = (req, res) => {
-    res.render('admin_users', {
-        layout: 'adminPanel'
-    });
+    let usersCount = User.count({}),
+        users = User.find({}).sort('rank');
+
+    Promise.all([usersCount, users]).then((result) => {
+        res.render('admin_users', {
+            layout: 'adminPanel',
+            usersCount: result[0],
+            usersList: result[1]
+        });
+    })
 }
 
 exports.comments = (req, res) => {
-    res.render('admin_comments', {
-        layout: 'adminPanel'
-    });
+    let commentsCount = Comment.count({}),
+        comments = Comment.find({}).sort('-date');
+
+    Promise.all([commentsCount, comments]).then((result) => {
+        res.render('admin_comments', {
+            layout: 'adminPanel',
+            commentsCount: result[0],
+            commentsList: result[1]
+        });
+    })
 }

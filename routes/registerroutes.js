@@ -1,6 +1,7 @@
 const request = require('request-promise'),
     bcrypt = require('bcrypt'),
-    {User} = require('../models/user');
+    {User} = require('../models/user'),
+    {getDate} = require('./../public/js/getDate');
 
 exports.registerPost = (req, res) => {
     bcrypt.hash(req.body.password, 10).then((hashedassword) => {
@@ -33,7 +34,8 @@ exports.registerPost = (req, res) => {
                 res.render('registered', {
                     title: 'Rejestracja zakończona',
                     username: data.username,
-                    email: data.email
+                    email: data.email,
+                    createdAt: getDate()
                 });
             }).catch((err) => {
                 console.log(err.message);

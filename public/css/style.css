@@ -504,11 +504,12 @@ body {
             body main ._wrapper .last_comments article .posted_at h4 {
               color: #888888;
               font-weight: lighter; }
-          body main ._wrapper .last_comments article p {
+          body main ._wrapper .last_comments article p.text {
             color: #222;
             padding: 6px 0; }
-            body main ._wrapper .last_comments article p:first-of-type {
-              font-size: .95em; }
+            body main ._wrapper .last_comments article p.text:first-of-type {
+              font-size: .95em;
+              white-space: pre-line !important; }
     body main .news_wrapper {
       padding-top: 20px;
       width: 100%;
@@ -643,13 +644,12 @@ body {
         body main .news_wrapper .main_news .content {
           width: 100%; }
           body main .news_wrapper .main_news .content p {
-            font-size: 1.1em;
             color: #222222;
             line-height: 1.5;
             text-align: justify;
-            padding: 12px 2px; }
-            body main .news_wrapper .main_news .content p:first-of-type {
-              font-size: 1.35em; }
+            padding: 12px 2px;
+            font-size: 1.15em;
+            white-space: pre-line; }
           body main .news_wrapper .main_news .content .date {
             font-size: .75em;
             margin-top: 1px;
@@ -693,10 +693,10 @@ body {
               body main .news_wrapper .main_news .post_comments article .posted_at h4 {
                 color: #888888;
                 font-weight: lighter; }
-            body main .news_wrapper .main_news .post_comments article p {
-              padding: 6px 0; }
-              body main .news_wrapper .main_news .post_comments article p:first-of-type {
-                font-size: .95em; }
+            body main .news_wrapper .main_news .post_comments article p.text {
+              padding: 6px 0;
+              font-size: .95em;
+              white-space: pre-line; }
       body main .news_wrapper .about {
         width: 20.83333%; }
         body main .news_wrapper .about .about_wrapper {

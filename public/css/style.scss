@@ -567,11 +567,12 @@ body {
                             font-weight: lighter;
                         }
                     }
-                    p {
+                    p.text {
                         color: #222;
                         padding: 6px 0;
                         &:first-of-type {
                             font-size: .95em;
+                            white-space: pre-line !important;
                         }
                     }
                 }
@@ -750,14 +751,12 @@ body {
                 .content {
                     width: 900/900 * 100%;
                     p {
-                        font-size: 1.1em;
                         color: #222222;
                         line-height: 1.5;
                         text-align: justify;
                         padding: 12px 2px;
-                        &:first-of-type {
-                            font-size: 1.35em;
-                        }
+                        font-size: 1.15em;
+                        white-space: pre-line;
                     }
                     .date {
                         font-size: .75em;
@@ -814,11 +813,10 @@ body {
                                 font-weight: lighter;
                             }
                         }
-                        p {
+                        p.text {
                             padding: 6px 0;
-                            &:first-of-type {
-                                font-size: .95em;
-                            }
+                            font-size: .95em;
+                            white-space: pre-line;
                         }
                     }
                 }

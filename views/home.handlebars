@@ -18,10 +18,10 @@
                         <div class="more_news_wrapper f-l">
                             {{#each moreArticles}}
                             <article>
-                                <a href="/news/{{this.category}}/{{this.title}}"></a>
+                                <a href="/news/{{category}}/{{title}}"></a>
                                 <div class="item">
-                                    <time datetime="07/08/2017T13:00:24+01:00">{{this.date}}</time>
-                                    <h2>{{this.title}}</h2>
+                                    <time datetime="07/08/2017T13:00:24+01:00">{{date}}</time>
+                                    <h2>{{title}}</h2>
                                     <div class="wrap_button clearfix">
                                         <button type="button" class='f-r'>WIĘCEJ</button>
                                     </div>
@@ -45,15 +45,15 @@
                     <h3 class='margin20'>LOL LASTEST NEWS</h3>
                     {{#each latestLolArticles}}
                     <article>
-                        <a href="/news/{{this.category}}/{{this.title}}"></a>
+                        <a href="/news/{{category}}/{{title}}"></a>
                         <div class="item">
                             <figure>
                                 <img src="{{this.img}}" alt="">
                             </figure>
                             <div class='info f-r'>
-                                <h4>{{this.title}}</h4>
-                                <p>{{this.desc}}</p>
-                                <time datetime="07/08/2017T13:00:24+01:00">{{this.date}}</time>
+                                <h4>{{title}}</h4>
+                                <p>{{desc}}</p>
+                                <time datetime="07/08/2017T13:00:24+01:00">{{date}}</time>
                             </div>
                         </div>
                     </article>
@@ -63,15 +63,15 @@
                     <h3 class='margin20'>CS:GO LASTEST NEWS</h3>
                     {{#each latestCsgoArticles}}
                     <article>
-                        <a href="/news/{{this.category}}/{{this.title}}"></a>
+                        <a href="/news/{{category}}/{{title}}"></a>
                         <div class="item">
                             <figure>
-                                <img src="{{this.img}}" alt="">
+                                <img src="{{img}}" alt="">
                             </figure>
                             <div class='info f-r'>
-                                <h4>{{this.title}}</h4>
-                                <p>{{this.desc}}</p>
-                                <time datetime="07/08/2017T13:00:24+01:00">{{this.date}}</time>
+                                <h4>{{title}}</h4>
+                                <p>{{desc}}</p>
+                                <time datetime="07/08/2017T13:00:24+01:00">{{date}}</time>
                             </div>
                         </div>
                     </article>

@@ -52,7 +52,7 @@ exports.all = (req, res) => {
 };
 
 exports.addComment = (req, res) => {
-    console.log(req.params.category)
+//    replace(/\n/g, "<br />"),
     let newComment = Comment({
         username: req.session.user.username,
         body: req.body.tresc,

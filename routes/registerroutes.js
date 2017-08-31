@@ -1,7 +1,11 @@
 const request = require('request-promise'),
     bcrypt = require('bcrypt'),
-    {User} = require('../models/user'),
-    {getDate} = require('./../public/js/getDate');
+    {
+        User
+    } = require('../models/user'),
+    {
+        getDate
+    } = require('./../public/js/getDate');
 
 exports.registerPost = (req, res) => {
     bcrypt.hash(req.body.password, 10).then((hashedassword) => {
@@ -29,7 +33,8 @@ exports.registerPost = (req, res) => {
             let newUser = User({
                 username: req.body.username.toLowerCase(),
                 email: req.body.email,
-                password: hashedassword
+                password: hashedassword,
+                createdAt: getDate()
             }).save().then((data) => {
                 res.render('registered', {
                     title: 'Rejestracja zakończona',
@@ -61,7 +66,11 @@ exports.registerPost = (req, res) => {
 };
 
 exports.registerGet = (req, res) => {
-    res.render('register', {
-        title: 'Rejestracja'
-    });
+    if (req.user) {
+        res.redirect('/')
+    } else {
+        res.render('register', {
+            title: 'Rejestracja'
+        });
+    }
 }

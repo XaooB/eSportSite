@@ -56,7 +56,7 @@ exports.logout = (req, res) => {
 
 exports.me = (req, res) => {
     User.findOne({
-        username: req.user.username
+        username: req.user.username.toLowerCase()
     }).then((user) => {
         return Comment.find({
             username: user.username
@@ -77,7 +77,7 @@ exports.me = (req, res) => {
 
 exports.profil = (req, res) => {
     User.findOne({
-        username: req.params.username
+        username: req.params.username.toLowerCase()
     }).then((user) => {
         return Comment.find({
             username: user.username
@@ -105,7 +105,7 @@ exports.dashboard = (req, res) => {
         users = User.count({}),
         comments = Comment.count({}),
         lastposts = Article.find({}).limit(5).sort('-date'),
-        lastusers = User.find({}).limit(5).sort('-date'),
+        lastusers = User.find({}).limit(5).sort('-createdAt'),
         lastcomments = Comment.find({}).limit(5).sort('-date');
 
     Promise.all([posts, users, comments, lastposts, lastusers, lastcomments]).then((result) => {

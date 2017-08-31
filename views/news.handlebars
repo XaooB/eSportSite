@@ -64,7 +64,7 @@
                         <div class="date">
                             <time datetime="07/08/2017T13:00:24+01:00">Dodano {{mainNews.date}}</time> przez <span class='capitalize'>{{mainNews.author}}</span>
                         </div>
-                        {{{mainNews.body}}}
+                        <p>{{mainNews.body}}</p>
                         <section class='post_comments'>
                             <section class="newComment margin20 clearfix">
                                {{#if user}} 
@@ -86,7 +86,7 @@
                                         Napisany <time datetime="07/08/2017T13:00:24+01:00">{{this.date}}</time> przez <b><a href="/profil/{{username}}">{{username}}</a></b>
                                     </h4>
                                 </header>
-                                <p>{{this.body}}</p>
+                                <p class='text'>{{this.body}}</p>
                             </article>
                             {{/each}}
                         </section>

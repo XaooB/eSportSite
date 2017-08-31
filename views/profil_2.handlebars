@@ -17,6 +17,7 @@
             </section>
             <div class="last_comments">
                 <h2>Ostatnie komentarze użytkownika</h2>
+                {{#if comment}}
                 {{#each comment}}
                 <article>
                     <header class='posted_at'>
@@ -27,6 +28,9 @@
                     <p>{{this.body}}</p>
                 </article>
                 {{/each}}
+                {{else}} 
+                <p class='margin20' style='color:#222;'>Dotychczas użytkownik nie napisał żadnego komentarza.</p>
+                {{/if}}
             </div>
         </div>
     </div>

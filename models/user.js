@@ -28,7 +28,11 @@ const userSchema = mongoose.Schema({
         type: String,
         default: 'Tutaj wpisz coś o sobie..'
     },
-    createdAt: String
+    createdAt: String,
+    isBanned: {
+        type: Boolean,
+        default: false
+    }
 });
 
 var User = mongoose.model('User', userSchema);

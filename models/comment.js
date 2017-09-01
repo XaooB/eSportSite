@@ -8,8 +8,8 @@ const commentSchema = mongoose.Schema({
     title: String,
     category: String,
     date: {
-        type: String,
-        default: getDate() 
+        type: Date,
+        default: Date
     }
 });
 

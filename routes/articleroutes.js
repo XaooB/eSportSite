@@ -25,7 +25,8 @@ exports.article = (req, res) => {
                             lastestNews: newestArticles,
                             authorArticle: authorArticle,
                             author: authorData,
-                            comments: comments
+                            comments: comments,
+                            canBan: req.session.canBan
                         });
                     })
                 });
@@ -52,13 +53,11 @@ exports.all = (req, res) => {
 };
 
 exports.addComment = (req, res) => {
-//    replace(/\n/g, "<br />"),
     let newComment = Comment({
         username: req.session.user.username,
         body: req.body.tresc,
         title: req.params.title,
-        category: req.params.category,
-        date: getDate()
+        category: req.params.category
     }).save().then((result) => {
         res.redirect(`/news/${result.category}/${result.title}#${ObjectID(`${result._id}`)}`); //to news page
     }).catch((err) => {

@@ -26,7 +26,7 @@ exports.lostGet = (req, res) => {
 
 exports.loginPost = (req, res) => {
     User.findOne({
-        username: req.body.username.toLowerCase()
+        username: req.body.username.toLowerCase().trim()
     }).then((user) => {
         return bcrypt.compare(req.body.password, user.password).then((result) => {
             if (result) {

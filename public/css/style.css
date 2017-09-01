@@ -69,6 +69,23 @@ body {
     color: #107dac; }
   body a:visited {
     color: #107dac; }
+  body .panelAdmin {
+    position: fixed;
+    width: auto;
+    height: auto;
+    bottom: 20px;
+    left: 0;
+    background: tomato; }
+    body .panelAdmin a {
+      display: block;
+      padding: 10px;
+      color: #fff;
+      font-weight: lighter;
+      letter-spacing: .1em;
+      font-size: .65em;
+      text-transform: uppercase; }
+      body .panelAdmin a:hover {
+        text-decoration: underline; }
   body .flex_container {
     width: 100%;
     display: -webkit-box;
@@ -149,7 +166,7 @@ body {
     body header .login_wrapper {
       position: relative;
       width: 40%;
-      height: 49px;
+      height: 40px;
       background: rgba(0, 0, 0, 0.2);
       margin-bottom: 50px; }
       body header .login_wrapper .showingPanel {
@@ -190,17 +207,18 @@ body {
               -ms-flex-pack: center;
                   justify-content: center;
           display: inline-block;
-          height: 49px; }
+          height: 40px; }
           body header .login_wrapper ul.login li:hover {
             cursor: pointer;
             text-decoration: underline; }
           body header .login_wrapper ul.login li a {
             display: block;
             font-family: "Righteous";
-            font-size: .8em;
+            font-size: .7em;
             color: #ffffff;
+            font-weight: lighter;
             text-decoration: none;
-            line-height: 49px; }
+            line-height: 40px; }
           body header .login_wrapper ul.login li:first-child {
             background: #333;
             padding-left: 20px;
@@ -208,32 +226,32 @@ body {
             position: relative; }
             body header .login_wrapper ul.login li:first-child:before {
               position: absolute;
-              left: -45px;
+              left: -40px;
               top: 0;
               content: '';
-              border-bottom: 49px solid #333;
-              border-left: 45px solid transparent; }
+              border-bottom: 40px solid #333;
+              border-left: 40px solid transparent; }
             body header .login_wrapper ul.login li:first-child:after {
               position: absolute;
               content: '';
               top: 0;
-              right: -45px;
-              border-bottom: 49px solid transparent;
-              border-left: 45px solid #333; }
+              right: -40px;
+              border-bottom: 40px solid transparent;
+              border-left: 40px solid #333; }
       body header .login_wrapper:before {
         position: absolute;
         top: 0;
         left: 0;
         content: '';
-        border-top: 49px solid transparent;
-        border-left: 45px solid #107dac; }
+        border-top: 40px solid transparent;
+        border-left: 40px solid #107dac; }
       body header .login_wrapper:after {
         position: absolute;
         top: 0;
         right: 0;
         content: '';
-        border-top: 49px solid transparent;
-        border-right: 45px solid #107dac; }
+        border-top: 40px solid transparent;
+        border-right: 40px solid #107dac; }
   body .fixedNavbar {
     position: fixed;
     top: 0;
@@ -488,6 +506,7 @@ body {
         width: 73%;
         margin: 20px 0; }
         body main ._wrapper .last_comments article {
+          color: #222;
           padding: 8px 8px;
           border-bottom: 1px solid rgba(0, 0, 0, 0.15);
           cursor: context-menu; }
@@ -1236,8 +1255,18 @@ footer {
           #admin main .container-fluid .feed table tr td {
             padding: 6px;
             width: 20%; }
-            #admin main .container-fluid .feed table tr td span {
+            #admin main .container-fluid .feed table tr td a span {
+              padding: 0 4px;
+              position: relative;
               cursor: pointer; }
+              #admin main .container-fluid .feed table tr td a span:after {
+                content: '|';
+                position: absolute;
+                right: -4px;
+                top: 0;
+                color: #222; }
+            #admin main .container-fluid .feed table tr td a:last-child span:after {
+              content: none; }
           #admin main .container-fluid .feed table tr th {
             color: #fff;
             padding: 12px;

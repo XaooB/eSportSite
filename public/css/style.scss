@@ -96,6 +96,26 @@ body {
             color: $bgColor;
         }
     }
+    .panelAdmin {
+        position:fixed;
+        width:auto;
+        height:auto;
+        bottom:20px;
+        left:0;
+        background:tomato;
+        a {
+            display:block;
+            padding:10px;
+            color:#fff;
+            font-weight:lighter;
+            letter-spacing: .1em;
+            font-size:.65em;
+            text-transform: uppercase;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
     word-wrap: break-word;
     background: #222;
     font-size: 16px; //1em
@@ -184,7 +204,7 @@ body {
         .login_wrapper {
             position: relative;
             width: 40%;
-            height: 49px;
+            height: 40px;
             background: rgba(0, 0, 0, .2);
             margin-bottom: 50px;
             .showingPanel {
@@ -213,14 +233,15 @@ body {
                     flex-direction: row;
                     justify-content: center;
                     display: inline-block;
-                    height: 49px;
+                    height: 40px;
                     a {
                         display: block;
                         font-family: $mainFont;
-                        font-size: .8em;
+                        font-size: .7em;
                         color: #ffffff;
+                        font-weight:lighter;
                         text-decoration: none;
-                        line-height: 49px;
+                        line-height: 40px;
                     }
                     &:first-child {
                         background: #333;
@@ -229,19 +250,19 @@ body {
                         position: relative;
                         &:before {
                             position: absolute;
-                            left: -45px;
+                            left: -40px;
                             top: 0;
                             content: '';
-                            border-bottom: 49px solid #333;
-                            border-left: 45px solid transparent;
+                            border-bottom: 40px solid #333;
+                            border-left: 40px solid transparent;
                         }
                         &:after {
                             position: absolute;
                             content: '';
                             top: 0;
-                            right: -45px;
-                            border-bottom: 49px solid transparent;
-                            border-left: 45px solid #333;
+                            right: -40px;
+                            border-bottom: 40px solid transparent;
+                            border-left: 40px solid #333;
                         }
                     }
                 }
@@ -251,16 +272,16 @@ body {
                 top: 0;
                 left: 0;
                 content: '';
-                border-top: 49px solid transparent;
-                border-left: 45px solid $bgColor;
+                border-top: 40px solid transparent;
+                border-left: 40px solid $bgColor;
             }
             &:after {
                 position: absolute;
                 top: 0;
                 right: 0;
                 content: '';
-                border-top: 49px solid transparent;
-                border-right: 45px solid $bgColor;
+                border-top: 40px solid transparent;
+                border-right: 40px solid $bgColor;
             }
         }
     }
@@ -547,6 +568,7 @@ body {
                 width: 73%;
                 margin: 20px 0;
                 article {
+                    color: #222;
                     padding: 8px 8px;
                     border-bottom: 1px solid rgba(0, 0, 0, .15);
                     cursor: context-menu;
@@ -1457,17 +1479,35 @@ footer {
                     color: #000;
                     tr {
                         &:nth-child(even) {
-                            background: rgba(0,0,0,.1)
+                            background: rgba(0, 0, 0, .1)
                         }
                         td {
                             padding: 6px;
                             width: 20%;
-                            span {
-                                cursor: pointer;
+                            a {
+                                span {
+                                    padding: 0 4px;
+                                    position: relative;
+                                    cursor: pointer;
+                                    &:after {
+                                        content: '|';
+                                        position: absolute;
+                                        right: -4px;
+                                        top: 0;
+                                        color: #222;
+                                    }
+                                }
+                                &:last-child {
+                                    span {
+                                        &:after {
+                                            content: none;
+                                        }
+                                    }
+                                }
                             }
                         }
                         th {
-                            color:#fff;
+                            color: #fff;
                             padding: 12px;
                             background: #222;
                         }
@@ -1503,10 +1543,10 @@ footer {
                 }
                 a {
                     display: block;
-                    width:250px;
-                    height:60px;
-                    margin-top:-40px;
-                    position:relative;
+                    width: 250px;
+                    height: 60px;
+                    margin-top: -40px;
+                    position: relative;
                     z-index: 999;
                 }
             }

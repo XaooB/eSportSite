@@ -67,14 +67,18 @@
                         <p>{{mainNews.body}}</p>
                         <section class='post_comments'>
                             <section class="newComment margin20 clearfix">
-                               {{#if user}} 
-                                <h2>Dodaj komentarz</h2>
-                                <form action="/news/{{mainNews.category}}/{{mainNews.title}}/?addComment" method="post">
-                                   <label for="tresc">Treść komentarza:</label>
-                                    <textarea name="tresc" id="tresc" cols="30" rows="10" minlength='10' maxlength='500' required></textarea>
-                                    <button type="submit" class='blue_btn' style='color:#ffffff'>DODAJ KOMENTARZ</button>
-                                </form>
-                                {{else}}                               
+                                {{#if user}}
+                                    {{#if user.isBanned}} 
+                                     <p class='error_text'>Niestety zostałeś zbanowany do odwołania. Skontaktuj się z administratorem.</p>
+                                    {{else}}
+                                    <h2>Dodaj komentarz</h2>
+                                    <form action="/news/{{mainNews.category}}/{{mainNews.title}}/?addComment" method="post">
+                                        <label for="tresc">Treść komentarza:</label>
+                                        <textarea name="tresc" id="tresc" cols="30" rows="10" minlength='10' maxlength='500' required></textarea>
+                                        <button type="submit" class='blue_btn' style='color:#ffffff'>DODAJ KOMENTARZ</button>
+                                    </form>
+                                    {{/if}}
+                                {{else}}
                                 <p class='error_text'>Proszę się <a href="/login">zalogować</a>, aby móc dodać komentarz.</p>
                                 {{/if}}
                             </section>
@@ -82,11 +86,13 @@
                             {{#each comments}}
                             <article id="{{_id}}">
                                 <header class='posted_at'>
-                                   <h4>
-                                        Napisany <time datetime="07/08/2017T13:00:24+01:00">{{this.date}}</time> przez <b><a href="/profil/{{username}}">{{username}}</a></b>
+                                    <h4>
+                                        Napisany <time datetime="07/08/2017T13:00:24+01:00">{{date}}</time> przez <b><a href="/profil/{{username}}">{{username}}</a></b> 
+                                        {{#if ../canBan}}
+                                        <span style="float:right"><a href="/news/{{../mainNews.category}}/{{../mainNews.title}}/ban?username={{username}}" onclick="return confirm('Czy na pewno chcesz zbanować tego użytkownika?')">banuj</a></span> {{/if}}
                                     </h4>
                                 </header>
-                                <p class='text'>{{this.body}}</p>
+                                <p class='text'>{{body}}</p>
                             </article>
                             {{/each}}
                         </section>

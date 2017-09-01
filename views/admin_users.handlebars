@@ -31,13 +31,18 @@
                 </thead>
                 {{#each usersList}}
                 <tr>
-                    <td>{{username}}</td>
+                    <td><a href="/profil/{{username}}">{{username}}</a></td>
                     <td>{{email}}</td>
                     <td>{{rank}}</td>
                     <td>{{createdAt}}</td>
                     <td>
-                        <a class='ban' href="/admin/users/ban/{{_id}}"><span style='color:red'>banuj</span></a> /
-                        <a class='delete' href="/admin/users/delete/{{_id}}"><span style="color:#107dac" onclick='return confirm("Czy chcesz usnąć tego użytkownika?")'>usuń</span></a>
+                        <a href="/admin/users/give_role?ID={{_id}}&role=user"><span style='color:orange' onclick='return confirm("Czy chcesz temu użytkownikowi nadać prawa użytkownika?")'>user</span></a> 
+                        <a href="/admin/users/give_role?ID={{_id}}&role=redaktor"><span style='color:purple' onclick='return confirm("Czy chcesz temu użytkownikowi nadać prawa redaktora?")'>redaktor</span></a> 
+                        <a href="/admin/users/give_role?ID={{_id}}&role=moderator"><span style='color:green' onclick='return confirm("Czy chcesz temu użytkownikowi nadać prawa moderatora?")'>mod</span></a> 
+                        {{#if isBanned}}
+                        <a href="/admin/users/unban?ID={{_id}}"><span style='color:red' onclick='return confirm("Czy chcesz odbanować tego użytkownika?")'><b>odbanuj</b></span></a> {{else}}
+                        <a href="/admin/users/ban?username={{username}}"><span style='color:red' onclick='return confirm("Czy chcesz zbanować tego użytkownika?")'>banuj</span></a> {{/if}}
+                        <a href="/admin/users/delete?ID={{_id}}"><span style="color:#107dac" onclick='return confirm("Czy chcesz usnąć tego użytkownika?")'>usuń</span></a>
                     </td>
                 </tr>
                 {{/each}}

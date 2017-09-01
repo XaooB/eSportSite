@@ -6,10 +6,12 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
     MongoStore = require('connect-mongo')(session),
-      
+
     //DATABASE AND MODELS
     mongoose = require('../database/mongoose'),
-    {User } = require('../models/user'),
+    {
+        User
+    } = require('../models/user'),
 
     //ROUTERS
     articleRouter = require('../routes/articleroutes'),
@@ -18,7 +20,7 @@ const express = require('express'),
     userRouter = require('../routes/userroutes'),
     lolRouter = require('../routes/lolroutes'),
     csgoRouter = require('../routes/csgoroutes'),
-      adminRouter = require('../routes/adminroutes');
+    adminRouter = require('../routes/adminroutes');
 
 app.engine('handlebars', hbs({
     defaultLayout: 'main'
@@ -53,7 +55,6 @@ function requireLogin(req, res, next) {
         next();
     }
 }
-
 function requireAdmin(req, res, next) {
     if (!req.user) {
         res.json({
@@ -69,7 +70,36 @@ function requireAdmin(req, res, next) {
         }
     }
 }
+function requireMod(req, res, next) {
+    if (!req.user) {
+        req.session.canBan = false;
+        next();
+    } else {
+        if (req.user.rank === 'admin' || req.user.rank === 'moderator') {
+            req.session.canBan = true;
+            next();
+        } else {
+            next();
+        }
+    }
+}
+function requireRedaktor(req, res, next) {
+    if(!req.user) {
+        res.json({
+            "Error": "Proszę się zalogować."
+        })
+    } else {
+        if(req.user.rank === 'admin' || req.user.rank === 'redaktor') {
+            next()
+        } else {
+            res.json({
+                "Error": "Nie masz uprawnień do przeglądania tej strony"
+            })
+        }
+    }
+}
 
+//SESSION
 app.use((req, res, next) => {
     if (req.session && req.session.user) {
         User.findOne({
@@ -96,9 +126,9 @@ router.get('/', homeRouter.articles);
 app.get('/admin', (req, res) => {
     res.redirect('/admin/dashboard') //redirect to admin panel
 });
-router.get('/news/:category/:title', articleRouter.article);
+router.get('/news/:category/:title', requireMod, articleRouter.article);
 router.get('/news/:category', articleRouter.more);
-router.post('/news/:category/:title?', articleRouter.addComment)
+router.post('/news/:category/:title', articleRouter.addComment)
 router.get('/news', articleRouter.all);
 
 //USER ROUTERS
@@ -110,10 +140,6 @@ router.get('/login/lost_password', userRouter.lostGet);
 router.get('/login', userRouter.loginGet);
 router.post('/login', userRouter.loginPost);
 router.get('/logout', userRouter.logout);
-router.get('/admin/dashboard', requireAdmin, userRouter.dashboard);
-router.get('/admin/articles', requireAdmin, userRouter.articles);
-router.get('/admin/users', requireAdmin, userRouter.users);
-router.get('/admin/comments', requireAdmin, userRouter.comments);
 
 //LOL ROUTERS
 router.get('/lol/events', lolRouter.events);
@@ -137,11 +163,22 @@ app.get('/contact', homeRouter.navContact);
 app.get('/news/archives', homeRouter.navArchives);
 
 //ADMIN ROUTERS
+router.get('/admin/dashboard', requireAdmin, userRouter.dashboard);
+router.get('/admin/articles', requireAdmin, userRouter.articles);
+router.get('/admin/users', requireAdmin, userRouter.users);
+router.get('/admin/comments', requireAdmin, userRouter.comments);
 router.get('/admin/articles/add-article', requireAdmin, articleRouter.addNew);
+router.get('/admin/articles/edit', requireRedaktor, adminRouter.edit);
 router.post('/admin/articles/add-article', requireAdmin, articleRouter.postArticle);
-router.get('/admin/comments/delete/:ID', requireAdmin, adminRouter.deleteComment);
-router.get('/admin/users/delete/:ID', requireAdmin, adminRouter.deleteUser);
-router.get('/admin/articles/delete/:ID', requireAdmin, adminRouter.deleteArticle);
+router.get('/admin/comments/delete', requireAdmin, adminRouter.deleteComment);
+router.get('/admin/comments/ban', requireAdmin, adminRouter.banUser);
+router.get('/admin/articles/delete', requireAdmin, adminRouter.deleteArticle);
+router.get('/admin/users/delete', requireAdmin, adminRouter.deleteUser);
+router.get('/admin/users/ban', requireAdmin, adminRouter.banUser);
+router.get('/admin/users/unban', requireAdmin, adminRouter.unBanUser);
+router.get('/admin/users/give_role', requireAdmin, adminRouter.newRole);
+router.get('/admin/article/edit', requireRedaktor, adminRouter.banUser);
+router.get('/news/:category/:title/ban', requireMod, adminRouter.banUser);
 
 //ROUTER
 app.use('/', router);

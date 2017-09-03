@@ -1,0 +1,48 @@
+    <main>
+        <div class="container-fluid">
+            <div class="user hidden">
+                <div class="header">
+                    <h2>DODAWANIE ARTYKUŁU- www.esportsite.com</h2>
+                </div>
+                <div class="user_info">
+                    <img src="{{user.avatar}}" alt="{{user.username}}">
+                    <span><a href="/profil/xaoo">[{{user.username}}]</a></span>|
+                    <span><a href="/logout">wyloguj się</a></span>
+                </div>
+            </div>
+            <div class="stats clearfix">
+                <div class="column turq">
+                    <div class="post">
+                        <p class='count'>51</p>
+                        <p>Atykuły</p>
+                    </div>
+                </div>
+            </div>
+            <div class="feed">
+                <form action="/admin/articles/edit-article?ID={{id}}" id='addArticle' method="post">
+                    <label>Tytuł:</label>
+                    <input type="text" name='title' id="title"  minlength='4' value='{{article.title}}'>
+                    <label>Kategoria: </label>
+                    <select name="category" id="category" disabled>
+                        <option value="lol">League of Legends</option>
+                        <option value="csgo">CounterStrike: Global Offensive</option>
+                    </select>
+                    <label>Zdjęcie: </label>
+                    <input type="file" id="fileinput" disabled/>
+                    <label for="shortbody" style="margin-bottom:4px">Krótki opis:</label>
+                    <textarea name="shortbody" id="shortbody" cols="30" rows="2" minlength='10' maxlength="150">{{article.desc}}</textarea>
+                    <label for="body" style="margin-bottom:4px">Tekst:</label>
+                    <textarea name="body" id="body" cols="30" rows="10" minlength='10'>{{article.body}}</textarea>
+                    {{#if article.isMain}}
+                    <label>Główny artykuł <input name='main' id='main' type="checkbox" checked></label>
+                    {{else}}
+                    <label>Główny artykuł <input name='main' id='main' type="checkbox"></label>
+                    {{/if}}
+                    <button type="submit" class='blue_btn'>Dodaj</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

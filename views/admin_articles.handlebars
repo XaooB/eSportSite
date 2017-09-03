@@ -36,8 +36,8 @@
                     <td><a href="/profil/{{author}}">{{author}}</a></td>
                     <td>{{date}}</td>
                     <td>
-                        <a class='ban' href="/admin/articles/edit?ID={{_id}}"><span style='color:red'>edytuj</span></a>
-                        <a class='delete' href="/admin/articles/delete/{{_id}}"><span style="color:#107dac" onclick='return confirm("Czy chcesz usnąć ten artykuł?")'>usuń</span></a>
+                        <a class='ban' href="/admin/articles/edit-article?ID={{_id}}"><span style='color:red'>edytuj</span></a>
+                        <a class='delete' href="/admin/articles/delete?ID={{_id}}"><span style="color:#107dac" onclick='return confirm("Czy chcesz usnąć ten artykuł?")'>usuń</span></a>
                     </td>
                 </tr>
                 {{/each}}

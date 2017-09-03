@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'),
-      {getDate} = require('./../public/js/getDate');
+      {getDate} = require('./../public/js/getDate'),
+      moment = require('moment');
 mongoose.Promise = global.Promise;
 
 const commentSchema = mongoose.Schema({
@@ -9,7 +10,7 @@ const commentSchema = mongoose.Schema({
     category: String,
     date: {
         type: Date,
-        default: Date
+        default: new Date
     }
 });
 

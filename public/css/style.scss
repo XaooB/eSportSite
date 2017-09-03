@@ -65,6 +65,11 @@ $textFont: 'Heuristica';
     }
 }
 
+.success {
+    margin: 20px;
+    color: forestgreen;
+}
+
 .error_text {
     font-size: .85em !important;
     color: darkred;
@@ -97,19 +102,20 @@ body {
         }
     }
     .panelAdmin {
-        position:fixed;
-        width:auto;
-        height:auto;
-        bottom:20px;
-        left:0;
-        background:tomato;
+        z-index: 9999;
+        position: fixed;
+        width: auto;
+        height: auto;
+        bottom: 20px;
+        left: 0;
+        background: tomato;
         a {
-            display:block;
-            padding:10px;
-            color:#fff;
-            font-weight:lighter;
+            display: block;
+            padding: 10px;
+            color: #fff;
+            font-weight: lighter;
             letter-spacing: .1em;
-            font-size:.65em;
+            font-size: .65em;
             text-transform: uppercase;
             &:hover {
                 text-decoration: underline;
@@ -203,7 +209,7 @@ body {
         }
         .login_wrapper {
             position: relative;
-            width: 40%;
+            width: 400px;
             height: 40px;
             background: rgba(0, 0, 0, .2);
             margin-bottom: 50px;
@@ -239,7 +245,7 @@ body {
                         font-family: $mainFont;
                         font-size: .7em;
                         color: #ffffff;
-                        font-weight:lighter;
+                        font-weight: lighter;
                         text-decoration: none;
                         line-height: 40px;
                     }
@@ -295,18 +301,27 @@ body {
         z-index: 999;
         background: $darkGray;
         width: 100%;
-        height: 55px;
+        height: 50px;
         border-bottom: 1px solid #555555;
+        .hamburger {
+            display: none;
+        }
+        .exit {
+             display:none;
+          }
+        .mobile_nav {
+            display: none;
+        }
         ul.toggleNav {
             width: 55%;
-            height: 55px;
+            height: 50px;
             position: relative;
             li {
                 width: 150px;
                 text-align: center;
                 float: left;
-                height: 55px;
-                line-height: 55px;
+                height: 50px;
+                line-height: 50px;
                 transition: .3s all linear;
                 &:hover a {
                     color: $bgColor;
@@ -315,7 +330,7 @@ body {
                 a {
                     color: #fff;
                     font-family: $mainFont;
-                    font-size: 1.1em;
+                    font-size: 1em;
                     text-decoration: none;
                     position: relative;
                     cursor: default;
@@ -325,7 +340,7 @@ body {
                         content: '^';
                         font-size: 2.5em;
                         color: $bgColor;
-                        height: 46px;
+                        top: -24px;
                         right: -15px;
                         transform: rotate(180deg);
                     }
@@ -334,7 +349,7 @@ body {
                     transition: .3s all linear;
                     background: $darkGray;
                     position: absolute;
-                    top: 55px;
+                    top: 50px;
                     display: inline-block;
                     z-index: 99999;
                     display: none;
@@ -348,7 +363,7 @@ body {
                         a {
                             text-transform: uppercase;
                             cursor: pointer;
-                            font-size: .9em;
+                            font-size: .8em;
                             font-family: $textFont;
                             display: block;
                             &:after {
@@ -385,20 +400,20 @@ body {
         }
         .nav {
             width: 27%;
-            height: 55px;
+            height: 50px;
             li {
                 text-align: center;
                 width: 33%;
                 float: left;
                 list-style: none;
-                height: 55px;
-                line-height: 55px;
+                height: 50px;
+                line-height: 50px;
                 a {
                     text-decoration: none;
                     display: block;
                     color: #fff;
                     font-family: $mainFont;
-                    font-size: .9em;
+                    font-size: .8em;
                 }
                 &:hover {
                     background: #151515;
@@ -410,9 +425,10 @@ body {
         .searchEngine {
             //input width:200px
             width: 18%;
-            line-height: 55px;
-            height: 55px;
+            line-height: 50px;
+            height: 50px;
             position: relative;
+            z-index: 999;
             form {
                 height: 100%;
                 #search {
@@ -421,7 +437,7 @@ body {
                     border: none;
                     transition: .5s ease-out;
                     position: absolute;
-                    top: 11px;
+                    top: 8px;
                     padding: 6px;
                     color: $darkGray;
                     right: -160px;
@@ -432,7 +448,7 @@ body {
             button {
                 position: absolute;
                 right: 0;
-                top: 11px;
+                top: 8px;
                 height: 35px;
                 width: 35px;
                 background: #333;
@@ -1552,11 +1568,11 @@ footer {
             }
             ul {
                 li {
+                    text-indent: 10px;
                     position: relative;
                     background: #222;
                     font-family: $mainFont;
                     font-weight: lighter;
-                    padding-left: 8px;
                     border-bottom: 1px solid rgba(255, 255, 255, .1);
                     a {
                         line-height: 60px;
@@ -1569,10 +1585,29 @@ footer {
                     }
                     ol {
                         li {
-                            border: none;
+                            position: relative;
+                            text-indent: 30px;
+                            border-top: 1px solid rgba(255, 255, 255, .1);
+                            border-bottom: none;
                             line-height: 60px;
-                            a {
-                                padding-left: 8px;
+                            //                            background:#111;
+                            &:before {
+                                position: absolute;
+                                top: 0;
+                                left: 5px;
+                                content: '';
+                                width: 1px;
+                                background: #333;
+                                height: 50%;
+                            }
+                            &:after {
+                                position: absolute;
+                                top: 50%;
+                                content: '';
+                                left: 5px;
+                                height: 1px;
+                                width: 20px;
+                                background: #333;
                             }
                         }
                     }
@@ -1592,9 +1627,6 @@ footer {
                 margin-top: 10px;
                 margin-bottom: 10px;
                 margin-left: 10px;
-            }
-            .login_wrapper {
-                display: none;
             }
         }
         main {
@@ -1657,14 +1689,62 @@ footer {
         }
         header {
             .navbar {
-                //                position:fixed;
+                .hamburger,
+                .exit {
+                    float:left;
+                    height: 37px;
+                    display: block;
+                    background: #333;
+                    padding: 10px;
+                    color: $bgColor;
+                    border: none;
+                    width: 120px;
+                    margin-top: 7px;
+                    span {
+                        font-size:1.3em;
+                        letter-spacing: .15em;
+                        font-weight:bold;
+                    }
+                }
+                .exit {
+                    display: none;
+                }
                 .nav {
                     display: none;
                 }
                 .toggleNav {
-                    width: 55%;
+                    display: none;
+                }
+                .mobile_nav {
+                    display: none;
+                    background: #222222;
+                    overflow: scroll;
+                    text-transform: uppercase;
+                    font-family: $mainFont;
+                    font-weight: lighter;
+                    position: relative;
+                    z-index: 99;
+                    width: 100%;
+                    text-align: center;
+                    height: 100vh;
                     li {
-                        width: 50%;
+                        margin-top: 35px;
+                        margin-bottom: -20px;
+                        display: inline-block;
+                        a {
+                            padding: 10px;
+                            background: $bgColor;
+                            display: block;
+                            color: #fff;
+                        }
+                        ol {
+                            margin-top: -30px;
+                            li {
+                                a {
+                                    color: #222;
+                                }
+                            }
+                        }
                     }
                 }
                 .searchEngine {
@@ -1834,8 +1914,6 @@ footer {
                         }
                         .news_header {
                             right: 0;
-                            bottom: -50px;
-                            padding: 16px;
                             width: 100%;
                             h1 {
                                 font-size: .85em;
@@ -1933,6 +2011,10 @@ footer {
                         height: 250px;
                         section {
                             display: none;
+                        }
+                        .news_header {
+                            right: none;
+                            padding: 10px;
                         }
                     }
                 }

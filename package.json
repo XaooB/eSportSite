@@ -24,6 +24,7 @@
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.5",
+    "moment": "^2.18.1",
     "mongoose": "^4.11.6",
     "request-promise": "^4.2.1"
   }

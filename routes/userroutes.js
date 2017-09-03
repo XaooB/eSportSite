@@ -167,5 +167,7 @@ exports.comments = (req, res) => {
             commentsCount: result[0],
             commentsList: result[1]
         });
+    }).catch((err) => {
+        console.log(err.message);
     })
 }

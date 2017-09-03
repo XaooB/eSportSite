@@ -59,13 +59,6 @@ exports.deleteUser = (req, res) => {
     })
 }
 
-exports.edit = (req, res) => {
-//    Article.findOne({_id: req.query.ID}).then((result) => {
-//        
-//    })
-    res.send('DO ZROBIENIA ;)')
-}
-
 exports.banUser = (req, res) => {
     //2 ZAPYTANIA DO BAZY - DO POPRAWY (TESTOWANIE)
     User.findOne({

@@ -3,7 +3,8 @@ const
     {User} = require('../models/user'), 
     {Comment} = require('../models/comment'), 
     {getDate} = require('./../public/js/getDate'),
-    ObjectID = require('mongoose').Types.ObjectId;
+    ObjectID = require('mongoose').Types.ObjectId,
+    moment = require('moment');
 
 exports.article = (req, res) => {
     Article.findOne({
@@ -19,7 +20,7 @@ exports.article = (req, res) => {
                     return Comment.find({
                         title: mainArticle.title
                     }).sort('-date').then((comments) => {
-                        res.render('news', {
+                         res.render('news', {
                             title: mainArticle.title,
                             mainNews: mainArticle,
                             lastestNews: newestArticles,
@@ -27,8 +28,8 @@ exports.article = (req, res) => {
                             author: authorData,
                             comments: comments,
                             canBan: req.session.canBan
-                        });
-                    })
+                         });
+                    });
                 });
             });
         });
@@ -91,5 +92,32 @@ exports.postArticle = (req, res) => {
         res.json({
             "Error":"Wystąpił błąd podczas próby dodania artykułu. Sprawdź konsole."
         })
+    })
+}
+
+exports.editArticle = (req, res) => {
+    Article.findOne({_id: req.query.ID}).then((result) => {
+        res.render('admin_editPost', {
+            layout: 'adminPanel',
+            id: req.query.ID,
+            article: result
+        })
+    }).catch((err) => {
+        console.log(err.message);
+        res.render('404');
+    })
+}
+
+exports.postEditArticle = (req, res) => {
+    Article.update({_id: req.query.ID}, {
+        title: req.body.title,
+        desc: req.body.shortbody,
+        body: req.body.body
+    }).then((result) => {
+        console.log("Post został zaktualizowany.")
+        res.redirect('/admin/articles');
+    }).catch((err) => {
+        console.log(err.message);
+        res.render('404');
     })
 }

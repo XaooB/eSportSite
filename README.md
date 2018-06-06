@@ -1,2 +1,1 @@
-# Live DEMO (working on)
-[LIVE](http://esportsite.herokuapp.com/)
+(06/06/2018)  -  I'm going to redesign website asap.

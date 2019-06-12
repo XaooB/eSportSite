@@ -11,150 +11,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!--[if IE]><link rel="SHORTCUT ICON" href="/assets/img/logo_ico.png"/><![endif]-->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div class="panelAdmin">
-        <a href="/admin">Panel Administracyjny</a>
-    </div>
-    <header class="header clearfix">
-        <div class='container clearfix'>
-            <div class='logo f-l'>
-                <h1>
-                    www.esportsite.com
-                    <span class='square'></span>
-                    <a href="/"></a>
-                </h1>
-            </div>
-            <div class="login_wrapper f-r">
-                <ul class='login'>
-                    {{#if user}}
-                    <li><a href="/profil/me">[ {{user.username}} ]</a></li>
-                    <li><a href="/logout">WYLOGUJ SIĘ</a></li>
-                    {{else}}
-                    <li><a href="/register">REJESTRACJA</a></li>
-                    <li><a href="/login">ZALOGUJ SIĘ</a></li>
-                    {{/if}}
-                </ul>
-            </div>
-        </div>
-        <nav class="navbar f-l">
-            <!-- ONLY FOR OUTLINE PURPOSE -->
-            <h2 style='display:none'>Nawigacja</h2>
-            <!-- END OF H2 -->
-            <div class="container clearfix">
-               <button class="hamburger">&#9776; Nawigacja</button>
-               <button class="exit"><span>&lsaquo;&lsaquo;&lsaquo;</span></button>
-                <ul class="toggleNav f-l">
-                    <li><a>CS:GO</a>
-                        <ol class='subNav'>
-                            <li>
-                                <a href="/csgo/events">Wydarzenia</a></li>
-                            <li>
-                                <a href="/csgo/matches">Mecze</a></li>
-                            <li>
-                                <a href="/csgo/teams">Drużyny</a></li>
-                            <li>
-                                <a href="/csgo/results">Wyniki</a></li>
-                            <li>
-                                <a href="/csgo/statistics">Statystyki</a></li>
-                            <li>
-                                <a href="/csgo/ranking">Ranking</a></li>
-                        </ol>
-                    </li>
-                    <li><a>LOL</a>
-                        <ol class='subNav'>
-                            <li>
-                                <a href="/lol/events">Wydarzenia</a></li>
-                            <li>
-                                <a href="/lol/matches">Mecze</a></li>
-                            <li>
-                                <a href="/lol/teams">Drużyny</a></li>
-                            <li>
-                                <a href="/lol/results">Wyniki</a></li>
-                            <li>
-                                <a href="/lol/statistics">Statystyki</a></li>
-                            <li>
-                                <a href="/lol/ranking">Ranking</a></li>
-                        </ol>
-                    </li>
-                </ul>
-                <ul class='mobile_nav'>
-                    <li><a href="">Archiwum</a></li>
-                    <li><a href="">Galeria</a></li>
-                    <li><a href="">Kontakt</a></li>
-                    <li><a>CS:GO</a>
-                        <ol>
-                            <li>
-                                <a href="/csgo/events">Wydarzenia</a></li>
-                            <li>
-                                <a href="/csgo/matches">Mecze</a></li>
-                            <li>
-                                <a href="/csgo/teams">Drużyny</a></li>
-                            <li>
-                                <a href="/csgo/results">Wyniki</a></li>
-                            <li>
-                                <a href="/csgo/statistics">Statystyki</a></li>
-                            <li>
-                                <a href="/csgo/ranking">Ranking</a></li>
-                        </ol>
-                    </li>
-                    <li><a>LOL</a>
-                        <ol>
-                            <li>
-                                <a href="/lol/events">Wydarzenia</a></li>
-                            <li>
-                                <a href="/lol/matches">Mecze</a></li>
-                            <li>
-                                <a href="/lol/teams">Drużyny</a></li>
-                            <li>
-                                <a href="/lol/results">Wyniki</a></li>
-                            <li>
-                                <a href="/lol/statistics">Statystyki</a></li>
-                            <li>
-                                <a href="/lol/ranking">Ranking</a></li>
-                        </ol>
-                    </li>
-                </ul>
-                <ul class="nav f-l">
-                    <li><a href="/news/archives">ARCHIWUM</a></li>
-                    <li><a href="/gallery">GALERIA</a></li>
-                    <li><a href="/contact">KONTAKT</a></li>
-                </ul>
-                <!--                DO ZROBIENIA-->
-                <div class="searchEngine hidden f-r">
-                    <form action="">
-                        <input type="search" name="search" id='search' placeholder="search..."> </form>
-                    <button type='button' id='searchButton'>
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
+    <div class='container'>
+        <header id='header'>
+            <section class="topbar">
+                <span class="greeting">{{currentServerTime}}</span>
+                <div class="social">
+                    <ul class="social__list">
+                        <li class="social__item" title='facebook'>
+                            <a class='social__link social__link--facebook' href="#">f</a>
+                        </li>
+                        <li class="social__item" title='twitter'>
+                            <a class='social__link social__link--twitter' href="#">o</a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </nav>
-        <script type="application/javascript">
-            let body = document.body,
-                html = document.documentElement,
-                navbar = document.querySelector('.navbar'),
-                header = document.querySelector('.header'),
-                availWidth = screen.availWidth,
-                amount = null;
-
-            console.log(availWidth);
-
-            window.addEventListener('scroll', function() {
-                amount = 75;
-                if (availWidth > 1000) amount = 94;
-
-                if (body.scrollTop > amount || html.scrollTop > amount) {
-                    header.style.marginBottom = '54px';
-                    navbar.classList.add('fixedNavbar');
-                } else {
-                    header.style.marginBottom = '0';
-                    navbar.classList.remove('fixedNavbar');
-                }
-            });
-
-        </script>
-    </header>
+            </section>
+            <section class="nav">
+                <div class="logo">logotyp</div>
+                <nav class="navigation">
+                    <ul class="navigation__list">
+                        <li class="navigation__item"><a class='navigation__link' href="/">głowna</a></li>
+                        <li class="navigation__item"><a class='navigation__link' href="/articles">artykuły</a></li>
+                        <li class="navigation__item"><a class='navigation__link' href="/interviews">wywiady</a></li>
+                        <li class="navigation__item"><a class='navigation__link' href="#">szukaj</a></li>
+                        <li class="navigation__item"><a class='navigation__link' href="contact">kontakt</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </header>

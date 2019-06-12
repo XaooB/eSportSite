@@ -1,132 +1,33 @@
 <main>
-    <div id="slider" class='clearfix'>
-        <article>
-            <!--            <a href="/news/csgo/Virtus.Pro wygrywa PGL Major w Krakowie!">-->
-            <div class="img_wrapper">
-                <figure>
-                    <img src='{{mainNews.img}}' alt='' />
+    <section class="articles">
+        <div class="column--main">
+            <article class="main">
+                <figure class="main__image-wrapper">
+                    <img src={{mainArticle.img}} alt='{{mainArticle.title}}' title='{{mainArticle.title}}'
+                        class="main__image" />
                 </figure>
-                <div class="container">
-                    <header class='news_header'>
-                        <time>{{mainNews.date}}</time>
-                        <h1>
-                            <a href="/news/{{mainNews.category}}/{{mainNews.title}}">{{mainNews.title}}</a>
-                        </h1>
+                <header class="articles__header articles__header--main">
+                    <h2 class="header--primary">{{mainArticle.title}}</h2>
+                    <footer class="articles__footer">
+                        <time>{{mainArticle.date}}</time>
+                        <span>{{mainArticle.author}}</span>
+                    </footer>
+                </header>
+            </article>
+        </div>
+        <aside class="column--aside">
+            {{#each moreArticles}}
+            <article class='aside'>
+                <figure class='aside__image-wrapper'>
+                    <img src='{{img}}' alt='{{title}}' title='{{title}}' class='aside__image'>
+                </figure>
+                <a href="/news/{{category}}/{{title}}" class='aside__link'>
+                    <header class='articles__header articles__header--aside'>
+                        <h3 class='header--secondary'>{{title}}</h3>
                     </header>
-                    <section class='hidden'>
-                        <h2 style='display:none'>WIĘCEJ NEWSÓW</h2>
-                        <div class="more_news_wrapper f-l">
-                            {{#each moreArticles}}
-                            <article>
-                                <a href="/news/{{category}}/{{title}}"></a>
-                                <div class="item">
-                                    <time datetime="07/08/2017T13:00:24+01:00">{{date}}</time>
-                                    <h2>{{title}}</h2>
-                                    <div class="wrap_button clearfix">
-                                        <button type="button" class='f-r'>WIĘCEJ</button>
-                                    </div>
-                                </div>
-                            </article>
-                            {{/each}}
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <!--            </a>-->
-        </article>
-    </div>
-    <section class='others_news'>
-        <!--       ONLY FOR OUTLINE PURPOSE-->
-        <h2 style='display:none'>OSTATNIE NEWSY</h2>
-        <!--        END OF H2-->
-        <div class="container clearfix">
-            <div class="others_news_wrapper">
-                <section class="column f-l">
-                    <h3 class='margin20'>LOL LASTEST NEWS</h3>
-                    {{#each latestLolArticles}}
-                    <article>
-                        <a href="/news/{{category}}/{{title}}"></a>
-                        <div class="item">
-                            <figure>
-                                <img src="{{this.img}}" alt="">
-                            </figure>
-                            <div class='info f-r'>
-                                <h4>{{title}}</h4>
-                                <p>{{desc}}</p>
-                                <time datetime="07/08/2017T13:00:24+01:00">{{date}}</time>
-                            </div>
-                        </div>
-                    </article>
-                    {{/each}}
-                </section>
-                <section class="column f-l">
-                    <h3 class='margin20'>CS:GO LASTEST NEWS</h3>
-                    {{#each latestCsgoArticles}}
-                    <article>
-                        <a href="/news/{{category}}/{{title}}"></a>
-                        <div class="item">
-                            <figure>
-                                <img src="{{img}}" alt="">
-                            </figure>
-                            <div class='info f-r'>
-                                <h4>{{title}}</h4>
-                                <p>{{desc}}</p>
-                                <time datetime="07/08/2017T13:00:24+01:00">{{date}}</time>
-                            </div>
-                        </div>
-                    </article>
-                    {{/each}}
-                </section>
-            </div>
-            <form action="/news" method="post">
-                <button type="button" class='blue_btn'>
-                    <a href="/news">CZYTAJ WIĘCEJ</a>
-                </button>
-            </form>
-        </div>
-    </section>
-    <section class='social_media'>
-        <div class="container hidden clearfix">
-            <h3 class='margin20 hidden'>MEDIA SPOŁECZNOŚCIOWE</h3>
-            <div class="flex_container">
-                <div class="social_wrapper">
-                    <span>LIVESTREAMS</span>
-                    <div class="item">a</div>
-                    <div class="item">b</div>
-                    <div class="item">c</div>
-                </div>
-                <div class="social_wrapper">
-                    <span>INSTAGRAM</span>
-                    <div class="item">a</div>
-                    <div class="item">b</div>
-                    <div class="item">c</div>
-                </div>
-                <div class="social_wrapper">
-                    <span>TWITTER</span>
-                    <div class="item">a</div>
-                    <div class="item">b</div>
-                    <div class="item">c</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="gallery clearfix">
-        <div class="container hidden">
-            <h3 class='margin20 hidden'>GALERIA</h3>
-            <div class="gallery-wrapper">
-                <div class="item f-l">
-                    <a href="#"> <img src="/assets/img/news/vp_winning.jpg" alt=""></a>
-                </div>
-                <div class="item f-l">
-                    <a href="#"> <img src="/assets/img/news/taz.jpg" alt=""></a>
-                </div>
-                <div class="item f-l">
-                    <a href="#"> <img src="/assets/img/news/lol_championships.jpg" alt=""></a>
-                </div>
-                <div class="item f-l">
-                    <a href="#"> <img src="/assets/img/news/dota2.jpg" alt="dota2"></a>
-                </div>
-            </div>
-        </div>
+                </a>
+            </article>
+            {{/each}}
+        </aside>
     </section>
 </main>

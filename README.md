@@ -1,4 +1,4 @@
-(06/06/2018)  -  I'm going to redesign website asap.
+(11/06/2019)  -  Started redesinging the app (UI and logic).
 
 # Esport Site 
 

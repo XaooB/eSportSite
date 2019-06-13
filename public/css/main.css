@@ -1,51 +1,54 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/base\/_base\.scss}line{font-family:\000031}}
 body {
   font-size: 16px;
   font-family: "UbuntuR";
   background: #d3d7e1; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/base\/_base\.scss}line{font-family:\000037}}
 .container {
   max-width: 1220px;
   margin: 0 auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/base\/_base\.scss}line{font-family:\0000312}}
 main {
   background: #fff;
-  padding: 30px; }
+  margin-top: 30px;
+  overflow: hidden; }
 
 @font-face {
   font-family: "UbuntuR";
   src: url("../fonts/Ubuntu-Regular.ttf"); }
+@font-face {
+  font-family: "UbuntuL";
+  src: url("../fonts/Ubuntu-Light.ttf"); }
+@font-face {
+  font-family: "UbuntuB";
+  src: url("../fonts/Ubuntu-Bold.ttf"); }
 @font-face {
   font-family: "Social";
   src: url("../fonts/Socialico.otf"); }
 @font-face {
   font-family: "TruenoB";
   src: url("../fonts/TruenoBd.otf"); }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/base\/_reset\.scss}line{font-family:\000031}}
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/base\/_typography\.scss}line{font-family:\000031}}
 .header {
   font-size: 1.1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/base\/_typography\.scss}line{font-family:\000033}}
   .header--primary {
     font-size: 1.6em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/base\/_typography\.scss}line{font-family:\000036}}
   .header--secondary {
-    font-weight: lighter;
-    font-size: 1.25em; }
+    font-family: "UbuntuL";
+    font-size: 1.15em;
+    line-height: 1.2; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\000031}}
+.section-header {
+  font-family: "UbuntuL";
+  font-size: 1.2em; }
+
 #header {
   background: #fff;
   border-bottom: 1px solid #d3d7e1; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\000034}}
   #header .topbar {
     padding: 0 30px 5px 30px;
     border-bottom: 1px solid #d3d7e1;
@@ -62,18 +65,14 @@ main {
     -webkit-box-direction: normal;
         -ms-flex-flow: row wrap;
             flex-flow: row wrap; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\0000312}}
   #header .greeting {
     margin-top: 6px;
     font-size: 0.75em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\0000319}}
 .social__list {
   list-style-type: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\0000322}}
 .social__item {
   display: inline-block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\0000325}}
 .social__link {
   font-family: "Social";
   font-size: 2.2em;
@@ -82,17 +81,13 @@ main {
   text-decoration: none;
   -webkit-transition: 0.25s all;
   transition: 0.25s all; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\0000332}}
   .social__link--facebook:hover {
     color: #3b5998; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\0000336}}
   .social__link--twitter:hover {
     color: #00aced; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\0000340}}
   .social__link:visited {
     color: #0274a9; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\0000346}}
 .nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -105,29 +100,33 @@ main {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 30px; }
+  .nav .hamburger {
+    font-size: 1.5em;
+    font-family: "UbuntuB";
+    line-height: 64px; }
+  .nav .logo {
+    line-height: 64px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\0000354}}
-.navigation__list {
-  list-style-type: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\0000357}}
-.navigation__item {
-  display: inline-block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\0000360}}
-.navigation__link {
-  text-decoration: none;
-  display: block;
-  padding: 25px 12px;
-  font-size: 0.9em;
-  color: #96a0b8;
-  text-transform: uppercase;
-  -webkit-transition: 0.25s all;
-  transition: 0.25s all; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_header\.scss}line{font-family:\0000368}}
-  .navigation__link:hover {
-    background: #0396db;
-    color: #fff; }
+.navigation {
+  display: none; }
+  .navigation__list {
+    list-style-type: none; }
+  .navigation__item {
+    display: inline-block; }
+  .navigation__link {
+    text-decoration: none;
+    display: block;
+    padding: 25px 12px;
+    font-size: 0.8em;
+    color: #96a0b8;
+    text-transform: uppercase;
+    -webkit-transition: 0.25s all;
+    transition: 0.25s all;
+    font-family: "UbuntuB"; }
+    .navigation__link:hover {
+      background: #0396db;
+      color: #fff; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\000031}}
 .articles {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -138,40 +137,24 @@ main {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
-          flex-flow: row wrap; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\000035}}
-  .articles .column {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 400px;
-            flex: 1 1 400px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\000037}}
-    .articles .column--main {
-      max-width: 75%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000310}}
-    .articles .column--aside {
-      max-width: 25%;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-flow: column nowrap;
-              flex-flow: column nowrap; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000316}}
-  .articles .image-wrapper {
-    overflow: hidden;
-    max-height: inherit;
-    width: inherit; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000321}}
-  .articles__image {
+          flex-flow: row wrap;
+  margin: 30px; }
+  .articles .column--main {
     width: 100%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000324}}
+  .articles .column--aside {
+    margin-top: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap; }
   .articles .main {
-    overflow: hiden;
-    cursor: pointer;
+    overflow: hidden;
     position: relative;
-    max-height: 350px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000329}}
+    cursor: pointer;
+    max-height: 300px; }
     .articles .main__image-wrapper {
       max-height: inherit;
       display: -webkit-box;
@@ -182,22 +165,19 @@ main {
               justify-content: space-between;
       -webkit-box-align: center;
           -ms-flex-align: center;
-              align-items: center;
-      overflow: hidden; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000336}}
+              align-items: center; }
     .articles .main__image {
-      width: 100%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000340}}
+      height: 250px; }
   .articles .aside {
     cursor: pointer;
     position: relative;
     max-height: 110px;
-    margin-left: 10px;
-    overflow: hidden; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000346}}
+    overflow: hidden;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 200px;
+            flex: 1 1 200px; }
     .articles .aside:not(:last-child) {
       margin-bottom: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000349}}
     .articles .aside__image-wrapper {
       max-height: inherit;
       display: -webkit-box;
@@ -210,21 +190,17 @@ main {
           -ms-flex-align: center;
               align-items: center;
       overflow: hidden; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000356}}
     .articles .aside__image {
       width: 100%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000360}}
   .articles__header {
     width: 100%;
     position: absolute;
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.45);
     left: 0;
     bottom: 0;
     color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000367}}
     .articles__header--main {
       padding: 25px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000370}}
     .articles__header--aside {
       text-align: center;
       display: -webkit-box;
@@ -239,15 +215,101 @@ main {
       top: 50%;
       -webkit-transform: translate(-50%, -50%);
               transform: translate(-50%, -50%); }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000381}}
   .articles__footer {
     margin-top: 3px;
     font-size: 0.8em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/E\:\/Projekty\%20FrontEnd\/eSport\/eSportSite\/public\/css\/layout\/_articles\.scss}line{font-family:\0000385}}
   .articles__category {
     background: #0396db;
     padding: 5px 8px;
     font-size: 0.8em;
     font-family: "TruenoB"; }
+
+.latest {
+  margin: 30px 0; }
+  .latest--margin {
+    margin: 0 30px; }
+  .latest .articles {
+    margin: 0; }
+  .latest .column--left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 350px;
+            flex: 1 1 350px; }
+  .latest .column--right {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 250px;
+            flex: 1 1 250px; }
+  .latest__article {
+    margin: 30px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 200px;
+            flex: 1 1 200px; }
+  .latest--mini {
+    margin: 0 30px;
+    padding: 20px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-transition: 0.35s all;
+    transition: 0.35s all; }
+    .latest--mini:not(:last-child) {
+      border-bottom: 1px solid #d3d7e1; }
+    .latest--mini:hover {
+      background: #0396db;
+      color: #ffffff;
+      cursor: pointer; }
+
+/* HEADER/NAV */
+@media (min-width: 600px) {
+  .nav .hamburger {
+    display: none; } }
+@media (min-width: 600px) {
+  .nav .navigation {
+    display: block; } }
+
+/* ARTICLES */
+@media (min-width: 320px) {
+  .articles .header--primary {
+    font-size: 1.2em; } }
+@media (min-width: 320px) {
+  .articles .articles__footer {
+    font-size: 0.7em; } }
+@media (min-width: 840px) {
+  .articles {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap; } }
+@media (min-width: 840px) {
+  .articles .column--main {
+    -webkit-box-flex: 0.7;
+        -ms-flex: 0.7;
+            flex: 0.7; } }
+@media (min-width: 840px) {
+  .articles .column--aside {
+    -webkit-box-flex: 0.3;
+        -ms-flex: 0.3;
+            flex: 0.3;
+    margin-top: 0; } }
+@media (min-width: 840px) {
+  .articles .main {
+    max-height: 350px; } }
+@media (min-width: 420px) {
+  .articles .main__image {
+    width: 100%;
+    height: auto; } }
+
+@media (min-width: 840px) {
+  .aside {
+    margin-left: 10px; } }
 
 /*# sourceMappingURL=main.css.map */

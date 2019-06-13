@@ -30,4 +30,22 @@
             {{/each}}
         </aside>
     </section>
+    <section class="latest">
+        <h2 class="section-header latest--margin">Najnowsze</h2>
+        <section class="articles">
+            <div class="column--left">
+                <article class="latest__article">artykuł</article>
+                <article class="latest__article">artykuł</article>
+                <article class="latest__article">artykuł</article>
+                <article class="latest__article">artykuł</article>
+                <article class="latest__article">artykuł</article>
+                <article class="latest__article">artykuł</article>
+            </div>
+            <div class="column--right">
+                {{#each moreArticles}}
+                <article class="latest__article latest--mini">{{title}}</article>
+                {{/each}}
+            </div>
+        </section>
+    </section>
 </main>

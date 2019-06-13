@@ -11,5 +11,7 @@ body {
 
 main {
   background: #fff;
-  padding: $primaryPadding;
+  margin-top: $primaryPadding;
+  //to avoid margin collapsing
+  overflow: hidden;
 }

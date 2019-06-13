@@ -48,9 +48,18 @@
   flex-flow: row wrap;
   justify-content: space-between;
   padding: 0 $primaryPadding;
+  .hamburger {
+    font-size: 1.5em;
+    font-family: "UbuntuB";
+    line-height: 64px;
+  }
+  .logo {
+    line-height: 64px;
+  }
 }
 
 .navigation {
+  display: none;
   &__list {
     list-style-type: none;
   }
@@ -61,10 +70,11 @@
     text-decoration: none;
     display: block;
     padding: 25px 12px;
-    font-size: 0.9em;
+    font-size: 0.8em;
     color: darken($gray, 20%);
     text-transform: uppercase;
     transition: 0.25s all;
+    font-family: "UbuntuB";
     &:hover {
       background: $secondaryColor;
       color: #fff;

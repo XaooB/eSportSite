@@ -2,47 +2,38 @@
   display: flex;
   justify-content: space-between;
   flex-flow: row wrap;
+  margin: $primaryPadding;
   .column {
-    flex: 1 1 400px;
     &--main {
-      max-width: 75%;
+      width: 100%;
     }
     &--aside {
-      max-width: 25%;
+      margin-top: 10px;
       display: flex;
-      flex-flow: column nowrap;
+      flex-flow: row wrap;
     }
   }
-  .image-wrapper {
-    overflow: hidden;
-    max-height: inherit;
-    width: inherit;
-  }
-  &__image {
-    width: 100%;
-  }
   .main {
-    overflow: hiden;
-    cursor: pointer;
+    overflow: hidden;
     position: relative;
-    max-height: 350px;
+    cursor: pointer;
+    max-height: 300px;
     &__image-wrapper {
       max-height: inherit;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      overflow: hidden;
     }
     &__image {
-      width: 100%;
+      height: 250px;
     }
   }
   .aside {
     cursor: pointer;
     position: relative;
     max-height: 110px;
-    margin-left: 10px;
     overflow: hidden;
+    flex: 1 1 200px;
     &:not(:last-child) {
       margin-bottom: 10px;
     }
@@ -60,7 +51,7 @@
   &__header {
     width: 100%;
     position: absolute;
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.45);
     left: 0;
     bottom: 0;
     color: $primaryHeaderColor;

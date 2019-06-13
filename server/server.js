@@ -14,8 +14,6 @@ const express = require("express"),
   homeRouter = require("../routes/homeroutes"),
   registerRouter = require("../routes/registerroutes"),
   userRouter = require("../routes/userroutes"),
-  lolRouter = require("../routes/lolroutes"),
-  csgoRouter = require("../routes/csgoroutes"),
   adminRouter = require("../routes/adminroutes");
 
 app.engine(
@@ -130,10 +128,11 @@ router.get("/", homeRouter.articles);
 app.get("/admin", (req, res) => {
   res.redirect("/admin/dashboard"); //redirect to admin panel
 });
+
 router.get("/news/:category/:title", requireMod, articleRouter.article);
-router.get("/news/:category", articleRouter.more);
 router.post("/news/:category/:title", articleRouter.addComment);
 router.get("/news", articleRouter.all);
+router.get("/articles", articleRouter.articles);
 
 //USER ROUTERS
 router.get("/register", registerRouter.registerGet);
@@ -144,22 +143,6 @@ router.get("/login/lost_password", userRouter.lostGet);
 router.get("/login", userRouter.loginGet);
 router.post("/login", userRouter.loginPost);
 router.get("/logout", userRouter.logout);
-
-//LOL ROUTERS
-router.get("/lol/events", lolRouter.events);
-router.get("/lol/matches", lolRouter.matches);
-router.get("/lol/teams", lolRouter.teams);
-router.get("/lol/results", lolRouter.results);
-router.get("/lol/statistics", lolRouter.statistics);
-router.get("/lol/ranking", lolRouter.ranking);
-
-//CSGO ROUTERS
-router.get("/csgo/events", csgoRouter.events);
-router.get("/csgo/matches", csgoRouter.matches);
-router.get("/csgo/teams", csgoRouter.teams);
-router.get("/csgo/results", csgoRouter.results);
-router.get("/csgo/statistics", csgoRouter.statistics);
-router.get("/csgo/ranking", csgoRouter.ranking);
 
 //HOME ROUTERS
 app.get("/gallery", homeRouter.navGallery);

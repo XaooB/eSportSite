@@ -1,29 +1,69 @@
 .latest {
+  //there's margin collapsing issue even if parent overflow is set to hidden
+  margin-top: 30px;
+  .articles {
+    margin: 15px;
+  }
+  &__title {
+    font-size: 0.9em;
+    font-family: "UbuntuL";
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    max-height: 150px;
+  }
+  &__image {
+    width: 100%;
+  }
   &--margin {
     margin: 0 $primaryPadding;
   }
-  .articles {
-    //remove margin from the initial class (_articles_scss)
-    margin: 0;
+  .column {
+    align-self: flex-start;
+    &--left {
+      align-self: flex-start;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      flex: 1 1 500px;
+    }
+    &--right {
+      display: flex;
+      margin-bottom: $primaryPadding;
+      flex-flow: column nowrap;
+      flex: 1 1 250px;
+    }
   }
-  margin: 30px 0;
-  .column--left {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    flex: 1 1 350px;
-  }
-  .column--right {
-    flex: 1 1 250px;
-  }
+
   &__article {
-    margin: $primaryPadding;
-    flex: 1 1 200px;
+    align-self: flex-start;
+    margin: 5px 15px;
+    flex: 1 1 220px;
+    @media (min-width: 530px) {
+      margin: 15px;
+    }
+  }
+  &__container {
+    margin: 15px 0;
+  }
+  &__link {
+    cursor: pointer;
+    display: block;
+    color: inherit;
+    position: relative;
+    text-decoration: none;
+    &:visited {
+      color: $gray;
+    }
   }
   &--mini {
-    margin: 0 $primaryPadding;
-    padding: 20px;
+    margin: 0 15px;
+    padding: 15px 10px;
     flex: 1;
+    cursor: pointer;
     transition: 0.35s all;
     &:not(:last-child) {
       border-bottom: 1px solid $gray;
@@ -31,7 +71,40 @@
     &:hover {
       background: $secondaryColor;
       color: $primaryColor;
-      cursor: pointer;
     }
+  }
+  .meta {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    color: $primaryHeaderColor;
+    &__header {
+      font-family: "UbuntuL";
+      color: inherit;
+    }
+    &__footer {
+      color: inherit;
+      font-size: 0.8em;
+      margin-top: 10px;
+    }
+    &__category {
+      padding: 5px 8px;
+      display: inline-block;
+      background: $secondaryColor;
+      color: #fff;
+      font-family: "UbuntuB";
+      letter-spacing: 0.5px;
+    }
+    &__author {
+      margin-left: 4px;
+    }
+  }
+  &__button {
+    font-size: 0.85em;
+    align-self: center;
+    margin: 0 $primaryPadding;
   }
 }

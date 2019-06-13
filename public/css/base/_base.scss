@@ -5,13 +5,13 @@ body {
 }
 
 .container {
-  max-width: 1220px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 
 main {
   background: #fff;
-  margin-top: $primaryPadding;
+  margin: $primaryPadding 0;
   //to avoid margin collapsing
   overflow: hidden;
 }

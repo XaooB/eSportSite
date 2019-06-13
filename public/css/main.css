@@ -4,12 +4,12 @@ body {
   background: #d3d7e1; }
 
 .container {
-  max-width: 1220px;
+  max-width: 1120px;
   margin: 0 auto; }
 
 main {
   background: #fff;
-  margin-top: 30px;
+  margin: 30px 0;
   overflow: hidden; }
 
 @font-face {
@@ -42,6 +42,20 @@ main {
     font-size: 1.15em;
     line-height: 1.2; }
 
+.button {
+  padding: 8px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: 0.25s all;
+  transition: 0.25s all; }
+  .button--primary {
+    color: #fff;
+    font-family: "UbuntuB";
+    background: #0396db; }
+    .button--primary:hover {
+      background: #0274a9; }
+
 .section-header {
   font-family: "UbuntuL";
   font-size: 1.2em; }
@@ -50,7 +64,7 @@ main {
   background: #fff;
   border-bottom: 1px solid #d3d7e1; }
   #header .topbar {
-    padding: 0 30px 5px 30px;
+    padding: 0 30px;
     border-bottom: 1px solid #d3d7e1;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -66,7 +80,6 @@ main {
         -ms-flex-flow: row wrap;
             flex-flow: row wrap; }
   #header .greeting {
-    margin-top: 6px;
     font-size: 0.75em; }
 
 .social__list {
@@ -74,19 +87,26 @@ main {
 .social__item {
   display: inline-block; }
 .social__link {
-  font-family: "Social";
   font-size: 2.2em;
-  line-height: 1;
-  color: #d3d7e1;
   text-decoration: none;
   -webkit-transition: 0.25s all;
   transition: 0.25s all; }
-  .social__link--facebook:hover {
-    color: #3b5998; }
-  .social__link--twitter:hover {
-    color: #00aced; }
-  .social__link:visited {
-    color: #0274a9; }
+  .social__link svg {
+    border-radius: 50%;
+    background: #d3d7e1;
+    fill: #fff;
+    -webkit-box-sizing: initial;
+            box-sizing: initial;
+    padding: 4px;
+    height: 18px; }
+  .social__link--facebook:hover svg {
+    background: #3b5998;
+    color: #fff;
+    fill: #fff; }
+  .social__link--twitter:hover svg {
+    background: #00aced;
+    color: #fff;
+    fill: #fff; }
 
 .nav {
   display: -webkit-box;
@@ -225,48 +245,129 @@ main {
     font-family: "TruenoB"; }
 
 .latest {
-  margin: 30px 0; }
-  .latest--margin {
-    margin: 0 30px; }
+  margin-top: 30px; }
   .latest .articles {
-    margin: 0; }
-  .latest .column--left {
+    margin: 15px; }
+  .latest__title {
+    font-size: 0.9em;
+    font-family: "UbuntuL"; }
+  .latest__wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 350px;
-            flex: 1 1 350px; }
-  .latest .column--right {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 250px;
-            flex: 1 1 250px; }
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+    max-height: 150px; }
+  .latest__image {
+    width: 100%; }
+  .latest--margin {
+    margin: 0 30px; }
+  .latest .column {
+    -ms-flex-item-align: start;
+        align-self: flex-start; }
+    .latest .column--left {
+      -ms-flex-item-align: start;
+          align-self: flex-start;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: row wrap;
+              flex-flow: row wrap;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 500px;
+              flex: 1 1 500px; }
+    .latest .column--right {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin-bottom: 30px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: column nowrap;
+              flex-flow: column nowrap;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 250px;
+              flex: 1 1 250px; }
   .latest__article {
-    margin: 30px;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    margin: 5px 15px;
     -webkit-box-flex: 1;
-        -ms-flex: 1 1 200px;
-            flex: 1 1 200px; }
+        -ms-flex: 1 1 220px;
+            flex: 1 1 220px; }
+    @media (min-width: 530px) {
+      .latest__article {
+        margin: 15px; } }
+  .latest__container {
+    margin: 15px 0; }
+  .latest__link {
+    cursor: pointer;
+    display: block;
+    color: inherit;
+    position: relative;
+    text-decoration: none; }
+    .latest__link:visited {
+      color: #d3d7e1; }
   .latest--mini {
-    margin: 0 30px;
-    padding: 20px;
+    margin: 0 15px;
+    padding: 15px 10px;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
+    cursor: pointer;
     -webkit-transition: 0.35s all;
     transition: 0.35s all; }
     .latest--mini:not(:last-child) {
       border-bottom: 1px solid #d3d7e1; }
     .latest--mini:hover {
       background: #0396db;
-      color: #ffffff;
-      cursor: pointer; }
+      color: #ffffff; }
+  .latest .meta {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff; }
+    .latest .meta__header {
+      font-family: "UbuntuL";
+      color: inherit; }
+    .latest .meta__footer {
+      color: inherit;
+      font-size: 0.8em;
+      margin-top: 10px; }
+    .latest .meta__category {
+      padding: 5px 8px;
+      display: inline-block;
+      background: #0396db;
+      color: #fff;
+      font-family: "UbuntuB";
+      letter-spacing: 0.5px; }
+    .latest .meta__author {
+      margin-left: 4px; }
+  .latest__button {
+    font-size: 0.85em;
+    -ms-flex-item-align: center;
+        align-self: center;
+    margin: 0 30px; }
+
+.footer {
+  background: #fff;
+  padding: 30px;
+  text-align: center;
+  color: #96a0b8;
+  font-size: 0.75em; }
 
 /* HEADER/NAV */
 @media (min-width: 600px) {

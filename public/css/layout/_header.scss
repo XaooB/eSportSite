@@ -2,7 +2,7 @@
   background: #fff;
   border-bottom: 1px solid $gray;
   .topbar {
-    padding: 0 $primaryPadding 5px $primaryPadding;
+    padding: 0 $primaryPadding;
     border-bottom: 1px solid $gray;
     display: flex;
     align-items: center;
@@ -10,7 +10,6 @@
     flex-flow: row wrap;
   }
   .greeting {
-    margin-top: 6px;
     font-size: 0.75em;
   }
 }
@@ -23,22 +22,34 @@
     display: inline-block;
   }
   &__link {
-    font-family: "Social";
     font-size: 2.2em;
-    line-height: 1;
-    color: $gray;
     text-decoration: none;
     transition: 0.25s all;
-    &--facebook:hover {
-      color: $facebookColor;
+    svg {
+      border-radius: 50%;
+      background: $gray;
+      fill: #fff;
+      box-sizing: initial;
+      padding: 4px;
+      height: 18px;
     }
-
-    &--twitter:hover {
-      color: $twitterColor;
+    &--facebook {
+      &:hover {
+        svg {
+          background: $facebookColor;
+          color: #fff;
+          fill: #fff;
+        }
+      }
     }
-
-    &:visited {
-      color: darken($secondaryColor, 10%);
+    &--twitter {
+      &:hover {
+        svg {
+          background: $twitterColor;
+          color: #fff;
+          fill: #fff;
+        }
+      }
     }
   }
 }

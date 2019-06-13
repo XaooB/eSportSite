@@ -1,0 +1,15 @@
+.button {
+  padding: 8px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.25s all;
+  &--primary {
+    color: #fff;
+    font-family: "UbuntuB";
+    background: $secondaryColor;
+    &:hover {
+      background: darken($secondaryColor, 10%);
+    }
+  }
+}

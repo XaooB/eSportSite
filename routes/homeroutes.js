@@ -9,8 +9,7 @@ exports.articles = (req, res) => {
         .where("isMain")
         .ne("on")
         .sort("-date")
-        .limit(3)
-        .then(moreArticles => {
+        .then(latestArticles => {
           const currentDate = new Date();
           const daysArr = [
             "Poniedziałek",
@@ -21,11 +20,30 @@ exports.articles = (req, res) => {
             "Sobota",
             "Niedziela"
           ];
+
+          //DO ZMIANY ASAP
+          let counter = 0;
+          const asideArticles = latestArticles.filter(item => {
+            while (counter < 3) {
+              counter++;
+              return item;
+            }
+          });
+          counter = 0;
+          const bigLatest = latestArticles.filter(item => {
+            while (counter < 6) {
+              counter++;
+              return item;
+            }
+          });
+
           res.render("home", {
             session: req.session.user,
             title: "Home",
             mainArticle: mainArticle,
-            moreArticles: moreArticles,
+            moreArticles: asideArticles,
+            latestArticles: latestArticles,
+            bigLatestArticles: bigLatest,
             currentServerTime:
               daysArr[currentDate.getDay() - 1] +
               ", " +

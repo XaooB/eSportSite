@@ -1,19 +1,22 @@
 <main>
     <section class="articles">
         <div class="column--main">
-            <article class="main">
-                <figure class="main__image-wrapper">
-                    <img src={{mainArticle.img}} alt='{{mainArticle.title}}' title='{{mainArticle.title}}'
-                        class="main__image" />
-                </figure>
-                <header class="articles__header articles__header--main">
-                    <h2 class="header--primary">{{mainArticle.title}}</h2>
-                    <footer class="articles__footer">
-                        <time>{{mainArticle.date}}</time>
-                        <span>{{mainArticle.author}}</span>
-                    </footer>
-                </header>
-            </article>
+            <a href="/news/{{mainArticle.category}}/{{mainArticle.title}}" class='aside__link'>
+                <article class="main">
+                    <figure class="main__image-wrapper">
+                        <img src={{mainArticle.img}} alt='{{mainArticle.title}}' title='{{mainArticle.title}}'
+                            class="main__image" />
+                    </figure>
+                    <header class="articles__header articles__header--main">
+                        <h2 class="header--primary">{{mainArticle.title}}</h2>
+                        {{!-- WYWALIĆ POZA FOOTER --}}
+                        <footer class="articles__footer">
+                            <time>{{mainArticle.date}}</time>
+                            <span>{{mainArticle.author}}</span>
+                        </footer>
+                    </header>
+                </article>
+            </a>
         </div>
         <aside class="column--aside">
             {{#each moreArticles}}
@@ -21,7 +24,7 @@
                 <figure class='aside__image-wrapper'>
                     <img src='{{img}}' alt='{{title}}' title='{{title}}' class='aside__image'>
                 </figure>
-                <a href="/news/{{category}}/{{title}}" class='aside__link'>
+                <a href="/news/{{category}}/{{title}}" class='aside__link' title='{{title}}'>
                     <header class='articles__header articles__header--aside'>
                         <h3 class='header--secondary'>{{title}}</h3>
                     </header>
@@ -33,18 +36,40 @@
     <section class="latest">
         <h2 class="section-header latest--margin">Najnowsze</h2>
         <section class="articles">
-            <div class="column--left">
-                <article class="latest__article">artykuł</article>
-                <article class="latest__article">artykuł</article>
-                <article class="latest__article">artykuł</article>
-                <article class="latest__article">artykuł</article>
-                <article class="latest__article">artykuł</article>
-                <article class="latest__article">artykuł</article>
-            </div>
-            <div class="column--right">
-                {{#each moreArticles}}
-                <article class="latest__article latest--mini">{{title}}</article>
+            <div class="column column--left">
+                {{#each bigLatestArticles}}
+                <article class="latest__article">
+                    <a class='latest__link' href='/news/{{category}}/{{title}}' title='{{title}}'>
+                        <figure class="latest__wrapper">
+                            <img src="{{img}}" alt="{{title}}" class="latest__image" />
+                        </figure>
+                        <div class="meta">
+                            <header class="meta__header">
+                                <h4 class="meta__title">{{title}}</h4>
+                            </header>
+                            <footer class="meta__footer">
+                                <span class='meta__category'>{{category}}</span>
+                                <span class='meta__author'>{{author}}</span>
+                            </footer>
+                        </div>
+                    </a>
+                </article>
                 {{/each}}
+            </div>
+            <div class="column column--right">
+                <div class="latest__container">
+                    {{#each latestArticles}}
+                    <article class="latest__article latest--mini">
+                        <a class='latest__link' href='/news/{{category}}/{{title}}' title='{{title}}'>
+                            <header class="latest__header">
+                                <h3 class="latest__title">{{title}}</h3>
+                            </header>
+                        </a>
+                    </article>
+                    {{/each}}
+                </div>
+                <a class='button button--primary latest__button' title='przejdź do aktualności'>pokaż
+                    więcej</a>
             </div>
         </section>
     </section>

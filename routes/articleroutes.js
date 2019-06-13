@@ -28,6 +28,17 @@ exports.article = (req, res) => {
                 })
                   .sort("-date")
                   .then(comments => {
+                    // wrzucic do helpera
+                    const currentDate = new Date();
+                    const daysArr = [
+                      "Poniedziałek",
+                      "Wtorek",
+                      "Środa",
+                      "Czwartek",
+                      "Piątek",
+                      "Sobota",
+                      "Niedziela"
+                    ];
                     res.render("news", {
                       title: mainArticle.title,
                       mainNews: mainArticle,
@@ -35,7 +46,11 @@ exports.article = (req, res) => {
                       authorArticle: authorArticle,
                       author: authorData,
                       comments: comments,
-                      canBan: req.session.canBan
+                      canBan: req.session.canBan,
+                      currentServerTime:
+                        daysArr[currentDate.getDay() - 1] +
+                        ", " +
+                        currentDate.toLocaleDateString()
                     });
                   });
               });

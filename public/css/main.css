@@ -357,6 +357,7 @@ main {
     .latest .meta__author {
       margin-left: 4px; }
   .latest__button {
+    text-decoration: none;
     font-size: 0.85em;
     -ms-flex-item-align: center;
         align-self: center;

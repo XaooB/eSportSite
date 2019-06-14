@@ -5,6 +5,16 @@ const { Article } = require("../models/article"),
   ObjectID = require("mongoose").Types.ObjectId,
   moment = require("moment");
 
+//NOWE
+
+exports.articles = (req, res) => {
+  res.render("articles", {
+    title: "lista artykułów"
+  });
+};
+
+//STARE
+
 exports.article = (req, res) => {
   Article.findOne({
     title: req.params.title
@@ -39,12 +49,10 @@ exports.article = (req, res) => {
                       "Sobota",
                       "Niedziela"
                     ];
-                    res.render("news", {
+                    res.render("single-article", {
                       title: mainArticle.title,
                       mainNews: mainArticle,
                       lastestNews: newestArticles,
-                      authorArticle: authorArticle,
-                      author: authorData,
                       comments: comments,
                       canBan: req.session.canBan,
                       currentServerTime:
@@ -155,12 +163,4 @@ exports.postEditArticle = (req, res) => {
       console.log(err.message);
       res.render("404");
     });
-};
-
-//NOWE
-
-exports.articles = (req, res) => {
-  res.render("articles", {
-    title: "lista artykułów"
-  });
 };

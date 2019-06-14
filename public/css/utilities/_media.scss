@@ -1,12 +1,11 @@
 /* HEADER/NAV */
+
 .nav {
-  .hamburger {
-    @include for-tablet-vertical {
+  @include for-tablet-vertical {
+    .hamburger {
       display: none;
     }
-  }
-  .navigation {
-    @include for-tablet-vertical {
+    .navigation {
       display: block;
     }
   }
@@ -15,36 +14,29 @@
 /* ARTICLES */
 
 .articles {
-  .header--primary {
-    @include for-phone {
+  @include for-phone {
+    .header--primary {
       font-size: 1.2em;
     }
-  }
-  .articles__footer {
-    @include for-phone {
+    &__footer {
       font-size: 0.7em;
     }
   }
+
   @include for-tablet-horizontal {
     flex-flow: row wrap;
-  }
-  .column--main {
-    @include for-tablet-horizontal {
+    .column--main {
       flex: 0.7;
     }
-  }
-  .column--aside {
-    @include for-tablet-horizontal {
+    .column--aside {
       flex: 0.3;
       margin-top: 0;
     }
   }
   .main {
-    @include for-tablet-horizontal {
-      max-height: 350px;
-    }
-    &__image {
-      @include for-phone-wide {
+    max-height: 350px;
+    @include for-phone-wide {
+      &__image {
         width: 100%;
         height: auto;
       }
@@ -55,5 +47,18 @@
 .aside {
   @include for-tablet-horizontal {
     margin-left: 10px;
+  }
+}
+
+/* ERROR-PAGE */
+
+.error {
+  @include for-phone-wide {
+    &__code {
+      font-size: 8em;
+    }
+    &__reason {
+      font-size: 2em;
+    }
   }
 }

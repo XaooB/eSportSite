@@ -1,0 +1,16 @@
+.column {
+  align-self: flex-start;
+  &--left {
+    align-self: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    flex: 1 1 550px;
+  }
+  &--right {
+    display: flex;
+    margin-bottom: $primaryPadding;
+    flex-flow: column nowrap;
+    flex: 1 1 250px;
+  }
+}

@@ -1,0 +1,21 @@
+<main>
+    <section class="articles">
+        <div class="column column--left">
+            <article class="single__main">
+                głowny artykuł: {{mainNews.title}}
+            </article>
+        </div>
+        <div class="column column--right">
+            <section>
+                <h2 class="section-header">Recent Posts</h2>
+                <div class="single__aside-wrapper">
+                    {{#each lastestNews}}
+                    <a href="/news/{{category}}/{{title}}" class='single__link'>
+                        <article class='single__aside'>{{title}}</article>
+                    </a>
+                    {{/each}}
+                </div>
+            </section>
+        </div>
+    </section>
+</main>

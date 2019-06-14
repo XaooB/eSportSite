@@ -1,0 +1,33 @@
+.error {
+  padding: $primaryPadding $primaryPadding 55px $primaryPadding;
+  text-align: center;
+  &__wrapper {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  &__code {
+    line-height: 1;
+    font-family: "UbuntuL";
+    letter-spacing: -1px;
+    font-size: 5.5em;
+    display: block;
+    color: black;
+  }
+  &__reason {
+    position: absolute;
+    left: 50%;
+    top: 53%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    display: inline-block;
+    color: #fff;
+    background: $secondaryColor;
+    padding: 6px;
+    font-family: "UbuntuB";
+    font-size: 1.5em;
+  }
+  &__info {
+    display: block;
+    margin-bottom: 15px;
+  }
+}

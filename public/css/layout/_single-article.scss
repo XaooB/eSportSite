@@ -1,0 +1,25 @@
+.single {
+  &__aside {
+    align-self: flex-start;
+    flex: 1 1 255px;
+    &-wrapper {
+      margin-top: 10px;
+    }
+  }
+  &__link {
+    display: block;
+    font-size: 0.9em;
+    color: black;
+    padding: 15px 0;
+    text-decoration: none;
+    &:not(:last-child) {
+      border-bottom: 1px solid $gray;
+    }
+    &:hover {
+      color: $secondaryColor;
+    }
+  }
+  &__main {
+    margin-bottom: 25px;
+  }
+}

@@ -1,13 +1,51 @@
 <main>
-    <section class="articles">
-        <div class="column column--left">
+    <section class="single">
+        <div class="column column--left single__wrapper">
+            <div class="location">
+                <a href="/" class='location__link'>Home</a>
+                <span class="bull">•</span>
+                <a href="/news" class='location__link'>News</a>
+                <span class="bull">•</span>
+                <a href="/news/{{mainNews.category}}" class='location__link'>{{mainNews.category}}</a>
+                <span class="bull">•</span>{{mainNews.title}}
+            </div>
             <article class="single__main">
-                głowny artykuł: {{mainNews.title}}
+                <header class='single__header'>
+                    <h1 class='header header--single'>{{mainNews.title}}</h1>
+                    <span class="single__author">{{mainNews.author}}, {{mainNews.date}}</span>
+                </header>
+                <figure class='single__image-wrapper'>
+                    <img src="{{mainNews.img}}" alt="{{mainNews.title}}" class="single__image">
+                </figure>
+                <p class="single__body">{{mainNews.body}}</p>
             </article>
+            <section class="comments">
+                <h1 class="section-header">Komentarze</h1>
+                <div class="comments__wrapper">
+                    {{#if comments}}
+                    {{#each comments}}
+                    <article class="comments__item" id="{{_id}}">
+                        <header class="comments__header">
+                            <h2 class="comments__author">{{username}}, </h2>
+                            <time datetime="{{date}}" class="comments__date">{{date}}</time>
+                        </header>
+                        <p class="comments__body">{{body}}</p>
+                        <footer class='comments__footer'>
+                            <a class='link' href="/login">Zaloguj się, aby móc napisać komentarz</a>
+                        </footer>
+                    </article>
+                    {{/each}}
+                    {{else}}
+                    <p class="comments__information">Brak komentarzy. <a href='/login' class='link'>Zaloguj się</a> i
+                        bądź
+                        pierwszy!</a></p>
+                    {{/if}}
+                </div>
+            </section>
         </div>
-        <div class="column column--right">
+        <div class=" column column--right single__wrapper">
             <section>
-                <h2 class="section-header">Recent Posts</h2>
+                <h1 class="section-header">Najwowsze artykuły</h1>
                 <div class="single__aside-wrapper">
                     {{#each lastestNews}}
                     <a href="/news/{{category}}/{{title}}" class='single__link'>

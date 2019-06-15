@@ -1,5 +1,11 @@
 .header {
   font-size: 1.1em;
+  &--single {
+    font-size: 2em;
+    font-family: "UbuntuL";
+    font-weight: lighter;
+    line-height: 1.2;
+  }
   &--primary {
     font-size: 1.6em;
   }

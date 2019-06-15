@@ -1,5 +1,30 @@
+.location {
+  font-size: 0.8em;
+  text-decoration: none;
+  color: $gray;
+  &__link {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      color: darken($gray, 20%);
+    }
+  }
+  .bull {
+    padding: 0 4px;
+  }
+}
+
 .single {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  margin: 15px;
+  &__wrapper {
+    margin: 15px;
+  }
   &__aside {
+    position: sticky;
+    top: 30px;
     align-self: flex-start;
     flex: 1 1 255px;
     &-wrapper {
@@ -19,7 +44,65 @@
       color: $secondaryColor;
     }
   }
+  &__header {
+    margin: 15px 0 25px 0;
+  }
+  &__author {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.8em;
+  }
   &__main {
     margin-bottom: 25px;
+  }
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    &-wrapper {
+      margin: 5px 0;
+      max-height: 350px;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+  }
+  &__body {
+    text-align: justify;
+    line-height: 1.5;
+    margin-top: 25px;
+    white-space: pre-wrap;
+  }
+  .comments {
+    margin-top: 25px;
+    &__wrapper {
+      margin: 10px 0;
+    }
+    &__item:not(:last-child) {
+      margin-bottom: 25px;
+    }
+    &__header {
+      font-size: 0.9em;
+      color: darken($gray, 10%);
+      font-family: "UbuntuL";
+    }
+    &__author {
+      margin-bottom: 4px;
+      display: inline-block;
+      font-size: inherit;
+      font-weight: lighter;
+    }
+    &__body {
+      text-align: justify;
+    }
+    &__footer {
+      margin-top: 5px;
+      font-size: 0.9em;
+      color: darken($gray, 10%);
+    }
+    &__information {
+      font-family: "UbuntuL";
+      font-size: 0.9em;
+    }
   }
 }

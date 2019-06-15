@@ -15,3 +15,12 @@ main {
   //to avoid margin collapsing
   overflow: hidden;
 }
+
+.link {
+  text-decoration: none;
+  color: $secondaryColor;
+  &:hover {
+    text-decoration: underline;
+    color: darken($secondaryColor, 10%);
+  }
+}

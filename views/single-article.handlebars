@@ -18,30 +18,31 @@
                     <img src="{{mainNews.img}}" alt="{{mainNews.title}}" class="single__image">
                 </figure>
                 <p class="single__body">{{mainNews.body}}</p>
+                <section class="comments">
+                    <h1 class="section-header">Komentarze</h1>
+                    <div class="comments__wrapper">
+                        {{#if comments}}
+                        {{#each comments}}
+                        <article class="comments__item" id="{{_id}}">
+                            <header class="comments__header">
+                                <h2 class="comments__author">{{username}}, </h2>
+                                <time datetime="{{date}}" class="comments__date">{{date}}</time>
+                            </header>
+                            <p class="comments__body">{{body}}</p>
+                            <footer class='comments__footer'>
+                                <a class='link' href="/login">Zaloguj się, aby móc napisać komentarz</a>
+                            </footer>
+                        </article>
+                        {{/each}}
+                        {{else}}
+                        <p class="comments__information">Brak komentarzy. <a href='/login' class='link'>Zaloguj się</a>
+                            i
+                            bądź
+                            pierwszy!</a></p>
+                        {{/if}}
+                    </div>
+                </section>
             </article>
-            <section class="comments">
-                <h1 class="section-header">Komentarze</h1>
-                <div class="comments__wrapper">
-                    {{#if comments}}
-                    {{#each comments}}
-                    <article class="comments__item" id="{{_id}}">
-                        <header class="comments__header">
-                            <h2 class="comments__author">{{username}}, </h2>
-                            <time datetime="{{date}}" class="comments__date">{{date}}</time>
-                        </header>
-                        <p class="comments__body">{{body}}</p>
-                        <footer class='comments__footer'>
-                            <a class='link' href="/login">Zaloguj się, aby móc napisać komentarz</a>
-                        </footer>
-                    </article>
-                    {{/each}}
-                    {{else}}
-                    <p class="comments__information">Brak komentarzy. <a href='/login' class='link'>Zaloguj się</a> i
-                        bądź
-                        pierwszy!</a></p>
-                    {{/if}}
-                </div>
-            </section>
         </div>
         <div class=" column column--right single__wrapper">
             <section>

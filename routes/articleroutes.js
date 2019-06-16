@@ -2,8 +2,7 @@ const { Article } = require("../models/article"),
   { User } = require("../models/user"),
   { Comment } = require("../models/comment"),
   { getDate } = require("./../public/js/getDate"),
-  ObjectID = require("mongoose").Types.ObjectId,
-  moment = require("moment");
+  ObjectID = require("mongoose").Types.ObjectId;
 
 //NOWE
 
@@ -39,16 +38,20 @@ exports.article = (req, res) => {
                   .sort("-date")
                   .then(comments => {
                     // wrzucic do helpera
-                    const currentDate = new Date();
+                    const dateObj = new Date();
+                    const day = dateObj.getDay();
+
                     const daysArr = [
+                      "Niedziela",
                       "Poniedziałek",
                       "Wtorek",
                       "Środa",
                       "Czwartek",
                       "Piątek",
-                      "Sobota",
-                      "Niedziela"
+                      "Sobota"
                     ];
+
+                    //niedziela jest [0] - DO POPRAWKI
                     res.render("single-article", {
                       title: mainArticle.title,
                       mainNews: mainArticle,
@@ -56,9 +59,7 @@ exports.article = (req, res) => {
                       comments: comments,
                       canBan: req.session.canBan,
                       currentServerTime:
-                        daysArr[currentDate.getDay() - 1] +
-                        ", " +
-                        currentDate.toLocaleDateString()
+                        daysArr[day] + ", " + dateObj.toLocaleDateString()
                     });
                   });
               });

@@ -1,4 +1,12 @@
 /* HEADER/NAV */
+#header {
+  @include for-phone-wide {
+    .nav,
+    .topbar {
+      padding: 0 $primaryPadding;
+    }
+  }
+}
 
 .nav {
   @include for-tablet-vertical {
@@ -14,6 +22,9 @@
 /* ARTICLES */
 
 .articles {
+  @include for-phone-wide {
+    margin: $primaryPadding;
+  }
   @include for-phone {
     .header--primary {
       font-size: 1.2em;
@@ -40,6 +51,17 @@
         width: 100%;
         height: auto;
       }
+    }
+  }
+}
+
+.latest {
+  @include for-phone-wide {
+    &__article {
+      margin: 5px 15px;
+    }
+    &--mini {
+      margin: 0 15px;
     }
   }
 }

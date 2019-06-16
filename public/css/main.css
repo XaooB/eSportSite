@@ -132,7 +132,7 @@ main {
   background: #fff;
   border-bottom: 1px solid #d3d7e1; }
   #header .topbar {
-    padding: 0 30px;
+    padding: 0 15px;
     border-bottom: 1px solid #d3d7e1;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -177,6 +177,7 @@ main {
     fill: #fff; }
 
 .nav {
+  padding: 0 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -186,8 +187,7 @@ main {
           flex-flow: row wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 0 30px; }
+          justify-content: space-between; }
   .nav .hamburger {
     font-size: 1.5em;
     font-family: "UbuntuB";
@@ -226,7 +226,7 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  margin: 30px; }
+  margin: 15px; }
   .articles .column--main {
     width: 100%; }
   .articles .column--aside {
@@ -352,7 +352,7 @@ main {
     overflow: hidden;
     -ms-flex-item-align: start;
         align-self: flex-start;
-    margin: 5px 15px;
+    margin: 5px 0;
     -webkit-box-flex: 1;
         -ms-flex: 1 1 255px;
             flex: 1 1 255px; }
@@ -372,7 +372,6 @@ main {
     .latest__link:visited {
       color: #96a0b8; }
   .latest--mini {
-    margin: 0 15px;
     padding: 15px 10px;
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -565,6 +564,11 @@ main {
     margin-bottom: 25px; }
 
 /* HEADER/NAV */
+@media (min-width: 420px) {
+  #header .nav,
+  #header .topbar {
+    padding: 0 30px; } }
+
 @media (min-width: 600px) {
   .nav .hamburger {
     display: none; }
@@ -572,6 +576,9 @@ main {
     display: block; } }
 
 /* ARTICLES */
+@media (min-width: 420px) {
+  .articles {
+    margin: 30px; } }
 @media (min-width: 320px) {
   .articles .header--primary {
     font-size: 1.2em; }
@@ -598,6 +605,12 @@ main {
     .articles .main__image {
       width: 100%;
       height: auto; } }
+
+@media (min-width: 420px) {
+  .latest__article {
+    margin: 5px 15px; }
+  .latest--mini {
+    margin: 0 15px; } }
 
 @media (min-width: 840px) {
   .aside {

@@ -137,9 +137,7 @@ router.get("/articles", articleRouter.articles);
 //USER ROUTERS
 router.get("/register", registerRouter.registerGet);
 router.post("/register", registerRouter.registerPost);
-router.get("/profil/me", requireLogin, userRouter.me);
-router.get("/profil/:username", userRouter.profil);
-router.get("/login/lost_password", userRouter.lostGet);
+router.get("/lost-password", userRouter.lostPassword);
 router.get("/login", userRouter.loginGet);
 router.post("/login", userRouter.loginPost);
 router.get("/logout", userRouter.logout);
@@ -185,11 +183,7 @@ app.use("/", router);
 
 //ERROR HANDLING
 app.use((req, res) => {
-  res.render("404", {
-    title: "Błąd 404. Taka strona nie istnieje!",
-    desc: "Coś poszło nie tak :(",
-    fun: "Strona w budowie."
-  });
+  res.render("404");
 });
 
 //SERVER

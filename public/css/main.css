@@ -99,20 +99,36 @@ main {
     .button--primary:hover {
       background: #0274a9; }
 
-.form__inner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-.form .input {
-  outline: none;
-  border: 1px solid #d3d7e1;
-  width: 100%;
-  height: 33px;
-  padding: 0 10px;
-  -webkit-transition: 0.35s border;
-  transition: 0.35s border; }
-  .form .input:focus {
-    border: 1px solid #0396db; }
+.form {
+  font-family: "UbuntuL"; }
+  .form__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .form .input {
+    outline: none;
+    border: 1px solid #d3d7e1;
+    width: 100%;
+    height: 38px;
+    padding: 0 10px;
+    -webkit-transition: 0.35s border;
+    transition: 0.35s border; }
+    .form .input:focus {
+      border: 1px solid #0396db; }
+  .form .label {
+    position: relative;
+    display: block;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px; }
+    .form .label:after {
+      content: "*";
+      right: 2px;
+      top: 0;
+      color: red; }
+  .form .required {
+    color: red; }
 
 .section-header {
   font-family: "UbuntuL";
@@ -125,8 +141,8 @@ main {
   position: sticky;
   top: 15px; }
   .search__button {
-    width: 33px;
-    height: 33px; }
+    width: 38px;
+    height: 38px; }
 
 #header {
   background: #fff;
@@ -150,10 +166,23 @@ main {
   #header .greeting {
     font-size: 0.75em; }
 
+.social--login {
+  font-size: 0.75em;
+  position: relative;
+  right: 4px;
+  top: -2px; }
 .social__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   list-style-type: none; }
 .social__item {
-  display: inline-block; }
+  display: block; }
+  .social__item:not(:last-child) {
+    margin-right: 5px; }
 .social__link {
   font-size: 2.2em;
   text-decoration: none;
@@ -532,6 +561,42 @@ main {
     .single .comments__information {
       font-family: "UbuntuL";
       font-size: 0.9em; }
+
+.login-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
+  .login-wrapper .login,
+  .login-wrapper .remind {
+    margin: 30px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 270px;
+            flex: 1 1 270px; }
+  .login-wrapper .login-link {
+    text-align: right; }
+  .login-wrapper .login__form {
+    margin-top: 30px; }
+    .login-wrapper .login__form div:not(:first-child) {
+      margin-top: 15px; }
+  .login-wrapper .login__label {
+    display: block; }
+  .login-wrapper .login__footer {
+    font-size: 0.85em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+  .login-wrapper .login__button {
+    margin-top: 15px; }
 
 .error {
   padding: 30px 30px 55px 30px;

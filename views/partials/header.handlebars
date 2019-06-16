@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" href="/assets/img/logo_ico.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="/assets/js/formVerification.js"></script>
     <!--[if IE]><link rel="SHORTCUT ICON" href="/assets/img/logo_ico.png"/><![endif]-->
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
@@ -21,6 +22,9 @@
                 <span class="greeting">{{currentServerTime}}</span>
                 <div class="social">
                     <ul class="social__list">
+                        <li class="social__item">
+                            <a href="/login" class="link social--login">Zaloguj się</a>
+                        </li>
                         <li class="social__item" title='facebook'>
                             <a class='social__link social__link--facebook' href="#">
                                 <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet">

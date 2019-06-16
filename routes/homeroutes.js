@@ -1,4 +1,5 @@
-const { Article } = require("./../models/article");
+const { Article } = require("./../models/article"),
+  getDate = require("../helpers/getDate");
 
 exports.articles = (req, res) => {
   Article.findOne({
@@ -10,18 +11,7 @@ exports.articles = (req, res) => {
         .ne("on")
         .sort("-date")
         .then(latestArticles => {
-          const currentDate = new Date();
-          const daysArr = [
-            "Poniedziałek",
-            "Wtorek",
-            "Środa",
-            "Czwartek",
-            "Piątek",
-            "Sobota",
-            "Niedziela"
-          ];
-
-          //DO ZMIANY ASAP
+          //tmp
           let counter = 0;
           const asideArticles = latestArticles.filter(item => {
             while (counter < 3) {
@@ -39,15 +29,12 @@ exports.articles = (req, res) => {
 
           res.render("home", {
             session: req.session.user,
-            title: "Home",
+            title: "Strona główna",
             mainArticle: mainArticle,
             moreArticles: asideArticles,
             latestArticles: latestArticles,
             bigLatestArticles: bigLatest,
-            currentServerTime:
-              daysArr[currentDate.getDay() - 1] +
-              ", " +
-              currentDate.toLocaleDateString()
+            currentServerTime: getDate()
           });
         });
     })

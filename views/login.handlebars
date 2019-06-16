@@ -1,4 +1,45 @@
 <main>
+    <div class="login-wrapper">
+        <section class="login">
+            <h1 class="section-header">Logowanie</h1>
+            <form action="/login" class="form login__form" method="POST">
+                <div>
+                    <label for="username" class="label">nazwa użytkownika</label>
+                    <input type="text" name='username' class="input" id='username' required>
+                </div>
+                <div>
+                    <label for="password" class="label">hasło</label>
+                    <input type="password" name='password' class="input" id='password' required>
+                </div>
+                <div class='login__footer'>
+                    <p><span class='required'>*</span> - pole jest wymagane</p>
+                    <a href="/register" class='link login-link'>Nie masz konta? Zarejestruj się!</a>
+                </div>
+
+                {{#if Error}}
+                <div>{{{Error}}}</div>
+                {{/if}}
+
+                <button class="button button--primary login__button" type='submit'>zaloguj się</button>
+            </form>
+        </section>
+        <section class="remind">
+            <h1 class="section-header">Przypomnienie hasła</h1>
+            <form action="/password-lost" class="form login__form" method=" POST">
+                <div>
+                    <label for="email" class="label">email</label>
+                    <input type="email" class="input" id='email' required>
+                </div>
+                <div class='login__footer'>
+                    <p><span class='required'>*</span> - pole jest wymagane</p>
+                </div>
+                <button class="button button--primary login__button" type='submit'>przypominij hasło</button>
+            </form>
+        </section>
+    </div>
+</main>
+
+{{!-- <main class=''>
     <div class="container">
         <div class="_wrapper clearfix">
             <section class="occ f-l">
@@ -18,4 +59,4 @@
             </section>
         </div>
     </div>
-</main>
+</main> --}}

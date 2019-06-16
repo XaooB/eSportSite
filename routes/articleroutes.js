@@ -1,8 +1,8 @@
 const { Article } = require("../models/article"),
   { User } = require("../models/user"),
   { Comment } = require("../models/comment"),
-  { getDate } = require("./../public/js/getDate"),
-  ObjectID = require("mongoose").Types.ObjectId;
+  ObjectID = require("mongoose").Types.ObjectId,
+  getDate = require("../helpers/getDate");
 
 //NOWE
 
@@ -19,58 +19,29 @@ exports.article = (req, res) => {
     title: req.params.title
   })
     .then(mainArticle => {
-      return Article.find({
-        author: mainArticle.author
-      })
-        .limit(3)
-        .then(authorArticle => {
-          return Article.find({})
-            .where("title")
-            .ne(req.params.title)
+      return Article.find({})
+        .where("title")
+        .ne(req.params.title)
+        .sort("-date")
+        .then(newestArticles => {
+          return Comment.find({
+            title: mainArticle.title
+          })
             .sort("-date")
-            .then(newestArticles => {
-              return User.findOne({
-                username: mainArticle.author
-              }).then(authorData => {
-                return Comment.find({
-                  title: mainArticle.title
-                })
-                  .sort("-date")
-                  .then(comments => {
-                    // wrzucic do helpera
-                    const dateObj = new Date();
-                    const day = dateObj.getDay();
-
-                    const daysArr = [
-                      "Niedziela",
-                      "Poniedziałek",
-                      "Wtorek",
-                      "Środa",
-                      "Czwartek",
-                      "Piątek",
-                      "Sobota"
-                    ];
-
-                    //niedziela jest [0] - DO POPRAWKI
-                    res.render("single-article", {
-                      title: mainArticle.title,
-                      mainNews: mainArticle,
-                      lastestNews: newestArticles,
-                      comments: comments,
-                      canBan: req.session.canBan,
-                      currentServerTime:
-                        daysArr[day] + ", " + dateObj.toLocaleDateString()
-                    });
-                  });
+            .then(comments => {
+              res.render("single-article", {
+                title: mainArticle.title,
+                mainNews: mainArticle,
+                lastestNews: newestArticles,
+                comments: comments,
+                currentServerTime: getDate()
               });
             });
         });
     })
     .catch(err => {
-      console.log(err);
       res.json({
-        Error:
-          "Wystąpił błąd podczas pobierania danych o artykule z bazy. Sprawdź konsole."
+        Error: err
       });
     });
 };

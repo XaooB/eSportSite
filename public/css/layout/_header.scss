@@ -15,11 +15,22 @@
 }
 
 .social {
+  &--login {
+    font-size: 0.75em;
+    position: relative;
+    right: 4px;
+    top: -2px;
+  }
   &__list {
+    display: flex;
+    align-items: center;
     list-style-type: none;
   }
   &__item {
-    display: inline-block;
+    display: block;
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
   }
   &__link {
     font-size: 2.2em;

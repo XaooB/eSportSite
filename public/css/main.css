@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-size: 16px;
   font-family: "UbuntuR";
@@ -9,8 +10,9 @@ body {
 
 main {
   background: #fff;
-  margin: 30px 0;
-  overflow: hidden; }
+  margin: 30px 0; }
+  main.collapse {
+    overflow: hidden; }
 
 .link {
   text-decoration: none;
@@ -54,37 +56,34 @@ main {
     font-size: 1.15em;
     line-height: 1.2; }
 
-.column {
+.column--left {
   -ms-flex-item-align: start;
-      align-self: flex-start; }
-  .column--left {
-    -ms-flex-item-align: start;
-        align-self: flex-start;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 550px;
-            flex: 1 1 550px; }
-  .column--right {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-bottom: 30px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: column nowrap;
-            flex-flow: column nowrap;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 250px;
-            flex: 1 1 250px; }
+      align-self: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 550px;
+          flex: 1 1 550px; }
+.column--right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 250px;
+          flex: 1 1 250px; }
 
 .button {
   padding: 8px;
@@ -100,10 +99,34 @@ main {
     .button--primary:hover {
       background: #0274a9; }
 
+.form__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+.form .input {
+  outline: none;
+  border: 1px solid #d3d7e1;
+  width: 100%;
+  height: 33px;
+  padding: 0 10px;
+  -webkit-transition: 0.35s border;
+  transition: 0.35s border; }
+  .form .input:focus {
+    border: 1px solid #0396db; }
+
 .section-header {
   font-family: "UbuntuL";
   font-size: 1.2em;
   font-weight: lighter; }
+
+.search {
+  margin: 20px 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 15px; }
+  .search__button {
+    width: 33px;
+    height: 33px; }
 
 #header {
   background: #fff;
@@ -187,7 +210,7 @@ main {
     text-transform: uppercase;
     -webkit-transition: 0.25s all;
     transition: 0.25s all;
-    font-family: "UbuntuB"; }
+    font-family: "UbuntuL"; }
     .navigation__link:hover {
       background: #0396db;
       color: #fff; }
@@ -220,6 +243,8 @@ main {
     position: relative;
     cursor: pointer;
     max-height: 300px; }
+    .articles .main:hover .articles__header--main {
+      background: #0396db; }
     .articles .main__image-wrapper {
       max-height: inherit;
       display: -webkit-box;
@@ -266,9 +291,11 @@ main {
   .articles__header {
     width: 100%;
     position: absolute;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.35);
     left: 0;
     bottom: 0;
+    -webkit-transition: 0.35s all;
+    transition: 0.35s all;
     color: #fff; }
     .articles__header--main {
       padding: 25px; }
@@ -285,6 +312,8 @@ main {
       top: 50%;
       -webkit-transform: translate(-50%, -50%);
               transform: translate(-50%, -50%); }
+      .articles__header--aside:hover {
+        background: #0396db; }
   .articles__footer {
     margin-top: 3px;
     font-size: 0.8em; }
@@ -320,6 +349,7 @@ main {
   .latest--margin {
     margin: 0 30px; }
   .latest__article {
+    overflow: hidden;
     -ms-flex-item-align: start;
         align-self: flex-start;
     margin: 5px 15px;
@@ -329,6 +359,8 @@ main {
     @media (min-width: 530px) {
       .latest__article {
         margin: 15px; } }
+    .latest__article:hover .meta {
+      bottom: 0; }
   .latest__container {
     margin: 15px 0; }
   .latest__link {
@@ -359,10 +391,12 @@ main {
     width: 100%;
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -34px;
     padding: 10px;
     background: rgba(0, 0, 0, 0.35);
-    color: #fff; }
+    color: #fff;
+    -webkit-transition: 0.35s all;
+    transition: 0.35s all; }
     .latest .meta__header {
       font-family: "UbuntuL";
       color: inherit; }
@@ -394,16 +428,26 @@ main {
   font-size: 0.75em; }
 
 .location {
+  list-style-type: none;
   font-size: 0.8em;
   text-decoration: none;
   color: #d3d7e1; }
+  .location__item {
+    display: inline-block;
+    position: relative;
+    padding: 0 4px; }
+    .location__item:not(:last-child):after {
+      content: "•";
+      position: absolute;
+      right: -3px;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%); }
   .location__link {
     color: inherit;
     text-decoration: none; }
     .location__link:hover {
       color: #96a0b8; }
-  .location .bull {
-    padding: 0 4px; }
 
 .single {
   display: -webkit-box;
@@ -418,7 +462,7 @@ main {
           flex-flow: row wrap;
   margin: 15px; }
   .single__wrapper {
-    margin: 15px; }
+    margin: 30px 15px 30px 15px; }
   .single__aside {
     position: -webkit-sticky;
     position: sticky;
@@ -445,9 +489,7 @@ main {
   .single__author {
     display: block;
     margin-top: 4px;
-    font-size: 0.8em; }
-  .single__main {
-    margin-bottom: 25px; }
+    font-size: 0.75em; }
   .single__image {
     display: block;
     width: 100%;
@@ -468,9 +510,9 @@ main {
     margin-top: 25px;
     white-space: pre-wrap; }
   .single .comments {
-    margin-top: 25px; }
+    margin-top: 35px; }
     .single .comments__wrapper {
-      margin: 10px 0; }
+      margin-top: 15px; }
     .single .comments__item:not(:last-child) {
       margin-bottom: 25px; }
     .single .comments__header {
@@ -520,7 +562,7 @@ main {
     font-size: 1.5em; }
   .error__info {
     display: block;
-    margin-bottom: 15px; }
+    margin-bottom: 25px; }
 
 /* HEADER/NAV */
 @media (min-width: 600px) {

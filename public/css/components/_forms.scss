@@ -1,0 +1,16 @@
+.form {
+  &__inner {
+    display: flex;
+  }
+  .input {
+    outline: none;
+    border: 1px solid $gray;
+    width: 100%;
+    height: 33px;
+    padding: 0 10px;
+    transition: 0.35s border;
+    &:focus {
+      border: 1px solid $secondaryColor;
+    }
+  }
+}

@@ -23,11 +23,15 @@
     margin: 0 $primaryPadding;
   }
   &__article {
+    overflow: hidden;
     align-self: flex-start;
     margin: 5px 15px;
     flex: 1 1 255px;
     @media (min-width: 530px) {
       margin: 15px;
+    }
+    &:hover .meta {
+      bottom: 0;
     }
   }
   &__container {
@@ -64,10 +68,11 @@
     width: 100%;
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -34px;
     padding: 10px;
     background: rgba(0, 0, 0, 0.35);
     color: $primaryHeaderColor;
+    transition: 0.35s all;
     &__header {
       font-family: "UbuntuL";
       color: inherit;

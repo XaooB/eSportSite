@@ -1,9 +1,7 @@
-(11/06/2019)  -  Started redesinging the app (UI and logic).
+(11/06/2019) - Started re-desinging the app (UI and logic).
 
-# Esport Site 
+# Esport Site
 
-Used technologies
-------
-- HTML5, CSS3, JS
-- NODE.JS (EXPRESS.JS)
+## Used technologies
 
+- HTML5, CSS3, JS, NODE.JS, MONGOOSE, CLOUDINARY API (soon)

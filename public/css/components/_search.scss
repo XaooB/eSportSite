@@ -1,0 +1,9 @@
+.search {
+  margin: 20px 0;
+  position: sticky;
+  top: 15px;
+  &__button {
+    width: 33px;
+    height: 33px;
+  }
+}

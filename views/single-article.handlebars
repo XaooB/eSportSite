@@ -1,15 +1,19 @@
 <main>
     <section class="single">
         <div class="column column--left single__wrapper">
-            <div class="location">
-                <a href="/" class='location__link'>Home</a>
-                <span class="bull">•</span>
-                <a href="/news" class='location__link'>News</a>
-                <span class="bull">•</span>
-                <a href="/news/{{mainNews.category}}" class='location__link'>{{mainNews.category}}</a>
-                <span class="bull">•</span>{{mainNews.title}}
-            </div>
-            <article class="single__main">
+            <ul class="location">
+                <li class='location__item'>
+                    <a href="/" class='location__link'>Home</a>
+                </li>
+                <li class='location__item'>
+                    <a href="/news" class='location__link'>News</a>
+                </li>
+                <li class='location__item'>
+                    <a href="/news/{{mainNews.category}}" class='location__link'>{{mainNews.category}}</a>
+                </li>
+                <li class='location__item'> {{mainNews.title}}</li>
+            </ul>
+            <article>
                 <header class='single__header'>
                     <h1 class='header header--single'>{{mainNews.title}}</h1>
                     <span class="single__author">{{mainNews.author}}, {{mainNews.date}}</span>
@@ -44,7 +48,7 @@
                 </section>
             </article>
         </div>
-        <div class=" column column--right single__wrapper">
+        <div class="column column--right single__wrapper">
             <section>
                 <h1 class="section-header">Najwowsze artykuły</h1>
                 <div class="single__aside-wrapper">
@@ -54,6 +58,14 @@
                     </a>
                     {{/each}}
                 </div>
+            </section>
+            <section class="search">
+                <form action="GET" class="form">
+                    <div class="form__inner">
+                        <input type="search" class="input" placeholder="Szukaj..">
+                        <button type='submit' class="button button--primary search__button">🔍</button>
+                    </div>
+                </form>
             </section>
         </div>
     </section>

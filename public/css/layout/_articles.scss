@@ -18,6 +18,9 @@
     position: relative;
     cursor: pointer;
     max-height: 300px;
+    &:hover .articles__header--main {
+      background: $secondaryColor;
+    }
     &__image-wrapper {
       max-height: inherit;
       display: flex;
@@ -58,9 +61,10 @@
   &__header {
     width: 100%;
     position: absolute;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.35);
     left: 0;
     bottom: 0;
+    transition: 0.35s all;
     color: $primaryHeaderColor;
     &--main {
       padding: 25px;
@@ -73,6 +77,9 @@
       height: 100%;
       top: 50%;
       transform: translate(-50%, -50%);
+      &:hover {
+        background: $secondaryColor;
+      }
     }
   }
   &__footer {

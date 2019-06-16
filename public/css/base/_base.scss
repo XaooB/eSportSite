@@ -12,8 +12,10 @@ body {
 main {
   background: #fff;
   margin: $primaryPadding 0;
-  //to avoid margin collapsing
-  overflow: hidden;
+  &.collapse {
+    // to avoid margin collapsing
+    overflow: hidden;
+  }
 }
 
 .link {

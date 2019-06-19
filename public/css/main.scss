@@ -1,8 +1,7 @@
 @import "utilities/mixins", "utilities/variables";
 @import "base/base", "base/fonts", "base/reset", "base/typography", "base/grid";
-@import "components/buttons", "components/forms", "components/section-header",
-  "components/search";
+@import "components/buttons", "components/forms", "components/section-header";
 @import "layout/header", "layout/articles", "layout/latest", "layout/footer",
   "layout/single-article", "layout/login", "layout/register",
-  "layout/error-page";
+  "layout/error-page", "layout/contact", "layout/search";
 @import "utilities/media";

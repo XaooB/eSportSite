@@ -1,4 +1,11 @@
+.flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
 .column {
+  flex: 1 1 320px;
   &--left {
     align-self: flex-start;
     display: flex;

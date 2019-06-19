@@ -17,6 +17,11 @@
                 <header class='single__header'>
                     <h1 class='header header--single'>{{mainNews.title}}</h1>
                     <span class="single__author">{{mainNews.author}}, {{mainNews.date}}</span>
+                    {{!-- <div class="single__categories">
+                        {{#each mainNews.tags}}
+                        <a href='/?search={{short_name}}' class="category">{{name}}</a>
+                        {{/each}}
+                    </div> --}}
                 </header>
                 <figure class='single__image-wrapper'>
                     <img src="{{mainNews.img}}" alt="{{mainNews.title}}" class="single__image">
@@ -59,10 +64,10 @@
                     {{/each}}
                 </div>
             </section>
-            <section class="search">
-                <form action="GET" class="form">
+            <section class="search search--single">
+                <form action="/search" class="form" method="POST">
                     <div class="form__inner">
-                        <input type="search" class="input" placeholder="Szukaj..">
+                        <input type="search" name='key' class="input" placeholder="Szukaj..">
                         <button type='submit' class="button button--primary search__button">🔍</button>
                     </div>
                 </form>

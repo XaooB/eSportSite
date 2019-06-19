@@ -61,6 +61,21 @@
   &__header {
     margin: 15px 0 25px 0;
   }
+  &__categories {
+    margin: 10px 0;
+    .category {
+      display: inline-block;
+      text-decoration: none;
+      padding: 4px 6px;
+      font-family: "UbuntuL";
+      font-size: 0.8em;
+      color: #fff;
+      background: $secondaryColor;
+      &:hover {
+        background: darken($secondaryColor, 5%);
+      }
+    }
+  }
   &__author {
     display: block;
     margin-top: 4px;

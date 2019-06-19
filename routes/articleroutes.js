@@ -12,6 +12,20 @@ exports.articles = (req, res) => {
   });
 };
 
+exports.searchGet = (req, res) => {
+  res.render("search", {
+    title: "Wyszukiwarka",
+    currentServerTime: getDate()
+  });
+};
+
+exports.searchPost = (req, res) => {
+  const key = req.body.key;
+  res.render("search", {
+    results: key
+  });
+};
+
 //STARE
 
 exports.article = (req, res) => {
@@ -40,9 +54,7 @@ exports.article = (req, res) => {
         });
     })
     .catch(err => {
-      res.json({
-        Error: err
-      });
+      res.send("Artykuł o takiej nazwie nie istnieje!");
     });
 };
 

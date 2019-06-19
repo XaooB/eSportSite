@@ -1,16 +1,13 @@
 .articles {
-  display: flex;
-  justify-content: space-between;
-  flex-flow: row wrap;
+  @extend .flex-wrapper;
   margin: 15px;
   .column {
     &--main {
       width: 100%;
     }
     &--aside {
+      @extend .flex-wrapper;
       margin-top: 10px;
-      display: flex;
-      flex-flow: row wrap;
     }
   }
   .main {
@@ -22,9 +19,8 @@
       background: $secondaryColor;
     }
     &__image-wrapper {
+      @extend .flex-wrapper;
       max-height: inherit;
-      display: flex;
-      justify-content: space-between;
       align-items: center;
     }
     &__image {
@@ -38,7 +34,7 @@
     overflow: hidden;
     flex: 1 1 200px;
     &:not(:last-child) {
-      margin-bottom: 10px;
+      margin-bottom: 2px;
     }
     &__image-wrapper {
       max-height: inherit;

@@ -14,7 +14,8 @@ const express = require("express"),
   homeRouter = require("../routes/homeroutes"),
   registerRouter = require("../routes/registerroutes"),
   userRouter = require("../routes/userroutes"),
-  adminRouter = require("../routes/adminroutes");
+  adminRouter = require("../routes/adminroutes"),
+  Handlebars = require("handlebars");
 
 app.engine(
   "handlebars",
@@ -56,6 +57,7 @@ function requireLogin(req, res, next) {
     next();
   }
 }
+
 function requireAdmin(req, res, next) {
   if (!req.user) {
     res.json({
@@ -71,6 +73,7 @@ function requireAdmin(req, res, next) {
     }
   }
 }
+
 function requireMod(req, res, next) {
   if (!req.user) {
     req.session.canBan = false;
@@ -84,6 +87,7 @@ function requireMod(req, res, next) {
     }
   }
 }
+
 function requireRedaktor(req, res, next) {
   if (!req.user) {
     res.json({
@@ -121,6 +125,11 @@ app.use((req, res, next) => {
   }
 });
 
+//HELPERS
+Handlebars.registerHelper("spacesToDashes", input => {
+  return input.replace(/\s+/g, "-").toLowerCase();
+});
+
 //HOME ROUTER
 router.get("/", homeRouter.articles);
 
@@ -141,6 +150,8 @@ router.get("/lost-password", userRouter.lostPassword);
 router.get("/login", userRouter.loginGet);
 router.post("/login", userRouter.loginPost);
 router.get("/logout", userRouter.logout);
+router.get("/search", articleRouter.searchGet);
+router.post("/search", articleRouter.searchPost);
 
 //HOME ROUTERS
 app.get("/gallery", homeRouter.navGallery);

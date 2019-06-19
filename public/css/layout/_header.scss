@@ -2,12 +2,10 @@
   background: #fff;
   border-bottom: 1px solid $gray;
   .topbar {
+    @extend .flex-wrapper;
     padding: 0 15px;
     border-bottom: 1px solid $gray;
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-flow: row wrap;
   }
   .greeting {
     font-size: 0.75em;
@@ -71,19 +69,47 @@
   flex-flow: row wrap;
   justify-content: space-between;
   .hamburger {
+    cursor: pointer;
     font-size: 1.5em;
     font-family: "UbuntuB";
     line-height: 64px;
   }
+  #toggle-nav {
+    display: none;
+    &:checked ~ .navigation__mobile {
+      display: block;
+    }
+  }
   .logo {
-    line-height: 64px;
+    &__link {
+      display: block;
+    }
+    &__svg {
+      position: relative;
+      top: 5px;
+      height: 61px;
+    }
   }
 }
 
 .navigation {
-  display: none;
+  text-align: right;
   &__list {
+    display: none;
     list-style-type: none;
+  }
+  &__mobile {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: #fff;
+    text-align: center;
+    transition: all 0.35s;
+    display: none;
+    .navigation__item {
+      display: block;
+    }
   }
   &__item {
     display: inline-block;

@@ -1,0 +1,21 @@
+<main>
+    <div class="search">
+        <section>
+            <h1 class="section-header">Wyszukiwarka</h1>
+            <form action="/search" class="form search__form" method="POST">
+                <div class="form__inner">
+                    <input type="search" class="input" name='key' placeholder="np. Faker">
+                    <button class="button button--primary search__button">🔍</button>
+                </div>
+            </form>
+        </section>
+        {{#if results}}
+        <section class="search__results">
+            <h1 class="section-header">Wyniki</h1>
+            <div class="search__results">
+                Tutaj pojawią się wyniki dla frazy: {{results}}.
+            </div>
+        </section>
+        {{/if}}
+    </div>
+</main>

@@ -1,9 +1,46 @@
 <main>
-    <div class="container">
-        <div class="_wrapper clearfix">
-            <section class="occ f-l">
-                <h1>Kontakt</h1>
+    <section class="contact">
+        <div class="column">
+            <section class="contact__wrapper">
+                <h1 class="section-header">Napisz do nas</h1>
+                <form action="/contact" method="POST" class="form contact__form">
+                    <div>
+                        <label for="username" class="label">Nazwa</label>
+                        <input type="text" name='username' class="input" required>
+                    </div>
+                    <div>
+                        <label for="mail" class="label">Email</label>
+                        <input type="mail" name='mail' class="input" required>
+                    </div>
+                    <div>
+                        <label for="body" class="label">Wiadomość</label>
+                        <textarea name="body" class='textarea contact__textarea'></textarea>
+                    </div>
+                    <div class='form__footer'>
+                        <p><span class='required'>*</span> - pole jest wymagane</p>
+                    </div>
+                    <button class="button button--primary form__button" type='submit'>wyślij wiadomość</button>
+                </form>
             </section>
         </div>
-    </div>
+        <div class="column">
+            <section class="contact__wrapper">
+                <h1 class="section-header">O projekcie</h1>
+                <div class="about">
+                    <p>Projekt powstał w celach poznania technologii serwerowych (Node.js/Express.js) oraz nierelacyjnej
+                        bazy danych mongoDB (mongoose).</p>
+                    <p>Posiada podstawową
+                        implementację metod GET, POST, PUT oraz DELETE dla poszczególnych zasobów.</p>
+                    <p>Implementacja znajduje się na <a href="https://github.com/XaooB/eSportSite" target='_blank'
+                            class="link" title='Github - EsportSite'>stronie
+                            projektu</a>.</p>
+                </div>
+                {{!-- Korizon is run by a group of professionals and creators 
+                passionate about esports, and bridging the Korean esports with the 
+                global audience. We each play a critical role to deliver breaking news 
+                about Korean esports, analysis of the latest games and exclusive 
+                interviews with Korean professional gamers, community leaders and influencers. --}}
+            </section>
+        </div>
+    </section>
 </main>

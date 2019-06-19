@@ -13,8 +13,11 @@
     .hamburger {
       display: none;
     }
-    .navigation {
+    .navigation__list {
       display: block;
+    }
+    .navigation__mobile {
+      display: none;
     }
   }
 }
@@ -57,9 +60,6 @@
 
 .latest {
   @include for-phone-wide {
-    &__article {
-      margin: 5px 15px;
-    }
     &--mini {
       margin: 0 15px;
     }
@@ -69,6 +69,9 @@
 .aside {
   @include for-tablet-horizontal {
     margin-left: 10px;
+    &:not(:last-child) {
+      margin-bottom: 10px !important;
+    }
   }
 }
 

@@ -10,8 +10,7 @@
     font-family: "UbuntuL";
   }
   &__wrapper {
-    display: flex;
-    justify-content: center;
+    @extend .flex-wrapper;
     align-items: center;
     overflow: hidden;
     max-height: 150px;
@@ -25,9 +24,9 @@
   &__article {
     overflow: hidden;
     align-self: flex-start;
-    margin: 5px 0;
+    margin: 1px 0;
     flex: 1 1 255px;
-    @media (min-width: 530px) {
+    @media (min-width: 540px) {
       margin: 15px;
     }
     &:hover .meta {
@@ -86,7 +85,8 @@
       display: inline-block;
       background: $secondaryColor;
       color: #fff;
-      font-family: "UbuntuB";
+      font-size: 0.9em;
+      font-family: "UbuntuL";
       letter-spacing: 0.5px;
     }
     &__author {

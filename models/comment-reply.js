@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
-const commentReplies = require("./comment-reply");
 mongoose.Promise = global.Promise;
 
-const commentSchema = new Schema({
+const commentReplySchema = new Schema({
   username: String,
   body: String,
   title: String,
@@ -14,5 +13,5 @@ const commentSchema = new Schema({
   }
 });
 
-const Comment = mongoose.model("Comment", commentSchema);
-module.exports = { Comment };
+const commentReply = mongoose.model("CommentReply", commentReplySchema);
+module.exports = commentReply;

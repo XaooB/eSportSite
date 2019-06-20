@@ -2,7 +2,8 @@ const { Article } = require("../models/article"),
   { User } = require("../models/user"),
   { Comment } = require("../models/comment"),
   ObjectID = require("mongoose").Types.ObjectId,
-  getDate = require("../helpers/getDate");
+  getDate = require("../helpers/getDate"),
+  request = require("request-promise");
 
 //NOWE
 
@@ -63,26 +64,54 @@ exports.all = (req, res) => {
 };
 
 exports.addComment = (req, res) => {
-  let addedAt = new Date();
-  let newComment = Comment({
-    username: req.body.username,
-    body: req.body.body,
-    title: req.params.title,
-    date: addedAt
-  })
-    .save()
-    .then(result => {
-      res.redirect(
-        `/news/${result.category}/${result.title}#${ObjectID(`${result._id}`)}`
-      ); //to news page
-    })
-    .catch(err => {
-      console.log(err.message);
-      res.json({
-        Error:
-          "Wystąpił błąd podczas próby dodania komentarza. Sprawdź konsole."
-      });
+  let response = req.body["g-recaptcha-response"];
+  if (
+    response.length === 0 ||
+    response === null ||
+    response === undefined ||
+    response === ""
+  ) {
+    res.send({
+      error: "Błąd podczas walidacji. Spróbuj ponownie!"
     });
+    return false;
+  }
+
+  let secretKey = "6Le9ai0UAAAAAFHPB7SrAhUW2TpwRKsfO7BbPYi_";
+  let verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${response}`;
+
+  request(verificationUrl).then(data => {
+    data = JSON.parse(data);
+
+    if (data.success !== undefined && !data.success) {
+      res.send({
+        error: "Błąd podczas walidacji. Spróbuj ponownie!"
+      });
+    }
+
+    let addedAt = new Date();
+    let newComment = Comment({
+      username: req.body.username,
+      body: req.body.body,
+      title: req.params.title,
+      date: addedAt
+    })
+      .save()
+      .then(result => {
+        res.redirect(
+          `/news/${result.category}/${result.title}#${ObjectID(
+            `${result._id}`
+          )}`
+        ); //to news page
+      })
+      .catch(err => {
+        console.log(err.message);
+        res.json({
+          Error:
+            "Wystąpił błąd podczas próby dodania komentarza. Sprawdź konsole."
+        });
+      });
+  });
 };
 
 exports.addNew = (req, res) => {

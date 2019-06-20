@@ -44,6 +44,9 @@
                                 <p><span class='required'>*</span> - pole jest wymagane</p>
                             </div>
                             <div class="g-recaptcha" data-sitekey="6Le9ai0UAAAAAKhR2RO2hbeOS7ksRb15RIxaFeEo"></div>
+                            {{#if error}}
+                            <p>{{error}}</p>
+                            {{/if}}
                             <button class="button button--primary" type="submit">Dodaj komentarz</button>
                         </form>
                     </section>

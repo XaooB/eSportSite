@@ -8,21 +8,18 @@ const { Article } = require("../models/article"),
 
 exports.articles = (req, res) => {
   res.render("articles", {
-    title: "lista artykułów"
-  });
-};
-
-exports.searchGet = (req, res) => {
-  res.render("search", {
-    title: "Wyszukiwarka",
+    title: "lista artykułów",
     currentServerTime: getDate()
   });
 };
 
-exports.searchPost = (req, res) => {
-  const key = req.body.key;
+exports.searchGet = (req, res) => {
+  const key = req.query.q;
+
   res.render("search", {
-    results: key
+    title: "Wyszukiwarka",
+    results: key,
+    currentServerTime: getDate()
   });
 };
 
@@ -44,6 +41,7 @@ exports.article = (req, res) => {
             .sort("-date")
             .then(comments => {
               res.render("single-article", {
+                session: req.session.user,
                 title: mainArticle.title,
                 mainNews: mainArticle,
                 lastestNews: newestArticles,
@@ -65,11 +63,12 @@ exports.all = (req, res) => {
 };
 
 exports.addComment = (req, res) => {
+  let addedAt = new Date();
   let newComment = Comment({
-    username: req.session.user.username,
-    body: req.body.tresc,
+    username: req.body.username,
+    body: req.body.body,
     title: req.params.title,
-    category: req.params.category
+    date: addedAt
   })
     .save()
     .then(result => {

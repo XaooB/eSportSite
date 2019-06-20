@@ -54,9 +54,5 @@ exports.registerPost = (req, res) => {
 };
 
 exports.registerGet = (req, res) => {
-  if (req.user) {
-    res.redirect("/");
-  } else {
-    res.render("register", { title: "Rejestracja" });
-  }
+  res.render("unauthenticated");
 };

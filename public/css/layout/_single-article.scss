@@ -47,7 +47,7 @@
   }
   &__link {
     display: block;
-    font-size: 0.9em;
+    font-size: 0.95em;
     color: black;
     padding: 15px 0;
     text-decoration: none;
@@ -102,9 +102,9 @@
 
   //comments section
   .comments {
-    margin-top: 35px;
+    margin-top: $primaryPadding;
     &__wrapper {
-      margin-top: 15px;
+      margin-top: $primaryPadding;
     }
     &__item:not(:last-child) {
       margin-bottom: 25px;
@@ -112,16 +112,16 @@
     &__header {
       font-size: 0.9em;
       color: darken($gray, 10%);
-      font-family: "UbuntuL";
+      font-family: "UbuntuB";
     }
     &__author {
       margin-bottom: 4px;
       display: inline-block;
       font-size: inherit;
-      font-weight: lighter;
     }
     &__body {
       text-align: justify;
+      white-space: pre-wrap;
     }
     &__footer {
       margin-top: 5px;
@@ -131,6 +131,16 @@
     &__information {
       font-family: "UbuntuL";
       font-size: 0.9em;
+    }
+    &__add {
+      margin-top: 20px;
+      //container for comment items
+      + div {
+        margin-top: $primaryPadding;
+      }
+    }
+    .g-recaptcha {
+      margin-bottom: 15px;
     }
   }
 }

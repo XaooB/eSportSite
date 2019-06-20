@@ -47,19 +47,8 @@ exports.articles = (req, res) => {
     });
 };
 
-exports.navGallery = (req, res) => {
-  console.log(req.session);
-  res.render("gallery", {
-    title: "Galeria zdjęć"
-  });
-};
-exports.navArchives = (req, res) => {
-  res.render("archives", {
-    title: "Archiwum wiadomości"
-  });
-};
-exports.navContact = (req, res) => {
+exports.contact = (req, res) => {
   res.render("contact", {
-    title: "Skontaktuj się z nami"
+    currentServerTime: getDate()
   });
 };

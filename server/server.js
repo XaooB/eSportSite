@@ -15,7 +15,8 @@ const express = require("express"),
   registerRouter = require("../routes/registerroutes"),
   userRouter = require("../routes/userroutes"),
   adminRouter = require("../routes/adminroutes"),
-  Handlebars = require("handlebars");
+  Handlebars = require("handlebars"),
+  getDate = require("../helpers/getDate");
 
 app.engine(
   "handlebars",
@@ -59,18 +60,11 @@ function requireLogin(req, res, next) {
 }
 
 function requireAdmin(req, res, next) {
-  if (!req.user) {
-    res.json({
-      Error: "Musisz się zalogować, aby mieć dostęp."
+  if (!req.user && req.user.rank !== "admin") {
+    res.render("unauthenticated", {
+      message:
+        "Tylko administrator może wyświetlić zawartość tej strony. Aby uzyskać dostęp zaloguj się lub skontaktuj się z administratorem serwisu."
     });
-  } else {
-    if (req.user.rank !== "admin") {
-      res.json({
-        Error: "Nie masz wymaganych uprawnień!"
-      });
-    } else {
-      next();
-    }
   }
 }
 
@@ -130,6 +124,10 @@ Handlebars.registerHelper("spacesToDashes", input => {
   return input.replace(/\s+/g, "-").toLowerCase();
 });
 
+Handlebars.registerHelper("dateConverter", date => {
+  return date.toLocaleString();
+});
+
 //HOME ROUTER
 router.get("/", homeRouter.articles);
 
@@ -145,18 +143,13 @@ router.get("/articles", articleRouter.articles);
 
 //USER ROUTERS
 router.get("/register", registerRouter.registerGet);
-router.post("/register", registerRouter.registerPost);
-router.get("/lost-password", userRouter.lostPassword);
 router.get("/login", userRouter.loginGet);
 router.post("/login", userRouter.loginPost);
 router.get("/logout", userRouter.logout);
 router.get("/search", articleRouter.searchGet);
-router.post("/search", articleRouter.searchPost);
 
 //HOME ROUTERS
-app.get("/gallery", homeRouter.navGallery);
-app.get("/contact", homeRouter.navContact);
-app.get("/news/archives", homeRouter.navArchives);
+app.get("/contact", homeRouter.contact);
 
 //ADMIN ROUTERS
 router.get("/admin/dashboard", requireAdmin, userRouter.dashboard);
@@ -194,7 +187,9 @@ app.use("/", router);
 
 //ERROR HANDLING
 app.use((req, res) => {
-  res.render("404");
+  res.render("404", {
+    currentServerTime: getDate()
+  });
 });
 
 //SERVER

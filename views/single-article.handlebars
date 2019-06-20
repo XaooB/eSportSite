@@ -27,30 +27,45 @@
                     <img src="{{mainNews.img}}" alt="{{mainNews.title}}" class="single__image">
                 </figure>
                 <p class="single__body">{{mainNews.body}}</p>
-                <section class="comments">
-                    <h1 class="section-header">Komentarze</h1>
-                    <div class="comments__wrapper">
-                        {{#if comments}}
-                        {{#each comments}}
-                        <article class="comments__item" id="{{_id}}">
-                            <header class="comments__header">
-                                <h2 class="comments__author">{{username}}, </h2>
-                                <time datetime="{{date}}" class="comments__date">{{date}}</time>
-                            </header>
-                            <p class="comments__body">{{body}}</p>
-                            <footer class='comments__footer'>
-                                <a class='link' href="/login">Zaloguj się, aby móc napisać komentarz</a>
-                            </footer>
-                        </article>
-                        {{/each}}
-                        {{else}}
-                        <p class="comments__information">Brak komentarzy. <a href='/login' class='link'>Zaloguj się</a>
-                            i
-                            bądź
-                            pierwszy!</a></p>
-                        {{/if}}
-                    </div>
-                </section>
+                <div class="comments">
+                    <section class="comments__add">
+                        <h1 class="section-header">Napisz komentarz</h1>
+                        <form action="/news/{{mainNews.category}}/{{mainNews.title}}" class="form comments__wrapper"
+                            method="POST">
+                            <div>
+                                <label for="username" class="label">imię</label>
+                                <input type="text" name="username" class="input" required>
+                            </div>
+                            <div>
+                                <label for="body" class="label">Wiadomość</label>
+                                <textarea name="body" class='textarea textarea--box' required></textarea>
+                            </div>
+                            <div class='form__footer'>
+                                <p><span class='required'>*</span> - pole jest wymagane</p>
+                            </div>
+                            <div class="g-recaptcha" data-sitekey="6Le9ai0UAAAAAKhR2RO2hbeOS7ksRb15RIxaFeEo"></div>
+                            <button class="button button--primary" type="submit">Dodaj komentarz</button>
+                        </form>
+                    </section>
+                    <section class='comments__wrapper'>
+                        <h1 class="section-header">Komentarze</h1>
+                        <div class="comments">
+                            {{#if comments}}
+                            {{#each comments}}
+                            <article class="comments__item" id="{{_id}}">
+                                <header class="comments__header">
+                                    <h2 class="comments__author">{{username}}, </h2>
+                                    <time datetime="{{date}}" class="comments__date">{{dateConverter date}}</time>
+                                </header>
+                                <p class="comments__body">{{body}}</p>
+                            </article>
+                            {{/each}}
+                            {{else}}
+                            <p class="comments__information">Brak komentarzy.</p>
+                            {{/if}}
+                        </div>
+                    </section>
+                </div>
             </article>
         </div>
         <div class="column column--right single__wrapper">
@@ -65,9 +80,9 @@
                 </div>
             </section>
             <section class="search search--single">
-                <form action="/search" class="form" method="POST">
+                <form action="/search" class="form" method="GET">
                     <div class="form__inner">
-                        <input type="search" name='key' class="input" placeholder="Szukaj..">
+                        <input type="search" name='q' class="input" placeholder="Szukaj..">
                         <button type='submit' class="button button--primary search__button">🔍</button>
                     </div>
                 </form>

@@ -1,6 +1,6 @@
 body {
   font-size: 16px; //1em
-  font-family: "UbuntuR";
+  font-family: "UbuntuL";
   background: $gray;
 }
 
@@ -25,4 +25,8 @@ main {
     text-decoration: underline;
     color: darken($secondaryColor, 10%);
   }
+}
+
+p {
+  line-height: 1.5;
 }

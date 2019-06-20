@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body {
   font-size: 16px;
-  font-family: "UbuntuR";
+  font-family: "UbuntuL";
   background: #d3d7e1; }
 
 .container {
@@ -20,6 +20,9 @@ main {
   .link:hover {
     text-decoration: underline;
     color: #0274a9; }
+
+p {
+  line-height: 1.5; }
 
 @font-face {
   font-family: "UbuntuR";
@@ -127,12 +130,16 @@ main {
     border: 1px solid #d3d7e1;
     width: 100%;
     height: 38px;
-    padding: 0 10px;
+    padding: 10px;
     -webkit-transition: 0.35s border;
     transition: 0.35s border; }
     .form .input:focus,
     .form .textarea:focus {
       border: 1px solid #0396db; }
+  .form .textarea--box {
+    min-height: 175px;
+    max-height: 350px;
+    resize: vertical; }
   .form .label {
     position: relative;
     display: block;
@@ -368,7 +375,7 @@ main {
   .latest .articles {
     margin: 15px; }
   .latest__title {
-    font-size: 0.9em;
+    font-size: 0.95em;
     font-weight: lighter;
     font-family: "UbuntuL"; }
   .latest__wrapper {
@@ -509,7 +516,7 @@ main {
       margin-top: 10px; }
   .single__link {
     display: block;
-    font-size: 0.9em;
+    font-size: 0.95em;
     color: black;
     padding: 15px 0;
     text-decoration: none; }
@@ -555,22 +562,22 @@ main {
     margin-top: 25px;
     white-space: pre-wrap; }
   .single .comments {
-    margin-top: 35px; }
+    margin-top: 30px; }
     .single .comments__wrapper {
-      margin-top: 15px; }
+      margin-top: 30px; }
     .single .comments__item:not(:last-child) {
       margin-bottom: 25px; }
     .single .comments__header {
       font-size: 0.9em;
       color: #b5bbcc;
-      font-family: "UbuntuL"; }
+      font-family: "UbuntuB"; }
     .single .comments__author {
       margin-bottom: 4px;
       display: inline-block;
-      font-size: inherit;
-      font-weight: lighter; }
+      font-size: inherit; }
     .single .comments__body {
-      text-align: justify; }
+      text-align: justify;
+      white-space: pre-wrap; }
     .single .comments__footer {
       margin-top: 5px;
       font-size: 0.9em;
@@ -578,6 +585,12 @@ main {
     .single .comments__information {
       font-family: "UbuntuL";
       font-size: 0.9em; }
+    .single .comments__add {
+      margin-top: 20px; }
+      .single .comments__add + div {
+        margin-top: 30px; }
+    .single .comments .g-recaptcha {
+      margin-bottom: 15px; }
 
 .login-wrapper .login,
 .login-wrapper .remind {
@@ -626,19 +639,17 @@ main {
   padding: 30px; }
 .contact__form,
 .contact .about {
-  margin-top: 30px; }
-.contact__textarea {
-  min-height: 175px;
-  max-height: 350px;
-  resize: vertical; }
-.contact .about {
+  margin-top: 30px;
   text-align: justify;
   line-height: 1.5;
   color: #96a0b8; }
+  .contact__form > p + p,
   .contact .about > p + p {
     margin-top: 12px; }
+  .contact__form__image-wrapper,
   .contact .about__image-wrapper {
     overflow: hidden; }
+  .contact__form__image,
   .contact .about__image {
     -ms-flex-item-align: center;
         align-self: center;
@@ -658,6 +669,11 @@ main {
   .search__button {
     width: 38px;
     height: 38px; }
+
+.unauthenticated {
+  padding: 30px; }
+  .unauthenticated__inner {
+    margin-top: 30px; }
 
 /* HEADER/NAV */
 @media (min-width: 420px) {

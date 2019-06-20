@@ -569,12 +569,12 @@ p {
       margin-bottom: 25px; }
     .single .comments__header {
       font-size: 0.9em;
-      color: #b5bbcc;
-      font-family: "Ubuntur"; }
+      color: #b5bbcc; }
     .single .comments__author {
       margin-bottom: 4px;
       display: inline-block;
-      font-size: inherit; }
+      font-size: inherit;
+      font-weight: lighter; }
     .single .comments__body {
       text-align: justify;
       white-space: pre-wrap; }

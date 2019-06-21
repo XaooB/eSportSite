@@ -1,3 +1,28 @@
 <main>
-    {{title}}
+    <section class="latest latest--hidden">
+        <h1 class="section-header section-header--margin">Najnowsze artykuły</h1>
+        <section class="articles">
+            {{#each articles}}
+            <article class="latest__article">
+                <a class='latest__link' href='/news/{{category}}/{{spacesToDashes title}}' title='{{title}}'>
+                    <figure class="latest__wrapper">
+                        <img src="{{img}}" alt="{{title}}" class="latest__image" />
+                    </figure>
+                    <div class="meta">
+                        <header class="meta__header">
+                            <h4 class="meta__title">{{title}}</h4>
+                        </header>
+                        <footer class="meta__footer">
+                            <span class='meta__category'>{{category}}</span>
+                            <span class='meta__author'>{{author}}</span>
+                        </footer>
+                    </div>
+                </a>
+            </article>
+            {{/each}}
+        </section>
+        <section class="pages">
+            <a href="?page=2" class="link" title='następna strona'>następna strona</a>
+        </section>
+    </section>
 </main>

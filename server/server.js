@@ -128,6 +128,10 @@ Handlebars.registerHelper("dateConverter", date => {
   return date.toLocaleString();
 });
 
+Handlebars.registerHelper("chunkOfString", string => {
+  return string.substr(0, Math.floor(Math.random() * 75) + 180);
+});
+
 //HOME ROUTER
 router.get("/", homeRouter.articles);
 
@@ -138,8 +142,7 @@ app.get("/admin", (req, res) => {
 
 router.get("/news/:category/:title", requireMod, articleRouter.article);
 router.post("/news/:category/:title", articleRouter.addComment);
-router.get("/news", articleRouter.all);
-router.get("/articles", articleRouter.articles);
+router.get("/news", articleRouter.articles);
 
 //USER ROUTERS
 router.get("/register", registerRouter.registerGet);

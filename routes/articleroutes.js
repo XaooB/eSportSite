@@ -8,27 +8,62 @@ const { Article } = require("../models/article"),
 //NOWE
 
 exports.articles = (req, res) => {
-  res.render("articles", {
-    title: "lista artykułów",
-    currentServerTime: getDate()
-  });
+  const currentPage = req.query.page;
+
+  console.log(currentPage);
+
+  Article.find({})
+    .limit(9)
+    .sort("-date")
+    .then(articles => {
+      res.render("articles", {
+        title: "Artykuły",
+        articles: articles,
+        currentServerTime: getDate()
+      });
+    });
 };
 
 exports.searchGet = (req, res) => {
   const key = req.query.q;
 
-  res.render("search", {
-    title: "Wyszukiwarka",
-    results: key,
-    currentServerTime: getDate()
-  });
+  if (key !== undefined) {
+    Article.find({
+      title: { $regex: key, $options: "i" }
+    })
+      .then(articles => {
+        if (articles.length) {
+          res.render("search", {
+            title: "Wyszukiwarka",
+            result: articles,
+            currentServerTime: getDate()
+          });
+        } else {
+          res.render("search", {
+            title: "Wyszukiwarka",
+            message: "Brak artykułów dla ponadej frazy.",
+            currentServerTime: getDate()
+          });
+        }
+      })
+      .catch(err => {
+        throw new Error(err);
+      });
+  } else {
+    res.render("search", {
+      title: "Wyszukiwarka",
+      currentServerTime: getDate()
+    });
+  }
 };
 
 //STARE
 
 exports.article = (req, res) => {
+  const title = req.params.title.replace(/-/g, " ");
+
   Article.findOne({
-    title: req.params.title
+    title: { $regex: title, $options: "i" }
   })
     .then(mainArticle => {
       return Article.find({})
@@ -72,7 +107,7 @@ exports.addComment = (req, res) => {
     response === ""
   ) {
     res.send({
-      error: "Błąd podczas walidacji. Spróbuj ponownie!"
+      error: "Musisz udowodnić, że nie jesteś BOT-em!"
     });
     return false;
   }

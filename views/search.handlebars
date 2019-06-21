@@ -9,13 +9,22 @@
                 </div>
             </form>
         </section>
-        {{#if results}}
         <section class="search__results">
             <h1 class="section-header">Wyniki</h1>
             <div class="search__results">
-                Tutaj pojawią się wyniki dla frazy: {{results}}.
+                {{#if message}}
+                <p>{{message}}</p>
+                {{else}}
+                {{#each result}}
+                <article class='search__article'>
+                    <a href="/news/{{category}}/{{spacesToDashes title}}" class="link" title='{{title}}'>{{title}}</a>
+                    <div>
+                        {{chunkOfString body}}...
+                    </div>
+                </article>
+                {{/each}}
+                {{/if}}
             </div>
         </section>
-        {{/if}}
     </div>
 </main>

@@ -60,7 +60,12 @@
                                     <h2 class="comments__author">{{username}}, </h2>
                                     <time datetime="{{date}}" class="comments__date">{{dateConverter date}}</time>
                                 </header>
+                                {{#if verified}}
                                 <p class="comments__body">{{body}}</p>
+                                {{else}}
+                                <p class="comments__body">Komentarz zostanie dodany po weryfikacji przez administratora.
+                                </p>
+                                {{/if}}
                             </article>
                             {{/each}}
                             {{else}}
@@ -76,7 +81,7 @@
                 <h1 class="section-header">Najwowsze artykuły</h1>
                 <div class="single__aside-wrapper">
                     {{#each lastestNews}}
-                    <a href="/news/{{category}}/{{title}}" class='single__link'>
+                    <a href="/news/{{category}}/{{spacesToDashes title}}" class='single__link'>
                         <article class='single__aside'>{{title}}</article>
                     </a>
                     {{/each}}

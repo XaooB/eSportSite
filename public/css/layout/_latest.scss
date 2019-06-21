@@ -4,6 +4,9 @@
   .articles {
     margin: 15px;
   }
+  &--hidden {
+    overflow: hidden;
+  }
   &__title {
     font-size: 0.95em;
     font-weight: lighter;
@@ -98,5 +101,10 @@
     font-size: 0.85em;
     align-self: center;
     margin: 0 $primaryPadding;
+  }
+  // STYLE DLA LISTY ARTYKUŁÓW - /news
+  .pages {
+    text-align: center;
+    margin-bottom: $primaryPadding;
   }
 }

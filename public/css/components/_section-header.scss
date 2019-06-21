@@ -2,4 +2,7 @@
   font-family: "UbuntuL";
   font-size: 1.2em;
   font-weight: lighter;
+  &--margin {
+    margin: $primaryPadding $primaryPadding 0 $primaryPadding;
+  }
 }

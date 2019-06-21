@@ -171,6 +171,8 @@ p {
   font-family: "UbuntuL";
   font-size: 1.2em;
   font-weight: lighter; }
+  .section-header--margin {
+    margin: 30px 30px 0 30px; }
 
 #header {
   background: #fff;
@@ -374,6 +376,8 @@ p {
   margin-top: 30px; }
   .latest .articles {
     margin: 15px; }
+  .latest--hidden {
+    overflow: hidden; }
   .latest__title {
     font-size: 0.95em;
     font-weight: lighter;
@@ -459,6 +463,9 @@ p {
     -ms-flex-item-align: center;
         align-self: center;
     margin: 0 30px; }
+  .latest .pages {
+    text-align: center;
+    margin-bottom: 30px; }
 
 .footer {
   background: #fff;
@@ -662,6 +669,12 @@ p {
     position: -webkit-sticky;
     position: sticky;
     top: 15px; }
+  .search__article:not(:last-child) {
+    margin-bottom: 15px; }
+  .search__article div {
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-top: 4px; }
   .search__results {
     margin-top: 30px; }
   .search__form {

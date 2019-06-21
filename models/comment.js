@@ -8,6 +8,10 @@ const commentSchema = new Schema({
   body: String,
   title: String,
   category: String,
+  verified: {
+    type: Boolean,
+    default: false
+  },
   date: Date
 });
 

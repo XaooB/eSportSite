@@ -574,6 +574,20 @@ p {
       margin-top: 30px; }
     .single .comments__item:not(:last-child) {
       margin-bottom: 25px; }
+    .single .comments__item--hidden {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: row nowrap;
+              flex-flow: row nowrap;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
     .single .comments__header {
       font-size: 0.9em;
       color: #b5bbcc; }
@@ -582,9 +596,20 @@ p {
       display: inline-block;
       font-size: inherit;
       font-weight: lighter; }
+      .single .comments__author--hidden {
+        min-width: 60px;
+        background: #e2e5eb; }
+    .single .comments__date {
+      display: inline-block; }
+      .single .comments__date--hidden {
+        min-width: 100px;
+        background: #e2e5eb; }
     .single .comments__body {
       text-align: justify;
       white-space: pre-wrap; }
+      .single .comments__body--hidden {
+        white-space: initial;
+        color: #b5bbcc; }
     .single .comments__footer {
       margin-top: 5px;
       font-size: 0.9em;
@@ -598,6 +623,8 @@ p {
         margin-top: 30px; }
     .single .comments .g-recaptcha {
       margin-bottom: 15px; }
+    .single .comments__warning {
+      height: 40px; }
 
 .login-wrapper .login,
 .login-wrapper .remind {

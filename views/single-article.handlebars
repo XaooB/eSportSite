@@ -55,18 +55,27 @@
                         <div class="comments">
                             {{#if comments}}
                             {{#each comments}}
+                            {{#if verified}}
                             <article class="comments__item" id="{{_id}}">
                                 <header class="comments__header">
                                     <h2 class="comments__author">{{username}}, </h2>
                                     <time datetime="{{date}}" class="comments__date">{{dateConverter date}}</time>
                                 </header>
-                                {{#if verified}}
                                 <p class="comments__body">{{body}}</p>
-                                {{else}}
-                                <p class="comments__body">Komentarz zostanie dodany po weryfikacji przez administratora.
-                                </p>
-                                {{/if}}
                             </article>
+                            {{else}}
+                            <article class="comments__item comments__item--hidden" id="{{_id}}">
+                                <div>
+                                    <header class="comments__header">
+                                        <h2 class="comments__author comments__author--hidden">&nbsp;</h2>
+                                        <time class="comments__date comments__date--hidden">&nbsp;</time>
+                                    </header>
+                                    <p class="comments__body comments__body--hidden">Komentarz będzie widoczny po
+                                        weryfikacji przez administratora.</p>
+                                </div>
+                                <div><img src="/assets/img/warning.png" alt="warning" class='comments__warning'></div>
+                            </article>
+                            {{/if}}
                             {{/each}}
                             {{else}}
                             <p class="comments__information">Brak komentarzy.</p>

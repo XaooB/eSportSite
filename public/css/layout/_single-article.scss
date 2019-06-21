@@ -106,8 +106,16 @@
     &__wrapper {
       margin-top: $primaryPadding;
     }
-    &__item:not(:last-child) {
-      margin-bottom: 25px;
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 25px;
+      }
+      &--hidden {
+        display: flex;
+        align-items: center;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+      }
     }
     &__header {
       font-size: 0.9em;
@@ -118,10 +126,25 @@
       display: inline-block;
       font-size: inherit;
       font-weight: lighter;
+      &--hidden {
+        min-width: 60px;
+        background: lighten($gray, 5%);
+      }
+    }
+    &__date {
+      display: inline-block;
+      &--hidden {
+        min-width: 100px;
+        background: lighten($gray, 5%);
+      }
     }
     &__body {
       text-align: justify;
       white-space: pre-wrap;
+      &--hidden {
+        white-space: initial;
+        color: darken($gray, 10%);
+      }
     }
     &__footer {
       margin-top: 5px;
@@ -141,6 +164,9 @@
     }
     .g-recaptcha {
       margin-bottom: 15px;
+    }
+    &__warning {
+      height: 40px;
     }
   }
 }

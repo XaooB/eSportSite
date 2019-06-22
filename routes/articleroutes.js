@@ -28,6 +28,7 @@ exports.articles = (req, res) => {
             title: "Artykuły",
             articles: articles,
             nextPage: nextPage,
+            currentPage: currentPage,
             previousPage: previousPage,
             currentServerTime: getDate()
           });

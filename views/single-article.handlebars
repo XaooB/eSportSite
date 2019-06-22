@@ -16,7 +16,7 @@
             <article>
                 <header class='single__header'>
                     <h1 class='header header--single'>{{mainNews.title}}</h1>
-                    <span class="single__author">{{mainNews.author}}, {{mainNews.date}}</span>
+                    <span class="single__author">{{mainNews.author}}, {{dateConverter mainNews.date}}</span>
                     {{!-- <div class="single__categories">
                         {{#each mainNews.tags}}
                         <a href='/?search={{short_name}}' class="category">{{name}}</a>

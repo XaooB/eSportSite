@@ -1,26 +1,23 @@
-const mongoose = require('mongoose'),
-    {getDate} = require('./../public/js/getDate');
+const mongoose = require("mongoose"),
+  { getDate } = require("./../public/js/getDate");
 mongoose.Promise = global.Promise;
 
 const articleSchema = mongoose.Schema({
-    title: String,
-    category: String,
-    author: String,
-    desc: String,
-    body: String,
-    date: {
-        type: String,
-        default: getDate()
-    },
-    img: String,
-    isMain: {
-        type: Boolean,
-        default: false
-    }
+  title: String,
+  category: String,
+  author: String,
+  desc: String,
+  body: String,
+  date: Date,
+  img: String,
+  isMain: {
+    type: Boolean,
+    default: false
+  }
 });
 
-var Article = mongoose.model('Article', articleSchema);
+var Article = mongoose.model("Article", articleSchema);
 
 module.exports = {
-    Article
+  Article
 };

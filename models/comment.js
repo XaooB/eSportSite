@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
-const commentReplies = require("./comment-reply");
 mongoose.Promise = global.Promise;
 
 const commentSchema = new Schema({

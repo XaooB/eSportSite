@@ -10,32 +10,33 @@ exports.articles = (req, res) => {
         .where("isMain")
         .ne("on")
         .sort("-date")
-        .then(latestArticles => {
-          //tmp
-          let counter = 0;
-          const asideArticles = latestArticles.filter(item => {
-            while (counter < 3) {
-              counter++;
-              return item;
-            }
-          });
-          counter = 0;
-          const bigLatest = latestArticles.filter(item => {
-            while (counter < 6) {
-              counter++;
-              return item;
-            }
-          });
-
-          res.render("home", {
-            session: req.session.user,
-            title: "Strona główna",
-            mainArticle: mainArticle,
-            moreArticles: asideArticles,
-            latestArticles: latestArticles,
-            bigLatestArticles: bigLatest,
-            currentServerTime: getDate()
-          });
+        .limit(3)
+        .then(asideArticles => {
+          return Article.find({})
+            .where("isMain")
+            .ne("on")
+            .sort("-date")
+            .skip(3)
+            .limit(6)
+            .then(bigLatest => {
+              return Article.find({})
+                .where("isMain")
+                .ne("on")
+                .sort("-date")
+                .skip(9)
+                .limit(9)
+                .then(latestArticles => {
+                  res.render("home", {
+                    session: req.session.user,
+                    title: "Strona główna",
+                    mainArticle: mainArticle,
+                    moreArticles: asideArticles,
+                    latestArticles: latestArticles,
+                    bigLatestArticles: bigLatest,
+                    currentServerTime: getDate()
+                  });
+                });
+            });
         });
     })
     .catch(err => {

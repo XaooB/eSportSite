@@ -8,19 +8,30 @@ const { Article } = require("../models/article"),
 //NOWE
 
 exports.articles = (req, res) => {
-  const currentPage = req.query.page;
-
-  console.log(currentPage);
-
   Article.find({})
-    .limit(9)
-    .sort("-date")
-    .then(articles => {
-      res.render("articles", {
-        title: "Artykuły",
-        articles: articles,
-        currentServerTime: getDate()
-      });
+    .count()
+    .then(count => {
+      const articlesPerPage = 9;
+      const maxPages = Math.ceil(count / articlesPerPage);
+      const currentPage = Number(req.query.page) || 1;
+      const nextPage = currentPage >= maxPages ? false : currentPage + 1;
+      const previousPage = currentPage > 1 ? currentPage - 1 : false;
+      const amountToSkip =
+        currentPage > 1 ? (currentPage * articlesPerPage) / 2 : 0;
+
+      return Article.find({})
+        .skip(amountToSkip)
+        .limit(articlesPerPage)
+        .sort("-date")
+        .then(articles => {
+          res.render("articles", {
+            title: "Artykuły",
+            articles: articles,
+            nextPage: nextPage,
+            previousPage: previousPage,
+            currentServerTime: getDate()
+          });
+        });
     });
 };
 
@@ -69,7 +80,8 @@ exports.article = (req, res) => {
       return Article.find({})
         .where("title")
         .ne(req.params.title)
-        .sort("-date")
+        .limit(10)
+        .sort()
         .then(newestArticles => {
           return Comment.find({
             title: mainArticle.title
@@ -124,12 +136,11 @@ exports.addComment = (req, res) => {
       });
     }
 
-    let addedAt = new Date();
     let newComment = Comment({
       username: req.body.username,
       body: req.body.body,
       title: req.params.title,
-      date: addedAt
+      date: new Date()
     })
       .save()
       .then(result => {
@@ -162,7 +173,7 @@ exports.postArticle = (req, res) => {
     author: req.user.username,
     desc: req.body.shortbody,
     body: req.body.body,
-    date: getDate(),
+    date: new Date(),
     isMain: req.body.main || false,
     img: "/assets/img/news/default.jpg"
   })

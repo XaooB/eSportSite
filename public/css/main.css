@@ -464,8 +464,13 @@ p {
         align-self: center;
     margin: 0 30px; }
   .latest .pages {
+    font-size: 0.9em;
     text-align: center;
     margin-bottom: 30px; }
+    .latest .pages__separator {
+      color: #b5bbcc;
+      padding: 0 2px;
+      font-family: "UbuntuR"; }
 
 .footer {
   background: #fff;

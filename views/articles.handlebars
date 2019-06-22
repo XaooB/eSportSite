@@ -22,7 +22,17 @@
             {{/each}}
         </section>
         <section class="pages">
-            <a href="?page=2" class="link" title='następna strona'>następna strona</a>
+            {{#if previousPage}}
+            <a href="?page={{previousPage}}" class="link" title='poprzednia strona'>poprzednia strona</a>
+            {{/if}}
+            {{#if previousPage}}
+            {{#if nextPage}}
+            <span class='pages__separator'>||</span>
+            {{/if}}
+            {{/if}}
+            {{#if nextPage}}
+            <a href="?page={{nextPage}}" class="link" title='następna strona'>następna strona</a>
+            {{/if}}
         </section>
     </section>
 </main>

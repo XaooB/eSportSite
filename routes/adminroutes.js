@@ -118,11 +118,9 @@ exports.unBanUser = (req, res) => {
       }
     )
     .then(() => {
-      console.log("User has been unbanned!");
       res.redirect("back");
     })
     .catch(err => {
-      console.log(err.message);
       res.json({
         Error:
           "Wystąpił błąd podczas próby zbanowania użytkownika. Sprawdź konsolę."
@@ -156,7 +154,6 @@ exports.newRole = (req, res) => {
             rank: role
           })
           .then(result => {
-            console.log(result);
             console.log("Mod role has been granted.");
             res.redirect("back");
           })

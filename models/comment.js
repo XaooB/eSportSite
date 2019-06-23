@@ -7,11 +7,15 @@ const commentSchema = new Schema({
   body: String,
   title: String,
   category: String,
+  date: Date,
+  article: {
+    type: Schema.Types.ObjectId,
+    ref: "Article"
+  },
   verified: {
     type: Boolean,
     default: false
-  },
-  date: Date
+  }
 });
 
 const Comment = mongoose.model("Comment", commentSchema);

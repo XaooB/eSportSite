@@ -50,6 +50,7 @@ exports.articles = (req, res) => {
 
 exports.contact = (req, res) => {
   res.render("contact", {
+    title: "Kontakt",
     currentServerTime: getDate()
   });
 };

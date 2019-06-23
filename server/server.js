@@ -155,11 +155,11 @@ router.get("/search", articleRouter.searchGet);
 app.get("/contact", homeRouter.contact);
 
 //ADMIN ROUTERS
-router.get("/admin/dashboard", requireAdmin, userRouter.dashboard);
-router.get("/admin/articles", requireAdmin, userRouter.articles);
-router.get("/admin/users", requireAdmin, userRouter.users);
-router.get("/admin/comments", requireAdmin, userRouter.comments);
-router.get("/admin/articles/add-article", requireAdmin, articleRouter.addNew);
+router.get("/admin/dashboard", userRouter.dashboard);
+router.get("/admin/articles", userRouter.articles);
+router.get("/admin/users", userRouter.users);
+router.get("/admin/comments", userRouter.comments);
+router.get("/admin/articles/add-article", articleRouter.addNew);
 router.post(
   "/admin/articles/add-article",
   requireAdmin,

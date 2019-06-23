@@ -1,0 +1,89 @@
+.admin {
+  background: #fff;
+  color: black;
+  &__column {
+    &--left {
+      padding-top: 50px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 4px 0px 2px -2px $gray;
+    }
+    &--right {
+      flex: 1;
+    }
+  }
+  &__main {
+    padding: 15px 25px 35px 25px;
+    margin: 0;
+    flex: 1 1 400px;
+    background: $adminBg;
+  }
+  &__header {
+    padding: 0 25px;
+    align-items: center;
+    background: #0396db; /* Old browsers */
+    background: -moz-linear-gradient(
+      45deg,
+      #0396db 22%,
+      #00aef9 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      45deg,
+      #0396db 22%,
+      #00aef9 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      45deg,
+      #0396db 22%,
+      #00aef9 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0396db', endColorstr='#00aef9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    color: #fff;
+  }
+  &__user {
+    padding-top: 63px;
+    line-height: 50px;
+    flex: 1;
+  }
+  &__content {
+    justify-content: flex-start;
+  }
+  &__image-wrapper {
+    text-align: center;
+  }
+  &__logo {
+    line-height: 50px;
+    position: relative;
+    top: 12px;
+    height: 60px;
+  }
+  &__nav {
+    margin-top: 25px;
+    .nav {
+      &__list {
+        list-style-type: none;
+      }
+      &__link {
+        color: darken($gray, 10%);
+        text-decoration: none;
+        font-family: "UbuntuR";
+        display: block;
+        padding: 12px 90px 12px 15px;
+        border-left: 3px solid transparent;
+        &:hover {
+          background: lighten($gray, 10%);
+          color: $secondaryColor;
+          border-left: 3px solid $secondaryColor;
+        }
+      }
+    }
+  }
+  &__location {
+    margin: 10px 0;
+    color: $secondaryColor;
+  }
+  &__road {
+    font-size: 0.85em;
+    color: darken($gray, 10%);
+  }
+}

@@ -102,15 +102,4 @@
     align-self: center;
     margin: 0 $primaryPadding;
   }
-  // STYLE DLA LISTY ARTYKUŁÓW - /news
-  .pages {
-    font-size: 0.9em;
-    text-align: center;
-    margin-bottom: $primaryPadding;
-    &__separator {
-      color: darken($gray, 10%);
-      padding: 0 2px;
-      font-family: "UbuntuR";
-    }
-  }
 }

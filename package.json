@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
     "build-task:scss-compile": "node-sass --source-map true public/css/ -o public/css --watch",
-    "build-task:autoprefixer": "postcss dist/css/*.css --use autoprefixer -d dist/css"
+    "build-task:autoprefixer": "postcss dist/css/*.css --use autoprefixer -d dist/css",
+    "scss": "npm run build-task:scss-compile"
   },
   "repository": {
     "type": "git",

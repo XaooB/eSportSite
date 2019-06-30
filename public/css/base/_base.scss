@@ -42,3 +42,23 @@ main {
 p {
   line-height: 1.5;
 }
+
+.highlight {
+  color: $secondaryColor;
+}
+
+.success {
+  color: green !important;
+}
+
+.warning {
+  color: orange !important;
+}
+
+.failure {
+  color: red !important;
+}
+
+.stable {
+  color: $gray !important;
+}

@@ -4,20 +4,17 @@
         <span>admin &rsaquo; dashboard</span>
     </section>
     <section class="admin__comments">
-        <h2 class="subtitle">Do weryfikacji</h2>
+        <h2 class="subtitle">Lista komentarzy</h2>
         <section class="admin__actions">
             <ul class='inline-list'>
-                <li class='action__item'>
-                    <a href="#" class="link">Wszystkie</a>
+                <li class='action__item' title='Lista wszystkich komentarzy'>
+                    <a href="#" class="link">Wszystkie ({{commentsCount}})</a>
                 </li>
-                <li class='action__item'>
-                    <a href="#" class="link">Oczekujące</a>
+                <li class='action__item' title='Lista komentarzy oczekujących na zaakceptowanie'>
+                    <a href="#" class="link">Oczekujące ({{unverfiedCount}})</a>
                 </li>
-                <li class='action__item'>
-                    <a href="#" class="link">Zweryfikowane</a>
-                </li>
-                <li class='action__item'>
-                    <a href="#" class="link">Odrzucone</a>
+                <li class='action__item' title='Lista zweryfikowanych komentarzy'>
+                    <a href="#" class="link">Zweryfikowane ({{verifiedCount}})</a>
                 </li>
             </ul>
         </section>
@@ -35,14 +32,35 @@
                     <tr>
                         <td>
                             <div>{{username}}</div>
-                            <div>77-45-106-36.sta.asta-net.com.pl</div>
+                            <div>192.168.1.1@example.pl</div>
+                            <div>mozilla firefox 3.121</div>
                         </td>
                         <td>
-                            <div>{{dateConverter date}}</div>
-                            <div>{{body}}</div>
+                            <time class='admin__comments-added' datetime="{{date}}">Dodano <span
+                                    class='highlight'>{{dateConverter date}}</span></time>
+                            <div class='admin__comments-body'>{{body}}</div>
+                            <div class="admin__comments-footer">
+                                {{#if verified}}
+                                <a href="#" class="link">
+                                    <span class='success'>Zatwierdzony</span>
+                                </a>
+                                {{else}}
+                                <span>Niezatwierdzony</span>
+                                {{/if}}
+                                <a href="#" class="link">
+                                    <span class='warning'>Zablokuj</span>
+                                </a>
+                                <a href="#" class="link">
+                                    <span class='failure'>Usuń</span>
+                                </a>
+                            </div>
                         </td>
                         <td>
-                            zatwierdź/odrzuc
+                            {{#if verified}}
+                            <span class='success'>Zweryfikowano</span>
+                            {{else}}
+                            <span>zatwiedź/odrzuć</span>
+                            {{/if}}
                         </td>
                     </tr>
                     {{/each}}

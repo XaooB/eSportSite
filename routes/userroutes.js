@@ -123,15 +123,25 @@ exports.users = (req, res) => {
 
 exports.comments = (req, res) => {
   let commentsCount = Comment.count({}),
-    comments = Comment.find({}).sort("-date");
+    comments = Comment.find({}).sort("-date"),
+    unverifiedCount = Comment.find({ verified: false })
+      .where("verified")
+      .equals("false")
+      .count({}),
+    verifiedCount = Comment.find({ verified: false })
+      .where("verified")
+      .equals("true")
+      .count({});
 
-  Promise.all([commentsCount, comments])
+  Promise.all([commentsCount, comments, unverifiedCount, verifiedCount])
     .then(result => {
       res.render("admin_comments", {
         layout: "adminPanel",
         title: "Komentarze",
         commentsCount: result[0],
-        commentsList: result[1]
+        commentsList: result[1],
+        unverfiedCount: result[2],
+        verifiedCount: result[3]
       });
     })
     .catch(err => {

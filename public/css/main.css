@@ -34,6 +34,21 @@ main.collapse {
 p {
   line-height: 1.5; }
 
+.highlight {
+  color: #0396db; }
+
+.success {
+  color: green !important; }
+
+.warning {
+  color: orange !important; }
+
+.failure {
+  color: red !important; }
+
+.stable {
+  color: #d3d7e1 !important; }
+
 @font-face {
   font-family: "UbuntuR";
   src: url("../fonts/Ubuntu-Regular.ttf"); }
@@ -883,10 +898,6 @@ ol {
   padding: 10px;
   text-align: left; }
 
-.admin__table th:not(:last-child),
-.admin__table td:not(:last-child) {
-  padding-right: 20px; }
-
 .admin__table th:nth-child(1),
 .admin__table td:nth-child(1) {
   width: 25%; }
@@ -895,15 +906,35 @@ ol {
 .admin__table td:nth-child(3) {
   width: 15%; }
 
+.admin__table th:not(:nth-child(3)),
+.admin__table td:not(:nth-child(3)) {
+  vertical-align: top; }
+
 .admin__comments {
-  margin: 15px 0;
-  padding: 15px;
+  margin: 20px 0;
+  padding: 20px;
   background: #fff; }
 
 .admin__comments .subtitle {
   font-size: 0.95em;
   font-family: "UbuntuL";
   letter-spacing: -0.15px; }
+
+.admin__comments-body {
+  margin: 8px 0; }
+
+.admin__comments-footer, .admin__comments-added {
+  font-size: 0.85em; }
+
+.admin__comments-footer span {
+  color: black;
+  display: inline-block; }
+
+.admin__comments-footer span:not(:last-child) {
+  margin-right: 3px; }
+
+.admin__comments-footer a:not(:last-child) {
+  margin-right: 3px; }
 
 /* HEADER/NAV */
 @media (min-width: 420px) {

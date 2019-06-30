@@ -1,4 +1,66 @@
-<main class="admin__column admin__main">
+<main class='admin__column admin__main'>
+    <section class="admin__location">
+        <h1>{{title}}</h1>
+        <span>admin &rsaquo; dashboard</span>
+    </section>
+    <section class="admin__comments">
+        <h2 class="subtitle">Do weryfikacji</h2>
+        <section class="admin__actions">
+            <ul class='inline-list'>
+                <li class='action__item'>
+                    <a href="#" class="link">Wszystkie</a>
+                </li>
+                <li class='action__item'>
+                    <a href="#" class="link">Oczekujące</a>
+                </li>
+                <li class='action__item'>
+                    <a href="#" class="link">Zweryfikowane</a>
+                </li>
+                <li class='action__item'>
+                    <a href="#" class="link">Odrzucone</a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <table class='admin__table'>
+                <thead>
+                    <tr>
+                        <th>Autor</th>
+                        <th>Komentarz</th>
+                        <th>Akcja</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each commentsList}}
+                    <tr>
+                        <td>
+                            <div>{{username}}</div>
+                            <div>77-45-106-36.sta.asta-net.com.pl</div>
+                        </td>
+                        <td>
+                            <div>{{dateConverter date}}</div>
+                            <div>{{body}}</div>
+                        </td>
+                        <td>
+                            zatwierdź/odrzuc
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </section>
+    </section>
+</main>
+</body>
+
+</html>
+
+
+
+
+
+
+{{!-- <main class="admin__column admin__main">
     <div class="container-fluid">
         <div class="user hidden">
             <section class="admin__location">
@@ -46,7 +108,4 @@
             </table>
         </div>
     </div>
-</main>
-</body>
-
-</html>
+</main> --}}

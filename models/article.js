@@ -1,11 +1,15 @@
-const mongoose = require("mongoose"),
-  { getDate } = require("./../public/js/getDate");
+const mongoose = require("mongoose");
+const { Schema } = require("mongoose");
+
 mongoose.Promise = global.Promise;
 
 const articleSchema = mongoose.Schema({
   title: String,
   category: String,
-  author: String,
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
   desc: String,
   body: String,
   date: Date,

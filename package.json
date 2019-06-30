@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "build-task:scss-compile": "node-sass --source-map true public/css/ -o public/css --watch",
+    "build-task:autoprefixer": "postcss dist/css/*.css --use autoprefixer -d dist/css"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,7 @@
   },
   "homepage": "https://github.com/XaooB/eSportSite#readme",
   "dependencies": {
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "connect-mongo": "^1.3.2",
     "express": "^4.17.1",
@@ -27,7 +29,11 @@
     "handlebars": "^4.1.2",
     "moment": "^2.24.0",
     "mongoose": "^4.13.18",
+    "path": "^0.12.7",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0"
   }
 }

@@ -1,12 +1,12 @@
+html {
+  height: 100%;
+}
+
 body {
   font-size: 16px; //1em
   font-family: "UbuntuL";
   background: $gray;
-}
-
-.container {
-  max-width: 1120px;
-  margin: 0 auto;
+  height: inherit;
 }
 
 main {
@@ -15,6 +15,18 @@ main {
   &.collapse {
     // to avoid margin collapsing
     overflow: hidden;
+  }
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  height: inherit;
+}
+
+.inline-list {
+  li {
+    display: inline-block;
   }
 }
 

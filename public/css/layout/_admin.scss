@@ -1,26 +1,47 @@
 .admin {
   background: #fff;
   color: black;
+  /* GENERAL */
   &__column {
     &--left {
-      padding-top: 50px;
       position: relative;
       z-index: 2;
       box-shadow: 4px 0px 2px -2px $gray;
     }
     &--right {
+      height: inherit;
       flex: 1;
     }
   }
   &__main {
+    height: calc(100% - 102px);
     padding: 15px 25px 35px 25px;
     margin: 0;
     flex: 1 1 400px;
     background: $adminBg;
   }
+  &__actions {
+    padding: 10px 0;
+    font-size: 0.9em;
+    .action__item {
+      color: darken($gray, 10%);
+      position: relative;
+      &:not(:last-child) {
+        margin-right: 12px;
+        &:after {
+          content: "•";
+          position: absolute;
+          right: -10px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
   &__header {
+    height: 100px;
     padding: 0 25px;
-    align-items: center;
+    align-items: flex-end;
     background: #0396db; /* Old browsers */
     background: -moz-linear-gradient(
       45deg,
@@ -41,24 +62,25 @@
     color: #fff;
   }
   &__user {
-    padding-top: 63px;
-    line-height: 50px;
+    padding: 10px 0;
     flex: 1;
   }
   &__content {
+    height: inherit;
     justify-content: flex-start;
   }
   &__image-wrapper {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
   }
   &__logo {
-    line-height: 50px;
     position: relative;
-    top: 12px;
-    height: 60px;
+    top: 10px;
+    height: 70px;
   }
   &__nav {
-    margin-top: 25px;
     .nav {
       &__list {
         list-style-type: none;
@@ -81,9 +103,50 @@
   &__location {
     margin: 10px 0;
     color: $secondaryColor;
+    h1 {
+      font-size: 1.25em;
+      font-weight: lighter;
+    }
+    span {
+      font-size: 0.85em;
+      color: darken($gray, 10%);
+    }
   }
-  &__road {
-    font-size: 0.85em;
-    color: darken($gray, 10%);
+  &__table {
+    width: 100%;
+    th {
+      background: $secondaryColor;
+      color: #fff;
+      font-size: 0.9em;
+      font-weight: lighter;
+    }
+    tr:nth-child(odd) td {
+      background: $adminBg;
+    }
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+      &:not(:last-child) {
+        padding-right: 20px;
+      }
+      &:nth-child(1) {
+        width: 25%;
+      }
+      &:nth-child(3) {
+        width: 15%;
+      }
+    }
+  }
+  /*  COMMENTS */
+  &__comments {
+    margin: 15px 0;
+    padding: 15px;
+    background: #fff;
+    .subtitle {
+      font-size: 0.95em;
+      font-family: "UbuntuL";
+      letter-spacing: -0.15px;
+    }
   }
 }

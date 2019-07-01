@@ -2,6 +2,11 @@
   background: #fff;
   color: black;
   /* GENERAL */
+  &__wrapper {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff;
+  }
   &__column {
     &--left {
       position: relative;
@@ -9,12 +14,11 @@
       box-shadow: 4px 0px 2px -2px $gray;
     }
     &--right {
-      height: inherit;
       flex: 1;
     }
   }
   &__main {
-    height: calc(100% - 102px);
+    min-height: 89vh;
     padding: 15px 25px 35px 25px;
     margin: 0;
     flex: 1 1 400px;
@@ -66,7 +70,7 @@
     flex: 1;
   }
   &__content {
-    height: inherit;
+    height: 100vh;
     justify-content: flex-start;
   }
   &__image-wrapper {
@@ -127,6 +131,8 @@
     td {
       padding: 10px;
       text-align: left;
+    }
+    td.comments-field {
       &:nth-child(1) {
         width: 25%;
       }
@@ -138,16 +144,14 @@
       }
     }
   }
+  .subtitle {
+    font-size: 1em;
+    font-family: "UbuntuL";
+    letter-spacing: -0.15px;
+  }
   /*  COMMENTS */
   &__comments {
-    margin: 20px 0;
-    padding: 20px;
-    background: #fff;
-    .subtitle {
-      font-size: 0.95em;
-      font-family: "UbuntuL";
-      letter-spacing: -0.15px;
-    }
+    @extend .admin__wrapper;
     &-body {
       margin: 8px 0;
     }
@@ -167,5 +171,13 @@
         margin-right: 3px;
       }
     }
+  }
+  /* ARTICLES */
+  &__articles {
+    @extend .admin__wrapper;
+  }
+  /* USERS */
+  &__users {
+    @extend .admin__wrapper;
   }
 }

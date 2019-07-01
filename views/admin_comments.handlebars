@@ -1,7 +1,7 @@
 <main class='admin__column admin__main'>
     <section class="admin__location">
         <h1>{{title}}</h1>
-        <span>admin &rsaquo; dashboard</span>
+        <span>Admin &rsaquo; {{title}}</span>
     </section>
     <section class="admin__comments">
         <h2 class="subtitle">Lista komentarzy</h2>
@@ -30,12 +30,12 @@
                 <tbody>
                     {{#each commentsList}}
                     <tr>
-                        <td>
+                        <td class='comments-field'>
                             <div>{{username}}</div>
                             <div>192.168.1.1@example.pl</div>
                             <div>mozilla firefox 3.121</div>
                         </td>
-                        <td>
+                        <td class='comments-field'>
                             <time class='admin__comments-added' datetime="{{date}}">Dodano <span
                                     class='highlight'>{{dateConverter date}}</span></time>
                             <div class='admin__comments-body'>{{body}}</div>
@@ -55,7 +55,7 @@
                                 </a>
                             </div>
                         </td>
-                        <td>
+                        <td class='comments-field'>
                             {{#if verified}}
                             <span class='success'>Zweryfikowano</span>
                             {{else}}

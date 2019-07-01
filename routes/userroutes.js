@@ -88,17 +88,28 @@ exports.dashboard = (req, res) => {
   //   });
 };
 
+//ARTICLES IN ADMIN PANEL
 exports.articles = (req, res) => {
   let postCount = Article.count({}),
-    posts = Article.find({}).sort("-date");
+    articles = Article.find({})
+      .limit(15)
+      .sort("-date"),
+    articlesLoLCount = Article.find({})
+      .where({ category: "lol" })
+      .count({}),
+    articlesCSGOCount = Article.find({})
+      .where({ category: "csgo" })
+      .count({});
 
-  Promise.all([postCount, posts])
+  Promise.all([postCount, articles, articlesLoLCount, articlesCSGOCount])
     .then(result => {
       res.render("admin_articles", {
         layout: "adminPanel",
         title: "Artykuły",
-        postsCount: result[0],
-        posts: result[1]
+        articlesCount: result[0],
+        articles: result[1],
+        articlesLoLCount: result[2],
+        articlesCSGOCount: result[3]
       });
     })
     .catch(err => {
@@ -116,7 +127,7 @@ exports.users = (req, res) => {
       layout: "adminPanel",
       title: "Użytkownicy",
       usersCount: result[0],
-      usersList: result[1]
+      users: result[1]
     });
   });
 };

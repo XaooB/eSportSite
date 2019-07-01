@@ -1,5 +1,68 @@
 <main class="admin__column admin__main">
-    <div class="container-fluid">
+    <section class="admin__location">
+        <h1>{{title}}</h1>
+        <span>Admin &rsaquo; {{title}}</span>
+    </section>
+    <section class="admin__articles">
+        <h2 class="subtitle">Lista artykułów</h2>
+        <section class="admin__actions">
+            <ul class='inline-list'>
+                <li class='action__item' title='Lista wszystkich artykułów'>
+                    <a href="#" class="link">Wszystkie ({{articlesCount}})</a>
+                </li>
+                <li class='action__item' title='Lista artykułów z kategorii LoL'>
+                    <a href="#" class="link">League of Legends ({{articlesLoLCount}})</a>
+                </li>
+                <li class='action__item' title='Lista artykułów z kategorii CS:GO'>
+                    <a href="#" class="link">CS:GO ({{articlesCSGOCount}})</a>
+                </li>
+                <li class='action__item' title='Lista artykułów z kategorii CS:GO'>
+                    <a href="#" class="link">Inne (0)</a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <table class='admin__table'>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Stan</th>
+                        <th>Tytuł</th>
+                        <th>Wyróżniony</th>
+                        <th>Kategoria</th>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each articles}}
+                    <tr>
+                        <td>{{dateConverter date}}</td>
+                        <td>publiczny</td>
+                        <td>{{title}}</td>
+                        <td>
+                            {{#if isMain}}
+                            <span class='highlight'>tak</span>
+                            {{else}}
+                            nie
+                            {{/if}}
+                        </td>
+                        <td>{{category}}</td>
+                        <td>edytuj/usuń</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </section>
+    </section>
+</main>
+</body>
+
+</html>
+
+
+
+
+{{!-- <div class="container-fluid">
         <div class="user hidden">
             <section class="admin__location">
                 <h1>{{title}}</h1>
@@ -46,8 +109,4 @@
                 {{/each}}
             </table>
         </div>
-    </div>
-</main>
-</body>
-
-</html>
+    </div> --}}

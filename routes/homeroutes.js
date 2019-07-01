@@ -2,6 +2,8 @@ const { Article } = require("./../models/article"),
   getDate = require("../helpers/getDate");
 
 exports.articles = (req, res) => {
+  console.log("ip: ", req.ip);
+  console.log("ips: ", req.ips);
   Article.findOne({
     isMain: true
   })

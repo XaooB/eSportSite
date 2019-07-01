@@ -1,7 +1,4 @@
 @charset "UTF-8";
-html {
-  height: 100%; }
-
 body {
   font-size: 16px;
   font-family: "UbuntuL";
@@ -782,7 +779,14 @@ ol {
   background: #fff;
   color: black;
   /* GENERAL */
-  /*  COMMENTS */ }
+  /*  COMMENTS */
+  /* ARTICLES */
+  /* USERS */ }
+
+.admin__wrapper, .admin__comments, .admin__articles, .admin__users {
+  margin: 20px 0;
+  padding: 20px;
+  background: #fff; }
 
 .admin__column--left {
   position: relative;
@@ -790,11 +794,10 @@ ol {
   box-shadow: 4px 0px 2px -2px #d3d7e1; }
 
 .admin__column--right {
-  height: inherit;
   flex: 1; }
 
 .admin__main {
-  height: calc(100% - 102px);
+  min-height: 89vh;
   padding: 15px 25px 35px 25px;
   margin: 0;
   flex: 1 1 400px;
@@ -839,7 +842,7 @@ ol {
   flex: 1; }
 
 .admin__content {
-  height: inherit;
+  height: 100vh;
   justify-content: flex-start; }
 
 .admin__image-wrapper {
@@ -898,25 +901,17 @@ ol {
   padding: 10px;
   text-align: left; }
 
-.admin__table th:nth-child(1),
-.admin__table td:nth-child(1) {
+.admin__table td.comments-field:nth-child(1) {
   width: 25%; }
 
-.admin__table th:nth-child(3),
-.admin__table td:nth-child(3) {
+.admin__table td.comments-field:nth-child(3) {
   width: 15%; }
 
-.admin__table th:not(:nth-child(3)),
-.admin__table td:not(:nth-child(3)) {
+.admin__table td.comments-field:not(:nth-child(3)) {
   vertical-align: top; }
 
-.admin__comments {
-  margin: 20px 0;
-  padding: 20px;
-  background: #fff; }
-
-.admin__comments .subtitle {
-  font-size: 0.95em;
+.admin .subtitle {
+  font-size: 1em;
   font-family: "UbuntuL";
   letter-spacing: -0.15px; }
 

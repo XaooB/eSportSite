@@ -32,6 +32,7 @@ app.use(
   })
 );
 
+app.enable("trust proxy");
 app.use(
   session({
     secret: process.env.SESSION_SECRET || "as54v88vrh7e5a9",

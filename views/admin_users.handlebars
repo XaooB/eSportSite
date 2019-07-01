@@ -1,9 +1,64 @@
 <main class="admin__column admin__main">
-    <div class="container-fluid">
+    <section class="admin__location">
+        <h1>{{title}}</h1>
+        <span>Admin &rsaquo; {{title}}</span>
+    </section>
+    <section class="admin__users">
+        <h2 class="subtitle">Lista komentarzy</h2>
+        <section class="admin__actions">
+            <ul class='inline-list'>
+                <li class='action__item' title='Lista wszystkich komentarzy'>
+                    <a href="#" class="link">Wszyscy ({{usersCount}})</a>
+                </li>
+                <li class='action__item' title='Lista komentarzy oczekujących na zaakceptowanie'>
+                    <a href="#" class="link">Administratorzy (1)</a>
+                </li>
+                <li class='action__item' title='Lista zweryfikowanych komentarzy'>
+                    <a href="#" class="link">Moderatorzy (1)</a>
+                </li>
+                <li class='action__item' title='Lista zweryfikowanych komentarzy'>
+                    <a href="#" class="link">Redaktorzy (3)</a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <table class='admin__table'>
+                <thead>
+                    <tr>
+                        <th>Data rejestracji</th>
+                        <th>Nazwa</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each users}}
+                    <tr>
+                        <td>{{dateConverter createdAt}}</td>
+                        <td>{{username}}</td>
+                        <td>{{email}}</td>
+                        <td>{{rank}}</td>
+                        <td>zmień prawa</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </section>
+    </section>
+</main>
+</body>
+
+</html>
+
+
+
+
+{{!-- <div class="container-fluid">
         <div class="user hidden">
             <section class="admin__location">
                 <h1>{{title}}</h1>
-                <span>admin &rsaquo; dashboard</span>
+                <span>Admin &rsaquo; {{title}}</span>
             </section>
             <div class="user_info">
                 <img src="{{user.avatar}}" alt="{{user.username}}">
@@ -57,8 +112,4 @@
                 {{/each}}
             </table>
         </div>
-    </div>
-</main>
-</body>
-
-</html>
+    </div> --}}
